@@ -16,25 +16,25 @@ The complete set of processes governing the diversification of clades over time 
 3) What are the primary axes of variation of existing diversification simulation models, and how do those axes map onto distinct phylogenetic and spatial patterns?
 
 ## Steps
-Compile phylogenies from all simulation models
-Trees in Newick format
-Filename convention?
-Suggestion: mm_xxxxx.tre
-Where mm is a two-letter code identifying the model that generated it:
-hs = Hurlbert-Stegen
-po = Pontarp
-ha = Hartig
-ra = Rangel
-ca = Cabral
-Etc
-xxxxx = simulation ID (as many digits as necessary)
-Each modeler creates table with simulation ID and relevant parameters
-E.g., something like this
-Calculate empirical phylogenetic metrics (gamma, beta, Rampal analysis, clade age-richness correlations, etc)
-Need to identify complete list of metrics
-Conduct PCA (or equivalent) and identify how these simulated trees cluster (or not) with respect to:
-Simulation method (Florian, Allen, Mikael, Juliano, Thiago, etc)
-Process categories (e.g. with vs without assemblage constraint, etc)
-Key parameters
-Run diversification models (RPANDA, BAMM, DDD, others) 
-Evaluating success/performance of each method across sims in relation to “true” speciation and extinction rates observed over time
+Compile phylogenies from all simulation models  
+Trees in Newick format  
+Filename convention?  
+Suggestion: mm_xxxxx.tre  
+Where mm is a two-letter code identifying the model that generated it:  
+hs = Hurlbert-Stegen  
+po = Pontarp  
+ha = Hartig  
+ra = Rangel  
+ca = Cabral  
+Etc  
+xxxxx = simulation ID (as many digits as necessary)  
+Each modeler creates table with simulation ID and relevant parameters  
+E.g., something like [this]()  
+Calculate empirical phylogenetic metrics (gamma, beta, Rampal analysis, clade age-richness correlations, etc)  
+Need to identify complete list of metrics  
+Conduct PCA (or equivalent) and identify how these simulated trees cluster (or not) with respect to:  
+Simulation method (Florian, Allen, Mikael, Juliano, Thiago, etc)  
+Process categories (e.g. with vs without assemblage constraint, etc)  
+Key parameters  
+Run diversification models (RPANDA, BAMM, DDD, others)  
+Evaluating success/performance of each method across sims in relation to “true” speciation and extinction rates observed over time  
