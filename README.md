@@ -17,25 +17,13 @@ The complete set of processes governing the diversification of clades over time 
 3) What are the primary axes of variation of existing diversification simulation models, and how do those axes map onto distinct phylogenetic and spatial patterns?
 
 ## Steps
-Compile phylogenies from all simulation models  
-Trees in Newick format  
-Filename convention?  
-Suggestion: mm_xxxxx.tre  
-Where mm is a two-letter code identifying the model that generated it:  
-hs = Hurlbert-Stegen  
-po = Pontarp  
-ha = Hartig  
-ra = Rangel  
-ca = Cabral  
-Etc  
-xxxxx = simulation ID (as many digits as necessary)  
-Each modeler creates table with simulation ID and relevant parameters  
-E.g., something like [this]()  
-Calculate empirical phylogenetic metrics (gamma, beta, Rampal analysis, clade age-richness correlations, etc)  
-Need to identify complete list of metrics  
-Conduct PCA (or equivalent) and identify how these simulated trees cluster (or not) with respect to:  
-Simulation method (Florian, Allen, Mikael, Juliano, Thiago, etc)  
-Process categories (e.g. with vs without assemblage constraint, etc)  
-Key parameters  
-Run diversification models (RPANDA, BAMM, DDD, others)  
-Evaluating success/performance of each method across sims in relation to “true” speciation and extinction rates observed over time  
+Upload simulation output to the relevant folders within this repo:
+
+1) Place phylogenies in the 'trees' folder in Newick format, labeled mm_xxxxx.tre where mm is a two-letter code identifying the model that generated it and 
+xxxxx = simulation ID (as many digits as necessary) that links to the set of parameters of that simulation.
+
+2) Place trait information in the 'traits' folder (if applicable). Files should be labeled mm_xxxxx_traits.csv and include a species column (species id's 
+should match the tip labels in the tree file), and one column for each trait (environmental traits first, resource/competition traits next).
+
+3) Place site x species info for each simulation in the 'sitexspecies' folder (if applicable). Files should be labeled mm_xxxxx_sites.csv, and include a 
+site (or grid cell ID) column and a species column (i.e. long format), followed by an abundance column if applicable.
