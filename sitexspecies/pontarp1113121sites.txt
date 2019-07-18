@@ -1,0 +1,4 @@
+habitat1 209 species2
+habitat1 167 species3
+habitat1 395 species5
+habitat1 365 species6

@@ -1,0 +1,16 @@
+habitat1 677 species19
+habitat1 1199 species36
+habitat1 542 species53
+habitat2 538 species6
+habitat2 667 species49
+habitat2 1148 species51
+habitat3 11 species6
+habitat3 698 species20
+habitat3 999 species28
+habitat3 583 species29
+habitat4 427 species21
+habitat4 1088 species32
+habitat4 858 species45
+habitat5 358 species33
+habitat5 1044 species38
+habitat5 893 species54
