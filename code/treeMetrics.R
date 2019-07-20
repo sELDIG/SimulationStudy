@@ -172,8 +172,12 @@ treeMetrics = function(treeInput) {
   PSV = (n*sum(diag(v.matrix)) - sum(v.matrix))/(sum(diag(v.matrix))*(n-1))
   
   # mean I' from Purvis et al. 2002. Evaluating phylogenetic tree shape: two modifications to Fusco & Cronk's method
-  fusco = caper::fusco.test(tree)
-  mean.Iprime = fusco$mean.Iprime
+  if(tree$Nnode >= 3) {
+    fusco = caper::fusco.test(tree)
+    mean.Iprime = fusco$mean.Iprime
+  } else {
+    mean.Iprime = NA
+  }
   
   # TO DO: 
   # --identify additional metrics
@@ -183,7 +187,7 @@ treeMetrics = function(treeInput) {
   
   
   return(list(S = S, gamma.stat = gamma.stat, beta.stat = beta.stat, Colless = Colless, 
-              Sackin = Sackin, shape.stat = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime))
+              Sackin = Sackin, shape.stat = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime))
 }
 
 
