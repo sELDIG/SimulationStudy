@@ -30,6 +30,8 @@ phylogeny <- new.simulation$Output[[1]]$phylogeny
 
 extantPhylogeny <- drop.fossil(phylogeny)
 
+write.tree(extantPhylogeny, file = "./trees/fh_1111.tre")
+
 specRich(new.simulation)
 sac(new.simulation)
 
