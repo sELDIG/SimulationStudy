@@ -12,11 +12,11 @@ install_url("https://dl.dropboxusercontent.com/s/wub79etldv8fry2/phylosim_0.3.1.
 browseVignettes("PhyloSim")
 
 library(PhyloSim)
+library(ape)
 
 # And here the code to create new phylogenies. See options of the function to turn various things on and off
 
-par <- createCompletePar(x = 100, y = 100, dispersal = "global" , 
-runs = c(1000,10000),density = 1, environment =0.5, specRate = 1)
+par <- createCompletePar(x = 100, y = 100, dispersal = "global" , runs = c(1000,2000), density = 1, environment =0.5, specRate = 1)
 new.simulation <- runSimulation(par)
 
 plotSpatialPhylo(new.simulation)
@@ -26,8 +26,10 @@ plotSpatialPhylo(new.simulation)
 
 # so, the phylogeny after 1000 time steps is in 
 
-new.simulation$Output[[1]]$phylogeny
+phylogeny <- new.simulation$Output[[1]]$phylogeny
 
-# and after 10.000 time steps, we have 
+extantPhylogeny <- drop.fossil(phylogeny)
 
-new.simulation$Output[[2]]$phylogeny
+specRich(new.simulation)
+sac(new.simulation)
+
