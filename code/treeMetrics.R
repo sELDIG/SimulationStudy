@@ -13,6 +13,7 @@ treeMetrics = function(treeInput) {
   require(apTreeshape)
   require(dispRity)
   require(RPANDA)
+  require(nLTT)
   
   # Drop root edge
   treeInput$root.edge = 0
@@ -154,8 +155,23 @@ treeMetrics = function(treeInput) {
   if(S < 6000) {
     beta.out = maxlik.betasplit.AH(tree.scaled)
     beta.stat = beta.out$max_lik
+    
+    # RPANDA spectral density metrics (Lewitus & Morlon 2016)
+    # Seems to have problems for large trees
+    
+    MGL = spectR(tree)
+    MGL_principal_eigenvalue = MGL$principal_eigenvalue 
+    MGL_asymmetry = MGL$asymmetry  
+    MGL_peakedness = MGL$peakedness
+    MGL_eigengap = MGL$eigengap
+    
+    
   } else {
     beta.stat = NA
+    MGL_principal_eigenvalue = NA
+    MGL_asymmetry = NA  
+    MGL_peakedness = NA
+    MGL_eigengap = NA
   }
   
   # Colless index
@@ -195,7 +211,7 @@ treeMetrics = function(treeInput) {
   MPD = mean(pairwise.dists, na.rm = TRUE)
   
   # Variance Pairwise Distance (in scaled tree)
-  VPD = var(pairwise.dists, na.rm = TRUE)
+  VPD = var(as.vector(pairwise.dists), na.rm = TRUE)
   
   # mean I' from Purvis et al. 2002. Evaluating phylogenetic tree shape: two modifications to Fusco & Cronk's method
   if(tree$Nnode >= 3) {
@@ -205,13 +221,6 @@ treeMetrics = function(treeInput) {
     mean.Iprime = NA
   }
   
-  # RPANDA spectral density metrics (Lewitus & Morlon 2016)
-  MGL = spectR(tree)
-  MGL_principal_eigenvalue = MGL$principal_eigenvalue 
-  MGL_asymmetry = MGL$asymmetry  
-  MGL_peakedness = MGL$peakedness
-  MGL_eigengap = MGL$eigengap
-  
   # nLTT statistic on first example tree
   utils::data(exampleTrees, package = "nLTT") # Set of birth-death trees
   nLTT_stat <- nLTT::nLTTstat(
@@ -220,12 +229,63 @@ treeMetrics = function(treeInput) {
   )
 
   
-  return(list(S = S, PD = PD, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
-              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
+  return(list(S = S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
+              Colless = Colless, Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, 
+              VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
+              MPD = MPD, VPD = VPD, 
               MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
               MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap, nLTT_stat = nLTT_stat))
 }
 
 
+metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeSize = 20,
+                               write = FALSE, fileOut) {
   
+  if(is.null(treefiles)) {
+    treefiles = list.files('trees')[grepl(".tre", list.files("trees"))]
+  }  
+  if(is.null(treeOutput)) {
+    
+    treeOutput = data.frame(model = NA, simID = NA, S = NA, tree.length = NA, PD = NA, gamma = NA, 
+                            beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
+                            VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
+                            MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
+                            MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
+  }
+  
+  for (treefile in treefiles) {
+    
+    treeIn = read.tree(paste("trees/", treefile, sep = ""))
+    tree = drop.fossil(treeIn)
+    
+    if(tree$Nnode + 1 >= minimumTreeSize) {
+      model = str_extract(treefile, "^[A-Za-z]*")
+      simID = str_extract(treefile, "[0-9]+")
+      
+      print(paste(treefile, Sys.Time())
+      metrics = treeMetrics(tree)
+      
+      treeOutput = rbind(treeOutput,
+                         data.frame(model = model, simID = simID, S = metrics$S, tree.length = metrics$tree.length,
+                                    PD = metrics$PD, gamma = metrics$gamma,
+                                    beta = metrics$beta, Colless = metrics$Colless, Sackin = metrics$Sackin,
+                                    Yule.PDA.ratio = metrics$Yule.PDA.ratio, MRD = metrics$MRD, VRD = metrics$VRD, 
+                                    PSV = metrics$PSV, mean.Iprime = metrics$mean.Iprime, MPD = metrics$MPD, VPD = metrics$VPD,
+                                    MGL_principal_eigenvalue = metrics$MGL_principal_eigenvalue, 
+                                    MGL_asymmetry = metrics$MGL_asymmetry, 
+                                    MGL_peakedness = metrics$MGL_peakedness, MGL_eigengap = metrics$MGL_eigengap, 
+                                    nLTT_stat = metrics$nLTT_stat))
+    } else {
+      print(paste(treefile, "skipped -- not enough species"))
+    }
+    
+    if(write) {
+      write.csv(treeOutput, paste("treeOutput_", fileOut, "_", Sys.Date(), ".csv", sep = ""), row.names = F)
+    }
+    
+  }  
+  treeOutput = filter(treeOutput, !is.na(model), !is.na(simID))
+  return(treeOutput)    
+}
+
   
