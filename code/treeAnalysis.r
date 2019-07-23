@@ -2,6 +2,7 @@
 library(ape)
 library(stringr)
 library(dplyr)
+library(geiger)
 
 source('code/treeMetrics.R')
 
@@ -18,7 +19,8 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
   
   for (treefile in treefiles) {
     
-    tree = read.tree(paste("trees/", treefile, sep = ""))
+    treeIn = read.tree(paste("trees/", treefile, sep = ""))
+    tree = drop.extinct(treeIn)
     
     if(tree$Nnode + 1 >= minimumTreeSize) {
       model = str_extract(treefile, "^[A-Za-z]*")
