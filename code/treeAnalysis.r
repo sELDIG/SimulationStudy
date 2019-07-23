@@ -20,7 +20,7 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
   for (treefile in treefiles) {
     
     treeIn = read.tree(paste("trees/", treefile, sep = ""))
-    tree = drop.extinct(treeIn)
+    tree = drop.fossil(treeIn)
     
     if(tree$Nnode + 1 >= minimumTreeSize) {
       model = str_extract(treefile, "^[A-Za-z]*")
