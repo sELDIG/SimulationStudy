@@ -33,7 +33,10 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
                          data.frame(model = model, simID = simID, S = metrics$S, gamma.stat = metrics$gamma.stat,
                                     beta.stat = metrics$beta.stat, Colless = metrics$Colless, Sackin = metrics$Sackin,
                                     shape.stat = metrics$shape.stat, MRD = metrics$MRD, VRD = metrics$VRD, 
-                                    PSV = metrics$PSV, mean.Iprime = metrics$mean.Iprime))
+                                    PSV = metrics$PSV, mean.Iprime = metrics$mean.Iprime,
+                                    MGL_principal_eigenvalue = metrics$MGL_principal_eigenvalue, 
+                                    MGL_asymmetry = metrics$MGL_asymmetry, 
+                                    MGL_peakedness = metrics$MGL_peakedness, MGL_eigengap = metrics$MGL_eigengap))
     } else {
       print(paste(treefile, "skipped -- not enough species"))
     }

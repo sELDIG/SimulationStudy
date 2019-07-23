@@ -12,10 +12,11 @@ treeMetrics = function(treeInput) {
   require(picante)
   require(apTreeshape)
   require(dispRity)
+  require(RPANDA)
   
   # Drop root edge
   treeInput$root.edge = 0
-  
+
   # Prune out extinct species
   tree = drop.fossil(treeInput)
   
@@ -30,7 +31,7 @@ treeMetrics = function(treeInput) {
   tree.scaled = tree
   tree.scaled$edge.length = tree$edge.length/tree.length
   
-  # PD on scaled tree
+  # PD (phylogenetic diversity, summed branch lengths) on scaled tree
   PD = sum(tree.scaled$edge.length)
   
   # Create treeshape objects for certain calculations
@@ -204,16 +205,19 @@ treeMetrics = function(treeInput) {
     mean.Iprime = NA
   }
   
-  # TO DO: 
-  # --identify additional metrics
-  # --incoporate RPANDA, ClaDS, etc. output.
+  # RPANDA spectral density metrics (Lewitus & Morlon 2016)
+  MGL = spectR(tree)
+  MGL_principal_eigenvalue = MGL$principal_eigenvalue 
+  MGL_asymmetry = MGL$asymmetry  
+  MGL_peakedness = MGL$peakedness
+  MGL_eigengap = MGL$eigengap
   
+
   
-  
-  
-  return(list(S = S, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
-              Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, VRD = VRD, 
-              PSV = PSV, mean.Iprime = mean.Iprime))
+  return(list(S = S, PD = PD, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
+              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
+              MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
+              MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap))
 }
 
 
