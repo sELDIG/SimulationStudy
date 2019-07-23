@@ -11,10 +11,35 @@ treeMetrics = function(treeInput) {
   require(geiger)
   require(picante)
   require(apTreeshape)
+  require(dispRity)
+  require(RPANDA)
   
+  # Drop root edge
+  treeInput$root.edge = 0
+
   # Prune out extinct species
-  tree = drop.extinct(treeInput)
+  tree = drop.fossil(treeInput)
+  
+  # Richness
+  S = length(tree$tip.label)
+  
+  # Absolute tree length, which is the diagonal of the vcv matrix
+  v.matrix = vcv(tree, corr=F)
+  tree.length = diag(v.matrix)[1]
+  
+  # Tree with branch lengths scaled by total tree length
+  tree.scaled = tree
+  tree.scaled$edge.length = tree$edge.length/tree.length
+  
+  # PD (phylogenetic diversity, summed branch lengths) on scaled tree
+  PD = sum(tree.scaled$edge.length)
+  
+  # Create treeshape objects for certain calculations
   tree.shape = as.treeshape(tree)
+  tree.shape.scaled = as.treeshape(tree.scaled)
+  
+  #Pybus & Harvey (2000)'s gamma statistic
+  gamma.stat = gammaStat(tree.scaled)
   
   # This function is a modification of the maxlik.betasplit() function
   # in the apTreeshape package for calculating 'beta'
@@ -124,16 +149,10 @@ treeMetrics = function(treeInput) {
     return(list(max_lik = res$maximum, conf_interval = conf_interval))
   }
   
-  # Richness
-  S = length(tree$tip.label)
-    
-  #Pybus & Harvey (2000)'s gamma statistic
-  gamma.stat = gammaStat(tree)
-  
   #Calculate Blum & Francois (2006)'s Beta metric of tree imbalance using apTreeshape package
   # --seems to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
   if(S < 6000) {
-    beta.out = maxlik.betasplit.AH(tree)
+    beta.out = maxlik.betasplit.AH(tree.scaled)
     beta.stat = beta.out$max_lik
   } else {
     beta.stat = NA
@@ -146,7 +165,7 @@ treeMetrics = function(treeInput) {
   Sackin = sackin(tree.shape)
   
   # logarithm of the ratio of the likelihoods under the Yule model and the PDA model
-  shape.stat = shape.statistic(tree.shape)
+  Yule.PDA.ratio = shape.statistic(tree.shape)
   
   # Mean Root Distance (MRD, also abbreviated N-bar, Shao & Sokal 1990) (Agapow & Purvis 2002)
   # Modified from code originally by ELIOT MILLER 25 AUGUST 2011
@@ -167,9 +186,16 @@ treeMetrics = function(treeInput) {
   # using the variance-covariance matrix, V:
   # PSV = (n*trace(V) - sum(V))/(trace(V)*(n-1)) 
   
-  v.matrix = vcv(tree, corr=F)
   n = nrow(v.matrix)
   PSV = (n*sum(diag(v.matrix)) - sum(v.matrix))/(sum(diag(v.matrix))*(n-1))
+  
+  # Mean Pairwise Distance (in scaled tree)
+  pairwise.dists = dist.nodes(tree.scaled)
+  pairwise.dists[lower.tri(pairwise.dists, diag = TRUE)] = NA
+  MPD = mean(pairwise.dists, na.rm = TRUE)
+  
+  # Variance Pairwise Distance (in scaled tree)
+  VPD = var(pairwise.dists, na.rm = TRUE)
   
   # mean I' from Purvis et al. 2002. Evaluating phylogenetic tree shape: two modifications to Fusco & Cronk's method
   if(tree$Nnode >= 3) {
@@ -179,15 +205,25 @@ treeMetrics = function(treeInput) {
     mean.Iprime = NA
   }
   
-  # TO DO: 
-  # --identify additional metrics
-  # --incoporate RPANDA, ClaDS, etc. output.
+  # RPANDA spectral density metrics (Lewitus & Morlon 2016)
+  MGL = spectR(tree)
+  MGL_principal_eigenvalue = MGL$principal_eigenvalue 
+  MGL_asymmetry = MGL$asymmetry  
+  MGL_peakedness = MGL$peakedness
+  MGL_eigengap = MGL$eigengap
   
+  # nLTT statistic on first example tree
+  utils::data(exampleTrees, package = "nLTT") # Set of birth-death trees
+  nLTT_stat <- nLTT::nLTTstat(
+    tree1 = exampleTrees[[1]], # Can be changed to generated Yule tree or any other tree
+    tree2 = treeInput
+  )
+
   
-  
-  
-  return(list(S = S, gamma.stat = gamma.stat, beta.stat = beta.stat, Colless = Colless, 
-              Sackin = Sackin, shape.stat = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime))
+  return(list(S = S, PD = PD, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
+              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
+              MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
+              MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap, nLTT_stat = nLTT_stat))
 }
 
 
