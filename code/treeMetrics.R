@@ -186,8 +186,8 @@ treeMetrics = function(treeInput) {
   
   
   
-  return(list(S = S, gamma.stat = gamma.stat, beta.stat = beta.stat, Colless = Colless, 
-              Sackin = Sackin, shape.stat = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime))
+  return(list(S = S, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
+              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime))
 }
 
 
