@@ -212,12 +212,18 @@ treeMetrics = function(treeInput) {
   MGL_peakedness = MGL$peakedness
   MGL_eigengap = MGL$eigengap
   
+  # nLTT statistic on first example tree
+  utils::data(exampleTrees, package = "nLTT") # Set of birth-death trees
+  nLTT_stat <- nLTT::nLTTstat(
+    tree1 = exampleTrees[[1]], # Can be changed to generated Yule tree or any other tree
+    tree2 = treeInput
+  )
 
   
   return(list(S = S, PD = PD, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
               Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
               MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
-              MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap))
+              MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap, nLTT_stat = nLTT_stat))
 }
 
 
