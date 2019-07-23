@@ -244,6 +244,8 @@ treeMetrics = function(treeInput) {
 }
 
 
+# Run treeMetrics for many trees and save output as it goes
+
 metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeSize = 20,
                                fileOut) {
   
@@ -273,7 +275,16 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
       simID = str_extract(treefile, "[0-9]+")
       
       print(paste(treefile, Sys.time()))
-      metrics = treeMetrics(tree)
+      
+      metrics = tryCatch({
+        treeMetrics(tree)
+      }, error = function(e) {
+         metrics =  data.frame(model = NA, simID = NA, S = NA, tree.length = NA, PD = NA, gamma = NA, 
+                               beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
+                               VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
+                               MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
+                               MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
+      })
       
       sink(fileOut, append = TRUE)
       cat(paste(model, 
@@ -306,13 +317,7 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
       print(paste(treefile, "skipped -- not enough species"))
     }
     
-    if(write) {
-      write.csv(treeOutput, paste("treeOutput_", fileOut, "_", Sys.Date(), ".csv", sep = ""), row.names = F)
-    }
-    
   }  
-  treeOutput = filter(treeOutput, !is.na(model), !is.na(simID))
-  return(treeOutput)    
 }
 
   
