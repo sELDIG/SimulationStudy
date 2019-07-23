@@ -11,6 +11,7 @@ treeMetrics = function(treeInput) {
   require(geiger)
   require(picante)
   require(apTreeshape)
+  require(RPANDA)
   
   # Prune out extinct species
   tree = drop.extinct(treeInput)
@@ -179,6 +180,13 @@ treeMetrics = function(treeInput) {
     mean.Iprime = NA
   }
   
+  # RPANDA spectral density metrics (Lewitus & Morlon 2016)
+  MGL = spectR(tree)
+  MGL_principal_eigenvalue = MGL$principal_eigenvalue 
+  MGL_asymmetry = MGL$asymmetry  
+  MGL_peakedness = MGL$peakedness
+  MGL_eigengap = MGL$eigengap
+  
   # TO DO: 
   # --identify additional metrics
   # --incoporate RPANDA, ClaDS, etc. output.
@@ -187,7 +195,9 @@ treeMetrics = function(treeInput) {
   
   
   return(list(S = S, gamma = gamma.stat, beta = beta.stat, Colless = Colless, 
-              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime))
+              Sackin = Sackin, shape = shape.stat, MRD = MRD, VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
+              MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
+              MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap))
 }
 
 
