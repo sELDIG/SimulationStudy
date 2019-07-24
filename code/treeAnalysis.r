@@ -6,60 +6,46 @@ library(geiger)
 
 source('code/treeMetrics.R')
 
-metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeSize = 20,
-                               write = FALSE, fileOut) {
-
-  if(is.null(treefiles)) {
-    treefiles = list.files('trees')[grepl(".tre", list.files("trees"))]
-  }  
-  if(is.null(treeOutput)) {
-    treeOutput = data.frame(model = NA, simID = NA, S = NA, gamma.stat = NA, beta.stat = NA, Colless = NA, 
-                            Sackin = NA, shape.stat = NA, MRD = NA, VRD = NA, PSV = NA, mean.Iprime = NA)
-  }
-  
-  for (treefile in treefiles) {
-    
-    treeIn = read.tree(paste("trees/", treefile, sep = ""))
-    tree = drop.fossil(treeIn)
-    
-    if(tree$Nnode + 1 >= minimumTreeSize) {
-      model = str_extract(treefile, "^[A-Za-z]*")
-      simID = str_extract(treefile, "[0-9]+")
-      
-      print(treefile)
-      metrics = treeMetrics(tree)
-      
-      treeOutput = rbind(treeOutput,
-                         data.frame(model = model, simID = simID, S = metrics$S, gamma.stat = metrics$gamma.stat,
-                                    beta.stat = metrics$beta.stat, Colless = metrics$Colless, Sackin = metrics$Sackin,
-                                    shape.stat = metrics$shape.stat, MRD = metrics$MRD, VRD = metrics$VRD, 
-                                    PSV = metrics$PSV, mean.Iprime = metrics$mean.Iprime,
-                                    MGL_principal_eigenvalue = metrics$MGL_principal_eigenvalue, 
-                                    MGL_asymmetry = metrics$MGL_asymmetry, 
-                                    MGL_peakedness = metrics$MGL_peakedness, MGL_eigengap = metrics$MGL_eigengap))
-    } else {
-      print(paste(treefile, "skipped -- not enough species"))
-    }
-    
-    if(write) {
-      write.csv(treeOutput, paste("treeOutput_", fileOut, "_", Sys.Date(), ".csv", sep = ""), row.names = F)
-    }
-    
-  }  
-  treeOutput = filter(treeOutput, !is.na(model), !is.na(simID))
-  return(treeOutput)    
-}
-
 treeOutput = metricsForManyTrees()
 
+
+treeMetricsPCA = function(treeOutput) {
+  
+}
 pca = treeOutput %>%
   select(S, gamma.stat, Colless:mean.Iprime) %>%
   princomp()
 
+# Function that joins 
+classifyAcrossModels = function(treeOutput, crossModelSimTable) {
+  classified = left_join(treeOutput, crossModelSimTable, by = c('model', 'simID'))
+  return(classified)
+}
 
-pcaPlot = function(xscore = 1, yscore = 2) {
+classifyWithinModel = function(treeOutput, withinModelParametersTable) {
+  classified = left_join(treeOutput, withinModelParametersTable, by = 'simID')
+  return(classified)
+}
+
+
+pcaPlot = function(pca,                 # dataframe with model, simID, and PC scores
+                   xscore = 1,          # PC score plotted on the x-axis
+                   yscore = 2,          # PC score plotted on the y-axis
+                   colorBy 'turquoise', # any variable/parameter name by which to color points
+                   pchBy = 16           # categorical variable/parameter name by which to specify point shape 
+                   ) {
+  
+  if (class(treeOutput) == 'numeric') {
+    
+    shades <- rainbow(130)[100:1]
+    
+    percents <- as.integer(cut(var, 100, 
+                               include.lowest = TRUE, ordered = TRUE))
+    fills <- shades[percents]
+    
+  }
   par(mar = c(4, 4, 1, 1))
-  plot(pca$scores[,xscore], pca$scores[,yscore], col = as.character(treeOutput$col), cex = 2, 
+  plot(pca$scores[,xscore], pca$scores[,yscore], col = as.character(treeOutput[,colorBy]), cex = 2, 
        pch = treeOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
        ylim = c(-max(abs(range(pca$scores[,yscore]))), max(abs(range(pca$scores[,yscore])))),
        xlim = c(-max(abs(range(pca$scores[,xscore]))), max(abs(range(pca$scores[,xscore])))))
