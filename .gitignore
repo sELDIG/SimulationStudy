@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 Thumbs.db
+simulations/fh/plots/
+simulations/fh/simulations.Rdata

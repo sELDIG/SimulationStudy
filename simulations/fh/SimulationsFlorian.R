@@ -26,6 +26,8 @@ simulations = list()
 for(i in 1:nrow(parameterList)){
   par <- createCompletePar(x = 100, y = 100, dispersal = parameterList$dispersal[i] , runs = c(5000), density = parameterList$density[i], environment = parameterList$environment[i], specRate = parameterList$speciationRate[i], protracted = parameterList$protracted[i]  )
 
+  try({
+  
   new.simulation <- runSimulation(par)
   
   simulations[[i]] = new.simulation
@@ -39,6 +41,8 @@ for(i in 1:nrow(parameterList)){
   extantPhylogeny <- drop.fossil(phylogeny)
   
   write.tree(extantPhylogeny, file =  paste("./trees/fh_", i, ".tre", sep=""))
+  
+  })
 }
 
 save(simulations, file = "simulations.Rdata")
