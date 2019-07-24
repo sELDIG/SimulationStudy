@@ -6,15 +6,27 @@ library(geiger)
 
 source('code/treeMetrics.R')
 
-treeOutput = metricsForManyTrees()
+treeOutput = read.table("treeOutput.txt", header = T, sep = '\t')
 
+colors = c('turquoise', 'magenta', 'orangered', 'darkblue', 'limegreen', 'yellow4', 'blue', 'black')
 
-treeMetricsPCA = function(treeOutput) {
+crossModelSimTable = data.frame(model = unique(treeOutput$model), 
+                                color = colors[1:length(unique(treeOutput$model))])
+
+varsIndependentOfS = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
+                       "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
+                       "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
+
+treeMetricsPCA = function(treeOutput, vars = NULL) {
   
+  if (is.null(vars)) {
+    vars = names(treeOutput[, 3:ncol(treeOutput)])
+  }
+  outputSubsetNoNAs = na.omit(treeOutput[!names(treeOutput) == "VPD"])  
+  pc = princomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], cor = TRUE)
+  pcaOutput = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$scores) %>%
+    left_join(crossModelSimTable, by = 'model')
 }
-pca = treeOutput %>%
-  select(S, gamma.stat, Colless:mean.Iprime) %>%
-  princomp()
 
 # Function that joins 
 classifyAcrossModels = function(treeOutput, crossModelSimTable) {
@@ -31,27 +43,28 @@ classifyWithinModel = function(treeOutput, withinModelParametersTable) {
 pcaPlot = function(pca,                 # dataframe with model, simID, and PC scores
                    xscore = 1,          # PC score plotted on the x-axis
                    yscore = 2,          # PC score plotted on the y-axis
-                   colorBy 'turquoise', # any variable/parameter name by which to color points
+                   colorBy = 'turquoise', # any variable/parameter name by which to color points
                    pchBy = 16           # categorical variable/parameter name by which to specify point shape 
                    ) {
   
-  if (class(treeOutput) == 'numeric') {
+  #if (class(treeOutput) == 'numeric') {
     
-    shades <- rainbow(130)[100:1]
+   # shades <- rainbow(130)[100:1]
     
-    percents <- as.integer(cut(var, 100, 
-                               include.lowest = TRUE, ordered = TRUE))
-    fills <- shades[percents]
+    #percents <- as.integer(cut(var, 100, 
+                               #include.lowest = TRUE, ordered = TRUE))
+    #fills <- shades[percents]
     
-  }
+  #}
   par(mar = c(4, 4, 1, 1))
-  plot(pca$scores[,xscore], pca$scores[,yscore], col = as.character(treeOutput[,colorBy]), cex = 2, 
-       pch = treeOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
-       ylim = c(-max(abs(range(pca$scores[,yscore]))), max(abs(range(pca$scores[,yscore])))),
-       xlim = c(-max(abs(range(pca$scores[,xscore]))), max(abs(range(pca$scores[,xscore])))))
+  plot(pca[,paste("Comp.", xscore, sep = "")], pca[, paste("Comp.", yscore, sep = "")], 
+       col = as.character(pca$color), cex = 2, 
+       pch = pchBy, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
+       ylim = c(-max(abs(range(pca[,paste("Comp.", yscore, sep = "")]))), max(abs(range(pca[,paste("Comp.", yscore, sep = "")])))),
+       xlim = c(-max(abs(range(pca[,paste("Comp.", xscore, sep = "")]))), max(abs(range(pca[,paste("Comp.", xscore, sep = "")])))))
   legend("topright", 
-         legend = c("Pontarp", "DAISIE", "HS no zero-sum", "HS energy grad", "HS specn grad", "HS disturb grad"),
-         col = c("orangered", "darkblue", rep("turquoise", 4)), pch = c(17, 17, 16, 17, 15, 1))
+         legend = crossModelSimTable$model,
+         col = crossModelSimTable$color, pch = pchBy)
   
   par(new = TRUE)
   plot(1, 1, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",

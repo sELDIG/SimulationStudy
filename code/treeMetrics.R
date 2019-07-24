@@ -128,6 +128,8 @@ treeMetrics = function(treeInput) {
   require(dispRity)
   require(RPANDA)
   require(nLTT)
+  require(stringr)
+  require(Rfast)
   
   # Drop root edge
   treeInput$root.edge = 0
@@ -156,6 +158,7 @@ treeMetrics = function(treeInput) {
   #Pybus & Harvey (2000)'s gamma statistic
   gamma.stat = gammaStat(tree.scaled)
 
+  # Some metrics are difficult to calculate on very large trees.
   # Calculate Blum & Francois (2006)'s Beta metric of tree imbalance using apTreeshape package
   # Also calculate RPANDA spectral density metrics (Lewitus & Morlon 2016)
   
@@ -171,6 +174,19 @@ treeMetrics = function(treeInput) {
     MGL_asymmetry = MGL$asymmetry  
     MGL_peakedness = MGL$peakedness
     MGL_eigengap = MGL$eigengap
+    
+    # Mean Pairwise Distance (in scaled tree)
+    pairwise.dists = dist.nodes(tree.scaled)
+    sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
+    MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
+    
+    # Variance Pairwise Distance (in scaled tree)
+    VPD = tryCatch({
+      var(as.vector(tri.pairwise.dists))
+    }, error = function(e) {
+      VPD = NA
+    })
+    
 
   } else {
     beta.stat = NA
@@ -178,6 +194,8 @@ treeMetrics = function(treeInput) {
     MGL_asymmetry = NA  
     MGL_peakedness = NA
     MGL_eigengap = NA
+    MPD = NA
+    VPD = NA
   }
   
   # Colless index
@@ -211,14 +229,6 @@ treeMetrics = function(treeInput) {
   n = nrow(v.matrix)
   PSV = (n*sum(diag(v.matrix)) - sum(v.matrix))/(sum(diag(v.matrix))*(n-1))
   
-  # Mean Pairwise Distance (in scaled tree)
-  pairwise.dists = dist.nodes(tree.scaled)
-  sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
-  MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
-  
-  # Variance Pairwise Distance (in scaled tree)
-  #VPD = var(as.vector(tri.pairwise.dists))
-  
   # mean I' from Purvis et al. 2002. Evaluating phylogenetic tree shape: two modifications to Fusco & Cronk's method
   if(tree$Nnode >= 3) {
     fusco = caper::fusco.test(tree)
@@ -246,14 +256,13 @@ treeMetrics = function(treeInput) {
 
 # Run treeMetrics for many trees and save output as it goes
 
-metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeSize = 20,
-                               fileOut) {
+metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, append = TRUE) {
   
   if(is.null(treefiles)) {
     treefiles = list.files('trees')[grepl(".tre", list.files("trees"))]
   }  
   
-  if(is.null(treeOutput)) {
+  if(!append) {
     
     treeOutput = data.frame(model = NA, simID = NA, S = NA, tree.length = NA, PD = NA, gamma = NA, 
                             beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
@@ -268,8 +277,13 @@ metricsForManyTrees = function(treefiles = NULL, treeOutput = NULL, minimumTreeS
   for (treefile in treefiles) {
     
     treeIn = read.tree(paste("trees/", treefile, sep = ""))
-    tree = drop.fossil(treeIn)
     
+    tree = tryCatch({
+      drop.extinct(treeIn)
+    }, error = function(e) {
+      tree = drop.fossil(treeIn)
+    })
+
     if(tree$Nnode + 1 >= minimumTreeSize) {
       model = str_extract(treefile, "^[A-Za-z]*")
       simID = str_extract(treefile, "[0-9]+")
