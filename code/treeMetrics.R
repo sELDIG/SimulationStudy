@@ -231,6 +231,7 @@ treeMetrics = function(treeInput) {
   
   # mean I' from Purvis et al. 2002. Evaluating phylogenetic tree shape: two modifications to Fusco & Cronk's method
   if(tree$Nnode >= 3) {
+    tree$node.label = NULL
     fusco = caper::fusco.test(tree)
     mean.Iprime = fusco$mean.Iprime
   } else {
