@@ -92,4 +92,11 @@ withinModelPCAPlot(pcaOutput, "ra", xscore = 1, yscore = 2, colorBy = 'Dispersal
 
 ```
 
+Here is Florian's model, coded by speciation rate (colors) and whether speciation is protracted or not.
 
+``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
+par(mar = c(4,4, 1, 1))
+withinModelPCAPlot(pcaOutput, "fh", xscore = 2, yscore = 3, colorBy = 'speciationRate', pchBy = 'protracted')
+withinModelPCAPlot(pcaOutput, "fh", xscore = 1, yscore = 2, colorBy = 'speciationRate', pchBy = 'protracted')
+
+```
