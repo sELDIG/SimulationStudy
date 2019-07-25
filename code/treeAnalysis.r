@@ -4,43 +4,33 @@ library(stringr)
 library(dplyr)
 library(geiger)
 library(lessR)
+library(gsheet)
+library(dplyr)
 
 source('code/treeMetrics.R')
 
-varsIndependentOfS = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
-                       "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
-                       "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
+# Reads in model classification codes and assigns colors and pchs
+url = "https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=2047946073"
 
-modelColorAssignment = function() {
-  colors = c('turquoise', 'magenta', 'red', 'darkblue', 'limegreen', 'yellow2', 'blue', 'black')
-  
-  crossModelSimTable = data.frame(model = unique(treeOutput$model), 
-                                  color = colors[1:length(unique(treeOutput$model))])
-  crossModelSimTable$color = as.character(crossModelSimTable$color)
-  
-  return(crossModelSimTable)
-}
+modelClassification = gsheet2tbl(url)
 
-treeMetricsPCA = function(treeOutput, vars = NULL) {
 
-  crossModelSimTable = modelColorAssignment()
-    
-  if (is.null(vars)) {
+
+
+# Function that conducts PCA on treeOutput set of specified tree metrics
+# -- vars is a vector of column names to include, default is all vars
+treeMetricsPCA = function(treeOutput, vars = 'all') {
+
+  if (vars == 'all') {
     vars = names(treeOutput[, 3:ncol(treeOutput)])
   }
   outputSubsetNoNAs = na.omit(treeOutput[!names(treeOutput) == "VPD"])  
   pc = princomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], cor = TRUE)
-  pcaOutput = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$scores) %>%
-    left_join(crossModelSimTable, by = 'model')
+  pcaOutput = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$scores) 
   
-  return(list(pca = pcaOutput, loadings = pc$loadings))
+  return(list(pcaScores = pcaOutput, pcaLoadings = pc$loadings))
 }
 
-# Function that joins 
-classifyAcrossModels = function(treeOutput, crossModelSimTable) {
-  classified = left_join(treeOutput, crossModelSimTable, by = c('model', 'simID'))
-  return(classified)
-}
 
 classifyWithinModel = function(treeOutput, withinModelParametersTable) {
   classified = left_join(treeOutput, withinModelParametersTable, by = 'simID')
@@ -48,27 +38,26 @@ classifyWithinModel = function(treeOutput, withinModelParametersTable) {
 }
 
 
-pcaPlot = function(pc,                 # dataframe with model, simID, and PC scores
-                   xscore = 1,          # PC score plotted on the x-axis
-                   yscore = 2,          # PC score plotted on the y-axis
-                   colorBy = 'turquoise', # any variable/parameter name by which to color points
-                   pchBy = 16           # categorical variable/parameter name by which to specify point shape 
-                   ) {
+betweenModelPCAPlot = function(pcaScores,          # dataframe with model, simID, and PC scores
+                               xscore = 1,        # PC score plotted on the x-axis
+                               yscore = 2,        # PC score plotted on the y-axis
+                               colorBy = 'model', # any variable/parameter name by which to color points
+                               pchBy = 16         # categorical variable/parameter name by which to specify point shape 
+                               ) {
   
-  #if (class(treeOutput) == 'numeric') {
-    
-   # shades <- rainbow(130)[100:1]
-    
-    #percents <- as.integer(cut(var, 100, 
-                               #include.lowest = TRUE, ordered = TRUE))
-    #fills <- shades[percents]
-    
-  #}
+  colors = c('turquoise', 'orangered', 'yellow2', 'darkblue', 'limegreen', 'magenta', 'blue', 'black')
+  pch = c(15, 16, 17, 18, 1, 7, 8, 10)
+
+  colorCode = data.frame(val = unique(pcaScores[, colorBy]), 
+                         color = colors[1:length(unique(pcaScores[, colorBy]))])
+  pchCode = data.frame(val = unique(pcaScores[, pchBy]),
+                       pch = pch[1:length(unique(pcaScores[, pchBy]))])
+                                                
+  plotOutput = left_join(pcaScores, modelClassification, by = "model") %>%
+    left_join(colorCode, by = c((!!colorBy) = 'val')) %>%
+    left_join(pchCode, by = c((!!pchBy) = 'val'))
+
   
-  crossModelSimTable = modelColorAssignment()
-  
-  if ("color" %in% names(pc$pca)) { colorBy = pc$pca$color }
-  if ("pch" %in% names(pc$pca)) { colorBy = pc$pca$pch }
   
   plot(pc$pca[,paste("Comp.", xscore, sep = "")], pc$pca[, paste("Comp.", yscore, sep = "")], 
        col = colorBy, cex = 2, 
@@ -96,7 +85,11 @@ pcaPlot = function(pc,                 # dataframe with model, simID, and PC sco
 # Analysis
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t')
 
-pca = treeMetricsPCA(treeOutput, vars = varsIndependentOfS)
+varsForPCA = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
+               "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
+               "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
+
+pca = treeMetricsPCA(treeOutput, vars = varsForPCA)
 
 par(mfrow = c(1,1))
 pcaPlot(pca, xscore = 1, yscore = 2)
@@ -106,3 +99,16 @@ pcaPlot(pca, xscore = 2, yscore = 4)
 
 varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
 varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
+
+
+
+#if (class(treeOutput) == 'numeric') {
+
+# shades <- rainbow(130)[100:1]
+
+#percents <- as.integer(cut(var, 100, 
+#include.lowest = TRUE, ordered = TRUE))
+#fills <- shades[percents]
+
+#}
+
