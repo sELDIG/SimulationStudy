@@ -3,7 +3,7 @@
 # -- vars is a vector of column names to include, default is all vars
 # -- models is a vector of model abbreviations
 treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
-
+  
   if (models != 'all') {
     treeOutput = filter(treeOutput, model %in% models)
   }
@@ -11,7 +11,8 @@ treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   if (vars == 'all') {
     vars = names(treeOutput[, 3:ncol(treeOutput)])
   }
-  outputSubsetNoNAs = na.omit(treeOutput[!names(treeOutput) == "VPD"])  
+  outputSubset = treeOutput[, c("model", "simID", vars)]
+  outputSubsetNoNAs = na.omit(outputSubset)  
   
   pc = princomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], cor = TRUE)
   pcaScores = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$scores) 
@@ -101,7 +102,7 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
   
   modelScores = left_join(pcaScores, modelParams, by = "simID")
   
-  if (is.numeric(modelScores[, colorBy])) {
+  if (is.numeric(modelScores[, colorBy]) & length(unique(modelScores[, colorBy])) > 4) {
     
     shades <- rainbow(130)[100:1]
     percents <- as.integer(cut(modelScores[, colorBy], 100, include.lowest = TRUE, ordered = TRUE))
@@ -140,7 +141,7 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
                 max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))), ...)
   
   # color legend
-  if (is.numeric(modelScores[, colorBy])) {
+  if (is.numeric(modelScores[, colorBy]) & length(unique(modelScores[, colorBy])) > 4) {
     maxvar = max(modelScores[, colorBy], na.rm = TRUE)
     minvar = min(modelScores[, colorBy], na.rm = TRUE)
     inc <- (maxvar - minvar) / 4

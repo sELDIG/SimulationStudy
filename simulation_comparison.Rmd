@@ -44,7 +44,12 @@ varsForPCA = c("tree.length", "PD", "gamma", "beta", "Colless", "Sackin", "Yule.
                "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
                "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
 
+limitedVars = c("tree.length", "PD", "gamma", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
+               "VRD", "PSV", "mean.Iprime", "nLTT_stat")
+
 pcaOutput = treeMetricsPCA(treeOutput, models = 'all', vars = varsForPCA)
+
+pcaOutputLtd = treeMetricsPCA(treeOutput, models = 'all', vars = limitedVars)
 ```
 
 First, let's visualize where trees from all models fall in PCA space along the first 2 PC axes. The symbol reflects which of the 3 model families (statistical, conceptual, realistical) the the tree is from. 
@@ -64,9 +69,10 @@ betweenModelPCAPlot(pcaOutput, xscore = 2, yscore = 3, colorBy = "model", pchBy 
 betweenModelPCAPlot(pcaOutput, xscore = 3, yscore = 4, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
 ```
 
+
 Here is a correlation matrix showing how all of the metrics relate to each other. There is clearly a large suite of metrics that are positively correlated with richness.
 
-``` {r, echo = FALSE, warning = FALSE, message = FALSE}
+``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
 
 varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
 varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
@@ -82,21 +88,39 @@ PC4 loads positively with gamma, where negative values indicate trees with inter
 round(pcaOutput$pcaLoadings[, 1:5], 2)
 ```
 
+Because the calculation of certain metrics failed on certain trees, they are not included in the PCA plots above. If we limit the PCA to the subset of metrics available for all trees (i.e. excluding beta, MPD, and the RPANDA-MGL statistics), we get the following:
 
+```{r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
+par(mar = c(4, 4, 1, 1))
+betweenModelPCAPlot(pcaOutputLtd, xscore = 2, yscore = 3, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
+
+betweenModelPCAPlot(pcaOutputLtd, xscore = 3, yscore = 4, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
+```
+
+## Within model variation
 We can also explore what explains variation within a given model. Here is Thiago's model plotted in the overall PCA space, coded by the dispersal parameter and region of the founder species.
 
 ``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
 par(mar = c(4,4, 1, 1))
-withinModelPCAPlot(pcaOutput, "ra", xscore = 2, yscore = 3, colorBy = 'Dispersal', pchBy = 'Founder')
-withinModelPCAPlot(pcaOutput, "ra", xscore = 1, yscore = 2, colorBy = 'Dispersal', pchBy = 'Founder')
+withinModelPCAPlot(pcaOutput, "ra", xscore = 2, yscore = 3, colorBy = 'Dispersal', pchBy = 'Founder', cex = 2)
+withinModelPCAPlot(pcaOutput, "ra", xscore = 1, yscore = 2, colorBy = 'Dispersal', pchBy = 'Founder', cex = 2)
 
 ```
 
-Here is Florian's model, coded by speciation rate (colors) and whether speciation is protracted or not.
+Here is Florian's model (fh), coded by speciation rate (colors) and whether speciation is protracted or not.
 
 ``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
 par(mar = c(4,4, 1, 1))
-withinModelPCAPlot(pcaOutput, "fh", xscore = 2, yscore = 3, colorBy = 'speciationRate', pchBy = 'protracted')
-withinModelPCAPlot(pcaOutput, "fh", xscore = 1, yscore = 2, colorBy = 'speciationRate', pchBy = 'protracted')
+withinModelPCAPlot(pcaOutput, "fh", xscore = 2, yscore = 3, colorBy = 'speciationRate', pchBy = 'protracted', cex = 2)
+withinModelPCAPlot(pcaOutput, "fh", xscore = 1, yscore = 2, colorBy = 'speciationRate', pchBy = 'protracted', cex = 2)
+
+```
+
+Here is Allen's model (hs), coded by whether there is diversity dependence (carry.cap, colors) and whether there is a gradient in speciation rates.
+
+``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
+par(mar = c(4,4, 1, 1))
+withinModelPCAPlot(pcaOutputLtd, "hs", xscore = 2, yscore = 3, colorBy = 'carry.cap', pchBy = 'specn.gradient', cex = 2)
+withinModelPCAPlot(pcaOutputLtd, "hs", xscore = 1, yscore = 2, colorBy = 'carry.cap', pchBy = 'specn.gradient', cex = 2)
 
 ```
