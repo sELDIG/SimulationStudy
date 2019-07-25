@@ -26,8 +26,8 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
                                xscore = 1,        # PC score plotted on the x-axis
                                yscore = 2,        # PC score plotted on the y-axis
                                colorBy = 'model', # any variable/parameter name by which to color points
-                               pchBy = 'model'         # categorical variable/parameter name by which to specify point shape 
-                               ) {
+                               pchBy = 'model',         # categorical variable/parameter name by which to specify point shape 
+                               ...) {
   
   # Reads in model classification codes and assigns colors and pchs
   require(gsheet)
@@ -55,19 +55,19 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
     left_join(pchCode, by = unname(pchBy))
 
   plot(plotOutput[,paste("Comp.", xscore, sep = "")], plotOutput[, paste("Comp.", yscore, sep = "")], 
-       col = plotOutput$color, cex = 2, 
+       col = plotOutput$color,  
        pch = plotOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
        ylim = c(-max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")]))), 
                 max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))),
        xlim = c(-max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))))
+                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))), ...)
   legend("topleft", 
          legend = c(toupper(colorBy), colorCode[,1]), bty = "n",
-         col = c('white', colorCode[,2]), pch = 16)
+         col = c('white', colorCode[,2]), pch = 16, pt.cex = 2)
   
   legend("topright", 
          legend = c(toupper(pchBy), pchCode[,1]), bty = "n",
-         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]))
+         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
   
   par(new = TRUE)
   plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
@@ -90,11 +90,12 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
                               xscore = 1,        # PC score plotted on the x-axis
                                yscore = 2,        # PC score plotted on the y-axis
                                colorBy,        # any variable/parameter name by which to color points
-                               pchBy            # categorical variable/parameter name by which to specify point shape 
-) {
+                               pchBy,            # categorical variable/parameter name by which to specify point shape 
+                              ...) {
 
   pcaScores = pcaOutput$pcaScores %>%
     filter(model == modelAbbrev)
+  pcaLoadings = pcaOutput$pcaLoadings
   
   modelParams = read.csv(paste('parameters/', modelAbbrev, '_parameters.csv', sep = ''), header = TRUE)
   
@@ -131,12 +132,12 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
   plotOutput = left_join(modelOutput, pchCode, by = unname(pchBy))
   
   plot(plotOutput[,paste("Comp.", xscore, sep = "")], plotOutput[, paste("Comp.", yscore, sep = "")], 
-       col = plotOutput$color, cex = 2, 
+       col = plotOutput$color, 
        pch = plotOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
        ylim = c(-max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")]))), 
                 max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))),
        xlim = c(-max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))))
+                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))), ...)
   
   # color legend
   if (is.numeric(modelScores[, colorBy])) {
@@ -152,12 +153,12 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
   } else {
 
     legend("topleft", legend = c(toupper(colorBy), as.character(colorCode[,1])), bty = "n",
-           col = c('white', as.character(colorCode[,2])), pch = 16)
+           col = c('white', as.character(colorCode[,2])), pch = 16, pt.cex = 2)
   }
 
   legend("topright", 
          legend = c(toupper(pchBy), as.character(pchCode[,1])), bty = "n",
-         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]))
+         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
   
   par(new = TRUE)
   plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
@@ -172,8 +173,4 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
 
 
 
-## Function for creating correlation matrices of tree metrics, PC scores, or model parameters
-corPlot = function()
-varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
-varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
 

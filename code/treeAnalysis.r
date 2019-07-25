@@ -32,9 +32,6 @@ betweenModelPCAPlot(pcaOutput, xscore = 1, yscore = 2, colorBy = "model", pchBy 
 #     choose which model classification variables to visualize by color or symbol
 withinModelPCAPlot(pcaOutput, "ra", xscore = 2, yscore = 3, colorBy = 'Dispersal', pchBy = 'Founder')
 
-# Plot correlations
-varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
-varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
 
 
 

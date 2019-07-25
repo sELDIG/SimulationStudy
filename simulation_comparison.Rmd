@@ -1,0 +1,95 @@
+---
+title: "Simulation Comparison"
+author: "Allen Hurlbert"
+date: "July 25, 2019"
+output: html_document
+theme: cerulean
+---
+
+<style type="text/css">
+
+body{ /* Normal */
+      font-size: 18px;
+}
+</style>
+
+## Simulations
+
+Goals...
+
+Simulation models being compared...
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE }
+library(ape)
+library(stringr)
+library(dplyr)
+library(geiger)
+library(lessR)
+library(gsheet)
+library(dplyr)
+
+source('code/treeMetrics.R')
+source('code/pcaFunctions.r')
+
+treeOutput = read.table("treeOutput.txt", header = T, sep = '\t')
+
+```
+
+## Conduct a PCA across trees from all models
+
+An important step is deciding which variables to include. Here, we exclude `S` or species richness, but include everything else.
+
+```{r}
+varsForPCA = c("tree.length", "PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
+               "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
+               "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
+
+pcaOutput = treeMetricsPCA(treeOutput, models = 'all', vars = varsForPCA)
+```
+
+First, let's visualize where trees from all models fall in PCA space along the first 2 PC axes. The symbol reflects which of the 3 model families (statistical, conceptual, realistical) the the tree is from. 
+```{r, echo = FALSE, warning = FALSE, fig.align = 'center'}
+
+par(mar = c(4, 4, 1, 1))
+betweenModelPCAPlot(pcaOutput, xscore = 1, yscore = 2, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
+
+```
+
+Most of the variation in PC 1 is due to a set of models from Hurlbert-Stegen. Let's focus on some of the other PC axes.
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
+par(mar = c(4, 4, 1, 1))
+betweenModelPCAPlot(pcaOutput, xscore = 2, yscore = 3, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
+
+betweenModelPCAPlot(pcaOutput, xscore = 3, yscore = 4, colorBy = "model", pchBy = "ModelFamily", cex = 1.3)
+```
+
+Here is a correlation matrix showing how all of the metrics relate to each other. There is clearly a large suite of metrics that are positively correlated with richness.
+
+``` {r, echo = FALSE, warning = FALSE, message = FALSE}
+
+varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
+varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
+
+```
+
+This correlation helps us interpret the different PC axes. Here are the loadings for the first 5 axes. PC 1 is basically species richness, even though richness itself was not in the PCA--all of the variables that load positively ~0.3 are positively correlated with richness.
+
+PC2 and PC3 both are related to tree imbalance, with positive scores indicating positive mean.Iprime and negative beta.
+
+PC4 loads positively with gamma, where negative values indicate trees with internal nodes closer to the root (i.e. slowdowns).
+```{r}
+round(pcaOutput$pcaLoadings[, 1:5], 2)
+```
+
+
+We can also explore what explains variation within a given model. Here is Thiago's model plotted in the overall PCA space, coded by the dispersal parameter and region of the founder species.
+
+``` {r, echo = FALSE, warning = FALSE, message = FALSE, fig.align = 'center'}
+par(mar = c(4,4, 1, 1))
+withinModelPCAPlot(pcaOutput, "ra", xscore = 2, yscore = 3, colorBy = 'Dispersal', pchBy = 'Founder')
+withinModelPCAPlot(pcaOutput, "ra", xscore = 1, yscore = 2, colorBy = 'Dispersal', pchBy = 'Founder')
+
+```
+
+
