@@ -20,7 +20,7 @@ treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
 }
 
 
-
+# Function for exploring tree shape as a function of between-model classifications
 
 betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID, and PC scores
                                xscore = 1,        # PC score plotted on the x-axis
@@ -81,6 +81,9 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
 }
 
 
+
+
+# Function for exploring tree shape as a function of within-model parameters
 
 withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID, and PC scores
                               modelAbbrev,             # specify the abbreviation of the model to explore 
@@ -169,4 +172,8 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
 
 
 
+## Function for creating correlation matrices of tree metrics, PC scores, or model parameters
+corPlot = function()
+varCor = cor(treeOutput[,!names(treeOutput) %in% c('model', 'simID', 'VPD')], use = "pairwise.complete.obs")
+varCor2 = corReorder(varCor, bottom = 6, right = 6, diagonal_new = FALSE)
 
