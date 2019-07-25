@@ -19,6 +19,19 @@ parameterList <- expand.grid(dispersal = c(0,1), density = c(0,1), environment =
 
 parameterList$id = 1:nrow(parameterList)
 
+parameterList$model = "fh"
+parameterList$simID = 1:nrow(parameterList)
+
+parameterList$ModelFamily = "conceptual"
+
+parameterList$EntityModeled = "individuals"
+parameterList$Allopatric =  ifelse(parameterList$fission == 2, "y", "n")
+parameterList$Sympatric =  ifelse(parameterList$fission == 1, "y", "n")
+parameterList$PointMutation =  ifelse(parameterList$fission == 0, "y", "n")
+parameterList$SpeciationModeImplementation = "probabilistic"
+parameterList$DiversityDependence = "y"
+  
+  
 write.csv(parameterList, file = "fh-parameters.csv")
 
 simulations = list()
