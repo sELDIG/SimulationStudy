@@ -135,7 +135,11 @@ treeMetrics = function(treeInput) {
   treeInput$root.edge = 0
 
   # Prune out extinct species
-  tree = drop.fossil(treeInput)
+  tree = tryCatch({
+    drop.extinct(treeInput)
+  }, error = function(e) {
+    tree = drop.fossil(treeIn)
+  })
   
   # Richness
   S = length(tree$tip.label)
@@ -277,14 +281,8 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
 
   for (treefile in treefiles) {
     
-    treeIn = read.tree(paste("trees/", treefile, sep = ""))
+    tree = read.tree(paste("trees/", treefile, sep = ""))
     
-    tree = tryCatch({
-      drop.extinct(treeIn)
-    }, error = function(e) {
-      tree = drop.fossil(treeIn)
-    })
-
     if(tree$Nnode + 1 >= minimumTreeSize) {
       model = str_extract(treefile, "^[A-Za-z]*")
       simID = str_extract(treefile, "[0-9]+")

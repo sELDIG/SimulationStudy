@@ -10,6 +10,10 @@ source('code/treeMetrics.R')
 source('code/pcaFunctions.r')
 
 ### Analysis steps
+
+# 0 - read in trees and calculate metrics using metricsForManyTrees()
+# metricsForManyTrees(treefiles, fileOut = "treeOutput.txt", append = F)
+
 # 1 - read in output
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t')
 
