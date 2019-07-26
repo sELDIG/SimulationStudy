@@ -1,0 +1,1 @@
+(((Megasorex_gigas:2.090016964,Notiosorex_evotis:2.090016964)10165:5.431727582,(Notiosorex_cockrumi:3.446626127,Notiosorex_villai:3.446626127)10166:4.075118419)10164:3.287817243,Notiosorex_crawfordi:10.80956179)10163;

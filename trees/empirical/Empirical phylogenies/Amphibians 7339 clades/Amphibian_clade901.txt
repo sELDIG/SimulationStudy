@@ -1,0 +1,1 @@
+(((Eleutherodactylus_paralius:13.14072399,Eleutherodactylus_dilatus:13.14072399)8245:9.894934041,(Eleutherodactylus_tetajulia:2.831061887,Eleutherodactylus_saxatilis:2.831061887)8243:20.20459615)8242:1.005268416,(Eleutherodactylus_cystignathoides:4.040083232,Eleutherodactylus_erythroproctus:4.040083232)8244:20.00084322)8241;

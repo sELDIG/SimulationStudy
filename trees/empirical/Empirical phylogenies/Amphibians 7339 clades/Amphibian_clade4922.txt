@@ -1,0 +1,1 @@
+((((Platymantis_rabori:6.446612338,Platymantis_admiraltiensis:6.446612338)12264:3.342231827,Platymantis_insulatus:9.788844165)12266:1.182404398,Platymantis_macrops:10.97124856)12263:5.239448985,((Platymantis_negrosensis:0.726973027,Platymantis_mimicus:0.726973027)12265:10.58549102,Platymantis_levigatus:11.31246405)12267:4.8982335)12262;

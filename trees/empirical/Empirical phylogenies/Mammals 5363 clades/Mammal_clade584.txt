@@ -1,0 +1,1 @@
+(((Gerbilliscus_kempi:7.633789097,Gerbilliscus_leucogaster:7.633789097)5951:1.298824929,Gerbilliscus_validus:8.932614026)5949:1.367385974,(Gerbilliscus_afra:8.151054564,Gerbilliscus_guineae:8.151054564)5950:2.148945436)5948;

@@ -1,0 +1,1 @@
+(((Megaelosia_lutzae:4.982307076,Megaelosia_boticariana:4.982307076)10692:2.755427904,(Megaelosia_goeldii:2.349736535,Megaelosia_apuana:2.349736535)10690:5.387998445)10689:10.02146813,(Megaelosia_jordanensis:13.04897098,Megaelosia_bocainensis:13.04897098)10691:4.710232134)10688;

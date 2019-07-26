@@ -1,0 +1,1 @@
+(((((Ambystoma_granulosum:1.538835887,Ambystoma_velasci:1.538835887)14398:0.8144021137,Ambystoma_annulatum:2.353238001)14397:1.554813957,Ambystoma_silvense:3.908051958)14396:1.867788891,Ambystoma_flavipiperatum:5.775840849)14395:5.614021351,Ambystoma_rosaceum:11.3898622)14394;

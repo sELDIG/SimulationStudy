@@ -1,0 +1,1 @@
+((Pseudomys_fieldi:10.84122177,Pseudomys_higginsi:10.84122177)5582:0.616122337,(Pseudomys_oralis:4.639489169,Pseudomys_australis:4.639489169)5583:6.81785494)5581;

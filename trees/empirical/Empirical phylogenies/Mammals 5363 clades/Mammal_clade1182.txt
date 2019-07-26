@@ -1,0 +1,1 @@
+((((Eothenomys_eleusis:0.5450408499,Eothenomys_miletus:0.5450408499)6548:0.705220252,Eothenomys_cachinus:1.250261102)6550:0.9636245463,Eothenomys_melanogaster:2.213885648)6547:1.53261699,((Eothenomys_olitor:2.736734178,Eothenomys_proditor:2.736734178)6549:0.4157774289,Eothenomys_custos:3.152511607)6551:0.5939910317)6546;

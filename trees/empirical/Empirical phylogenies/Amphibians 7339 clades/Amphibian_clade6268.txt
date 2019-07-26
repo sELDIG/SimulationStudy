@@ -1,0 +1,1 @@
+((Scutiger_muliensis:0.3586550842,Scutiger_tuberculatus:0.3586550842)13609:0.5536108466,Scutiger_mammatus:0.9122659308)13608;

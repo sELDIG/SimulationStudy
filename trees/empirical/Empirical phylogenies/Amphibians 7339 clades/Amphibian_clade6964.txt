@@ -1,0 +1,1 @@
+(((Triturus_carnifex:3.487626233,Triturus_macedonicus:3.487626233)14306:3.383864759,(Triturus_cristatus:5.74340521,Triturus_karelinii:5.74340521)14307:1.128085782)14305:2.393237909,Triturus_dobrogicus:9.264728901)14304;

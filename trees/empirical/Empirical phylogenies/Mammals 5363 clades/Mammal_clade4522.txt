@@ -1,0 +1,1 @@
+((Crocidura_brunnea:4.223365367,Crocidura_orientalis:4.223365367)9887:1.18994758,(Crocidura_beccarii:4.322659781,Crocidura_lepidura:4.322659781)9888:1.090653166)9886;

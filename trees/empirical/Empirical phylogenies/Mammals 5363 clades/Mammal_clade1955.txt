@@ -1,0 +1,1 @@
+(((Trinomys_myosuros:1.946746062,Trinomys_moojeni:1.946746062)7322:2.343683872,Trinomys_albispinus:4.290429934)7320:4.777666166,(Capromys_pilorides:2.396575916,Trinomys_mirapitanga:2.396575916)7321:6.671520185)7319;

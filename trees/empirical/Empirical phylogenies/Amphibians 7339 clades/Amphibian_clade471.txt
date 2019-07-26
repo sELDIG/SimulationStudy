@@ -1,0 +1,1 @@
+((((Pristimantis_katoptroides:1.788119178,Pristimantis_percnopterus:1.788119178)7813:0.3803763041,Pristimantis_baryecuus:2.168495483)7815:9.86580158,Pristimantis_stipa:12.03429706)7812:0.1617629699,((Pristimantis_ruthveni:2.758615689,Pristimantis_boconoensis:2.758615689)7814:3.765531791,Pristimantis_seorsus:6.524147479)7816:5.671912553)7811;

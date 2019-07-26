@@ -1,0 +1,1 @@
+(((Thallomys_paedulcus:2.818750707,Thallomys_loringi:2.818750707)5892:0.7127537296,Thallomys_nigricauda:3.531504436)5891:12.46849556,Thallomys_shortridgei:16)5890;

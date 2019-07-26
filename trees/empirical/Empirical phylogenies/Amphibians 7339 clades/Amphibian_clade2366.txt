@@ -1,0 +1,1 @@
+(((Amietophrynus_pantherinus:0.2810317535,Amietophrynus_pardalis:0.2810317535)9709:3.142016966,Amietophrynus_lemairii:3.423048719)9707:7.973999325,(Amietophrynus_mauritanicus:8.939248944,Amietophrynus_rangeri:8.939248944)9708:2.4577991)9706;

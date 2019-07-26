@@ -1,0 +1,1 @@
+((Dicerorhinus_sumatrensis:22.59147359,Coelodonta_antiquitatis:22.59147359)9824:5.300751028,(Rhinoceros_sondaicus:12.03002563,Rhinoceros_unicornis:12.03002563)9825:15.86219899)9823;

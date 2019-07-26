@@ -1,0 +1,1 @@
+((((Crocidura_attenuata:5.926419411,Crocidura_tanakae:5.926419411)9898:1.825005864,Crocidura_lasiura:7.751425275)9900:0.594214836,Crocidura_maxi:8.345640111)9897:0.6052837946,(((Crocidura_watasei:4.402591226,Crocidura_horsfieldii:4.402591226)9902:2.06133473,Crocidura_wuchihensis:6.463925956)9899:1.233005696,Crocidura_indochinensis:7.696931652)9901:1.253992253)9896;

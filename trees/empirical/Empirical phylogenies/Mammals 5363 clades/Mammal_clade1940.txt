@@ -1,0 +1,1 @@
+(((Proechimys_brevicauda:1.524740262,Proechimys_canicollis:1.524740262)7307:1.999655066,Proechimys_goeldii:3.524395328)7305:2.666450915,(Hoplomys_gymnurus:1.803490583,Proechimys_guyannensis:1.803490583)7306:4.38735566)7304;

@@ -1,0 +1,1 @@
+((Pristimantis_roseus:3.347469001,Pristimantis_salaputium:3.347469001)7721:9.321564594,(Pristimantis_reticulatus:2.111309594,Pristimantis_olivaceus:2.111309594)7722:10.557724)7720;

@@ -1,0 +1,1 @@
+((Sciurus_colliaei:2.552272975,Sciurus_richmondi:2.552272975)7194:1.323641675,(Sciurus_pucheranii:0.9248587351,Sciurus_oculatus:0.9248587351)7195:2.951055915)7193;

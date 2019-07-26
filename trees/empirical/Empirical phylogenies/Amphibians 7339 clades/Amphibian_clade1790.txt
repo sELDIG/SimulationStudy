@@ -1,0 +1,1 @@
+(((Litoria_verae:0.3291194158,Litoria_obtusirostris:0.3291194158)9133:2.95148344,Litoria_spinifera:3.280602856)9131:1.482133428,(Litoria_ollauro:1.664649038,Litoria_nudidigita:1.664649038)9132:3.098087247)9130;

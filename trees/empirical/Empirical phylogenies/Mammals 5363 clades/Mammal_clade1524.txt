@@ -1,0 +1,1 @@
+(((Orthogeomys_underwoodi:0.7425622167,Orthogeomys_hispidus:0.7425622167)6892:3.714653147,(Orthogeomys_grandis:1.667164231,Orthogeomys_cherriei:1.667164231)6890:2.790051133)6889:0.8427846361,((Orthogeomys_thaeleri:1.540323876,Orthogeomys_lanius:1.540323876)6893:0.7257753438,Orthogeomys_cuniculus:2.26609922)6891:3.03390078)6888;

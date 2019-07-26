@@ -1,0 +1,1 @@
+(((Pristimantis_aurantiguttatus:2.00549971,Pristimantis_kirklandi:2.00549971)7619:0.774106696,Pristimantis_yustizi:2.779606406)7617:6.774226779,(Pristimantis_pruinatus:6.108418647,Pristimantis_wagteri:6.108418647)7618:3.445414538)7616;

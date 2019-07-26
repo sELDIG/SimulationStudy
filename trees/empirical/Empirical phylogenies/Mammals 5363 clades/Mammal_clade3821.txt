@@ -1,0 +1,1 @@
+((Capra_ibex:2.06618426,Capra_pyrenaica:2.06618426)9186:0.50468392,(Capra_nubiana:1.208343543,Capra_falconeri:1.208343543)9187:1.362524638)9185;

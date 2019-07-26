@@ -1,0 +1,1 @@
+((((Cheirogaleus_minusculus:1.231024097,Cheirogaleus_medius:1.231024097)7932:2.208593637,Cheirogaleus_adipicaudatus:3.439617734)7934:5.584649086,Cheirogaleus_ravus:9.02426682)7931:10.1297675,((Cheirogaleus_major:15.31670146,Cheirogaleus_crossleyi:15.31670146)7933:1.166928326,Cheirogaleus_sibreei:16.48362978)7935:2.670404539)7930;

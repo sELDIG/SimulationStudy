@@ -1,0 +1,1 @@
+(((Myotis_macropus:2.595119972,Myotis_adversus:2.595119972)8056:2.200540333,Myotis_moluccarum:4.795660304)8054:2.549302992,(Myotis_horsfieldii:3.634072804,Myotis_hasseltii:3.634072804)8055:3.710890492)8053;

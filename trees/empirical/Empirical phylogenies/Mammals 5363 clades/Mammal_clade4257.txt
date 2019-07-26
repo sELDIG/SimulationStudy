@@ -1,0 +1,1 @@
+((Arctocephalus_gazella:2.198377997,Arctocephalus_tropicalis:2.198377997)9622:1.26579896,(Arctocephalus_townsendi:1.584105407,Arctocephalus_philippii:1.584105407)9623:1.88007155)9621;

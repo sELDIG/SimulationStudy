@@ -1,0 +1,1 @@
+(((Leptolalax_melicus:0.7308905615,Leptolalax_kecil:0.7308905615)13526:7.325598479,Leptolalax_dringi:8.05648904)13524:2.702867989,(Leptolalax_ventripunctatus:7.291578994,Leptolalax_sungi:7.291578994)13525:3.467778035)13523;

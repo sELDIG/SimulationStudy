@@ -1,0 +1,1 @@
+(((Platymantis_bimaculatus:3.6556708,Platymantis_bufonulus:3.6556708)12225:3.175463513,Platymantis_pygmaeus:6.831134313)12224:3.020808842,Platymantis_citrinospilus:9.851943155)12223;

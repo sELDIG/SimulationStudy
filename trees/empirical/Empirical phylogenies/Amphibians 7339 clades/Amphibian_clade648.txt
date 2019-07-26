@@ -1,0 +1,1 @@
+((((Craugastor_ranoides:0.7242468418,Craugastor_rugulosus:0.7242468418)7990:2.357185017,Craugastor_fleischmanni:3.081431858)7992:0.440209834,Craugastor_rupinius:3.521641692)7989:8.293745288,(Craugastor_megacephalus:2.511428489,Craugastor_angelicus:2.511428489)7991:9.303958492)7988;

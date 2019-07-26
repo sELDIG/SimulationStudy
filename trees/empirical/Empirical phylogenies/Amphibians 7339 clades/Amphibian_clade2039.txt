@@ -1,0 +1,1 @@
+(((Leptodactylus_myersi:0.1641433814,Leptodactylus_ochraceus:0.1641433814)9382:5.718100563,Leptodactylus_furnarius:5.882243945)9380:7.632208599,(Leptodactylus_lithonaetes:5.124209755,Leptodactylus_pustulatus:5.124209755)9381:8.390242788)9379;

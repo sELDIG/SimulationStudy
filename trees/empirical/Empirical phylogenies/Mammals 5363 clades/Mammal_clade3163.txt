@@ -1,0 +1,1 @@
+(((Miniopterus_pusillus:4.293131773,Miniopterus_macrocneme:4.293131773)8531:2.29367196,(Miniopterus_australis:5.099413068,Miniopterus_tristis:5.099413068)8529:1.487390665)8528:2.215228265,(Miniopterus_minor:4.489163375,Miniopterus_manavi:4.489163375)8530:4.312868623)8527;

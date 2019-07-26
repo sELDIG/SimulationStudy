@@ -1,0 +1,1 @@
+((((Proechimys_hoplomyoides:1.330249176,Myocastor_coypus:1.330249176)7289:9.069750824,Proechimys_decumanus:10.4)7287:0,(Proechimys_guairae:2.861270526,Proechimys_steerei:2.861270526)7288:7.538729474)7286:0,Proechimys_oconnelli:10.4)7285;

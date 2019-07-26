@@ -1,0 +1,1 @@
+((((Microhyla_fusca:1.187943208,Microhyla_perparva:1.187943208)12850:1.425822782,Microhyla_superciliaris:2.61376599)12848:10.99940189,((Microhyla_annamensis:7.942679997,Microhyla_mymensinghensis:7.942679997)12851:3.031388353,Microhyla_erythropoda:10.97406835)12849:2.639099529)12847:2.301395786,Microhyla_picta:15.91456366)12846;

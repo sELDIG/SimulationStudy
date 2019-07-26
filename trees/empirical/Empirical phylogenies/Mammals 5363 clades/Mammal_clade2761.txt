@@ -1,0 +1,1 @@
+(((Myotis_latirostris:4.222978701,Myotis_australis:4.222978701)8129:4.327021299,(Myotis_gomantongensis:2.356148313,Myotis_dieteri:2.356148313)8127:6.193851687)8126:0,(Myotis_yanbarensis:2.593260365,Myotis_melanorhinus:2.593260365)8128:5.956739635)8125;

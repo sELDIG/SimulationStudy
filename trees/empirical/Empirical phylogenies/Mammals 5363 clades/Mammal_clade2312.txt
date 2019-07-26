@@ -1,0 +1,1 @@
+((Semnopithecus_priam:0.907069089,Semnopithecus_dussumieri:0.907069089)7677:1.368296455,(Semnopithecus_entellus:1.038422714,Semnopithecus_ajax:1.038422714)7678:1.236942829)7676;

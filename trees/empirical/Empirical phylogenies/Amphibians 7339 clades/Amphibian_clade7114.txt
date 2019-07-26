@@ -1,0 +1,1 @@
+(((Pseudohynobius_shuichengensis:3.905362008,Pseudohynobius_flavomaculatus:3.905362008)14457:2.193426708,Pseudohynobius_guizhouensis:6.098788716)14455:3.810491469,((Pseudohynobius_kuankuoshuiensis:1.234496133,Pseudohynobius_puxiongensis:1.234496133)14458:6.279189646,Pseudohynobius_jinfo:7.513685779)14456:2.395594406)14454;

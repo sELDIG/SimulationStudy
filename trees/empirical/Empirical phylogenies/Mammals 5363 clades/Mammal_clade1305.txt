@@ -1,0 +1,1 @@
+((((Peromyscus_slevini:3.692542165,Peromyscus_maniculatus:3.692542165)6671:2.437457835,Peromyscus_melanotis:6.13)6673:0,Peromyscus_polionotus:6.13)6670:3.283302595,(Peromyscus_boylii:3.219647283,Peromyscus_leucopus:3.219647283)6672:6.193655312)6669;

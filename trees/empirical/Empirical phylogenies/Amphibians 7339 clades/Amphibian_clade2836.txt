@@ -1,0 +1,1 @@
+(((Atelopus_siranus:0.9907413957,Atelopus_sanjosei:0.9907413957)10178:0.5705168318,Atelopus_reticulatus:1.561258228)10177:0.9693554661,Atelopus_subornatus:2.530613694)10176;

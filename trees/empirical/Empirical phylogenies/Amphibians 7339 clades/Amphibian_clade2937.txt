@@ -1,0 +1,1 @@
+((((Hyloxalus_patitae:0.510601371,Hyloxalus_pinguis:0.510601371)10279:7.182038409,Hyloxalus_aeruginosus:7.692639781)10281:8.431094382,Hyloxalus_parcus:16.12373416)10278:3.339421287,(Hyloxalus_fallax:6.13112234,Hyloxalus_fascianigrus:6.13112234)10280:13.33203311)10277;

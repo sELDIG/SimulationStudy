@@ -1,0 +1,1 @@
+((((Craugastor_lauraster:3.089843159,Craugastor_vulcani:3.089843159)8040:1.789678604,(Craugastor_mimus:2.769723611,Craugastor_gollmeri:2.769723611)8038:2.109798152)8037:0.09658908758,(Craugastor_brocchi:3.999601372,Craugastor_chrysozetetes:3.999601372)8039:0.9765094783)8036:5.088594705,Craugastor_noblei:10.06470556)8035;

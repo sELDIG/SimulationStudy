@@ -1,0 +1,1 @@
+((((((Spalax_zemni:2.406249254,Spalax_microphthalmus:2.406249254)6751:0.8126394474,Spalax_arenarius:3.218888701)6755:12.4811113,Spalax_giganteus:15.7)6750:0,Spalax_uralensis:15.7)6754:0.4095687077,Spalax_graecus:16.10956871)6749:5.790861478,((Nannospalax_nehringi:5.542154559,Nannospalax_ehrenbergi:5.542154559)6753:6.832291044,Nannospalax_leucodon:12.3744456)6752:9.525984582)6748;

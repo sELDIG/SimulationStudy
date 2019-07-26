@@ -1,0 +1,1 @@
+(((Eleutherodactylus_hypostenor:9.245520132,Eleutherodactylus_parapelates:9.245520132)8239:4.726944912,(Eleutherodactylus_ruthae:4.474932333,Eleutherodactylus_bothroboans:4.474932333)8237:9.497532711)8236:13.20818371,((Eleutherodactylus_chlorophenax:6.059554988,Eleutherodactylus_nortoni:6.059554988)8240:6.326620888,Eleutherodactylus_inoptatus:12.38617588)8238:14.79447288)8235;

@@ -1,0 +1,1 @@
+((Spermophilus_taurensis:1.38199307,Spermophilus_elegans:1.38199307)6974:0.7353246324,Spermophilus_mollis:2.117317703)6973;

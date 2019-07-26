@@ -1,0 +1,1 @@
+(((Pseudophryne_major:0.0837473024,Pseudophryne_australis:0.0837473024)10952:0.003188396114,Pseudophryne_bibronii:0.08693569852)10950:2.322358297,(Pseudophryne_covacevichae:2.314538757,Pseudophryne_guentheri:2.314538757)10951:0.09475523766)10949;

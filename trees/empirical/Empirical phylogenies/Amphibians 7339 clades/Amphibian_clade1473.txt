@@ -1,0 +1,1 @@
+((((Dendropsophus_rubicundulus:2.384878075,Dendropsophus_sanborni:2.384878075)8815:2.734134193,Dendropsophus_minusculus:5.119012268)8817:0.7232636692,Dendropsophus_branneri:5.842275937)8814:2.12202526,(Dendropsophus_berthalutzae:5.637552017,Dendropsophus_bipunctatus:5.637552017)8816:2.32674918)8813;

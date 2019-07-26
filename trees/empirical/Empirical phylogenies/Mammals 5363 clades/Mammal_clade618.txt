@@ -1,0 +1,1 @@
+(((Gerbillus_watersi:3.042891005,Gerbillus_percivali:3.042891005)5985:1.106079591,Gerbillus_rosalinda:4.148970596)5983:2.452480798,(Gerbillus_mesopotamiae:3.74352833,Gerbillus_mackillingini:3.74352833)5984:2.857923064)5982;

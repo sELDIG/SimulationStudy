@@ -1,0 +1,1 @@
+((((Herpestes_edwardsii:2.185472038,Herpestes_javanicus:2.185472038)9691:2.208270678,Herpestes_auropunctatus:4.393742716)9693:4.248535302,Herpestes_fuscus:8.642278018)9690:4.870708977,(Herpestes_smithii:12.26502166,Herpestes_vitticollis:12.26502166)9692:1.247965331)9689;

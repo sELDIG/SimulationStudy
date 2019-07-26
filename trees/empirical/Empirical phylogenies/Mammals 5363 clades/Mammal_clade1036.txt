@@ -1,0 +1,1 @@
+((Thomasomys_hylophilus:3.215889473,Thomasomys_cinereus:3.215889473)6401:1.666396802,(Thomasomys_popayanus:2.65089447,Thomasomys_eleusis:2.65089447)6402:2.231391804)6400;

@@ -1,0 +1,1 @@
+(((Crocidura_muricauda:6.853890035,Crocidura_douceti:6.853890035)9866:0.8018091899,(Crocidura_goliath:7.040594424,Crocidura_nimbae:7.040594424)9867:0.6151048004)9865:0.5584025309,Crocidura_nanilla:8.214101755)9864;

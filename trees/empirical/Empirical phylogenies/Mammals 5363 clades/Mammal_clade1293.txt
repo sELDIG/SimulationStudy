@@ -1,0 +1,1 @@
+(((Peromyscus_truei:1.45259496,Peromyscus_keeni:1.45259496)6661:0.3270290801,(Peromyscus_melanophrys:1.25454822,Peromyscus_gossypinus:1.25454822)6659:0.5250758201)6658:7.183214807,((Peromyscus_mekisturus:3.508802988,Peromyscus_eva:3.508802988)6662:1.398631895,Peromyscus_mexicanus:4.907434883)6660:4.055403964)6657;

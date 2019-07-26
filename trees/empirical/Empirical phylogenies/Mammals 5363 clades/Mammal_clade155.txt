@@ -1,0 +1,1 @@
+(((Aethomys_thomasi:2.589568012,Aethomys_nyikae:2.589568012)5522:1.326456502,Aethomys_kaiseri:3.916024514)5520:3.565090569,(Aethomys_chrysophilus:3.192430651,Aethomys_ineptus:3.192430651)5521:4.288684432)5519;

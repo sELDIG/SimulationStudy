@@ -1,0 +1,1 @@
+(((Microtus_middendorffii:2.082561672,Microtus_mongolicus:2.082561672)6483:0.607748342,Microtus_sachalinensis:2.690310014)6481:1.044005824,(Microtus_maximowiczii:1.602474997,Microtus_fortis:1.602474997)6482:2.131840841)6480;

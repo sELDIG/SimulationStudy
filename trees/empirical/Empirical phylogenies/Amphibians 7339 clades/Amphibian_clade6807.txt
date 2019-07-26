@@ -1,0 +1,1 @@
+(((Gyrinophilus_gulolineatus:2.387512699,Gyrinophilus_palleucus:2.387512699)14151:11.43772476,(Gyrinophilus_porphyriticus:1.105399278,Gyrinophilus_subterraneus:1.105399278)14149:12.71983818)14148:13.66463686,((Pseudotriton_montanus:6.90764099,Pseudotriton_diastictus:6.90764099)14152:10.24426835,Pseudotriton_ruber:17.15190934)14150:10.33796498)14147;

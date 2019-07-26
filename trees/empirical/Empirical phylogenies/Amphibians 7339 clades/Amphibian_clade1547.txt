@@ -1,0 +1,1 @@
+((((Hypsiboas_albopunctatus:5.557697101,Hypsiboas_multifasciatus:5.557697101)8889:2.726794147,Hypsiboas_lanciformis:8.284491248)8891:1.651926581,Hypsiboas_calcaratus:9.936417828)8888:4.852867615,((Hypsiboas_dentei:7.262647206,Hypsiboas_fasciatus:7.262647206)8890:3.265779916,Hypsiboas_raniceps:10.52842712)8892:4.260858322)8887;

@@ -1,0 +1,1 @@
+(((Proceratophrys_strussmannae:2.523800124,Proceratophrys_bagnoi:2.523800124)10776:2.875277232,Proceratophrys_caramaschii:5.399077356)10774:8.618888562,(Proceratophrys_redacta:3.783296258,Proceratophrys_branti:3.783296258)10775:10.23466966)10773;

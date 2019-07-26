@@ -1,0 +1,1 @@
+((((Pristimantis_paisa:0.2709406103,Pristimantis_viejas:0.2709406103)7830:5.959974785,Pristimantis_erythropleura:6.230915395)7832:4.814564941,Pristimantis_cruentus:11.04548034)7829:4.937458956,((Pristimantis_colomai:1.937703104,Pristimantis_latidiscus:1.937703104)7831:8.478768578,Pristimantis_museosus:10.41647168)7833:5.56646761)7828;

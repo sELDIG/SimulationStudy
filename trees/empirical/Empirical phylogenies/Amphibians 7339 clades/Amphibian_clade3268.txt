@@ -1,0 +1,1 @@
+(((Gastrotheca_angustifrons:1.959748753,Gastrotheca_lateonota:1.959748753)10611:5.998571861,Gastrotheca_dysprosita:7.958320614)10609:0.3181412372,(Gastrotheca_phelloderma:4.65824478,Gastrotheca_lauzuricae:4.65824478)10610:3.618217071)10608;

@@ -1,0 +1,1 @@
+(((Hemicentetes_nigriceps:7.72257099,Hemicentetes_semispinosus:7.72257099)10300:15.74835985,Tenrec_ecaudatus:23.47093084)10298:1.188820314,(Echinops_telfairi:10.80499388,Setifer_setosus:10.80499388)10299:13.85475728)10297;

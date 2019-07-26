@@ -1,0 +1,1 @@
+(((Meristogenys_stigmachilus:5.614447141,Meristogenys_cf_orphocnemis_KR_2003:5.614447141)12012:0.4948201434,Meristogenys_maryatiae:6.109267285)12010:15.4026525,((Meristogenys_amoropalamus:3.229440341,Meristogenys_macrophthalmus:3.229440341)12013:8.705444531,Meristogenys_dyscritus:11.93488487)12011:9.577034911)12009;

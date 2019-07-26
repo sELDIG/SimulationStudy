@@ -1,0 +1,1 @@
+((((Gerbillurus_setzeri:1.657975697,Gerbillurus_tytonis:1.657975697)5940:5.951297192,(Gerbillurus_vallinus:2.641703963,Gerbillurus_paeba:2.641703963)5944:4.967568926)5943:1.760727112,Desmodillus_auricularis:9.37)5939:0,((Gerbilliscus_robustus:4.007013744,Gerbilliscus_vicinus:4.007013744)5942:4.870748291,Gerbilliscus_nigricaudus:8.877762035)5941:0.4922379649)5938;

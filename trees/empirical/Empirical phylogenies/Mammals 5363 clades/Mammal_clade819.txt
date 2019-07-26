@@ -1,0 +1,1 @@
+((((Phyllotis_haggardi:2.124797133,Phyllotis_amicus:2.124797133)6185:2.414806801,Phyllotis_andium:4.539603935)6188:1.434106147,(Phyllotis_bonariensis:1.059235347,Phyllotis_xanthopygus:1.059235347)6187:4.914474735)6184:0.9655038692,((Phyllotis_darwini:1.915875123,Phyllotis_limatus:1.915875123)6186:3.484124877,Phyllotis_definitus:5.4)6189:1.539213951)6183;

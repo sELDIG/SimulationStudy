@@ -1,0 +1,1 @@
+(((((Choeronycteris_mexicana:1.134375839,Musonycteris_harrisoni:1.134375839)8666:0.5269902339,Choeroniscus_godmani:1.661366073)8665:2.941275594,Choeroniscus_periosus:4.602641667)8668:0.04240622597,Choeroniscus_minor:4.645047893)8664:4.722239553,(Hylonycteris_underwoodi:3.545755446,Lichonycteris_obscura:3.545755446)8667:5.821531999)8663;

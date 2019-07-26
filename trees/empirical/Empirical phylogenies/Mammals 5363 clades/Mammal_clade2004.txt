@@ -1,0 +1,1 @@
+(((Ctenomys_famosus:2.771138037,Ctenomys_pontifex:2.771138037)7372:1.58162569,(Ctenomys_sylvanus:1.796783897,Ctenomys_dorbignyi:1.796783897)7370:2.55597983)7369:1.283991491,(Ctenomys_validus:1.053813237,Ctenomys_tulduco:1.053813237)7371:4.582941981)7368;

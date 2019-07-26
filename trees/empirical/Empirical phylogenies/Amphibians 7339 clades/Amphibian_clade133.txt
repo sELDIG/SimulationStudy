@@ -1,0 +1,1 @@
+((((Pristimantis_affinis:5.121264937,Pristimantis_nervicus:5.121264937)7477:10.76314359,Pristimantis_savagei:15.88440853)7475:5.769710735,(Pristimantis_euphronides:8.834892784,Pristimantis_shrevei:8.834892784)7476:12.81922648)7474:6.630127185,Pristimantis_caprifer:28.28424645)7473;

@@ -1,0 +1,1 @@
+(((Galagoides_nyasae:4.004583847,Galagoides_thomasi:4.004583847)7995:2.055699402,(Galagoides_zanzibaricus:1.995075247,Galagoides_rondoensis:1.995075247)7993:4.065208001)7992:8.269083715,(Galagoides_orinus:2.410361357,Galagoides_cocos:2.410361357)7994:11.91900561)7991;

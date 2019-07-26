@@ -1,0 +1,1 @@
+((((Cryptotriton_nasalis:7.001197375,Cryptotriton_veraepacis:7.001197375)14072:0.2932333778,Cryptotriton_monzoni:7.294430753)14070:8.306022184,(Cryptotriton_sierraminensis:1.857025241,Cryptotriton_wakei:1.857025241)14071:13.7434277)14069:4.757393122,Cryptotriton_alvarezdeltoroi:20.35784606)14068;

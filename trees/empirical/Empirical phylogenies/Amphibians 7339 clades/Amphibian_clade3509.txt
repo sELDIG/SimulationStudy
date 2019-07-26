@@ -1,0 +1,1 @@
+(((Telmatobius_cirrhacelis:0.5298877639,Telmatobius_dankoi:0.5298877639)10852:5.259983393,Telmatobius_ignavus:5.789871157)10850:0.3119246966,(Telmatobius_peruvianus:0.743548194,Telmatobius_colanensis:0.743548194)10851:5.35824766)10849;

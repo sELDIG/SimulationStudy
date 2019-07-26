@@ -1,0 +1,1 @@
+(((Trachypithecus_francoisi:0.94417774,Trachypithecus_delacouri:0.94417774)7666:0.5663395788,Trachypithecus_hatinhensis:1.510517319)7665:0.3862968096,Trachypithecus_poliocephalus:1.896814129)7664;

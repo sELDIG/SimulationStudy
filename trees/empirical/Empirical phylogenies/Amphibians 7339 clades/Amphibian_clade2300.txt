@@ -1,0 +1,1 @@
+(((Hyalinobatrachium_pellucidum:5.360377172,Hyalinobatrachium_bergeri:5.360377172)9643:5.846178753,Hyalinobatrachium_talamancae:11.20655592)9641:0.8931664116,(Hyalinobatrachium_colymbiphyllum:1.599685925,Hyalinobatrachium_chirripoi:1.599685925)9642:10.50003641)9640;

@@ -1,0 +1,1 @@
+(((Leopoldamys_milleti:3.473570709,Leopoldamys_sabanus:3.473570709)5440:5.323894503,(Leopoldamys_siporanus:4.220783708,Leopoldamys_ciliatus:4.220783708)5438:4.576681505)5437:3.7922309,(Leopoldamys_edwardsi:8.004600389,Leopoldamys_neilli:8.004600389)5439:4.585095724)5436;

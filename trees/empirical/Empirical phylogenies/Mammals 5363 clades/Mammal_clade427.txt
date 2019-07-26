@@ -1,0 +1,1 @@
+((((Pseudohydromys_ellermani:1.272192893,Pseudohydromys_fuscus:1.272192893)5794:2.608983842,Pseudohydromys_germani:3.881176734)5793:0.9033874505,Pseudohydromys_murinus:4.784564185)5792:1.600023835,Pseudohydromys_occidentalis:6.38458802)5791;

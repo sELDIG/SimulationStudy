@@ -1,0 +1,1 @@
+((((Gerbillus_floweri:2.655956826,Gerbillus_hoogstraali:2.655956826)5975:2.834761695,Gerbillus_bottai:5.49071852)5973:1.917564501,(Gerbillus_nancillus:6.333161077,Gerbillus_pusillus:6.333161077)5974:1.075121944)5972:0.6246386038,Gerbillus_famulus:8.032921625)5971;

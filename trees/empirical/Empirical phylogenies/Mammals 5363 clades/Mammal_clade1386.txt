@@ -1,0 +1,1 @@
+((((Spalax_zemni:2.406249254,Spalax_microphthalmus:2.406249254)6753:0.8126394474,Spalax_arenarius:3.218888701)6752:12.4811113,Spalax_giganteus:15.7)6751:0,Spalax_uralensis:15.7)6750;

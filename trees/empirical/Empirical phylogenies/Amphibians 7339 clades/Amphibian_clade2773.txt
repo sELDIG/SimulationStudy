@@ -1,0 +1,1 @@
+(((Atelopus_certus:0.6333552899,Atelopus_nicefori:0.6333552899)10115:2.553368611,(Atelopus_chrysocorallus:2.373637287,Atelopus_andinus:2.373637287)10116:0.8130866133)10114:1.157736972,Atelopus_planispina:4.344460872)10113;

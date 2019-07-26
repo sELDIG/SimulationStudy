@@ -1,0 +1,1 @@
+(((Marmota_caligata:0.5892384175,Marmota_vancouverensis:0.5892384175)6993:1.056881037,Marmota_olympus:1.646119454)6992:0.9228257375,Marmota_flaviventris:2.568945192)6991;

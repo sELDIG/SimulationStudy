@@ -1,0 +1,1 @@
+(((((Gastrotheca_christiani:0.6246723354,Gastrotheca_chrysosticta:0.6246723354)10572:8.496629586,Gastrotheca_gracilis:9.121301922)10571:3.821214353,Gastrotheca_griswoldi:12.94251627)10574:0.6152746101,Gastrotheca_marsupiata:13.55779088)10570:6.795583708,(Gastrotheca_pseustes:8.327878001,Gastrotheca_peruana:8.327878001)10573:12.02549659)10569;

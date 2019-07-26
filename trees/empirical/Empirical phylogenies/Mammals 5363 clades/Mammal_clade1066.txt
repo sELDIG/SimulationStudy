@@ -1,0 +1,1 @@
+((((Neusticomys_peruviensis:1.670230005,Neusticomys_venezuelae:1.670230005)6432:1.607016991,Neusticomys_mussoi:3.277246996)6434:0.8264314614,Neusticomys_ferreirai:4.103678458)6431:8.062988209,((Rheomys_raptor:2.459536899,Rheomys_thomasi:2.459536899)6436:7.273796434,(Rheomys_mexicanus:1.640221155,Rheomys_underwoodi:1.640221155)6433:8.093112178)6435:2.433333333)6430;

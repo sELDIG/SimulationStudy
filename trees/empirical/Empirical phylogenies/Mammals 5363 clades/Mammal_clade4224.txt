@@ -1,0 +1,1 @@
+(((Spilogale_putorius:1.068133253,Spilogale_pygmaea:1.068133253)9592:2.48016947,(Spilogale_gracilis:1.845512118,Spilogale_angustifrons:1.845512118)9590:1.702790605)9589:5.062421771,(Mephitis_mephitis:3.651090118,Mephitis_macroura:3.651090118)9591:4.959634376)9588;

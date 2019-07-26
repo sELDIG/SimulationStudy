@@ -1,0 +1,1 @@
+(((Melanophryniscus_stelzneri:3.106095224,Melanophryniscus_klappenbachi:3.106095224)10245:2.309791505,Melanophryniscus_rubriventris:5.41588673)10243:0.07552731783,(Melanophryniscus_dorsalis:0.4145713595,Melanophryniscus_krauczuki:0.4145713595)10244:5.076842688)10242;

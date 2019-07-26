@@ -1,0 +1,1 @@
+(((Hipposideros_breviceps:2.398163847,Hipposideros_edwardshilli:2.398163847)9032:5.667136143,(Asellia_tridens:4.033801722,Hipposideros_scutinares:4.033801722)9030:4.031498268)9029:10.13470001,(((Hipposideros_lekaguli:4.644415373,Hipposideros_turpis:4.644415373)9034:1.647937032,Hipposideros_diadema:6.292352405)9033:11.90764759,Hipposideros_boeadii:18.2)9031:0)9028;

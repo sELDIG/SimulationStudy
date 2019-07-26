@@ -1,0 +1,1 @@
+(((Leptodactylus_latrans:1.000890739,Leptodactylus_laticeps:1.000890739)9330:5.623872282,Leptodactylus_troglodytes:6.624763021)9328:5.075365442,((Leptodactylus_pascoensis:2.780318616,Leptodactylus_cupreus:2.780318616)9331:7.134490814,Leptodactylus_oreomantis:9.914809431)9329:1.785319031)9327;

@@ -1,0 +1,1 @@
+(((Pteropus_pumilus:1.421780163,Pteropus_neohibernicus:1.421780163)8831:7.368219837,Pteropus_intermedius:8.79)8829:0,(Pteropus_personatus:2.319474661,Pteropus_melanotus:2.319474661)8830:6.470525339)8828;

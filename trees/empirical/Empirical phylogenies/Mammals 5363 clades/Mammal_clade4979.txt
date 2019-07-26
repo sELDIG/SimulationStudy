@@ -1,0 +1,1 @@
+((Loxodonta_cyclotis:7.081180654,Loxodonta_africana:7.081180654)10344:5.784863429,Mammut_americanum:12.86604408)10343;

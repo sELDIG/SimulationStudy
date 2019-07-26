@@ -1,0 +1,1 @@
+(((((Gerbillus_floweri:2.655956826,Gerbillus_hoogstraali:2.655956826)5973:2.834761695,Gerbillus_bottai:5.49071852)5972:1.917564501,(Gerbillus_nancillus:6.333161077,Gerbillus_pusillus:6.333161077)5975:1.075121944)5976:0.6246386038,Gerbillus_famulus:8.032921625)5971:0.6212899855,(Gerbillus_poecilops:4.84909557,Sekeetamys_calurus:4.84909557)5974:3.80511604)5970;

@@ -1,0 +1,1 @@
+(((((Allobates_trilineatus:3.880966352,Allobates_conspicuus:3.880966352)10526:5.37098366,Allobates_gasconi:9.251950012)10525:0.8317270266,Allobates_caeruleodactylus:10.08367704)10528:1.404630783,Allobates_juanii:11.48830782)10524:5.76814793,(Allobates_femoralis:0.4677088491,Allobates_zaparo:0.4677088491)10527:16.7887469)10523;

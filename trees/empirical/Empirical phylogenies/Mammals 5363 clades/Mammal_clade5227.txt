@@ -1,0 +1,1 @@
+((((Sminthopsis_douglasi:3.311124842,Sminthopsis_butleri:3.311124842)10593:1.151174348,Sminthopsis_virginiae:4.46229919)10595:2.344543385,Sminthopsis_macroura:6.806842575)10592:3.902419795,(Sminthopsis_bindi:4.405529586,Sminthopsis_fuliginosus:4.405529586)10594:6.303732784)10591;

@@ -1,0 +1,1 @@
+((((Nyctimystes_papua:2.742882505,Nyctimystes_pulcher:2.742882505)9223:4.047937563,Nyctimystes_cheesmani:6.790820068)9226:6.43423476,(Nyctimystes_foricula:1.367508148,Nyctimystes_semipalmatus:1.367508148)9225:11.85754668)9222:3.581110083,(Nyctimystes_humeralis:4.831359933,Nyctimystes_zweifeli:4.831359933)9224:11.97480498)9221;

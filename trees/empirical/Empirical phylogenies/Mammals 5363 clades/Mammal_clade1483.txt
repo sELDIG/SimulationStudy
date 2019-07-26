@@ -1,0 +1,1 @@
+(((Heteromys_anomalus:7.217000629,Heteromys_australis:7.217000629)6850:1.737331644,Heteromys_gaumeri:8.954332273)6848:0.7736402871,(Heteromys_desmarestianus:2.874001872,Heteromys_oresterus:2.874001872)6849:6.853970688)6847;

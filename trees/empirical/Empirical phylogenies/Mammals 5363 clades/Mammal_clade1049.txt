@@ -1,0 +1,1 @@
+(((Thalpomys_lasiotis:2.887648783,Thalpomys_cerradensis:2.887648783)6416:3.228423414,Andinomys_edax:6.116072196)6414:2.014756738,((Delomys_dorsalis:3.20465744,Delomys_collinus:3.20465744)6417:2.2923463,Delomys_sublineatus:5.49700374)6415:2.633825194)6413;

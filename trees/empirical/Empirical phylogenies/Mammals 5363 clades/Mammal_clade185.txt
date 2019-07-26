@@ -1,0 +1,1 @@
+((Melomys_obiensis:0.8033519361,Melomys_arcium:0.8033519361)5550:0.3321931433,Melomys_fraterculus:1.135545079)5549;

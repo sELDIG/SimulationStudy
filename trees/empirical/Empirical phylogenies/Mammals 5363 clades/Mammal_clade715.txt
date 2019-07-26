@@ -1,0 +1,1 @@
+((Steatomys_jacksoni:4.354931211,Steatomys_krebsii:4.354931211)6080:5.572452319,(Steatomys_opimus:3.113172352,Steatomys_cuppedius:3.113172352)6081:6.814211179)6079;

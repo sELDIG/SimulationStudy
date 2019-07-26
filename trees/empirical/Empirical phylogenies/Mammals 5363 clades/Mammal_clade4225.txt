@@ -1,0 +1,1 @@
+((Spilogale_putorius:1.068133253,Spilogale_pygmaea:1.068133253)9590:2.48016947,(Spilogale_gracilis:1.845512118,Spilogale_angustifrons:1.845512118)9591:1.702790605)9589;

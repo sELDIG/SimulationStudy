@@ -1,0 +1,1 @@
+((((Leptobrachium_boringii:1.576853576,Leptobrachium_ailaonicum:1.576853576)13562:3.219327928,(Leptobrachium_liui:1.736003445,Leptobrachium_leishanense:1.736003445)13563:3.060178059)13565:10.925029,Leptobrachium_promustache:15.7212105)13561:1.803405133,(Leptobrachium_chapaense:1.323029087,Leptobrachium_huashen:1.323029087)13564:16.20158655)13560;

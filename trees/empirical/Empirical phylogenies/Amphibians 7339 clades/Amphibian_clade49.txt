@@ -1,0 +1,1 @@
+((((Pristimantis_unistrigatus:11.73005566,Pristimantis_aff_taeniatus_3_AJC_2011:11.73005566)7391:1.027588316,(Pristimantis_ptochus:10.86684943,Pristimantis_zophus:10.86684943)7392:1.890794546)7394:0.5789930928,Pristimantis_ardalonychus:13.33663706)7390:2.688569795,(Pristimantis_cajamarcensis:14.14557765,Pristimantis_ceuthospilus:14.14557765)7393:1.879629211)7389;
