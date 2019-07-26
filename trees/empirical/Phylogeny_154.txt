@@ -1,0 +1,1 @@
+((ravelobensis:0.302,(sambiranensis:0.178,rufus2:0.162,tavaratra:0.149,(rufus1:0.092,berthae:0.096,myoxinus:0.096):0.074):0.133):0.082,(griseorufus:0.286,murinus:0.291):0.106);

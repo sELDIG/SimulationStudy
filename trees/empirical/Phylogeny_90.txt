@@ -1,0 +1,1 @@
+(((P_hyperboreus:0.6,P_nivalis:1):30.9,C_mccownii:30.7):9.2,(C_lapponicus:34.3,(C_ornatus:13.5,C_pictus:15.9):37.1):8.3);

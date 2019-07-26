@@ -1,0 +1,1 @@
+((bailloni:1.269,(viridis:0.509,(humboldti:0.128,inscriptus:0.157):0.19):0.7):0.5,(((aracari:0.425,(castanotis:0.292,pluricinctus:0.234):0.063):0.177,((beauhamaesil:0.326,biforquatus:0.346):0.271,(flavirostris:0.126,mariae:0.049):0.214):0.123):0.302,(torquaus:0.272,(frantzii:0.255,(erythropygius:0.062,sanguineus:0.024):0.102):0.117):0.763):0.165);

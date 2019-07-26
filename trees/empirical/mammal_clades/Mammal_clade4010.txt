@@ -1,0 +1,1 @@
+(((Tragelaphus_eurycerus:3.498480698,Tragelaphus_spekii:3.498480698)9377:2.446315385,Tragelaphus_scriptus:5.944796082)9375:4.138622705,(Tragelaphus_oryx:7.858952821,Tragelaphus_strepsiceros:7.858952821)9376:2.224465966)9374;

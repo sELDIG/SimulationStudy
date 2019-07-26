@@ -1,0 +1,1 @@
+((Lemniscomys_griselda:2.788592485,Lemniscomys_rosalia:2.788592485)5641:2.773379973,(Lemniscomys_linulus:2.521030724,Lemniscomys_macculus:2.521030724)5642:3.040941734)5640;

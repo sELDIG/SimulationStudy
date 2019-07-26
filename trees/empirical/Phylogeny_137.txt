@@ -1,0 +1,1 @@
+((bicolor:0.073,((thalassina:0.079,euchrysea:0.052):0.007,cyaneoviridis:0.063):0.008):0.021,((stolzmanni:0.045,(albilinea:0.03,albiventer:0.026):0.02):0.012,(leucorrhoa:0.021,meyeni:0.013):0.036):0.015);

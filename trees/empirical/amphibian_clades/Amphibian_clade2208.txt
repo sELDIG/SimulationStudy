@@ -1,0 +1,1 @@
+(((((Nymphargus_megacheirus:1.308831311,Nymphargus_siren:1.308831311)9553:1.372457848,Nymphargus_rosada:2.681289159)9551:1.1429184,(Nymphargus_cochranae:2.676562979,Nymphargus_puyoensis:2.676562979)9552:1.14764458)9550:3.079101588,Nymphargus_wileyi:6.903309147)9549:0.09250028862,Nymphargus_griffithsi:6.995809435)9548;

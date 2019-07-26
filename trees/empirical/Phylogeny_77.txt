@@ -1,0 +1,1 @@
+(((S_vitreum:36.6,S_canadense:23.1):14.6,(S_lucioperca:21.5,S_volgensis:16.5):17.5):9.4,(G_cernuus:27.1,E_zonale:56.4):1.6);

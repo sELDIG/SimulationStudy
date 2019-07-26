@@ -1,0 +1,1 @@
+((Petromyscus_shortridgei:2.861968872,Petromyscus_barbouri:2.861968872)6092:21.03803113,(Petromyscus_collinus:3.810695849,Petromyscus_monticularis:3.810695849)6093:20.08930415)6091;

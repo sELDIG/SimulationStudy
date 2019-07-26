@@ -1,0 +1,1 @@
+((((panamensis:2.967,(((anisoporna:0.665,fissus:0.676):0.495,cortezianus:0.59):0.187,tragilis:1.333):0.618):0.271,(proteus:0.122,mexicanus:0.397):1.14):0.375,dalli:1.473):0.575,angustitergum:0.883);

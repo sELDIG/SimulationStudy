@@ -1,0 +1,1 @@
+(((((longicaudata:0.9,POP3:1.7):0.5,POP1:1.1):2.8,(cylindifera:2.3,(POP5:3.6,zietziana:3.2):2.3):1.6):0.7,(extracta:3.4,((contracta:0,serventyi:5.9):2.9,(POP2:1.2,informis:0):2.3,POP4:2.1):1.4):0.7):2.5,minuta:5.2);

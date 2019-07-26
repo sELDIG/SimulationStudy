@@ -1,0 +1,1 @@
+((((Phyllomys_nigrispinus:1.331209767,Phyllomys_sulinus:1.331209767)7254:1.64260194,Phyllomys_dasythrix:2.973811706)7256:1.685800416,Phyllomys_lundi:4.659612123)7253:1.581374211,((Phyllomys_mantiqueirensis:3.535187888,Phyllomys_pattoni:3.535187888)7255:1.131354269,Phyllomys_blainvillii:4.666542157)7257:1.574444177)7252;

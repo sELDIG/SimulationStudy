@@ -1,0 +1,1 @@
+((((sansabeanus:0.246,vicinus:0.232):0.241,(((laevigaus:0.146,novaboracensis:0.095):0.032,(chromaiodes:0.044,pennsylvanicus:0.054):0.053):0.18,(americanus:0.098,castaneus:0.045):0.233):0.06):0.0789,((sayi:0.307,nearcticus:0.368):0.098,schaefferi:0.445):0.091,ocreatus:0.663):0.165,(((vafer:0.507,festinatus:0.569):0.166,ulcerosus:1.148):0.114,floridanus:0.7):0.331);

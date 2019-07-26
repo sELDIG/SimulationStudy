@@ -1,0 +1,1 @@
+(((terminalis:0.318,myrtifolia:0.224,nepalensis:0.312):0.243,(japonica:0.044,intermedia:0.422):0.568):0.224,(microphylla:0.601,(papuana:0.052,species:0.044,(arborea:0.052,(ruscifolia:0.081,(sarmentosa:0.133,lurida:0.066):0.085):0.208):0.046):0.366):0.209);

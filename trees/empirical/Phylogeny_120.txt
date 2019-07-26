@@ -1,0 +1,1 @@
+((brevis:0.207,(ornatus:0.057,spenceri:0.087):0.252):0.049,((((M_lingerius:0.105,convexiusculus:0.09):0.036,salmini:0.099):0.059,(((depressus:0.177,fletcheri:0.064):0.042,terminaiensis:0.157):0.025,peronii:0.144):0.047):0.017,(dorsalis:0.04,(((dunerlli:0.001,interioris:0.001):0.013,insularis:0.017):0.036,(grayi:0.034,terraetrginae:0.028):0.018):0.015):0.08):0.068);

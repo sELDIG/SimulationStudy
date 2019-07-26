@@ -1,0 +1,1 @@
+(((((((coracana:0.292,indica:0.072):0.062,kigeziensis2:0.169):0.051,kigeziensis1:0.225):0.06,tristachya:0.207):0.337,(floccifolia:0.292,intermedia:0.297):0.271):0.21,multiflora:0.718):0.106,jaegeri:0.372);

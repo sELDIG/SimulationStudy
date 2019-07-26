@@ -1,0 +1,1 @@
+(((Dasyprocta_kalinowskii:0.8838182316,Dasyprocta_ruatanica:0.8838182316)7436:0.9219980272,Dasyprocta_prymnolopha:1.805816259)7434:3.549663751,((Dasyprocta_mexicana:0.9811997609,Dasyprocta_guamara:0.9811997609)7437:2.458457227,Dasyprocta_fuliginosa:3.439656988)7435:1.915823022)7433;

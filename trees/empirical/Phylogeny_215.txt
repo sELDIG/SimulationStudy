@@ -1,0 +1,1 @@
+(((nassa:5.1,grandis:5.1,littoralis:5.1,nassa:5.1,littoralis:5.1):4.7,smithi:10):10.7,(arenarum:12.2,(locardiana:2.4,spinulosa:2.4):5.4):8.6);

@@ -1,0 +1,1 @@
+(((((Uromys_rex:1.107213339,Uromys_siebersi:1.107213339)5556:1.051138809,Uromys_neobritannicus:2.158352148)5555:2.201647852,Uromys_imperator:4.36)5558:0,Uromys_anak:4.36)5554:1.106826746,(Uromys_hadrourus:5.353379957,Uromys_caudimaculatus:5.353379957)5557:0.1134467893)5553;

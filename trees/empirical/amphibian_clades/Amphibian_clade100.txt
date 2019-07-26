@@ -1,0 +1,1 @@
+((((Pristimantis_buckleyi:0.3980387307,Pristimantis_vertebralis:0.3980387307)7444:2.493881554,Pristimantis_devillei:2.891920285)7442:3.098825169,((Pristimantis_gentryi:1.084795675,Pristimantis_truebae:1.084795675)7445:3.427073944,Pristimantis_curtipes:4.511869619)7443:1.478875835)7441:0.5482936736,Pristimantis_surdus:6.539039128)7440;

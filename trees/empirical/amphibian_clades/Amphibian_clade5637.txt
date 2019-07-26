@@ -1,0 +1,1 @@
+((((Kalophrynus_nubicola:0.2092515512,Kalophrynus_barioensis:0.2092515512)12979:6.584382486,(Kalophrynus_bunguranus:6.134583997,Kalophrynus_limbooliati:6.134583997)12980:0.65905004)12982:3.575176455,Kalophrynus_tiomanensis:10.36881049)12978:0.7995722898,(Kalophrynus_subterrestris:3.535834989,Kalophrynus_minusculus:3.535834989)12981:7.632547793)12977;

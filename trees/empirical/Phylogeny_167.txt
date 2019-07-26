@@ -1,0 +1,1 @@
+(((agrarius:4.7,chevrieri:4.7):42.8,((draco:8.4,semolus:8.4):8.1,latronum:16.5):31,peninsulae:47.5,speciosus:47.5):9.5,argerateus:57,guricha:57,(alpicola:13.5,flavicollis:13.5,sylvanicus:13.5,(uraiensis:2.2,wardi:2.2):11.3):43.5);

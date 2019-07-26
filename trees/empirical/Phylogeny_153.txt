@@ -1,0 +1,1 @@
+(((((marianiana:0.064,hawaiiensis:0.321):0.194,wawae:0.143):0.146,((((hawaiiensis:0.135,mauiensis:0):0.096,(fauriei:0.121,hathewayi:0.137):0.08):0.025,kaduana:0.076):0.035,greenwelliae:0.133):0.379):0.222,(grandiflora:0.204,hobdyi:0.43):0.569):0.021,hexandra:0.77);

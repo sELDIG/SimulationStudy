@@ -1,0 +1,1 @@
+(((((AC:21.5,B:21.5):3.7,musculus:24.8):5,microdon:30.3):6.1,(((hylocoetes:2,insignis:2):15.9,F:17.7):10,D:27.9):8.4):11.2,(datae:38.8,gracilirostris:38.8):8.5);

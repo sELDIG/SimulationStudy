@@ -1,0 +1,1 @@
+((((murphyi:0.809,symmetricus:0.809):1.454,picturatus:2.263):2.479,(trachurus:0.67,capensis:0.67):4.056):0.169,((lathami:1.224,trecae:1.224):2.958,(mediterraneus:3.944,(declivis:1.587,(japonicus:1.232,novaezelandiae:1.232):0.355):2.367):0.254):0.729);

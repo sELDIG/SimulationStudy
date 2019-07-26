@@ -1,0 +1,1 @@
+((((((kousa:0.39,capitata:0.084):0.444,disciflora:0.577):0.069,florida:0.185):1.472,canadensis:2.313):0.403,((walteri:0.6,controversa:0.735):0.535,oblonga:0.964):0.159):0.178,((volkensii:0.365,(((mas:0.458,officinalis:0.162):0.126,eydeana:0.498):0.238,chinensis:0.261):0.188):0.105,sessilis:0.321):0.819);

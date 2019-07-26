@@ -1,0 +1,1 @@
+((((Atelopus_tamaense:1.670114108,Atelopus_pedimarmoratus:1.670114108)10139:0.3437533654,Atelopus_erythropus:2.013867473)10138:2.789676744,Atelopus_dimorphus:4.803544217)10137:6.093471525,Atelopus_chocoensis:10.89701574)10136;

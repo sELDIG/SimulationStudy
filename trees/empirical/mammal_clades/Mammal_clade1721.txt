@@ -1,0 +1,1 @@
+(((((Prosciurillus_murinus:2.950342609,Prosciurillus_rosenbergii:2.950342609)7088:2.199123241,(Rubrisciurus_rubriventer:3.377750692,Prosciurillus_abstrusus:3.377750692)7089:1.771715158)7087:6.47053415,Prosciurillus_leucomus:11.62)7091:1.09,Prosciurillus_weberi:12.71)7086:1.077388616,(Hyosciurus_ileile:6.124459524,Hyosciurus_heinrichi:6.124459524)7090:7.662929093)7085;

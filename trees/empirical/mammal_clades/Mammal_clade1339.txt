@@ -1,0 +1,1 @@
+((Neotoma_chrysomelas:1.008886834,Neotoma_phenax:1.008886834)6704:5.026717216,(Neotoma_palatina:0.5169693785,Neotoma_nelsoni:0.5169693785)6705:5.518634671)6703;

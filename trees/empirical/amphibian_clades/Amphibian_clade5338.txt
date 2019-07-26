@@ -1,0 +1,1 @@
+(((Oreophryne_brachypus:10.607831,Oreophryne_unicolor:10.607831)12682:0.8982692985,(Oreophryne_atrigularis:1.91172068,Oreophryne_wapoga:1.91172068)12680:9.59437962)12679:4.843276676,((Oreophryne_asplenicola:7.840180277,Oreophryne_pseudasplenicola:7.840180277)12683:3.304867754,Oreophryne_sibilans:11.14504803)12681:5.204328945)12678;

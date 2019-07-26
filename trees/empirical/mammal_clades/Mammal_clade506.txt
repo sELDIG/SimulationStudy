@@ -1,0 +1,1 @@
+((Apomys_datae:0.8244694345,Apomys_littoralis:0.8244694345)5871:2.666012985,(Apomys_microdon:1.207513024,Apomys_gracilirostris:1.207513024)5872:2.282969395)5870;

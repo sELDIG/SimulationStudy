@@ -1,0 +1,1 @@
+(((Rhacophorus_dugritei:0.08406450612,Rhacophorus_puerensis:0.08406450612)11089:3.391825025,Rhacophorus_hungfuensis:3.475889531)11087:3.17265959,(Rhacophorus_minimus:1.189423773,Rhacophorus_hui:1.189423773)11088:5.459125349)11086;

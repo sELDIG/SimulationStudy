@@ -1,0 +1,1 @@
+(((((Tarsomys_apoensis:3.213685301,Tarsomys_echinatus:3.213685301)5418:4.408967687,Limnomys_sibuanus:7.622652988)5420:6.267347012,Limnomys_bryophilus:13.89)5417:0.51,(Rattus_elaphinus:3.563548245,Rattus_mindorensis:3.563548245)5419:10.83645175)5416:0,Rattus_arrogans:14.4)5415;

@@ -1,0 +1,1 @@
+(((Desmognathus_conanti:6.655053101,Desmognathus_auriculatus:6.655053101)14225:0.4085763232,Desmognathus_santeetlah:7.063629424)14223:0.6282429514,(Desmognathus_brimleyorum:6.266419936,Desmognathus_carolinensis:6.266419936)14224:1.42545244)14222;

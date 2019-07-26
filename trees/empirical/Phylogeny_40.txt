@@ -1,0 +1,1 @@
+(((S_acamaeicus:0.063,S_graecus:0.124):0.169,(S_erythrophthalmus:0.624,S_scardafa:0.452):0.26):0.831,((T_souffia:0.826,((T_mulitcellus:1.249,T_montenigrinus:0.687,(L_turskyi:0.558,L_polylepis:0.501):0.072):0.134,(T_pleurobipunctatus:0.911,T_beoticus:0.594):0.198,(P_croaticus:0.337,P_metohiensis:0.496):0.508):0.145):0.726,L_cephalus:1.677):0.228);

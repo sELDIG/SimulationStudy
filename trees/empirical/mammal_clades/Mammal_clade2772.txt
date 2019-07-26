@@ -1,0 +1,1 @@
+(((Myotis_aurascens:1.393087655,Myotis_csorbai:1.393087655)8138:0.4394188283,Myotis_annamiticus:1.832506483)8137:0.2857108054,Myotis_planiceps:2.118217289)8136;

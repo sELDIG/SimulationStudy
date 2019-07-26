@@ -1,0 +1,1 @@
+((agavus:1.162,(proneus:1.97,(ascanius:0.255,unichus:0.651):1.424):0.101):0.097,((chabrias:1.419,(childrenae:0.82,(photinus:0.57,(sesosris:0.287,(vertumnus:0.244,anchises:0.287):0.111):0.288):0.304):0.393):0.189,((tros:0.586,aeneas:0.675):0.132,((lysander:0.272,panthonics:0.163):0.308,(neophilus:0.408,(eurimedes:0.182,zacynthus:0.147):0.062):0.241):0.231):0.579):0.197);

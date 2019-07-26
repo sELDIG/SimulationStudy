@@ -1,0 +1,1 @@
+((((Eleutherodactylus_dolomedes:0.2931965119,Eleutherodactylus_glaphycompus:0.2931965119)8222:4.82384254,Eleutherodactylus_glanduliferoides:5.117039052)8220:1.414091155,((Eleutherodactylus_amadeus:4.119229867,Eleutherodactylus_caribe:4.119229867)8223:0.6605417107,Eleutherodactylus_heminota:4.779771578)8221:1.751358629)8219:0.346227458,Eleutherodactylus_thorectes:6.877357664)8218;

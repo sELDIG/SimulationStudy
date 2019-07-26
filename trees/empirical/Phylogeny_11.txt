@@ -1,0 +1,1 @@
+(((((((hanaulae:6.4,ingens:12.1):6,((cyrtoloma:4.5,melanocephala:6.5):3.3,obscuripes:6.5):4.4):3,neoperkinsi:8.5):9.6,oahuensis:22.5):7.5,((nigribasis:14.7,neopicta:17.8):1.9,substenoptera:17.4):6.4):5.9,(hemipeza:21.7,((silvestris:7.7,heteroneura:3.1):10.2,(differens:8.1,planitibia:4.8):6.1):10):12.2):5.8,(picticornis:46.7,setosifrons:47.6):17.9);

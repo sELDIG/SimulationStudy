@@ -1,0 +1,1 @@
+(((Geomys_texensis:2.393636281,Geomys_knoxjonesi:2.393636281)6913:0.9097491284,Geomys_bursarius:3.303385409)6911:2.072067661,(Geomys_attwateri:1.260000466,Geomys_breviceps:1.260000466)6912:4.115452604)6910;

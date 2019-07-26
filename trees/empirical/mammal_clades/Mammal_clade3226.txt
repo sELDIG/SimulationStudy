@@ -1,0 +1,1 @@
+((((Ametrida_centurio:2.816294371,Sphaeronycteris_toxophyllum:2.816294371)8592:1.234717194,Pygoderma_bilabiatum:4.051011565)8594:0.8949322182,Centurio_senex:4.945943783)8591:0.7918909558,(Ardops_nichollsi:2.107694806,Ariteus_flavescens:2.107694806)8593:3.630139933)8590;

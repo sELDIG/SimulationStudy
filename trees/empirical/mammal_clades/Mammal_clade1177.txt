@@ -1,0 +1,1 @@
+(((Myodes_andersoni:1.239903772,Eothenomys_wardi:1.239903772)6544:1.590079068,Myodes_regulus:2.829982839)6542:1.933297945,(Eothenomys_smithii:1.050847355,Myodes_shanseius:1.050847355)6543:3.712433429)6541;

@@ -1,0 +1,1 @@
+((((Pristimantis_quaquaversus:9.595810701,Pristimantis_rhabdocnemus:9.595810701)7417:4.819282864,Pristimantis_melanogaster:14.41509356)7416:5.179022922,Pristimantis_petrobardus:19.59411649)7415:1.00134442,Pristimantis_wiensi:20.59546091)7414;

@@ -1,0 +1,1 @@
+(mossambica:1.384,((borneonsis:1.687,((anguilla:0.46,rostrata:0.418):0.88,(dieffenbachii:0.75,australis:1.152):0.153):0.1):0.125,(japonica:1.074,(reinhardtii:1.073,((celebesensis:0.823,megastoma:0.848):0.29,(marmorata:0.641,(mebulosa:0.724,(interioris:0.59,(obscura:0.56,bicolor:0.863):0.183):0.057):0.109):0.415):0.078):0.063):0.399):0.317);

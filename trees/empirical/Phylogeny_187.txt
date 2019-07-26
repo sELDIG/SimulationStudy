@@ -1,0 +1,1 @@
+((amorphoides:0.01,(rolfei:0.001,sinensis:0.001):0.002):0.001,((microphylla:0.006,(fera:0.002,australis:0.003):0.002):0.003,((delavayi:0.001,japonica:0.001,capsica:0.001):0.006,(aquatica:0.001,triacanthos:0):0.001):0.004):0.002);

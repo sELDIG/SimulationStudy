@@ -1,0 +1,1 @@
+(pseudodiaphana:26.9,(diaphana:8.9,(pseudobscura:1.9,obscura:13.8):4.7):28);

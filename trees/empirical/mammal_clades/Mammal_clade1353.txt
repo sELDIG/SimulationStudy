@@ -1,0 +1,1 @@
+((((Reithrodontomys_brevirostris:1.577872269,Reithrodontomys_mexicanus:1.577872269)6719:4.765511454,Reithrodontomys_spectabilis:6.343383724)6721:6.056074377,Reithrodontomys_gracilis:12.3994581)6718:1.342285034,((Reithrodontomys_tenuirostris:2.694282466,Reithrodontomys_microdon:2.694282466)6720:5.771044529,Reithrodontomys_creper:8.465326996)6722:5.276416139)6717;

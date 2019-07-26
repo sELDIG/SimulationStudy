@@ -1,0 +1,1 @@
+(((((albolabris:16,((purpureonaculatus:3.8,erythrurus:1.5):3.5,cantori:6.6):1.6):24.6,stejnegeri:23.8):0.8,kanburiensis:23.6):4.9,(popeiorum:21.7,(hageni:13.3,flavomaculatus:22.6):11.5):1.9):2.5,(((trigonocephalus:10.3,gramineus:13.9):4.5,malabaricus:23.5):13.1,borneensis:37.9):7.4);

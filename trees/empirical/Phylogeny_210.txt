@@ -1,0 +1,1 @@
+(((pink_footed:0.676,(tundra_bean:0.543,lesser_white_fronted:0.443):0.55):0.952,(Greenland_whitefront:0.554,European_whitefront:0.628):0.896):0.952,(western_greylag:0.394,eastern_greylag:0.587):2.335);

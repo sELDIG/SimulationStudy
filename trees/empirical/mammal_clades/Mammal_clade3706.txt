@@ -1,0 +1,1 @@
+(((Coelops_hirsutus:3.133213718,Coelops_robinsoni:3.133213718)9073:3.539502765,Coelops_frithii:6.672716483)9071:24.72198062,(Aselliscus_tricuspidatus:30.51326912,Aselliscus_stoliczkanus:30.51326912)9072:0.8814279856)9070;

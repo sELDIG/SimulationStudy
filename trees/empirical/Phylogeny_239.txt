@@ -1,0 +1,1 @@
+(rex:4.695,(jenkinsi:3.332,(burtoni:2.294,(carbonaria:1.176,((macrolepida:0.761,(suttkusi:0.639,caprodes:0.644):0.134):0.132,(nebulosa:0.823,(austroperca:0.483,kathae:0.481):0.338):0.082):0.273):1.121):1.039):1.356);

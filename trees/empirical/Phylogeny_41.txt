@@ -1,0 +1,1 @@
+(((dundanensis:0.367,(pacificus:0.23,grayii:0.335):0.031):0.326,delanonis:0.559):0.562,((((habelii:0.173,bivitattus:0):0.762,occipitalis:1.02):1.023,stolzmanni:1.401):0.18,koepckeorum:1.538):0.15);

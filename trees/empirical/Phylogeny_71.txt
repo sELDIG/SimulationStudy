@@ -1,0 +1,1 @@
+(calcaratus:85.8,((clarus:19.5,depressus:18.1):12.1,((((bayonianus:12.6,(unispinus:3.6,warreni:7.4):8):7.7,sidneyi:12.1,(perlatus:2.2,granularis:9):16.9):14,dentatus:16.8):9,lividus:34.9):13.5):15.4,brincki:21.9,parvicorpus:20.8,parvispina:29.5);

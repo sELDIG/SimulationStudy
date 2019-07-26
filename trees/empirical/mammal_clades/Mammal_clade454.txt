@@ -1,0 +1,1 @@
+(((Zyzomys_pedunculatus:3.416080638,Zyzomys_palatilis:3.416080638)5821:2.691802315,Zyzomys_maini:6.107882954)5819:3.722352603,(Zyzomys_argurus:2.926117491,Zyzomys_woodwardi:2.926117491)5820:6.904118066)5818;

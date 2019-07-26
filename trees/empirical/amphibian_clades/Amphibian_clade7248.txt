@@ -1,0 +1,1 @@
+(((((Dermophis_gracilior:5.928839219,Dermophis_occidentalis:5.928839219)14591:3.094946303,Dermophis_oaxacae:9.023785522)14590:2.190315655,Dermophis_costaricense:11.21410118)14593:10.69304094,Dermophis_glandulosus:21.90714212)14589:21.94131437,(Dermophis_mexicanus:43.0990456,Dermophis_parviceps:43.0990456)14592:0.7494108871)14588;

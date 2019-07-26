@@ -1,0 +1,1 @@
+(((((((nuchalis:8.1,machalis:9.2):10.6,affinis:11.2):2.2,(nuchalis:5.9,inframacula:4.2):7.7):2.8,texilis:17.4):4.8,ingrami:19.2):12.6,modesta:33.1):4.8,gullatis:19.7);

@@ -1,0 +1,1 @@
+(((((Platyrrhinus_dorsalis:1.455016875,Vampyrodes_caraccioli:1.455016875)8612:0.6753063931,Platyrrhinus_helleri:2.130323268)8614:0.945486795,Platyrrhinus_ismaeli:3.075810063)8611:2.360680886,(Platyrrhinus_matapalensis:3.145883294,Platyrrhinus_brachycephalus:3.145883294)8613:2.290607655)8610:2.461717385,Platyrrhinus_masu:7.898208333)8609;

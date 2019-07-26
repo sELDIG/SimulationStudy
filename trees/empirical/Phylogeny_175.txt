@@ -1,0 +1,1 @@
+((((montana:4.2,camensis:3.5):0.5,((bracatus:2.5,(naomi:3.7,solus:3.6):0.7):0.8,(affinis:3.3,((pallidus:0.6,variabillis:2.3):3.5,serratus:2):0.3):1.1):0.5):3.7,rivalis:3.6):40,(calvus:0,(ochoco:0.8,similis:1.2):1.5):50.5);

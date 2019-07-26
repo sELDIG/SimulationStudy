@@ -1,0 +1,1 @@
+(((laevigala:2.083,((species:0.468,expectala:0.482):0.139,(betsileo:0.169,viriolis:0.195):0.211):0.642):0.463,(((crocea:0.051,milorymparium:0.032):0.224,(pulchra:0.232,madagascariensis:0.1):0.166):0.093,aurantiaca:0.238):0.944):0.519,(((nigricans:0.113,baroni:0.072):0.106,baraldmeien:0.176):0.075,cowani:0.22):1.38);

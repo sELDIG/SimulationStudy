@@ -1,0 +1,1 @@
+((((Sundasciurus_jentinki:1.317856321,Callosciurus_phayrei:1.317856321)7052:2.215852939,Sundasciurus_hippurus:3.53370926)7050:0.6818499726,(Sundasciurus_davensis:2.103189445,Sundasciurus_samarensis:2.103189445)7051:2.112369787)7049:0.2853174333,Callosciurus_melanogaster:4.500876666)7048;

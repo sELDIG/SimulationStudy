@@ -1,0 +1,1 @@
+((platythrix:1.221,((cervicolor:0.831,(musculus:0.421,sprehes:0.484):0.5):0.3,(setulosus:0.88,((sp1:0.782,(mattheyi:0.475,minutoides:0.612):0.104):0.087,(minusoides:0.716,indutus:0.815):0.15):0.345):0.763):0.104):0.02,(pahari:0.56,crociduroides:0.68):0.79);

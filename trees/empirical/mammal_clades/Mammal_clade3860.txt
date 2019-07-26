@@ -1,0 +1,1 @@
+((Damaliscus_pygargus:7.626952793,Damaliscus_lunatus:7.626952793)9225:1.435688503,(Alcelaphus_caama:3.723272531,Alcelaphus_buselaphus:3.723272531)9226:5.339368766)9224;

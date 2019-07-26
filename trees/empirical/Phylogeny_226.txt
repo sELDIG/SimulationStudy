@@ -1,0 +1,1 @@
+(((((((astictopus:0.058,punctipennis:0.056):0.016,albatus:0.075):0.02,flavicans:0.12,crystallinus:0.1):0.004,(americanus:0.002,pallidus:0.003):0.088):0.009,obscuripes:0.089):0.019,cooki:0.084):0.05,trivitattus:0.034);

@@ -1,0 +1,1 @@
+(((((Taphozous_hamiltoni:3.08,Taphozous_troughtoni:3.08)8788:0,Taphozous_hildegardeae:3.08)8787:6.432174832,(Taphozous_perforatus:1.578913354,Taphozous_nudiventris:1.578913354)8790:7.933261478)8791:8.703599873,Taphozous_achates:18.21577471)8786:2.05905133,(Taphozous_kapalgensis:10.11677463,Taphozous_theobaldi:10.11677463)8789:10.15805141)8785;

@@ -1,0 +1,1 @@
+(((((((((aurea:1.2,pustulosa:1.7):1.8,mortoni:2.8,refulgens:1):0.9,F_succissa:4.3):3,(nodulata:3.8,petrina:6.1):2.7):5.1,Q_infucata:9.2):3.5,(asperata:1,keineriana:0.8):7.3):2.9,(((intermedia:10.8,metanevra:8.6):1.6,sparsa:4.2):4.3,cylindrica:12.5):5.4):2.9,((rumphiana:2.9,quadrula2:1.7):1.4,apiculata:1.6):8.4):3.4,((nobilis:1.9,quadrula1:0.5):7.6,T_verrucosa:9.2):3.1);

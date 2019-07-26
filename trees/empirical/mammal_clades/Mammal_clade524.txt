@@ -1,0 +1,1 @@
+(((((Thallomys_paedulcus:2.818750707,Thallomys_loringi:2.818750707)5891:0.7127537296,Thallomys_nigricauda:3.531504436)5890:12.46849556,Thallomys_shortridgei:16)5893:3.2,Nesokia_bunnii:19.2)5889:0,(Dacnomys_millardi:5.122785646,Nesokia_indica:5.122785646)5892:14.07721435)5888;

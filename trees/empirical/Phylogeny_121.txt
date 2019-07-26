@@ -1,0 +1,1 @@
+(((broadleyi:14,capensis:6.3):14.3,(((imperator:23.9,torquatus:24.6):8.4,rhodesianus:24.7):14.4,(((((intermedius:13,monotropis:14.7):4,minor:13.4):2.4,nigrescens:17):6.2,(lebornoensis:14.5,wilhelmi:12):16.7):1.7,orientalis:15.1):6.2):5.7):13.9,(mitchelli:25.7,maculatus:30.5):6.3);

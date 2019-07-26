@@ -1,0 +1,1 @@
+(((((K_corymbosa:17.9,K_lemmonii:20.7):2.7,K_ternata:22.7):3.7,K_breviflora:13):9,(K_cordifolia:8.9,K_antirrhinoides:11.1):5.1):13,K_rothrockii:18.1);

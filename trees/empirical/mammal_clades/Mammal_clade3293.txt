@@ -1,0 +1,1 @@
+(((Erophylla_bombifrons:4.873793732,Erophylla_sezekorni:4.873793732)8661:4.086388293,(Phyllonycteris_poeyi:4.923693127,Phyllonycteris_aphylla:4.923693127)8659:4.036488898)8658:6.422827653,(Brachyphylla_nana:5.283031526,Brachyphylla_cavernarum:5.283031526)8660:10.09997815)8657;

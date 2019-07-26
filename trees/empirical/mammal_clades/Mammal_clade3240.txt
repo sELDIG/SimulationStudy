@@ -1,0 +1,1 @@
+((Platyrrhinus_recifinus:2.635894568,Platyrrhinus_lineatus:2.635894568)8605:5.013118397,(Platyrrhinus_vittatus:3.305679174,Platyrrhinus_infuscus:3.305679174)8606:4.343333791)8604;

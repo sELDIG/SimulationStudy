@@ -1,0 +1,1 @@
+(((Cryptothylax_greshoffii:25.01197468,Cryptothylax_minutus:25.01197468)13321:12.86286964,(Paracassina_kounhiensis:22.79029877,Paracassina_obscura:22.79029877)13319:15.08454555)13318:6.49011713,((Chrysobatrachus_cupreonitens:3.180385757,Kassinula_wittei:3.180385757)13322:15.98445382,Callixalus_pictus:19.16483958)13320:25.20012187)13317;

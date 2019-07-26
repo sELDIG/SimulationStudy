@@ -1,0 +1,1 @@
+((Manis_culionensis:4.838059897,Manis_crassicaudata:4.838059897)9805:14.61666749,(Manis_javanica:16.62475255,Manis_pentadactyla:16.62475255)9806:2.82997484)9804;

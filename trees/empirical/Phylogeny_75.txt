@@ -1,0 +1,1 @@
+(((species1:24.9,species2:24.9):33.2,species3:58):34.6,((niloticus:38.9,(abyssinicus:11.9,blicki:12.3):27):1.8,somalicus:40.8):52.3);

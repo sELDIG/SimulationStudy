@@ -1,0 +1,1 @@
+(congener:0.068338,((((disjunctus:0,rectangularis:0):0.009335,unguiculatus:0.009335):0.005216,((dryas:0,stultus:0):0.005664,forcipatus:0.005664):0.008887):0.041255,((eurinus:0.050015,inawualis:0.050015):0.003197,vigilax:0.053211):0.002594):0.012533);

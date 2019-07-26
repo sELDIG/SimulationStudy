@@ -1,0 +1,1 @@
+(((lewisi:1.505,basciliscus:1.693):0.277,(tetradactyla:1.253,(cxechrual:1.269,hannahae:1.481):0.333):0.472):0.444,(((sp_1:0.955,(rosei:1.107,spectabilis:0.906):0.401):0.25,chalenegeri:1.077):0.46,(mustelinus:0.248,oriarus:0.068):1.513):0.294);

@@ -1,0 +1,1 @@
+(((taurica:8.6,((milensis:5.8,gaigeae:5.8):1.9,melisellensis:7.7):0.9):1.4,(erhardii1:9.3,(peloponnesiaca:5.2,erhardii2:5.2):4.1):0.7):2.2,(sicula:9.5,muralis:9.5):2.7);

@@ -1,0 +1,1 @@
+((((Ceratophrys_calcarata:0.5021523924,Ceratophrys_stolzmanni:0.5021523924)10894:0.9287019649,Ceratophrys_joazeirensis:1.430854357)10896:0.9552970615,Ceratophrys_aurita:2.386151419)10893:1.028690413,(Ceratophrys_testudo:0.5506481793,Ceratophrys_cornuta:0.5506481793)10895:2.864193653)10892;

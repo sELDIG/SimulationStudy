@@ -1,0 +1,1 @@
+((((Petinomys_fuscocapillus:0.7949628699,Petinomys_mindanensis:0.7949628699)7145:2.174367753,Petinomys_sagitta:2.969330623)7144:1.710669377,Petinomys_crinitus:4.68)7143:0,Petinomys_hageni:4.68)7142;

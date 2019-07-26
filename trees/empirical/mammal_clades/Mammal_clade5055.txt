@@ -1,0 +1,1 @@
+((((((Petrogale_burbidgei:0.6958939364,Petrogale_concinna:0.6958939364)10423:0.6219312349,Petrogale_brachyotis:1.317825171)10425:4.516989737,Petrogale_xanthopus:5.834814908)10422:1.280484,(Petrogale_lateralis:2.218907706,Petrogale_purpureicollis:2.218907706)10424:4.896391201)10421:1.394701092,Petrogale_coenensis:8.51)10420:0,Petrogale_persephone:8.51)10419;

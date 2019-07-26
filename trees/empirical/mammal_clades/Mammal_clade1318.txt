@@ -1,0 +1,1 @@
+((Habromys_ixtlani:1.778335723,Habromys_schmidlyi:1.778335723)6683:2.35059226,(Habromys_simulatus:2.85570066,Habromys_lepturus:2.85570066)6684:1.273227322)6682;

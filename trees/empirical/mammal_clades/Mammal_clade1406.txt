@@ -1,0 +1,1 @@
+(((Pygeretmus_platyurus:2.660449961,Pygeretmus_zhitkovi:2.660449961)6774:3.462382264,(Allactaga_tetradactyla:2.526201747,Allactaga_major:2.526201747)6772:3.596630477)6771:4.412524274,((Allactaga_euphratica:2.519682811,Allactaga_firouzi:2.519682811)6775:1.630319229,Allactaga_williamsi:4.150002041)6773:6.385354457)6770;

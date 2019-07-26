@@ -1,0 +1,1 @@
+((P_megrirostris:24.8,(P_trochioides:21.7,P_occipitalis:21.7):3.1):8.7,(P_tytleri:27.6,P_alfinis:27.6):6,((P_pulcher:24.7,P_chloronctus:24.7):1.3,P_hunai:26):7.4);

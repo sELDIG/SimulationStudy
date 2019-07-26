@@ -1,0 +1,1 @@
+((((Presbytis_comata:1.668610285,Presbytis_rubicunda:1.668610285)7686:1.754797712,Presbytis_melalophos:3.423407997)7688:1.003985203,Presbytis_potenziani:4.4273932)7685:1.122323083,((Presbytis_femoralis:4.119188859,Presbytis_chrysomelas:4.119188859)7687:0.3502539121,Presbytis_frontata:4.469442771)7689:1.080273512)7684;

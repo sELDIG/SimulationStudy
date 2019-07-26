@@ -1,0 +1,1 @@
+((Mesocricetus_auratus:6.766580554,Mesocricetus_raddei:6.766580554)6609:1.669900387,(Mesocricetus_brandti:7.443718291,Mesocricetus_newtoni:7.443718291)6610:0.9927626499)6608;

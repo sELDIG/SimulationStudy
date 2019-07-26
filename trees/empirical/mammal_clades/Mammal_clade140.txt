@@ -1,0 +1,1 @@
+(((Bunomys_andrewsi:6.69,Bunomys_chrysocomus:6.69)5508:0,(Bunomys_fratrorum:2.097814971,Bunomys_coelestis:2.097814971)5506:4.592185029)5505:5.991534938,(Bunomys_prolatus:4.547510733,Bunomys_penitus:4.547510733)5507:8.134024205)5504;

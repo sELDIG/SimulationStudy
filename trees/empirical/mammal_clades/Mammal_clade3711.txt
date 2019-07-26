@@ -1,0 +1,1 @@
+(((Triaenops_persicus:6.751676438,Triaenops_rufus:6.751676438)9077:6.80192401,(Triaenops_furculus:6.524594996,Triaenops_auritus:6.524594996)9078:7.029005451)9076:2.771978476,Rhinonicteris_aurantia:16.32557892)9075;

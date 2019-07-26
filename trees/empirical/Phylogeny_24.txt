@@ -1,0 +1,1 @@
+(((((lar:0.56,((moloch:0.55,klossii:0.677):0.131,(agilis:0.458,muelleri:0.62):0.015):0.067):0.113,pileatus:0.506):0.369,syndactylus:1.011):0.103,(((gabriellae:0.439,leucogenys:0.347):0.182,concolor:0.279):0.089,sp_cf_nasutus:0.383):0.768):0.114,hoolock:0.76);

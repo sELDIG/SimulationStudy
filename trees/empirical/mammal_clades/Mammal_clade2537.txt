@@ -1,0 +1,1 @@
+(((Lepilemur_grewcockorum:1.061158245,Lepilemur_betsileo:1.061158245)7904:1.573085536,Lepilemur_sahamalazensis:2.634243781)7902:5.937038815,((Lepilemur_petteri:2.069495081,Lepilemur_tymerlachsonorum:2.069495081)7905:2.716972018,Lepilemur_ahmansonorum:4.786467099)7903:3.784815497)7901;

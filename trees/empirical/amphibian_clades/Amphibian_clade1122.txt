@@ -1,0 +1,1 @@
+(((Ecnomiohyla_fimbrimembra:0.5248920235,Ecnomiohyla_miotympanum:0.5248920235)8465:21.44871753,Ecnomiohyla_salvaje:21.97360955)8463:2.560200569,((Ecnomiohyla_rabborum:4.323560556,Ecnomiohyla_echinata:4.323560556)8466:14.93992946,Ecnomiohyla_thysanota:19.26349001)8464:5.270320111)8462;

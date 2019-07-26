@@ -1,0 +1,1 @@
+(((Steatomys_jacksoni:4.354931211,Steatomys_krebsii:4.354931211)6082:5.572452319,(Steatomys_opimus:3.113172352,Steatomys_cuppedius:3.113172352)6080:6.814211179)6079:5.535222304,(Steatomys_caurinus:3.994119567,Steatomys_parvus:3.994119567)6081:11.46848627)6078;

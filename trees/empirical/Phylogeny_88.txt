@@ -1,0 +1,1 @@
+((swainsoni:11.2,(cephalotes:24.2,(phaeocephalus:14,panamensis:18,(ferox:13.8,venezuelenais:12.2):16.6):15.9,((tuberculifer:10.7,barbirostris:14.2):3.4,swainsoni2:14.9):3.1):3.9):19.4,(valvus:23.1,((stolicus:5.7,sangrae:4.2):16.3,((antildarum:8.2,oberi:9):8.9,(crinitus:12.5,yucetanensis:24.7,(cinerascens:19.5,tyrannulus:17.6):2.5):5):2.8):8.1):17);

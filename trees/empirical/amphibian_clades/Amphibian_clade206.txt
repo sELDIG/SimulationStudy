@@ -1,0 +1,1 @@
+((((Pristimantis_gutturalis:0.164973801,Pristimantis_tayrona:0.164973801)7548:1.425814994,Pristimantis_grandiceps:1.590788795)7550:5.291086959,Pristimantis_ganonotus:6.881875754)7547:12.50552905,((Pristimantis_jorgevelosai:5.368061692,Pristimantis_guaiquinimensis:5.368061692)7549:6.325084729,Pristimantis_palmeri:11.69314642)7551:7.694258387)7546;

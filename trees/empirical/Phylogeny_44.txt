@@ -1,0 +1,1 @@
+(((((cachunus:0.253,fidelis:0.154):0.034,(eleusis:0.039,miletus:0.037):0.13):0.175,melanogaster:0.691):0.277,(custos:1.213,(olitor:0.448,proditor:0.51):0.299):0.203):0.235,(((smithii:0.159,andersoni:0.159):0.256,(rex:0.395,rufocanus:0.346):0.032):0.471,(glareolus:0.418,(rutilus:0.553,gapperi:0.407):0.066):0.36):0.339);

@@ -1,0 +1,1 @@
+((Neacomys_pictus:3.538327494,Neacomys_dubosti:3.538327494)6441:8.946059173,(Neacomys_spinosus:6.423284618,Neacomys_guianae:6.423284618)6442:6.061102049)6440;

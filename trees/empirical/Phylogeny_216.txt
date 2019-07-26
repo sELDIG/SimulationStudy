@@ -1,0 +1,1 @@
+((minima:23.7,(pusilla:20.9,alpina:22):1.6):0.6,((((((montana:13.3,angusta:14.9):1.7,((rugosa:12,creodoxa:13):0.4,marmarostrssiensis:15.1):0.3):0.2,(hungarica:16.8,major:19.7):0.8):1.5,carpatica:24.2):1.8,(chrysostichta:10,rhodpsoa:13.2):4.9):1.1,pindicola:22.9):3.5);

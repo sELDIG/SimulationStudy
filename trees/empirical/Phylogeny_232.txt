@@ -1,0 +1,1 @@
+((myurus:0.637,edwardii:0.637):0.548,(intufi:0.804,rufescens:0.804):0.414);

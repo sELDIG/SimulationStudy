@@ -1,0 +1,1 @@
+(((((Dendropsophus_pseudomeridianus:2.011319608,Dendropsophus_limai:2.011319608)8780:5.117969653,Dendropsophus_nahdereri:7.129289261)8779:3.926392446,Dendropsophus_gryllatus:11.05568171)8782:4.839186047,Dendropsophus_mathiassoni:15.89486775)8778:0.7667926561,(Dendropsophus_anataliasiasi:4.462380376,Dendropsophus_dutrai:4.462380376)8781:12.19928003)8777;

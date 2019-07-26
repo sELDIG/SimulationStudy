@@ -1,0 +1,1 @@
+(((((hartlaubii:2.9,cirrocephalus:2.9):11,ridibundus:13.9):5.1,(novaehollandiae:8.8,bulleri:8.8):10.2,serranus:19):0.6,maculipennis:19.6):46,(philadelphia:59.4,genei:59.4):6.2);

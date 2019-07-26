@@ -1,0 +1,1 @@
+(((Arvicola_scherman:1.768625588,Arvicola_amphibius:1.768625588)6527:2.16570406,Arvicola_sapidus:3.934329648)6525:3.530619338,((Microtus_dogramacii:1.601201862,Microtus_schidlovskii:1.601201862)6528:2.781675717,Microtus_clarkei:4.382877578)6526:3.082071408)6524;

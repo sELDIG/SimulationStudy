@@ -1,0 +1,1 @@
+(((Telmatobius_macrostomus:1.278346137,Telmatobius_mayoloi:1.278346137)10888:0.9933476926,Telmatobius_atacamensis:2.271693829)10886:5.225437249,(Telmatobius_scrocchii:0.2639726557,Telmatobius_hypselocephalus:0.2639726557)10887:7.233158423)10885;

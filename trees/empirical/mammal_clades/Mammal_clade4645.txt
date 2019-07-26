@@ -1,0 +1,1 @@
+(((Crocidura_andamanensis:1.495760749,Crocidura_trichura:1.495760749)10011:1.629942133,Crocidura_cinderella:3.125702882)10010:0.9156673535,Crocidura_pitmani:4.041370236)10009;

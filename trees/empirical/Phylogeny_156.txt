@@ -1,0 +1,1 @@
+((calx:46.8,((iudicium:13.1,bellum:13.1):5,ventus:18.1):28.3):28.5,(malus:66.5,(arcanus:47.4,((ambersonorum:27.5,polites:27.5):12.5,((falstaffius:27.4,graphicus:27.4):7.5,(othello:26.3,macbeth:26.3):8.6):5.4):7.4):19):9);

@@ -1,0 +1,1 @@
+((((Austrochaperina_minutissima:3.553052331,Austrochaperina_brevipes:3.553052331)12700:1.578116218,Austrochaperina_basipalmata:5.131168549)12703:1.951124531,(Austrochaperina_adelphe:5.516512925,Austrochaperina_macrorhyncha:5.516512925)12702:1.565780156)12699:0.4375422681,(Austrochaperina_parkeri:2.68900755,Austrochaperina_fryi:2.68900755)12701:4.830827799)12698;

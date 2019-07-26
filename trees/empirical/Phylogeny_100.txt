@@ -1,0 +1,1 @@
+((M_basilaris:13.1,atrata:17.9):18.7,(((xanthostoma:1,splendens:2.4):7,(virgo:6,haemorrhoidalis:1.3):2.5):7.1,(cornealia:11.2,(maculata:9.5,(dimidiata:22.2,aequabilis:6.2):1.3):8.8):1.7):1.6);

@@ -1,0 +1,1 @@
+((Atelopus_spumarius:6.527022156,Atelopus_barbotini:6.527022156)10146:0.6825569722,(Atelopus_franciscus:2.166546682,Atelopus_flavescens:2.166546682)10147:5.043032446)10145;

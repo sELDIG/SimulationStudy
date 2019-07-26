@@ -1,0 +1,1 @@
+(((Odorrana_huanggangensis:0.6991159929,Odorrana_mawphlangensis:0.6991159929)11978:0.3362268566,(Odorrana_macrotympana:0.7239032123,Odorrana_splendida:0.7239032123)11976:0.3114396372)11975:10.03616507,(Odorrana_orba:3.881896611,Odorrana_yentuensis:3.881896611)11977:7.18961131)11974;

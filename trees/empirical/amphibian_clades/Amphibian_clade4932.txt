@@ -1,0 +1,1 @@
+(((Platymantis_aculeodactylus:1.035177331,Platymantis_acrochordus:1.035177331)12274:1.490529944,(Platymantis_cornutus:0.3541629581,Platymantis_schmidti:0.3541629581)12275:2.171544318)12273:15.89838495,Platymantis_batantae:18.42409223)12272;

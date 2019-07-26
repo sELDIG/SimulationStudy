@@ -1,0 +1,1 @@
+(((((longispina:0.676,umbra:0.619):0.151,(((thorata:0,rosea1:0):0.218,((rosea2:0.029,hyalina:0):0.05,rosea3:0.102):0.177):0.191,((galeata:0.051,mendotae:0.066):0.299,cucullata:0.56):0.155):0.226):0.561,longiremis:1.168):0.145,(laevis:0.566,dubia:0.859):0.479):0.108,pulex:1.348);

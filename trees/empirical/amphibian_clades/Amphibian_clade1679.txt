@@ -1,0 +1,1 @@
+((((Hyloscirtus_pantostictus:12.93158621,Hyloscirtus_pacha:12.93158621)9024:6.159334294,(Hyloscirtus_tapichalaca:5.067540264,Hyloscirtus_lindae:5.067540264)9022:14.02338024)9021:7.205842489,(Hyloscirtus_armatus:0.9772758101,Hyloscirtus_charazani:0.9772758101)9023:25.31948718)9020:3.097010609,Hyloscirtus_platydactylus:29.3937736)9019;

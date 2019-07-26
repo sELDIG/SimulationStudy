@@ -1,0 +1,1 @@
+(((barbonicus:3.1,(madagascariensis1:10.5,olivaceus:4.6):3.1):2,((crassirotris:5.5,madagascariensis2:11.9):1.7,parvirostris:8.5):3.1):10,philippinus:18.5);

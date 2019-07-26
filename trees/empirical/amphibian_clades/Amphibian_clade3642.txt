@@ -1,0 +1,1 @@
+((((Taudactylus_acutirostris:2.363932248,Taudactylus_rheophilus:2.363932248)10986:7.190848489,Taudactylus_eungellensis:9.554780737)10984:12.36691478,(Taudactylus_diurnus:19.4209309,Taudactylus_liemi:19.4209309)10985:2.500764614)10983:13.02145522,Taudactylus_pleione:34.94315074)10982;

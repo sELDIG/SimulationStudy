@@ -1,0 +1,1 @@
+((Ovis_dalli:1.744400287,Ovis_canadensis:1.744400287)9204:0.8932716065,Ovis_nivicola:2.637671893)9203;

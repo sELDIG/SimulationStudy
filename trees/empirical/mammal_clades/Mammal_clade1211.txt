@@ -1,0 +1,1 @@
+(((Dicrostonyx_hudsonius:2.183300212,Dicrostonyx_vinogradovi:2.183300212)6579:1.438759016,(Dicrostonyx_nunatakensis:1.605588189,Dicrostonyx_richardsoni:1.605588189)6577:2.01647104)6576:0.1463987109,(Dicrostonyx_torquatus:0.8480089383,Dicrostonyx_unalascensis:0.8480089383)6578:2.920449001)6575;

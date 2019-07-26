@@ -1,0 +1,1 @@
+((Dasyurus_spartacus:0.8999952369,Dasyurus_geoffroii:0.8999952369)10545:0.7924676161,Dasyurus_albopunctatus:1.692462853)10544;

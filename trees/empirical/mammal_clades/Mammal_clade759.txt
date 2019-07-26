@@ -1,0 +1,1 @@
+((((Cerradomys_marinhus:0.7835918708,Cerradomys_scotti:0.7835918708)6125:1.139382847,Sooretamys_angouya:1.922974718)6127:1.71791014,Cerradomys_maracajuensis:3.640884858)6124:1.174814191,(Cerradomys_subflavus:1.65257048,Cerradomys_andersoni:1.65257048)6126:3.163128569)6123;

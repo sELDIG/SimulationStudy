@@ -1,0 +1,1 @@
+((((C_castanops:19.7,C_goldmani:21.2):10.8,C_merriami:19.3):5.8,(((C_gymnurus2:12.9,((C_tylorhinus5:1.5,C_nelectus:1):5.2,((C_zinseri:0.9,C_tylorhinus4:1.1):2.9,C_tylorhinus3:2.3):1.9):5.4):2.5,(C_fumosus:1,(C_tylorhinus2:4.8,C_gymnurus1:4.8):0.9):11.5):1.9,C_tylorhinus1:24.1):7.7):13.4,P_bulleri:31.6);

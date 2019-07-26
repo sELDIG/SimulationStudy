@@ -1,0 +1,1 @@
+((((Echimys_semivillosus:2.165951339,Phyllomys_medius:2.165951339)7265:1.151031711,Phyllomys_kerri:3.31698305)7263:3.040392145,(Phyllomys_thomasi:5.022246447,Phyllomys_unicolor:5.022246447)7264:1.335128747)7262:1.312324957,Echimys_chrysurus:7.669700152)7261;

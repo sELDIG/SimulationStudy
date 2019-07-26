@@ -1,0 +1,1 @@
+(((Ichthyophis_kohtaoensis:1.786012628,Ichthyophis_weberi:1.786012628)14669:17.96215568,Ichthyophis_pauli:19.74816831)14667:6.920458928,(Ichthyophis_supachaii:18.7493294,Ichthyophis_laosensis:18.7493294)14668:7.919297828)14666;

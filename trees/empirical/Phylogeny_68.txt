@@ -1,0 +1,1 @@
+(((barberi:38.1,(((((cervula:3.6,gemina:3.2):6.8,erratica:10.2):2.3,((((damula:0,perparva:5):0.1,verticalis:3.1):3,posita:6.8,demorsa:4.8):2.9,denticollis:10.1):6.3):6.8,kellicotti:39):8.2,(hastata:35.2,prognatha:28.3):4.3):6.2):3.9,ramburii:37.4):4.9,capreola:63.2);

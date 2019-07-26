@@ -1,0 +1,1 @@
+((((Philautus_mjobergi:9.375043094,Philautus_petersi:9.375043094)11187:7.080202307,(Philautus_acutirostris:4.954426241,Philautus_surdus:4.954426241)11185:11.50081916)11184:3.155995415,(Philautus_aurifasciatus:10.15786081,Philautus_abditus:10.15786081)11186:9.453380009)11183:9.55703429,Philautus_ingeri:29.16827511)11182;

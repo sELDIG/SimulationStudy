@@ -1,0 +1,1 @@
+((sp1:19.1,bifoliatum:19.1):22.5,((((micrantherum:28.6,sp2:28.6):4.4,((koribanum:22.2,puncticulatum:22.2):1.6,(floribundum:1.8,japonicum:1.8):22):9):2.8,griffithi:36):2.6,sp3:38.5):3.2);

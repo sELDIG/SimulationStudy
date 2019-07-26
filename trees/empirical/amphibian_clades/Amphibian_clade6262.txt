@@ -1,0 +1,1 @@
+(((Scutiger_pingwuensis:2.432203779,Scutiger_sikimmensis:2.432203779)13605:3.805784899,Scutiger_adungensis:6.237988678)13603:7.736913536,(Scutiger_liupanensis:6.273560128,Scutiger_brevipes:6.273560128)13604:7.701342086)13602;

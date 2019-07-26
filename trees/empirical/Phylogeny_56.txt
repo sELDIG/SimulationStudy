@@ -1,0 +1,1 @@
+((((U_arctos:0.37,U_maritimus:0.215):0.215,(U_thibetanus:0.469,U_americanus:0.133):0.136):0.486,(H_malayanus:0.234,M_ursinus:0.529):0.516):0.483,T_ornatus:1.548);

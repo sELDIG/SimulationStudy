@@ -1,0 +1,1 @@
+(((((((albafrons:5.7,cinerea:2.7,rufvertex:5.2):0.1,fluvitucha:3.7):0.1,juvinensis:9.6):0.1,alpina:7.2):6.3,(((albilora:6.4,macloviavea:3):2,alpina:6.6):1.1,(capistrata:4.7,frontalis:3.6):4.9):3.4):33.5,maculirastris:50.2):4.9,fluviatilis:54.1);

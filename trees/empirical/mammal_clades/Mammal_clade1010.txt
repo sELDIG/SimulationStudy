@@ -1,0 +1,1 @@
+(((((Thomasomys_ucucha:1.500181362,Thomasomys_baeops:1.500181362)6380:1.241428737,Thomasomys_notatus:2.741610099)6376:2.698389901,Thomasomys_rosalinda:5.44)6379:0,Thomasomys_macrotis:5.44)6375:0,((Thomasomys_gracilis:3.006001403,Thomasomys_cinnameus:3.006001403)6378:1.843998597,Thomasomys_incanus:4.85)6377:0.59)6374;

@@ -1,0 +1,1 @@
+((((admirabilis:9.3,(cetoana:10.7,longiflora:10.9):3.6):4.9,erecta:5.5):19.6,(((((candida:15.7,grandiflora:17.9):5.5,(antirhina:0,pedunculata:2.9):12.5):6.3,((((dileis:4.5,mexicana:5.1):1.4,((flava:5.6,occidentalis:9.9):1.3,hintoniana:3.2):1.3):3.2,patens:4.5):1.3,woodii:5.9):1.5):2.3,majaritensis:23.9):11.7,fubriata:43.6):19.5):2.8,(misera:19.5,glabrata:58.7):2.8);

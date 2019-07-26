@@ -1,0 +1,1 @@
+(((Eleutherodactylus_cavernicola:0.6502501805,Eleutherodactylus_grabhami:0.6502501805)8171:3.711327035,Eleutherodactylus_sisyphodemus:4.361577215)8169:3.30220563,((Eleutherodactylus_andrewsi:0.410865373,Eleutherodactylus_nubicola:0.410865373)8172:3.415346918,Eleutherodactylus_jamaicensis:3.826212291)8170:3.837570554)8168;

@@ -1,0 +1,1 @@
+(sibialis:1.143,((areolusoni:0.022,finnipes:0.02):0.918,(hageni:0.68,virginicus:0.558):0.305):0.034);

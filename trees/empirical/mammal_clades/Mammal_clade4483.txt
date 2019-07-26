@@ -1,0 +1,1 @@
+((((((Crocidura_buettikoferi:5.637885271,Crocidura_theresae:5.637885271)9851:0.6677561358,Crocidura_grandiceps:6.305641407)9850:0.4683107609,Crocidura_batesi:6.773952168)9853:0.5825877708,Crocidura_hildegardeae:7.356539938)9849:0.4546130718,(Crocidura_mariquensis:6.711260505,Crocidura_silacea:6.711260505)9852:1.099892505)9848:0.4224335176,Crocidura_cyanea:8.233586528)9847;

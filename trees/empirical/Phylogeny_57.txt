@@ -1,0 +1,1 @@
+(((T_rotundum:19.4,T_boucomonti:18.5):3.2,T_major:19.5):3.1,((((T_aeneopiceum:19.1,T_subvolitans:14.4):5.5,(T_involucre:23.2,(T_lewisense:13.9,T_monteithi:18):3):4.9):3.2,((((T_reyi:12.4,T_politulum:1.4):9.5,T_cooki:18):4.7,T_finnigani:22.3):3.1,T_disruptum:21.7):2.2):5.4,(T_laeve:26.1,T_bornemisszai:14.2):5.4):0.4);

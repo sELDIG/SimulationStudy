@@ -1,0 +1,1 @@
+((Euroscaptor_grandis:1.804985936,Euroscaptor_micrura:1.804985936)10243:5.827302043,(Euroscaptor_klossi:7.36030089,Euroscaptor_mizura:7.36030089)10244:0.2719870888)10242;

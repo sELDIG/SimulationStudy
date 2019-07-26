@@ -1,0 +1,1 @@
+((Phrynobatrachus_batesii:7.94679091,Phrynobatrachus_taiensis:7.94679091)12528:1.50989069,(Phrynobatrachus_pallidus:1.628541887,Phrynobatrachus_steindachneri:1.628541887)12529:7.828139714)12527;

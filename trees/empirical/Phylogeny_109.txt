@@ -1,0 +1,1 @@
+(species:58.2,(caprai:22.7,(attenuata2:21,attenuata1:21,attenuata3:21,montana:21):2.2):35.6);

@@ -1,0 +1,1 @@
+(((Gastrotheca_splendens:1.626972159,Gastrotheca_pachachacae:1.626972159)10622:2.210212891,Gastrotheca_microdiscus:3.83718505)10620:20.33437118,(Gastrotheca_andaquiensis:16.44715826,Gastrotheca_fissipes:16.44715826)10621:7.72439797)10619;

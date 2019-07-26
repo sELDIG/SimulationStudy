@@ -1,0 +1,1 @@
+((Hylomyscus_denniae:0.505726641,Hylomyscus_alleni:0.505726641)5772:1.295047751,(Hylomyscus_baeri:1.210276749,Hylomyscus_grandis:1.210276749)5773:0.5904976432)5771;

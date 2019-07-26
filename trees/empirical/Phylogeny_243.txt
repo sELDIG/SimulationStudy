@@ -1,0 +1,1 @@
+((((((magnirostris:0.19,difficilis:0.361,scandens:0.332):0.078,(conirostris:0.332,fortis:0.332):0.09):0.111,fuliginosa:0.852):0.646,(inornata:2.055,((pallida:0.696,psittacula:0.286):0.225,(pauper:0.656,parvulus:0.548):0.203):0.123):0.182):0.692,crassirostris:3.022):1.201,olivacea:3.016);

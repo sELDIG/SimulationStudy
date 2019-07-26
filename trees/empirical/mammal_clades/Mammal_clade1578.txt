@@ -1,0 +1,1 @@
+(((Urocitellus_brunneus:2.694388956,Urocitellus_townsendi:2.694388956)6945:0.7300967222,Urocitellus_beldingi:3.424485678)6943:0.4561487013,((Urocitellus_richardsonii:2.199495119,Urocitellus_armatus:2.199495119)6946:0.9825894654,Urocitellus_columbianus:3.182084584)6944:0.6985497947)6942;

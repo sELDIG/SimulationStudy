@@ -1,0 +1,1 @@
+(((rubra:1.987,wrightii:0):1.142,humifusa:2.495):0.145,((acerosa:1.634,palmeri:0.354):0.425,(nigricans:0.246,butterwickiae:0.324):0.314):0.189);

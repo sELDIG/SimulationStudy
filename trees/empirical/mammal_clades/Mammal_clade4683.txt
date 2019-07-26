@@ -1,0 +1,1 @@
+(((((Myosorex_geata:1.055439623,Myosorex_varius:1.055439623)10052:0.2682534733,Myosorex_cafer:1.323693096)10050:9.676306904,(Myosorex_kihaulei:1.707457126,Myosorex_babaulti:1.707457126)10051:9.292542874)10049:0,Myosorex_blarina:11)10048:5.3,Myosorex_rumpii:16.3)10047;

@@ -1,0 +1,1 @@
+((schreibersii:7.2,(macrocneme:2,australis:2.5):2):1.6,((natalensis:2.7,(((fraterculus:3.1,inflatus:3.3):2,spp:3.5):1,manavi:1.7):2.9):2.6,schreibersii:3.4):5.9);

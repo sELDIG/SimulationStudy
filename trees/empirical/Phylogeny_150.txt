@@ -1,0 +1,1 @@
+(((fisheri:0.207,regia:0.215):0.056,(((nigeriae:0,camerunensis:0,raricola:0,maryae:0,larvaticola:0,wilsoni:0):0.075,(funerea:0,purpurascens:0,codringtoni:0,chalybeata:0):0.075):0.05,chalybeata:0.126):0.149):0.447,((((paradisaea:0.059,obtusa:0.059):0.057,(orientalis:0.032,(interjecta:0,togoensis:0):0.032):0.074):0.469,macroura:0.586):0.08,hypocherina:0.656):0.077);

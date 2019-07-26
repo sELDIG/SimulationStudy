@@ -1,0 +1,1 @@
+((((Anomaloglossus_moffetti:0.6804856766,Anomaloglossus_lacrimosus:0.6804856766)10505:3.816244688,Anomaloglossus_murisipanensis:4.496730365)10504:0.7414452812,Anomaloglossus_kaiei:5.238175646)10503:1.199134442,Anomaloglossus_shrevei:6.437310088)10502;

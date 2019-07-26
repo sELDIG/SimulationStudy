@@ -1,0 +1,1 @@
+((((sandwicensis:0.978,chinensis:0.978):1.064,(punjabensis:1.755,coriaria:1.755):0.31):0.404,((capallina:0.267,lanceolata:0.267):2.106,(typhina:0.454,glabra:0.454):1.924):0.087):0.338,(((ovata:0.252,integrifolia:0.252):1.274,((virens:0.516,choriophylla:0.516):0.484,(schiedeana:0.55,kearneyi:0.55):0.434):0.542):0.523,(trilobata:0.451,aromatica:0.451):1.554):0.738);

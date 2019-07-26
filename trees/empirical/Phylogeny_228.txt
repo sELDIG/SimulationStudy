@@ -1,0 +1,1 @@
+(gibbosa:0.72,(digitata:0.654,((grandidieri:0.143,suarezensis:0.143):0.162,rubrostipa:0.288,((madagascariensis:0.105,perrieri:0.112):0.038,za:0.123):0.16):0.371):0.073);

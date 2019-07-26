@@ -1,0 +1,1 @@
+(((T_graeca:1.434,(T_kleinmanni:0.486,T_marginata:0.662):1.028):0.328,(T_hermanni:0.661,(T_horsfieldii:1.084,I_elongata:1.954):0.121):0.354):0.319,((G_sulcata:1.305,G_pardalis:2.216):0.093,(G_denticulata:1.817,G_carbonaria:1.516):1.897):0.147);

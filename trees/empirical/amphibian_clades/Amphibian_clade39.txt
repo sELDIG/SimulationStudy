@@ -1,0 +1,1 @@
+(((Pristimantis_croceoinguinis:8.018982825,Pristimantis_llojsintuta:8.018982825)7383:3.651501086,(Pristimantis_imitatrix:1.967732775,Pristimantis_lirellus:1.967732775)7381:9.702751135)7380:1.274468598,((Pristimantis_inguinalis:4.019878794,Pristimantis_marmoratus:4.019878794)7384:8.31307835,Pristimantis_pulvinatus:12.33295714)7382:0.6119953651)7379;

@@ -1,0 +1,1 @@
+(((Sphaerotheca_breviceps:7.181480731,Sphaerotheca_strachani:7.181480731)11774:2.305538449,(Sphaerotheca_dobsonii:1.624298383,Sphaerotheca_leucorhynchus:1.624298383)11775:7.862720798)11773:8.79319435,Sphaerotheca_rolandae:18.28021353)11772;

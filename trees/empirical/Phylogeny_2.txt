@@ -1,0 +1,1 @@
+(((chrysomela:30.9,leucotis:17.1):21.3,(C_hamlini:32.5,((melanopsis:6.8,frater:8.2):3.9,(cinerascens:11,(castaneiventris:6.8,richardsii:3.5):4):1.2):16.3):15.3):9.6,(((((infelix:8.4,(guttula:4.4,trivirgatus:2.8):2.6):4.8,(barbatus:13.3,browni:11.7):0.5):5.5,trivirgatus:13):19.4,axillaris:43):3.8,(mandensis:27.2,verticalis:16.2):22.2):22.1);

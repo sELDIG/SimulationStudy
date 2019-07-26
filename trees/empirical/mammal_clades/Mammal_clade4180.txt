@@ -1,0 +1,1 @@
+((Mustela_putorius:0.9207421185,Mustela_eversmannii:0.9207421185)9545:0.8269828013,(Mustela_nigripes:0.6472664892,Mustela_lutreola:0.6472664892)9546:1.100458431)9544;

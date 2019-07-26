@@ -1,0 +1,1 @@
+((((Ochotona_hyperborea:4.055684083,Ochotona_hoffmanni:4.055684083)7567:1.291944002,(Ochotona_alpina:2.697387019,Ochotona_turuchanensis:2.697387019)7568:2.650241066)7570:1.203311039,Ochotona_pallasi:6.550939125)7566:1.640095612,(Ochotona_princeps:4.742757616,Ochotona_collaris:4.742757616)7569:3.448277121)7565;

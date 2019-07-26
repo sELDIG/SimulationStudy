@@ -1,0 +1,1 @@
+(((Osornophryne_antisana:1.023026818,Osornophryne_bufoniformis:1.023026818)10206:2.511303138,Osornophryne_puruanta:3.534329956)10204:14.7264239,((Osornophryne_percrassa:2.816995938,Osornophryne_talipes:2.816995938)10207:0.0139721466,Osornophryne_angel:2.830968084)10205:15.42978577)10203;

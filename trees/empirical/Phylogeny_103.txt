@@ -1,0 +1,1 @@
+((cadaveriria:0.459,regilla:0.456):0.445,((ornata:0.57,(streckeri:0.105,illinoiensis:0.051):0.489):0.45,((occularis:0.588,crucifer:0.635):0.393,((bremleyi:0.153,brachyphona:0.226):0.209,(((nigrita:0.241,feriarum:0.186):0.105,(kalmi:0.072,(triseriata:0.094,feriarum:0.111):0.06):0.111):0.096,(maculata:0.086,triseriata:0.074,clarkii:0.072):0.168):0.125):0.281):0.16):0.286);

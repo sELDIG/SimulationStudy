@@ -1,0 +1,1 @@
+((((Leptopelis_anchietae:0.1716059792,Leptopelis_lebeaui:0.1716059792)13334:1.126718563,Leptopelis_spiritusnoctis:1.298324543)13336:0.501090706,Leptopelis_boulengeri:1.799415249)13333:6.516883042,(Leptopelis_jordani:5.380566883,Leptopelis_macrotis:5.380566883)13335:2.935731408)13332;

@@ -1,0 +1,1 @@
+((bowhead_whale:17.1,(northern_right_whale:4.4,southern_right_whale:4.4):12.7):10.2,(pygmy_right_whale:23.3,(gray_whale:19.3,(blue_whale:15,(Brydes_whale:6.9,Sei_whale:6.9):8.1):4.3,(humpback_whale:15.3,fin_whale:15.3):4,(Antarctic_minke_whale:10.4,North_Atalntic_minke_whale:10.4):8.9):4):4);

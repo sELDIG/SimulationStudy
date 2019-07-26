@@ -1,0 +1,1 @@
+(((lugubris:0.234,pratensis:0.234,aquilonia:0.234):2.586,pratensis:2.56):0.996,(polyctena:0.222,rufa:0.222):1.816);

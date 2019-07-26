@@ -1,0 +1,1 @@
+((Telmatobius_edaphonastes:0.7608699329,Telmatobius_hockingi:0.7608699329)10882:0.3458805803,(Telmatobius_niger:0.4141863253,Telmatobius_zapahuirensis:0.4141863253)10883:0.6925641878)10881;

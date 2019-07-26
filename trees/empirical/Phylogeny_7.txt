@@ -1,0 +1,1 @@
+(((((((M_albifacies:35,((M_cardonai:1.9,M_castaneocapillis2:4.6):16.8,M_castaneocapillus1:20):8.1):2,M_pariae:35.6):5.2,M_flavivertex:36.4):2.5,(M_torquatus:47.5,((M_melanocephalus2:11.5,(M_melanocephalus1:5.6,M_ornatus:5.6):2):20.2,M_albifrons:23.7):10):1.5):1.9,M_brunniceps:38.6):9.5,M_miniatus:56.9):13.3,M_pictus:68.4);

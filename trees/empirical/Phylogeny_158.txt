@@ -1,0 +1,1 @@
+((((carbo:3,toradjarum:4):9.8,(neritiformis:0,porcellanica:3,centaurus:0):13.2):5.6,kuli:24.3):10.2,((gemmifera:4.1,patriarchalis:5,zeamais:6.6):6.5,(towutensis:3.2,towutica:0):9.1):10.8,(kruimeli:14,(insulaesacrae:2.2,sarasinorum:3.2):9.1):17.3,perfecta:16.8);

@@ -1,0 +1,1 @@
+((((((vitelinus:0.453,brevis:0.395):0.141,vitelinus:0.521):0.73,dicolorus:0.93):0.166,sulfuratus:0.909):0.208,((culverei:0.059,tucanus:0.092):0.554,(swainsoni:0.149,ambiguus:0.219):0.439):0.376):0.464,toco:1.453);

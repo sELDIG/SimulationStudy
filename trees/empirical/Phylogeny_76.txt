@@ -1,0 +1,1 @@
+((((angularis:3.7,appendiculatus:4.6):10,canariensis:5.5):26.6,rectus:62.6):3.4,(((((gomerensis:2.4,spretus:5.5):10.4,(marcellae:11.7,(obliteratus:12.6,refleximargo:12.4):2.2):2.3):2.1,pilosipennis:23.1):7.1,(cognatus:14.5,laureticola:25.6):3.1):15,abaxoides:73.7):3.8);

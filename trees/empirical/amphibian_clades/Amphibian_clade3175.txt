@@ -1,0 +1,1 @@
+(((((Allobates_crombiei:0.2007651299,Allobates_fratisenescus:0.2007651299)10518:3.020025191,Allobates_granti:3.220790321)10521:4.588400092,(Allobates_ranoides:4.279133815,Allobates_kingsburyi:4.279133815)10520:3.530056598)10517:1.2790282,(Allobates_myersi:7.602130988,Allobates_subfolionidificans:7.602130988)10519:1.486087626)10516:7.191440649,Allobates_pittieri:16.27965926)10515;

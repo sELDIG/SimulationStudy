@@ -1,0 +1,1 @@
+(((((Discoglossus_scovazzi:7.027517402,Discoglossus_sardus:7.027517402)13751:9.373297595,(Discoglossus_jeanneae:9.301105537,Discoglossus_galganoi:9.301105537)13752:7.09970946)13750:2.329941888,Discoglossus_pictus:18.73075688)13749:7.542746999,Discoglossus_montalentii:26.27350388)13748:26.98140134,Latonia_nigriventer:53.25490522)13747;

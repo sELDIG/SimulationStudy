@@ -1,0 +1,1 @@
+(((Procyon_cancrivorus:1.593208889,Procyon_lotor:1.593208889)9585:7.555868611,Procyon_pygmaeus:9.1490775)9583:5.409179511,(Bassariscus_sumichrasti:7.389577819,Bassariscus_astutus:7.389577819)9584:7.168679192)9582;

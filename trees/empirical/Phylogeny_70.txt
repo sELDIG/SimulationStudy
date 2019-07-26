@@ -1,0 +1,1 @@
+((((cantabrica:1.4,monticola:1.4):2,martinezricai:3.4):5.1,(cyreni:0.8,castiliana:0.8):7.7):0,(((aranica:3.9,bonnali:3.9):0,aurelioi:3.9):4.6,horvathi:8.5):0);

@@ -1,0 +1,1 @@
+((((arizonicus:0.087,(sonoranus:0.038,sanpedroensis:0.049,parthenioides:0.049):0.059):0.054,sonoranus:0.122):0.051,dissectus:0.302):0.555,insularis:0.626);

@@ -1,0 +1,1 @@
+(((Ptychadena_boettgeri:0.4088155968,Ptychadena_schillukorum:0.4088155968)12426:2.44017703,Ptychadena_neumanni:2.848992627)12424:2.822748488,(Ptychadena_obscura:2.648124459,Ptychadena_tournieri:2.648124459)12425:3.023616657)12423;

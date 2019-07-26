@@ -1,0 +1,1 @@
+((Sorex_excelsus:0.5511414771,Sorex_bedfordiae:0.5511414771)10100:13.34192686,Sorex_alpinus:13.89306833)10099;

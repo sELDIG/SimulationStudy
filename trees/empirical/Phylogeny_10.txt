@@ -1,0 +1,1 @@
+((comus:19.2,oiostolus:11.1):4.1,(((((((melainus:2.2,mandschuricus:4.5):10.7,yarkdensis:26.6):9.4,timidus2:5.7):15.6,capensis:10.5):2.3,timidus1:10.7):8.1,sinensis:20.4):3.9,hainanus:22):2.4);

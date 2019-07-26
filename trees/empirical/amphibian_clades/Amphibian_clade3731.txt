@@ -1,0 +1,1 @@
+((((Rhacophorus_dulitensis:0.9379998789,Rhacophorus_nigropalmatus:0.9379998789)11073:2.906215868,Rhacophorus_borneensis:3.844215747)11075:7.807894532,Rhacophorus_yinggelingensis:11.65211028)11072:2.968822341,(Rhacophorus_monticola:3.026592095,Rhacophorus_gauni:3.026592095)11074:11.59434052)11071;

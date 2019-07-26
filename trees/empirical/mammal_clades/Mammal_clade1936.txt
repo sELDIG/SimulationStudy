@@ -1,0 +1,1 @@
+(((Proechimys_oris:2.942554023,Proechimys_quadruplicatus:2.942554023)7303:5.798921681,Proechimys_simonsi:8.741475704)7301:1.248524296,(Proechimys_roberti:4.995434499,Proechimys_longicaudatus:4.995434499)7302:4.994565501)7300;
