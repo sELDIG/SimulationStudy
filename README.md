@@ -27,3 +27,10 @@ should match the tip labels in the tree file), and one column for each trait (en
 
 3) Place site x species info for each simulation in the 'sitexspecies' folder (if applicable). Files should be labeled mm_xxxxx_sites.csv, and include a 
 site (or grid cell ID) column and a species column (i.e. long format), followed by an abundance column if applicable.
+
+## Exploring trees in PCA space
+To explore trees in PCA space, either across all models or for just a single model, first clone this repository to your local machine.
+
+Open the repo and click on the simulationstudy.Rproj file which will open the project in RStudio. The file `treeAnalysis.r` provides a guideline for how you can explore the data yourself.
+
+You can view the knitted Rmarkdown file by opening `simulation_comparison.Rmd` and click the `Knit` button.
