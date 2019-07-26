@@ -1,1 +1,0 @@
-(((((Ichthyophis_mindanaoensis:0.3301160273,Ichthyophis_husaini:0.3301160273)14637:2.538485552,Ichthyophis_khumhzi:2.868601579)14639:1.007749731,Ichthyophis_bernisi:3.87635131)14636:8.53653697,(Ichthyophis_sumatranus:5.120548495,Ichthyophis_nguyenorum:5.120548495)14638:7.292339785)14635:6.555973089,Ichthyophis_garoensis:18.96886137)14634;

@@ -1,1 +1,0 @@
-((((Pogonomys_fergussoniensis:0.682304424,Pogonomys_sylvestris:0.682304424)5815:2.954724597,Pogonomys_loriae:3.637029021)5814:4.175871248,Pogonomys_macrourus:7.812900269)5813:6.662099731,Pogonomys_championi:14.475)5812;

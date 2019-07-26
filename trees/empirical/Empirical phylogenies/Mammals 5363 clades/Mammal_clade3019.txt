@@ -1,1 +1,0 @@
-(((Scotophilus_leucogaster:2.836430809,Scotophilus_viridis:2.836430809)8387:1.206906082,(Scotophilus_borbonicus:2.538129552,Scotophilus_dinganii:2.538129552)8385:1.505207339)8384:1.221862202,(Scotophilus_heathii:4.365716517,Scotophilus_nigrita:4.365716517)8386:0.8994825757)8383;

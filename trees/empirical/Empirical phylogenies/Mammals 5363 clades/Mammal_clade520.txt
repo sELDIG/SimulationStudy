@@ -1,1 +1,0 @@
-((Maxomys_alticola:1.474331555,Maxomys_hellwaldii:1.474331555)5885:5.174909814,(Maxomys_pagensis:1.950666759,Maxomys_panglima:1.950666759)5886:4.69857461)5884;

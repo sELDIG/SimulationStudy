@@ -1,1 +1,0 @@
-(((Kalophrynus_palmatissimus:0.1687522194,Kalophrynus_baluensis:0.1687522194)12991:3.026998026,(Kalophrynus_intermedius:3.02524206,Kalophrynus_pleurostigma:3.02524206)12989:0.1705081857)12988:5.050455624,(Kalophrynus_calciphilus:6.841918464,Kalophrynus_eok:6.841918464)12990:1.404287405)12987;

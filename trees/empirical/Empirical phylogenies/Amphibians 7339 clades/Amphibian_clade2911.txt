@@ -1,1 +1,0 @@
-((((Parapelophryne_scalpta:4.708178528,Metaphryniscus_sosai:4.708178528)10253:0.08683847219,Laurentophryne_parkeri:4.795017)10255:1.744050344,Nimbaphrynoides_occidentalis:6.539067343)10252:30.30929645,(Frostius_erythrophthalmus:25.98753382,Frostius_pernambucensis:25.98753382)10254:10.86082997)10251;

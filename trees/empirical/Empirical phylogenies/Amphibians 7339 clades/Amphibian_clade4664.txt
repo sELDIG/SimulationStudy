@@ -1,1 +1,0 @@
-((((Meristogenys_jerboa:2.443842368,Meristogenys_phaeomerus:2.443842368)12008:1.367826739,Meristogenys_poecilus:3.811669107)12006:3.629291908,(Meristogenys_orphnocnemis:7.367265236,Meristogenys_whiteheadi:7.367265236)12007:0.07369577891)12005:4.321261613,Meristogenys_kinabaluensis:11.76222263)12004;

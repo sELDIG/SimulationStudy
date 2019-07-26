@@ -1,1 +1,0 @@
-((((Rhacophorus_viridis:5.365500725,Rhacophorus_vampyrus:5.365500725)11065:3.128635742,Rhacophorus_robinsonii:8.494136467)11067:2.160750186,Rhacophorus_angulirostris:10.65488665)11064:0.3477280697,((Rhacophorus_taipeianus:1.467991023,Rhacophorus_calcadensis:1.467991023)11066:5.770969778,Rhacophorus_penanorum:7.238960801)11068:3.763653923)11063;

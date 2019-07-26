@@ -1,1 +1,0 @@
-((((Scinax_pedromedinae:0.9733483882,Scinax_atratus:0.9733483882)8693:0.3920659895,Scinax_carnevallii:1.365414378)8692:0.6621410958,Scinax_quinquefasciatus:2.027555474)8691:9.353747609,Scinax_cretatus:11.38130308)8690;

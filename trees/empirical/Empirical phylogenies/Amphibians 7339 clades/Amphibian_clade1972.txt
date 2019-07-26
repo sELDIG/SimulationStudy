@@ -1,1 +1,0 @@
-((((Leptodactylus_validus:0.2338235088,Leptodactylus_pallidirostris:0.2338235088)9315:7.888401581,Leptodactylus_wagneri:8.12222509)9314:7.560672191,Leptodactylus_melanonotus:15.68289728)9313:0.2640970494,Leptodactylus_leptodactyloides:15.94699433)9312;

@@ -1,1 +1,0 @@
-(((((Microhyla_sholigari:2.769442354,Microhyla_zeylanica:2.769442354)12863:1.405565238,Microhyla_malang:4.175007592)12862:1.841914596,Microhyla_berdmorei:6.016922188)12865:6.787620011,Microhyla_nanapollexa:12.8045422)12861:2.664154732,(Microhyla_pulchra:14.13180141,Microhyla_okinavensis:14.13180141)12864:1.336895517)12860;

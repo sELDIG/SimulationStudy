@@ -1,1 +1,0 @@
-(((Cynomops_mexicanus:3.721236387,Cynomops_abrasus:3.721236387)8503:3.634916842,(Cynomops_paranus:3.333679929,Cynomops_planirostris:3.333679929)8504:4.0224733)8502:5.193846771,Cynomops_greenhalli:12.55)8501;

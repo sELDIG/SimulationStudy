@@ -1,1 +1,0 @@
-((((Chimarrogale_platycephala:1.255008689,Chimarrogale_himalayica:1.255008689)10159:6.034466251,Chimarrogale_phaeura:7.28947494)10157:9.97002556,((Chimarrogale_hantu:2.538365887,Chimarrogale_platycephalus:2.538365887)10160:3.045893339,Chimarrogale_sumatrana:5.584259226)10158:11.67524127)10156:0.0404995,Chimarrogale_styani:17.3)10155;

@@ -1,1 +1,0 @@
-((Liophryne_rhododactyla:15.88627472,Liophryne_dentata:15.88627472)12755:1.992381161,(Liophryne_similis:14.61028884,Liophryne_allisoni:14.61028884)12756:3.268367046)12754;

@@ -1,1 +1,0 @@
-(((((Niviventer_confucianus:0.7974815197,Niviventer_rapit:0.7974815197)5614:3.085163745,Niviventer_fulvescens:3.882645265)5613:3.623095224,(Niviventer_niviventer:2.169535494,Niviventer_culturatus:2.169535494)5616:5.336204995)5617:0.7892782822,Micromys_minutus:8.295018771)5612:4.271503092,(Niviventer_excelsior:2.900653199,Niviventer_fraternus:2.900653199)5615:9.665868663)5611;

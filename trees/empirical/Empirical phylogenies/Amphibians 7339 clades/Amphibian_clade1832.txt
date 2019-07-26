@@ -1,1 +1,0 @@
-(((Litoria_barringtonensis:1.573214068,Litoria_pearsoniana:1.573214068)9174:3.685885385,(Litoria_phyllochroa:2.1120607,Litoria_nudidigitus:2.1120607)9175:3.147038754)9173:2.88227389,Litoria_citropa:8.141373344)9172;

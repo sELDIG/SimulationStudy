@@ -1,1 +1,0 @@
-((((Aparasphenodon_bokermanni:0.3179575263,Aparasphenodon_pomba:0.3179575263)8602:1.941169119,Aparasphenodon_arapapa:2.259126645)8601:2.774801131,Aparasphenodon_venezolanus:5.033927776)8600:15.10755396,Aparasphenodon_brunoi:20.14148173)8599;

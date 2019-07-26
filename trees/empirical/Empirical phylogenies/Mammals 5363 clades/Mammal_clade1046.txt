@@ -1,1 +1,0 @@
-((Lenoxus_apicalis:3.713428501,Irenomys_tarsalis:3.713428501)6411:1.255642453,(Bolomys_urichi:2.255254181,Rhagomys_rufescens:2.255254181)6412:2.713816773)6410;

@@ -1,1 +1,0 @@
-(((Miniopterus_magnater:1.606238131,Miniopterus_sororculus:1.606238131)8536:1.763524116,Miniopterus_shortridgei:3.369762247)8535:1.676807496,Miniopterus_newtoni:5.046569743)8534;

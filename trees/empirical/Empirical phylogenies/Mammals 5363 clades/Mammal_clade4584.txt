@@ -1,1 +1,0 @@
-(((Crocidura_rapax:2.616443718,Crocidura_denti:2.616443718)9951:1.410481279,Crocidura_miya:4.026924996)9949:6.073075004,((Crocidura_dolichura:1.489556369,Crocidura_tarfayensis:1.489556369)9952:8.610443631,Crocidura_planiceps:10.1)9950:0)9948;

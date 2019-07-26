@@ -1,1 +1,0 @@
-((Phrynopus_nicoleae:7.061464726,Phrynopus_heimorum:7.061464726)7892:0.7582306505,(Phrynopus_tribulosus:0.6823003231,Phrynopus_auriculatus:0.6823003231)7893:7.137395053)7891;

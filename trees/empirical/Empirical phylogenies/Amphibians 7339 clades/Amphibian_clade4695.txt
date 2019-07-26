@@ -1,1 +1,0 @@
-(((Hylarana_celebensis:9.79888472,Hylarana_leptoglossa:9.79888472)12037:4.577952602,(Hylarana_rufipes:11.9185636,Hylarana_chitwanensis:11.9185636)12038:2.458273727)12036:0.1654744778,Hylarana_albotuberculata:14.5423118)12035;

@@ -1,1 +1,0 @@
-(((Rhinopithecus_roxellana:1.824787574,Rhinopithecus_brelichi:1.824787574)7696:0.5192412947,(Rhinopithecus_bieti:0.7849918736,Rhinopithecus_strykeri:0.7849918736)7697:1.559036995)7695:0.4901889217,Rhinopithecus_avunculus:2.834217791)7694;

@@ -1,1 +1,0 @@
-(((Pipistrellus_lophurus:1.177708434,Pipistrellus_macrotis:1.177708434)8179:5.613357197,(Pipistrellus_rendalli:2.029648508,Pipistrellus_guineensis:2.029648508)8177:4.761417122)8176:3.577567399,(Pipistrellus_tenuipinnis:2.537959252,Pipistrellus_musciculus:2.537959252)8178:7.830673778)8175;

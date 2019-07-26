@@ -1,1 +1,0 @@
-(((Philautus_cinerascens:2.422988806,Philautus_juliandringi:2.422988806)11153:0.2604752545,(Philautus_amoenus:1.536293763,Philautus_similipalensis:1.536293763)11151:1.147170298)11150:6.35708786,(Philautus_poecilius:6.90549224,Philautus_kakipanjang:6.90549224)11152:2.13505968)11149;

@@ -1,1 +1,0 @@
-(((Dactylomys_dactylinus:2.897815785,Dactylomys_peruanus:2.897815785)7279:0.5408039368,Dactylomys_boliviensis:3.438619721)7278:7.012555912,Kannabateomys_amblyonyx:10.45117563)7277;

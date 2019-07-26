@@ -1,1 +1,0 @@
-(((Ingerophrynus_galeatus:3.847144368,Ingerophrynus_macrotis:3.847144368)9886:0.4429550586,Ingerophrynus_philippinicus:4.290099427)9884:2.468960854,(Ingerophrynus_biporcatus:4.008270284,Ingerophrynus_divergens:4.008270284)9885:2.750789997)9883;

@@ -1,1 +1,0 @@
-(((Eumops_auripendulus:5.032646191,Eumops_underwoodi:5.032646191)8487:4.989072052,Eumops_maurus:10.02171824)8485:5.450996797,(Eumops_trumbulli:5.301425864,Eumops_dabbenei:5.301425864)8486:10.17128917)8484;

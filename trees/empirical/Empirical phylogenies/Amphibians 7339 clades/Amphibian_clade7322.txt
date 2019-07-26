@@ -1,1 +1,0 @@
-(((Ichthyophis_monochrous:3.693727392,Ichthyophis_javanicus:3.693727392)14664:0.5390551842,Ichthyophis_paucisulcus:4.232782576)14663:0.976847958,Ichthyophis_paucidentulus:5.209630534)14662;

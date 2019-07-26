@@ -1,1 +1,0 @@
-((((Cycloramphus_stejnegeri:1.167811443,Cycloramphus_juimirim:1.167811443)10743:4.499885032,Cycloramphus_organensis:5.667696474)10741:17.62822748,(Cycloramphus_bandeirensis:8.429397204,Cycloramphus_eleutherodactylus:8.429397204)10742:14.86652675)10740:4.438600851,Cycloramphus_valae:27.7345248)10739;

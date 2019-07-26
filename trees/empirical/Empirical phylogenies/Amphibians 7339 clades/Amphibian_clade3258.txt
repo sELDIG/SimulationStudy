@@ -1,1 +1,0 @@
-(((((Gastrotheca_ossilaginis:0.09327219022,Gastrotheca_pacchamama:0.09327219022)10602:0.3686864021,Gastrotheca_ovifera:0.4619585923)10601:0.5610405342,Gastrotheca_phalarosa:1.022999127)10600:7.992085875,Gastrotheca_antoniiochoai:9.015085001)10599:6.2981745,Gastrotheca_abdita:15.3132595)10598;

@@ -1,1 +1,0 @@
-(((Dicerorhinus_sumatrensis:22.59147359,Coelodonta_antiquitatis:22.59147359)9826:5.300751028,(Rhinoceros_sondaicus:12.03002563,Rhinoceros_unicornis:12.03002563)9824:15.86219899)9823:4.410565072,(Diceros_bicornis:13.98681816,Ceratotherium_simum:13.98681816)9825:18.31597153)9822;

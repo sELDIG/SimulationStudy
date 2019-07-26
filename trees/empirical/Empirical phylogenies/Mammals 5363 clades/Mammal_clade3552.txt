@@ -1,1 +1,0 @@
-(((Rousettus_amplexicaudatus:0.3622661256,Rousettus_obliviosus:0.3622661256)8919:0.8377338744,Rousettus_bidens:1.2)8917:0.1780640773,(Rousettus_leschenaultii:0.5961819568,Rousettus_madagascariensis:0.5961819568)8918:0.7818821205)8916;

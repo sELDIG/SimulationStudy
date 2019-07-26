@@ -1,1 +1,0 @@
-(((Scapteromys_aquaticus:3.211276044,Scapteromys_tumidus:3.211276044)6426:2.659610838,(Chilomys_instans:3.187882295,Wiedomys_pyrrhorhinos:3.187882295)6427:2.683004587)6425:8.329113118,Wiedomys_cerradensis:14.2)6424;

@@ -1,1 +1,0 @@
-(((Amietophrynus_kisoloensis:3.313382181,Amietophrynus_gracilipes:3.313382181)9704:0.9888458211,Amietophrynus_camerunensis:4.302228002)9702:1.107518545,((Amietophrynus_garmani:1.135061569,Amietophrynus_xeros:1.135061569)9705:1.06646988,Amietophrynus_gutturalis:2.201531449)9703:3.208215098)9701;

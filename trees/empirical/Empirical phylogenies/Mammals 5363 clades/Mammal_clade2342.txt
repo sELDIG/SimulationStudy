@@ -1,1 +1,0 @@
-((((Piliocolobus_tholloni:3.046942216,Piliocolobus_tephrosceles:3.046942216)7710:0.4492260889,Piliocolobus_foai:3.496168305)7708:0.5106008187,(Piliocolobus_gordonorum:3.309700588,Piliocolobus_kirkii:3.309700588)7709:0.6970685351)7707:0.6936310028,Piliocolobus_pennantii:4.700400126)7706;

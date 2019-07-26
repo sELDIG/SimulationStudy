@@ -1,1 +1,0 @@
-(((Acomys_russatus:0.9386716981,Acomys_spinosissimus:0.9386716981)6012:1.690641718,Acomys_kempi:2.629313416)6011:0.6041507117,Acomys_percivali:3.233464128)6010;

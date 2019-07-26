@@ -1,1 +1,0 @@
-(((((Pristimantis_delius:2.236395142,Pristimantis_laticlavius:2.236395142)7555:1.700787931,Pristimantis_rubicundus:3.937183073)7554:1.887402087,Pristimantis_academicus:5.82458516)7557:6.185915713,Pristimantis_avius:12.01050087)7553:4.612814877,(Pristimantis_myops:8.856305084,Pristimantis_racemus:8.856305084)7556:7.767010667)7552;

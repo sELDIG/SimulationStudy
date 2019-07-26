@@ -1,1 +1,0 @@
-(((Pseudopaludicola_pusilla:0.1338294758,Pseudopaludicola_ameghini:0.1338294758)9483:21.93256238,(Pseudopaludicola_saltica:5.101035287,Pseudopaludicola_giarettai:5.101035287)9481:16.96535657)9480:11.76188084,((Pseudopaludicola_hyleaustralis:1.639760106,Pseudopaludicola_mystacalis:1.639760106)9484:5.044289888,Pseudopaludicola_serrana:6.684049994)9482:27.1442227)9479;

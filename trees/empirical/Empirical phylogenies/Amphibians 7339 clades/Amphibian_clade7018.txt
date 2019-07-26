@@ -1,1 +1,0 @@
-(((Lyciasalamandra_fazilae:10.32753573,Lyciasalamandra_helverseni:10.32753573)14361:3.100341793,Lyciasalamandra_flavimembris:13.42787752)14359:4.32316225,((Lyciasalamandra_antalyana:0.4460200185,Lyciasalamandra_billae:0.4460200185)14362:10.27243458,Lyciasalamandra_atifi:10.7184546)14360:7.032585166)14358;

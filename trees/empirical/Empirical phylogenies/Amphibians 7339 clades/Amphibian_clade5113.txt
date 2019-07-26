@@ -1,1 +1,0 @@
-(((Indirana_tenuilingua:3.443673817,Indirana_diplosticta:3.443673817)12457:24.22390687,(Indirana_beddomii:23.46531604,Indirana_semipalmata:23.46531604)12455:4.202264643)12454:3.35237355,((Indirana_leptodactyla:7.375066126,Indirana_leithii:7.375066126)12458:3.802836533,Indirana_phrynoderma:11.17790266)12456:19.84205157)12453;

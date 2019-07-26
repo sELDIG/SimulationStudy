@@ -1,1 +1,0 @@
-(((Peromyscus_aztecus:3.246636543,Peromyscus_hylocetes:3.246636543)6638:0.930695969,(Peromyscus_zarhynchus:2.535806454,Peromyscus_winkelmanni:2.535806454)6639:1.641526058)6637:1.909602433,Peromyscus_perfulvus:6.086934945)6636;

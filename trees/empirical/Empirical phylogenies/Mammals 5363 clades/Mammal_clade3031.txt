@@ -1,1 +1,0 @@
-((((Lasiurus_borealis:4.573934126,Lasiurus_blossevillii:4.573934126)8398:1.361050451,(Lasiurus_seminolus:2.563144017,Lasiurus_atratus:2.563144017)8399:3.37184056)8397:4.555590162,Lasiurus_intermedius:10.49057474)8396:1.52887901,Lasiurus_degelidus:12.01945375)8395;

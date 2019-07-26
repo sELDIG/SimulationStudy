@@ -1,1 +1,0 @@
-(((Cacosternum_platys:0.09203800374,Cacosternum_karooicum:0.09203800374)12340:2.125226365,Cacosternum_rhythmum:2.217264369)12338:2.716005493,((Cacosternum_striatum:3.532328275,Cacosternum_kinangopensis:3.532328275)12341:0.4712203231,Cacosternum_namaquense:4.003548598)12339:0.9297212635)12337;

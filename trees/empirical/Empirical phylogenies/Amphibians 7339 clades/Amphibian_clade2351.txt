@@ -1,1 +1,0 @@
-((((Amietophrynus_fuliginatus:1.737765611,Amietophrynus_kassasii:1.737765611)9695:1.873550326,Amietophrynus_danielae:3.611315937)9693:2.748231049,((Amietophrynus_vittatus:1.674457968,Amietophrynus_urunguensis:1.674457968)9696:3.321761673,Amietophrynus_villiersi:4.996219641)9694:1.363327346)9692:5.76520174,Amietophrynus_asmarae:12.12474873)9691;

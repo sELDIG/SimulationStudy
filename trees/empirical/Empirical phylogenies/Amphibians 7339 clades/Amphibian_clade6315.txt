@@ -1,1 +1,0 @@
-((((Megophrys_dringi:8.499224768,Megophrys_shuichengensis:8.499224768)13657:6.414591751,Megophrys_nasuta:14.91381652)13659:0.7465626498,Megophrys_huangshanensis:15.66037917)13656:3.443803099,((Megophrys_takensis:1.390109219,Megophrys_oropedion:1.390109219)13658:6.83537363,Megophrys_zunhebotoensis:8.225482848)13660:10.87869942)13655;

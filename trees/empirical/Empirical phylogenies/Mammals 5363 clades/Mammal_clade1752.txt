@@ -1,1 +1,0 @@
-(((Funisciurus_duchaillui:1.66370682,Funisciurus_bayonii:1.66370682)7120:1.989489034,(Funisciurus_congicus:1.085190981,Funisciurus_carruthersi:1.085190981)7118:2.568004873)7117:3.540744844,((Funisciurus_substriatus:1.83065553,Funisciurus_leucogenys:1.83065553)7121:3.117054197,Funisciurus_lemniscatus:4.947709726)7119:2.246230971)7116;

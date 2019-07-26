@@ -1,1 +1,0 @@
-(((Bokermannohyla_ibitiguara:3.332202618,Bokermannohyla_flavopicta:3.332202618)8983:4.002039801,(Bokermannohyla_sazimai:1.292275984,Bokermannohyla_gouveai:1.292275984)8981:6.041966436)8980:3.184813363,((Bokermannohyla_itapoty:6.842531965,Bokermannohyla_ibitipoca:6.842531965)8984:0.9589495131,Bokermannohyla_juiju:7.801481478)8982:2.717574304)8979;

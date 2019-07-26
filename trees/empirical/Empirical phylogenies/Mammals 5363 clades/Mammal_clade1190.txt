@@ -1,1 +1,0 @@
-(((Alticola_olchonensis:0.559810279,Alticola_stoliczkanus:0.559810279)6557:0.4591647069,Alticola_strelzowi:1.018974986)6555:1.842178557,(Alticola_montosa:1.672855435,Alticola_tuvinicus:1.672855435)6556:1.188298108)6554;

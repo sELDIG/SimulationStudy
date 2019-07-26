@@ -1,1 +1,0 @@
-(((Procolobus_pennantii:1.545218969,Procolobus_gordonorum:1.545218969)7714:2.156976141,(Procolobus_verus:1.654065594,Procolobus_preussi:1.654065594)7715:2.048129516)7713:1.696176755,Procolobus_kirkii:5.398371864)7712;

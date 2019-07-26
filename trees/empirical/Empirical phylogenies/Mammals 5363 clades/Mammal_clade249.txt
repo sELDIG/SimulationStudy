@@ -1,1 +1,0 @@
-(((Niviventer_confucianus:0.7974815197,Niviventer_rapit:0.7974815197)5616:3.085163745,Niviventer_fulvescens:3.882645265)5614:3.623095224,(Niviventer_niviventer:2.169535494,Niviventer_culturatus:2.169535494)5615:5.336204995)5613;

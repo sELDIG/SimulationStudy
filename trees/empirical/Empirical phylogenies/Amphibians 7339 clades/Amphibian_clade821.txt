@@ -1,1 +1,0 @@
-(((Eleutherodactylus_pantoni:0.6189918613,Eleutherodactylus_pentasyringos:0.6189918613)8163:3.869575231,(Eleutherodactylus_cundalli:3.136895728,Eleutherodactylus_glaucoreius:3.136895728)8164:1.351671365)8162:3.712166312,Eleutherodactylus_griphus:8.200733404)8161;

@@ -1,1 +1,0 @@
-((Rucervus_duvaucelii:0.699126963,Rucervus_schomburgki:0.699126963)9304:4.689673336,(Rucervus_eldii:2.652694647,Rucervus_eldi:2.652694647)9305:2.736105653)9303;

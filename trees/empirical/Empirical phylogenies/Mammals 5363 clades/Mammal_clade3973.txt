@@ -1,1 +1,0 @@
-(((Hippocamelus_bisulcus:3.333302208,Hippocamelus_antisensis:3.333302208)9339:0.5710876522,Ozotoceros_bezoarticus:3.904389861)9338:0.5377616854,Blastocerus_dichotomus:4.442151546)9337;

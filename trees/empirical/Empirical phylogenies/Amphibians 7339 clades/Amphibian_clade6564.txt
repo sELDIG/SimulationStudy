@@ -1,1 +1,0 @@
-(((((Bolitoglossa_striatula:3.666105811,Bolitoglossa_mombachoensis:3.666105811)13908:1.947578542,Bolitoglossa_yucatana:5.613684353)13907:3.733268812,Bolitoglossa_lignicolor:9.346953165)13906:1.602977686,Bolitoglossa_mexicana:10.94993085)13905:0.4712996286,Bolitoglossa_odonnelli:11.42123048)13904;

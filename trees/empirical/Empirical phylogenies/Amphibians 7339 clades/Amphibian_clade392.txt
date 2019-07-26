@@ -1,1 +1,0 @@
-((((Pristimantis_charlottevillensis:0.4107617773,Pristimantis_ardyae:0.4107617773)7734:0.08434461574,Pristimantis_bicantus:0.495106393)7736:2.372573075,Pristimantis_alalocophus:2.867679468)7733:5.87957652,(Pristimantis_rufioculis:7.121472736,Pristimantis_andinognomus:7.121472736)7735:1.625783252)7732;

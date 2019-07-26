@@ -1,1 +1,0 @@
-((((Plethodon_dorsalis:3.832047294,Plethodon_ventralis:3.832047294)14190:4.776247363,Plethodon_angusticlavius:8.608294657)14192:1.861892318,Plethodon_welleri:10.47018697)14189:4.32069214,(Plethodon_wehrlei:9.005427134,Plethodon_punctatus:9.005427134)14191:5.785451981)14188;

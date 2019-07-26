@@ -1,1 +1,0 @@
-(((Gastrotheca_antomia:2.785546639,Gastrotheca_pulchra:2.785546639)10605:5.385111874,(Gastrotheca_carinaceps:5.902572433,Gastrotheca_ernestoi:5.902572433)10606:2.26808608)10604:6.135263969,Gastrotheca_fulvorufa:14.30592248)10603;

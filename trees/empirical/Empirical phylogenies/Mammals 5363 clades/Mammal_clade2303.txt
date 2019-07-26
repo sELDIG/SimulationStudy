@@ -1,1 +1,0 @@
-(((Trachypithecus_cristatus:1.452727686,Trachypithecus_germaini:1.452727686)7670:0.7383976836,Trachypithecus_auratus:2.19112537)7668:0.8450800651,(Trachypithecus_obscurus:2.263285087,Trachypithecus_barbei:2.263285087)7669:0.7729203481)7667;

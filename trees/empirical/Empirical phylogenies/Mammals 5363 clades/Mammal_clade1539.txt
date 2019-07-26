@@ -1,1 +1,0 @@
-((Cratogeomys_goldmani:2.818013954,Cratogeomys_castanops:2.818013954)6904:2.736879895,(Cratogeomys_merriami:3.084896019,Cratogeomys_perotensis:3.084896019)6905:2.469997831)6903;

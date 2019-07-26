@@ -1,1 +1,0 @@
-((((Craugastor_saltator:0.4867737198,Craugastor_epochthidius:0.4867737198)8066:4.143955616,(Craugastor_trachydermus:0.3762276669,Craugastor_inachus:0.3762276669)8067:4.254501669)8065:4.37394322,Craugastor_glaucus:9.004672556)8064:1.164883244,Craugastor_psephosypharus:10.1695558)8063;

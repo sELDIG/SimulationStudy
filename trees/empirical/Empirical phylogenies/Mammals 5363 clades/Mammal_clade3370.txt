@@ -1,1 +1,0 @@
-((Pteronotus_parnellii:4.651675655,Pteronotus_paraguanensis:4.651675655)8735:6.596114656,(Pteronotus_davyi:4.112614676,Pteronotus_gymnonotus:4.112614676)8736:7.135175636)8734;

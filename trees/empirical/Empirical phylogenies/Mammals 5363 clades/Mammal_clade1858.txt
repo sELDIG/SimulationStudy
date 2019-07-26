@@ -1,1 +1,0 @@
-((Graphiurus_lorraineus:10.34694507,Graphiurus_ocularis:10.34694507)7223:0.7286372985,(Graphiurus_microtis:3.552446204,Graphiurus_johnstoni:3.552446204)7224:7.523136169)7222;

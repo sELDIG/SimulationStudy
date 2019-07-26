@@ -1,1 +1,0 @@
-(((Microtus_oeconomus:2.742847137,Microtus_montebelli:2.742847137)6501:0.7810861639,Microtus_limnophilus:3.523933301)6500:0.9711270254,Microtus_agrestis:4.495060326)6499;

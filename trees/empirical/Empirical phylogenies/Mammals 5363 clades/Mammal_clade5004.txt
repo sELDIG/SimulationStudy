@@ -1,1 +1,0 @@
-((((Dasypus_sabanicola:2.732361284,Dasypus_yepesi:2.732361284)10371:2.130988707,Dasypus_hybridus:4.863349991)10370:1.3195205,Dasypus_septemcinctus:6.182870491)10369:1.864558125,Dasypus_kappleri:8.047428615)10368;

@@ -1,1 +1,0 @@
-((Chrysocyon_brachyurus:6.050814201,Cuon_alpinus:6.050814201)9661:0.8219851032,(Lycaon_pictus:5.540645598,Speothos_venaticus:5.540645598)9662:1.332153706)9660;

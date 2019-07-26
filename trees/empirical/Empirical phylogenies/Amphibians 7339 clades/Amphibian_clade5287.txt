@@ -1,1 +1,0 @@
-(((Cophixalus_hinchinbrookensis:2.77805148,Cophixalus_pipilans:2.77805148)12630:0.9466381483,Cophixalus_parkeri:3.724689629)12628:8.597938422,(Cophixalus_iovaorum:6.791069321,Cophixalus_riparius:6.791069321)12629:5.531558729)12627;

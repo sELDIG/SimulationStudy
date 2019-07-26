@@ -1,1 +1,0 @@
-(((Hybomys_univittatus:3.002657325,Hybomys_basilii:3.002657325)5781:2.6604609,Hybomys_lunaris:5.663118225)5779:6.636881775,((Hybomys_badius:2.225369657,Hybomys_trivirgatus:2.225369657)5782:1.211097311,Hybomys_planifrons:3.436466969)5780:8.863533031)5778;

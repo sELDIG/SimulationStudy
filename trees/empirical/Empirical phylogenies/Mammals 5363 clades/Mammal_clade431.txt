@@ -1,1 +1,0 @@
-((Leptomys_ernstmayri:1.198992545,Leptomys_elegans:1.198992545)5796:2.776633075,Leptomys_signatus:3.97562562)5795;

@@ -1,1 +1,0 @@
-((((Rhinolophus_montanus:1.479680642,Rhinolophus_madurensis:1.479680642)9110:0.5517458326,Rhinolophus_canuti:2.031426475)9112:3.762283502,Rhinolophus_nereis:5.793709977)9109:4.42504311,(Rhinolophus_adami:2.916074971,Rhinolophus_hilli:2.916074971)9111:7.302678116)9108;

@@ -1,1 +1,0 @@
-(((((Pseudomys_calabyi:3.054004993,Pseudomys_laborifex:3.054004993)5589:3.191097208,Pseudomys_johnsoni:6.245102201)5588:4.643090148,(Pseudomys_patrius:3.335685243,Pseudomys_chapmani:3.335685243)5591:7.552507107)5592:0.4339730811,Pseudomys_occidentalis:11.32216543)5587:0.5881985686,(Pseudomys_albocinereus:10.24778448,Pseudomys_apodemoides:10.24778448)5590:1.662579516)5586;

@@ -1,1 +1,0 @@
-(((Aeretes_melanopterus:4.702522624,Trogopterus_xanthipes:4.702522624)7157:5.268043224,(Belomys_pearsonii:3.954520381,Pteromyscus_pulverulentus:3.954520381)7155:6.016045466)7154:6.779333188,((Aeromys_thomasi:2.388683023,Aeromys_tephromelas:2.388683023)7158:6.17680544,Eupetaurus_cinereus:8.565488463)7156:8.184410573)7153;

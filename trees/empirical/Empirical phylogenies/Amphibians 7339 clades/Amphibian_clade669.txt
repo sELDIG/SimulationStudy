@@ -1,1 +1,0 @@
-((((Craugastor_taurus:0.4983313232,Craugastor_milesi:0.4983313232)8011:3.172301882,Craugastor_olanchano:3.670633205)8013:0.9510293377,Craugastor_omiltemanus:4.621662543)8010:2.155552224,(Craugastor_azueroensis:2.216059978,Craugastor_aphanus:2.216059978)8012:4.561154789)8009;

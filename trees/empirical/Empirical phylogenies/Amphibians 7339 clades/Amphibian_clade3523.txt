@@ -1,1 +1,0 @@
-(((Telmatobius_arequipensis:0.7782176091,Telmatobius_halli:0.7782176091)10865:0.2084449101,Telmatobius_contrerasi:0.9866625192)10864:0.8493284349,Telmatobius_brachydactylus:1.835990954)10863;

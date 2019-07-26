@@ -1,1 +1,0 @@
-(((((Phyllodytes_gyrinaethes:0.3379945239,Phyllodytes_auratus:0.3379945239)8608:9.010247895,Phyllodytes_maculosus:9.348242419)8607:11.08666834,Phyllodytes_melanomystax:20.43491076)8610:2.660380957,Phyllodytes_kautskyi:23.09529171)8606:4.495070538,(Phyllodytes_luteolus:6.856920247,Phyllodytes_brevirostris:6.856920247)8609:20.73344201)8605;

@@ -1,1 +1,0 @@
-(((Maxomys_ochraceiventer:1.816320579,Maxomys_dollmani:1.816320579)5877:0.7336343981,Oenomys_ornatus:2.549954977)5875:2.270321017,(Maxomys_baeodon:1.104433164,Maxomys_hylomyoides:1.104433164)5876:3.71584283)5874;

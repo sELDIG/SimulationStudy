@@ -1,1 +1,0 @@
-(((((Amolops_loloensis:0.9645680033,Amolops_liangshanensis:0.9645680033)12165:0.0741552279,Amolops_jinjiangensis:1.038723231)12164:3.230519365,Amolops_kangtingensis:4.269242597)12167:1.796887487,Amolops_mantzorum:6.066130084)12163:4.991439381,(Amolops_granulosus:3.976655928,Amolops_lifanensis:3.976655928)12166:7.080913537)12162;

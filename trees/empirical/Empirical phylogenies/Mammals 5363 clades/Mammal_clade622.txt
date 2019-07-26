@@ -1,1 +1,0 @@
-(((Gerbillus_rupicola:1.073809013,Dipodillus_dasyurus:1.073809013)5988:3.721209632,Gerbillus_principulus:4.795018646)5987:0.2352044008,Gerbillus_pulvinatus:5.030223046)5986;

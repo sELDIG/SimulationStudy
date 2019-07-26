@@ -1,1 +1,0 @@
-(((Chrotomys_sibuyanensis:1.115282514,Chrotomys_silaceus:1.115282514)5863:0.983801131,Chrotomys_mindorensis:2.099083645)5861:1.094885418,(Chrotomys_gonzalesi:0.584539909,Chrotomys_whiteheadi:0.584539909)5862:2.609429154)5860;

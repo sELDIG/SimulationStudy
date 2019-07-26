@@ -1,1 +1,0 @@
-(((Rhinolophus_pusillus:4.072149543,Rhinolophus_blythi:4.072149543)9148:3.385457086,(Rhinolophus_pumilus:2.779045792,Rhinolophus_monoceros:2.779045792)9149:4.678560836)9147:8.129133685,Rhinolophus_lepidus:15.58674031)9146;

@@ -1,1 +1,0 @@
-(((Pristimantis_cryptomelas:2.383779312,Pristimantis_sternothylax:2.383779312)7650:3.72421815,Pristimantis_obmutescens:6.107997462)7648:8.485912106,(Pristimantis_minutulus:4.698989445,Pristimantis_kelephus:4.698989445)7649:9.894920122)7647;

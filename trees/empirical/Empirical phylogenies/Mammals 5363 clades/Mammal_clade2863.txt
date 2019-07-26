@@ -1,1 +1,0 @@
-(((Glauconycteris_curryae:1.683128118,Glauconycteris_gleni:1.683128118)8229:3.253339739,(Glauconycteris_variegata:2.27923226,Glauconycteris_machadoi:2.27923226)8230:2.657235597)8228:0.4908996309,Glauconycteris_kenyacola:5.427367488)8227;

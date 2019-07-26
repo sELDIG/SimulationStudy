@@ -1,1 +1,0 @@
-((Apomys_camiguinensis:1.196154642,Apomys_insignis:1.196154642)5868:0.4479635205,Apomys_hylocetes:1.644118163)5867;

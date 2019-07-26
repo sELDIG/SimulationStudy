@@ -1,1 +1,0 @@
-((Teratohyla_midas:13.3035545,Teratohyla_spinosa:13.3035545)9611:1.243532593,(Teratohyla_amelie:0.3135918662,Teratohyla_pulverata:0.3135918662)9612:14.23349522)9610;

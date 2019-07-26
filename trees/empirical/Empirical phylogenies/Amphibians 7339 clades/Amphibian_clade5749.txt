@@ -1,1 +1,0 @@
-(((Phrynomantis_bifasciatus:3.960953989,Phrynomantis_microps:3.960953989)13092:0.06990121227,Phrynomantis_affinis:4.030855202)13090:41.20039175,(Phrynomantis_somalicus:33.26114785,Phrynomantis_annectens:33.26114785)13091:11.9700991)13089;

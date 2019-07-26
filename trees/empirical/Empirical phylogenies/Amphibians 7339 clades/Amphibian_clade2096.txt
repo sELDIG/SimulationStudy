@@ -1,1 +1,0 @@
-((((Physalaemus_maculiventris:2.053418608,Physalaemus_henselii:2.053418608)9438:1.690798672,Physalaemus_centralis:3.74421728)9440:1.154509902,Physalaemus_jordanensis:4.898727182)9437:1.678746641,(Physalaemus_irroratus:4.514857864,Physalaemus_fischeri:4.514857864)9439:2.062615959)9436;

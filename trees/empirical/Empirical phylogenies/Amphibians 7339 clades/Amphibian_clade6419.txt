@@ -1,1 +1,0 @@
-((((Bombina_microdeladigitora:3.37749691,Bombina_fortinuptialis:3.37749691)13762:2.045069303,Bombina_lichuanensis:5.422566213)13761:1.483880211,Bombina_maxima:6.906446424)13760:15.40764532,Bombina_pachypus:22.31409175)13759;

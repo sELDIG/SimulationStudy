@@ -1,1 +1,0 @@
-(((((Craugastor_nefrens:5.374729239,Craugastor_monnichorum:5.374729239)8026:5.332972328,Craugastor_omoaensis:10.70770157)8024:3.476448271,(Craugastor_pechorum:6.561127149,Craugastor_aurilegulus:6.561127149)8025:7.623022689)8023:0.7585074258,Craugastor_megalotympanum:14.94265726)8022:5.556471255,Craugastor_charadra:20.49912852)8021;

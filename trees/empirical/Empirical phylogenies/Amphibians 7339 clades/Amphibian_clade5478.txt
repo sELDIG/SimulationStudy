@@ -1,1 +1,0 @@
-((((((Callulops_valvifer:1.225937575,Callulops_mediodiscus:1.225937575)12822:1.188084415,Callulops_dubius:2.41402199)12821:0.7578025668,Callulops_sagittatus:3.171824557)12824:2.218777451,Callulops_robustus:5.390602008)12820:9.571791965,(Callulops_humicola:4.034228853,Callulops_eremnosphax:4.034228853)12823:10.92816512)12819:0.5253143828,Callulops_wondiwoiensis:15.48770836)12818;

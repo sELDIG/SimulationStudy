@@ -1,1 +1,0 @@
-((Arthroleptis_pyrrhoscelis:0.5840041317,Arthroleptis_perreti:0.5840041317)13427:2.042749259,(Arthroleptis_nimbaensis:1.709265044,Arthroleptis_bivittatus:1.709265044)13428:0.9174883464)13426;

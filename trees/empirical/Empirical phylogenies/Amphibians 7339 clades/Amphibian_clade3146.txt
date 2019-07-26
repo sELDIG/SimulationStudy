@@ -1,1 +1,0 @@
-(((Anomaloglossus_rufulus:2.256025288,Anomaloglossus_triunfo:2.256025288)10489:3.191397302,Anomaloglossus_astralogaster:5.44742259)10487:0.6438727638,(Anomaloglossus_wothuja:0.7943485374,Anomaloglossus_surinamensis:0.7943485374)10488:5.296946816)10486;

@@ -1,1 +1,0 @@
-(((Saimiri_oerstedii:1.16217148,Saimiri_ustus:1.16217148)7807:0.8047199698,Saimiri_sciureus:1.96689145)7805:1.522732517,(Saimiri_vanzolinii:1.277856461,Saimiri_boliviensis:1.277856461)7806:2.211767506)7804;

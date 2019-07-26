@@ -1,1 +1,0 @@
-((((Eleutherodactylus_syristes:4.063639502,Eleutherodactylus_pallidus:4.063639502)8308:5.55048182,Eleutherodactylus_montanus:9.614121322)8310:3.107906537,Eleutherodactylus_karlschmidti:12.72202786)8307:16.36033911,(Eleutherodactylus_michaelschmidi:26.79055719,Eleutherodactylus_bilineatus:26.79055719)8309:2.291809777)8306;

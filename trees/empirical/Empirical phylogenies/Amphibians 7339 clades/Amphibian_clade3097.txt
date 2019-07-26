@@ -1,1 +1,0 @@
-((((Epipedobates_anthonyi:0.1959682646,Epipedobates_tricolor:0.1959682646)10439:4.396134547,Epipedobates_machalilla:4.592102811)10441:3.047373445,Epipedobates_espinosai:7.639476256)10438:0.08743977165,((Epipedobates_boulengeri:1.522679802,Epipedobates_darwinwallacei:1.522679802)10440:3.683487321,Epipedobates_narinensis:5.206167123)10442:2.520748905)10437;

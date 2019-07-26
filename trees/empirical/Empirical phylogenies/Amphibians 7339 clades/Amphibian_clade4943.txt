@@ -1,1 +1,0 @@
-((((Platymantis_naomii:0.2024472236,Platymantis_mimula:0.2024472236)12285:4.737224071,Platymantis_dorsalis:4.939671295)12287:3.032833418,Platymantis_corrugatus:7.972504712)12284:7.997266008,(Platymantis_hazelae:8.449484769,Platymantis_montanus:8.449484769)12286:7.520285951)12283;

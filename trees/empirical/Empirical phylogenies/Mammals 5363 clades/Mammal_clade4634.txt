@@ -1,1 +1,0 @@
-(((Crocidura_somalica:1.392342518,Crocidura_fumosa:1.392342518)10001:1.187657482,Crocidura_vosmaeri:2.58)9999:0,(Crocidura_erica:0.3898124164,Crocidura_gmelini:0.3898124164)10000:2.190187584)9998;

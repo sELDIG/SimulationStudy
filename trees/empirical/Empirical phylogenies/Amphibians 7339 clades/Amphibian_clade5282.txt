@@ -1,1 +1,0 @@
-((Cophixalus_kaindiensis:0.8189850325,Cophixalus_timidus:0.8189850325)12623:7.762963538,(Cophixalus_hosmeri:5.036023653,Cophixalus_infacetus:5.036023653)12624:3.545924918)12622;

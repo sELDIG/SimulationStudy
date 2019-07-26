@@ -1,1 +1,0 @@
-(((Tadarida_niangarae:1.968606872,Tadarida_pumila:1.968606872)8448:1.374283873,Tadarida_jobimena:3.342890745)8446:4.196455469,((Tadarida_aloysiisabaudiae:1.173030974,Tadarida_australis:1.173030974)8449:2.748955277,Tadarida_major:3.921986251)8447:3.617359963)8445;

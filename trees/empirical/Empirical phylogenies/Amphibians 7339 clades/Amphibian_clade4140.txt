@@ -1,1 +1,0 @@
-((((Guibemantis_bicalcaratus:2.7284142,Guibemantis_albolineatus:2.7284142)11482:3.363677223,Guibemantis_liber:6.092091423)11484:1.261975338,Guibemantis_tasifotsy:7.354066762)11481:4.519999407,(Guibemantis_tornieri:11.60042839,Guibemantis_depressiceps:11.60042839)11483:0.2736377751)11480;

@@ -1,1 +1,0 @@
-((Thomasomys_apeco:2.017219639,Thomasomys_ischyrus:2.017219639)6384:1.619883734,(Thomasomys_daphne:2.180479583,Thomasomys_onkiro:2.180479583)6385:1.45662379)6383;

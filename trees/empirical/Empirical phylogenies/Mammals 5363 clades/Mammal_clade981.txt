@@ -1,1 +1,0 @@
-((((Rhipidomys_macrurus:1.268247943,Rhipidomys_emiliae:1.268247943)6348:2.598374546,Rhipidomys_mastacalis:3.866622489)6347:2.635379744,Rhipidomys_fulviventer:6.502002233)6346:0.7560935742,Rhipidomys_leucodactylus:7.258095807)6345;

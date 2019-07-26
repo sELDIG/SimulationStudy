@@ -1,1 +1,0 @@
-((Gazella_dorcas:1.286073956,Gazella_spekei:1.286073956)9243:0.6438209777,(Gazella_gazella:0.6202439703,Gazella_erlangeri:0.6202439703)9244:1.309650964)9242;

@@ -1,1 +1,0 @@
-((((Plecotus_taivanus:1.81656835,Plecotus_ognevi:1.81656835)8371:2.685680815,Plecotus_christii:4.502249165)8373:2.275765245,Plecotus_balensis:6.77801441)8370:2.97924734,(Corynorhinus_mexicanus:2.13965827,Corynorhinus_townsendii:2.13965827)8372:7.61760348)8369;

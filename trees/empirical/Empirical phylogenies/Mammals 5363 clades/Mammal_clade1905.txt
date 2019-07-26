@@ -1,1 +1,0 @@
-((Mesomys_hispidus:4.08197609,Mesomys_stimulax:4.08197609)7270:1.02223947,(Mesomys_occultus:2.354990492,Mesomys_leniceps:2.354990492)7271:2.749225068)7269;

@@ -1,1 +1,0 @@
-((((Duttaphrynus_manipurensis:0.931658054,Duttaphrynus_beddomii:0.931658054)9767:0.1425274406,Duttaphrynus_nagalandensis:1.074185495)9769:4.108561996,Duttaphrynus_chandai:5.18274749)9766:3.854801198,(Duttaphrynus_sumatranus:6.396334873,Duttaphrynus_valhallae:6.396334873)9768:2.641213815)9765;

@@ -1,1 +1,0 @@
-(((Plecotus_auritus:3.21985919,Plecotus_sp.:3.21985919)8366:5.054256358,Plecotus_macrobullaris:8.274115548)8364:2.025884452,((Plecotus_austriacus:3.712094533,Plecotus_kolombatovici:3.712094533)8367:3.452632902,Plecotus_teneriffae:7.164727435)8365:3.135272565)8363;

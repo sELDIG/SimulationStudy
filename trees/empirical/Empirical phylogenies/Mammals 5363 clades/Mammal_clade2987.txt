@@ -1,1 +1,0 @@
-(((((Hesperoptenus_tickelli:1.589452632,Hesperoptenus_gaskelli:1.589452632)8355:1.644962027,Hesperoptenus_doriae:3.234414659)8354:3.01690921,Hesperoptenus_tomesi:6.251323869)8353:3.815647832,Hesperoptenus_blanfordi:10.0669717)8352:4.822221795,Eudiscopus_denticulus:14.8891935)8351;

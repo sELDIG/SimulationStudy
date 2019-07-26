@@ -1,1 +1,0 @@
-(((Baiomys_musculus:10.87736279,Baiomys_taylori:10.87736279)6731:3.329300991,(Scotinomys_xerampelinus:2.30630412,Scotinomys_teguina:2.30630412)6729:11.90035966)6728:2.693336221,((Nelsonia_neotomodon:3.629046421,Ochrotomys_nuttalli:3.629046421)6732:13.27095358,Nelsonia_goldmani:16.9)6730:0)6727;

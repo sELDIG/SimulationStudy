@@ -1,1 +1,0 @@
-((((Artibeus_incomitatus:0.8636454842,Dermanura_rosenbergi:0.8636454842)8588:1.296932372,Artibeus_gnomus:2.160577856)8587:1.729422144,Artibeus_watsoni:3.89)8586:0,Artibeus_rosenbergii:3.89)8585;

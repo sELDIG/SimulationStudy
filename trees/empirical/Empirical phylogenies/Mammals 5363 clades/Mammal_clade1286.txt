@@ -1,1 +1,0 @@
-((Peromyscus_schmidlyi:1.165547807,Peromyscus_furvus:1.165547807)6651:1.008246997,Peromyscus_yucatanicus:2.173794803)6650;

@@ -1,1 +1,0 @@
-(((Graomys_griseoflavus:2.429382069,Graomys_centralis:2.429382069)6422:1.668491963,Graomys_domorum:4.097874033)6421:6.752125967,Graomys_edithae:10.85)6420;

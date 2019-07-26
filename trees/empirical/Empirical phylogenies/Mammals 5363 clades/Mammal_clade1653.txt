@@ -1,1 +1,0 @@
-(((Tamias_ruficaudus:5.954632261,Tamias_ochrogenys:5.954632261)7020:1.894871937,Tamias_speciosus:7.849504198)7018:0.6803817895,(Tamias_minimus:3.18393608,Tamias_alpinus:3.18393608)7019:5.345949908)7017;

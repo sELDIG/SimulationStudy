@@ -1,1 +1,0 @@
-((((Ranitomeya_reticulata:5.638711129,Ranitomeya_duellmani:5.638711129)10333:2.588020655,Ranitomeya_fantastica:8.226731784)10336:1.455747958,(Ranitomeya_ventrimaculata:7.554548303,Ranitomeya_variabilis:7.554548303)10335:2.127931439)10332:1.274584749,(Ranitomeya_amazonica:4.382881702,Ranitomeya_uakarii:4.382881702)10334:6.574182789)10331;

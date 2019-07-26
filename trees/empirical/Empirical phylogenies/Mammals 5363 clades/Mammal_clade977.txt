@@ -1,1 +1,0 @@
-(((Rhipidomys_couesi:0.4722209915,Rhipidomys_austrinus:0.4722209915)6343:0.6182619721,Rhipidomys_ochrogaster:1.090482964)6342:0.1947610989,Rhipidomys_venustus:1.285244063)6341;

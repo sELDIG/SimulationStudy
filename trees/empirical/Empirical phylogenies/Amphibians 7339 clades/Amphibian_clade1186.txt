@@ -1,1 +1,0 @@
-(((Pseudacris_triseriata:0.5073842142,Pseudacris_feriarum:0.5073842142)8528:1.1691217,Pseudacris_kalmi:1.676505914)8527:5.214857998,Pseudacris_nigrita:6.891363912)8526;

@@ -1,1 +1,0 @@
-(((Peromyscus_caniceps:2.08,Peromyscus_spicilegus:2.08)6631:0,Peromyscus_guatemalensis:2.08)6629:1.827186842,(Peromyscus_pectoralis:1.806520013,Peromyscus_melanocarpus:1.806520013)6630:2.100666829)6628;

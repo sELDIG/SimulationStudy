@@ -1,1 +1,0 @@
-(((Microcebus_myoxinus:2.355012866,Microcebus_berthae:2.355012866)7922:2.739060519,Microcebus_tavaratra:5.094073385)7920:1.981175877,(Microcebus_rufus:5.9018047,Microcebus_sambiranensis:5.9018047)7921:1.173444562)7919;

@@ -1,1 +1,0 @@
-((((Cricetulus_tibetanus:3.214217126,Cricetulus_sokolovi:3.214217126)6601:2.211945464,Cricetulus_lama:5.426162589)6603:1.185995254,Cricetulus_kamensis:6.612157843)6600:4.848297116,(Tscherskia_triton:3.668803621,Cricetulus_alticola:3.668803621)6602:7.791651339)6599;

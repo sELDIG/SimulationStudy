@@ -1,1 +1,0 @@
-(((Neodon_irene:4.191314904,Neodon_sikimensis:4.191314904)6589:3.651188737,(Neodon_forresti:3.389316647,Neodon_juldaschi:3.389316647)6587:4.453186994)6586:3.410550427,((Blanfordimys_afghanus:4.741370805,Blanfordimys_bucharensis:4.741370805)6590:3.739050958,Proedromys_bedfordi:8.480421764)6588:2.772632305)6585;

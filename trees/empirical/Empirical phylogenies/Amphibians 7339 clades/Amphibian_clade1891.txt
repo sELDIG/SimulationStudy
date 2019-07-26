@@ -1,1 +1,0 @@
-((((Nyctimystes_montanus:8.509792243,Nyctimystes_disruptus:8.509792243)9234:1.06813661,Nyctimystes_avocalis:9.577928853)9233:8.670647807,Nyctimystes_calcaratus:18.24857666)9232:3.40438804,Nyctimystes_gularis:21.6529647)9231;

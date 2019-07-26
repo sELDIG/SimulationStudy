@@ -1,1 +1,0 @@
-((((Platymantis_browni:4.924541501,Platymantis_sierramadrensis:4.924541501)12236:0.6813719089,Platymantis_magnus:5.60591341)12238:2.907824922,Platymantis_lawtoni:8.513738332)12235:16.00492197,((Platymantis_indeprensus:4.230503646,Platymantis_mamusiorum:4.230503646)12237:1.776025026,Platymantis_punctatus:6.006528672)12239:18.51213163)12234;

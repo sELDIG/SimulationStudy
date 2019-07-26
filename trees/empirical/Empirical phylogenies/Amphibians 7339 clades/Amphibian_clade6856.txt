@@ -1,1 +1,0 @@
-((Plethodon_hubrichti:0.6002835769,Plethodon_nettingi:0.6002835769)14197:5.478174539,(Plethodon_richmondi:1.029060168,Plethodon_electromorphus:1.029060168)14198:5.049397948)14196;

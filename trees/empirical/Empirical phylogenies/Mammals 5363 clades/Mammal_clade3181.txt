@@ -1,1 +1,0 @@
-((((Natalus_jamaicensis:4.267264984,Natalus_major:4.267264984)8547:10.73273502,Natalus_primus:15)8550:0,(Natalus_espiritosantensis:4.352457544,Natalus_tumidirostris:4.352457544)8549:10.64754246)8546:0.6641300688,(Natalus_stramineus:4.358320392,Natalus_lanatus:4.358320392)8548:11.30580968)8545;

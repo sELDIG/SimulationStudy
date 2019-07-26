@@ -1,1 +1,0 @@
-(((((Megaderma_spasma:8.979502362,Megaderma_lyra:8.979502362)9162:11.15694538,Macroderma_gigas:20.13644774)9158:12.52439165,Cardioderma_cor:32.66083938)9161:9.547029749,Craseonycteris_thonglongyai:42.20786913)9157:7.572921308,((Rhinopoma_muscatellum:16.90587223,Rhinopoma_microphyllum:16.90587223)9160:3.843240389,Rhinopoma_hardwickii:20.74911262)9159:29.03167782)9156;

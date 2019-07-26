@@ -1,1 +1,0 @@
-(((Hydromantes_ambrosii:6.695509906,Hydromantes_italicus:6.695509906)14248:1.285910511,Hydromantes_strinatii:7.981420417)14246:2.039039854,((Hydromantes_supramontis:0.2972103164,Hydromantes_flavus:0.2972103164)14249:3.610243476,Hydromantes_imperialis:3.907453792)14247:6.113006479)14245;

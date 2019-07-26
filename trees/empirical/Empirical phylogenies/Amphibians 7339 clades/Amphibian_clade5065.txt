@@ -1,1 +1,0 @@
-(((((Ptychadena_christyi:1.378998065,Ptychadena_keilingi:1.378998065)12408:1.595387251,Ptychadena_chrysogaster:2.974385316)12407:2.145857056,Ptychadena_trinodis:5.120242373)12410:2.671467995,Ptychadena_erlangeri:7.791710368)12406:3.953083537,(Ptychadena_grandisonae:0.5835745849,Ptychadena_broadleyi:0.5835745849)12409:11.16121932)12405;

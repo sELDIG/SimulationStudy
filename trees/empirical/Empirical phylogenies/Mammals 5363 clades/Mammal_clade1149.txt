@@ -1,1 +1,0 @@
-(((Lasiopodomys_mandarinus:2.629295878,Lasiopodomys_fuscus:2.629295878)6516:4.642066697,Lasiopodomys_brandtii:7.271362575)6514:0.7980149127,((Chionomys_roberti:4.814627315,Chionomys_gud:4.814627315)6517:0.9142627546,Chionomys_nivalis:5.72889007)6515:2.340487418)6513;

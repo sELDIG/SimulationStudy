@@ -1,1 +1,0 @@
-(((((Eleutherodactylus_rhodesi:1.220107524,Eleutherodactylus_weinlandi:1.220107524)8207:0.006915912857,Eleutherodactylus_lentus:1.227023437)8206:1.507155421,Eleutherodactylus_grahami:2.734178858)8205:0.0302721399,Eleutherodactylus_pictissimus:2.764450998)8204:0.7496067913,Eleutherodactylus_monensis:3.514057789)8203;

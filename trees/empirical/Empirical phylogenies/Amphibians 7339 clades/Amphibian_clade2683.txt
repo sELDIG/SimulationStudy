@@ -1,1 +1,0 @@
-((Incilius_peripatetes:2.014274168,Incilius_cristatus:2.014274168)10024:12.95734368,(Incilius_spiculatus:7.279781068,Incilius_aurarius:7.279781068)10025:7.691836778)10023;

@@ -1,1 +1,0 @@
-((Myotis_peninsularis:6.017216314,Myotis_stalkeri:6.017216314)8144:0.0130957565,Myotis_aelleni:6.030312071)8143;

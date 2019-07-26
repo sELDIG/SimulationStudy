@@ -1,1 +1,0 @@
-(((Staurois_latopalmatus:5.472451297,Staurois_guttatus:5.472451297)12179:1.319659862,Staurois_nubilus:6.79211116)12177:11.56484023,((Staurois_tuberilinguis:3.441115939,Staurois_parvus:3.441115939)12180:7.196375497,Staurois_natator:10.63749144)12178:7.719459957)12176;

@@ -1,1 +1,0 @@
-(((Neurergus_crocatus:3.290680691,Neurergus_microspilotus:3.290680691)14314:0.1412606435,Neurergus_kaiseri:3.431941334)14312:9.752544587,(Neurergus_strauchii:11.46790441,Neurergus_derjugini:11.46790441)14313:1.716581509)14311;

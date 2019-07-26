@@ -1,1 +1,0 @@
-((Cercocebus_chrysogaster:1.92980136,Cercocebus_agilis:1.92980136)7623:1.779169188,(Mandrillus_leucophaeus:2.471021831,Mandrillus_sphinx:2.471021831)7624:1.237948717)7622;

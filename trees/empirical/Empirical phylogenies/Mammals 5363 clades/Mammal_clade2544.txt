@@ -1,1 +1,0 @@
-(((Lepilemur_septentrionalis:3.142298649,Lepilemur_ankaranensis:3.142298649)7911:2.46523934,Lepilemur_dorsalis:5.60753799)7909:4.953407082,(Lepilemur_ruficaudatus:9.849719651,Lepilemur_leucopus:9.849719651)7910:0.7112254203)7908;

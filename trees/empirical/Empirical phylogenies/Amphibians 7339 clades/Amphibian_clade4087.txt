@@ -1,1 +1,0 @@
-(((Mantidactylus_charlotteae:8.793589575,Mantidactylus_opiparis:8.793589575)11431:5.219842254,(Mantidactylus_biporus:11.4159535,Mantidactylus_ulcerosus:11.4159535)11429:2.597478333)11428:4.109782027,((Mantidactylus_femoralis:2.365149013,Mantidactylus_mocquardi:2.365149013)11432:11.61291311,Mantidactylus_ambreensis:13.97806212)11430:4.145151732)11427;

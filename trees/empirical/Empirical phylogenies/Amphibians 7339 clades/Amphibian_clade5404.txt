@@ -1,1 +1,0 @@
-((((Choerophryne_gracilirostris:3.301627535,Choerophryne_proboscidea:3.301627535)12748:2.551886741,Choerophryne_arndtorum:5.853514276)12746:2.206544583,(Choerophryne_nigrescens:4.977462278,Choerophryne_amomani:4.977462278)12747:3.082596582)12745:3.555359397,Choerophryne_microps:11.61541826)12744;

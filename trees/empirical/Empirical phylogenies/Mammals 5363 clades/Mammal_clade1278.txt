@@ -1,1 +1,0 @@
-(((Peromyscus_difficilis:2.596106482,Peromyscus_sejugis:2.596106482)6646:1.709663375,(Peromyscus_bullatus:1.35090224,Peromyscus_attwateri:1.35090224)6644:2.954867618)6643:1.83185656,(Peromyscus_grandis:3.483749062,Peromyscus_californicus:3.483749062)6645:2.653877356)6642;

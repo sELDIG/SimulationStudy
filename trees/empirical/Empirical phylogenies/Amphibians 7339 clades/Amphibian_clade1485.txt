@@ -1,1 +1,0 @@
-(((Dendropsophus_bifurcus:5.938756971,Dendropsophus_sarayacuensis:5.938756971)8829:3.457998424,(Dendropsophus_leucophyllatus:2.326479128,Dendropsophus_triangulum:2.326479128)8827:7.070276267)8826:8.609634373,(Dendropsophus_ebraccatus:16.28690197,Dendropsophus_elegans:16.28690197)8828:1.719487796)8825;

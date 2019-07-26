@@ -1,1 +1,0 @@
-(((((Exerodonta_xera:0.4865357249,Exerodonta_smaragdina:0.4865357249)8515:2.753220351,Exerodonta_chimalapa:3.239756076)8513:6.1991203,(Exerodonta_perkinsi:2.015864783,Exerodonta_abdivita:2.015864783)8514:7.423011592)8512:0.2642868725,Exerodonta_juanitae:9.703163248)8511:1.239257162,Exerodonta_bivocata:10.94242041)8510;

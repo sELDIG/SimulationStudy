@@ -1,1 +1,0 @@
-(((Lycalopex_culpaeus:0.7985363165,Lycalopex_gymnocercus:0.7985363165)9652:0.4337429496,Lycalopex_griseus:1.232279266)9651:0.5350987765,Lycalopex_sechurae:1.767378042)9650;

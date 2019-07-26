@@ -1,1 +1,0 @@
-(((Rhynchomys_banahao:1.569301077,Rhynchomys_soricoides:1.569301077)5859:1.207398161,Rhynchomys_tapulao:2.776699239)5858:0.06840028365,Rhynchomys_isarogensis:2.845099522)5857;

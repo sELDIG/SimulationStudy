@@ -1,1 +1,0 @@
-(((((Phocoena_spinipinnis:5.162819052,Phocoena_dioptrica:5.162819052)9436:0.5370667051,Phocoena_sinus:5.699885757)9435:1.16337454,(Phocoena_phocoena:4.826715345,Phocoenoides_dalli:4.826715345)9438:2.036544952)9439:1.064174709,Neophocaena_phocaenoides:7.927435006)9434:6.717688395,(Monodon_monoceros:7.578339376,Delphinapterus_leucas:7.578339376)9437:7.066784026)9433;

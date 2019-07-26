@@ -1,1 +1,0 @@
-((((Thyroptera_discifera:4.525893881,Thyroptera_tricolor:4.525893881)8742:18.60935915,Thyroptera_lavali:23.13525303)8744:9.43525303,Thyroptera_devivoi:32.57050606)8741:9.463373615,((Noctilio_leporinus:2.961604328,Noctilio_albiventris:2.961604328)8743:33.33773779,Furipterus_horrens:36.29934211)8745:5.734537563)8740;

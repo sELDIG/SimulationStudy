@@ -1,1 +1,0 @@
-((Paramelomys_levipes:9.454971073,Paramelomys_rubex:9.454971073)5571:0.8213058945,(Paramelomys_platyops:9.352039381,Paramelomys_moncktoni:9.352039381)5572:0.9242375867)5570;

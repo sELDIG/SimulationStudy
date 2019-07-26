@@ -1,1 +1,0 @@
-(((Gastrotheca_orophylax:0.1943013932,Gastrotheca_plumbea:0.1943013932)10587:8.630139787,Gastrotheca_litonedis:8.824441181)10586:5.52150918,Gastrotheca_monticola:14.34595036)10585;

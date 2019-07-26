@@ -1,1 +1,0 @@
-(((Xenopus_Silurana_epitropicalis:20.90096621,Xenopus_Silurana_tropicalis:20.90096621)13733:8.680852452,Xenopus_sp_KR_2004:29.58181866)13731:7.774702532,(Xenopus_victorianus:0.276168793,Xenopus_itombwensis:0.276168793)13732:37.0803524)13730;

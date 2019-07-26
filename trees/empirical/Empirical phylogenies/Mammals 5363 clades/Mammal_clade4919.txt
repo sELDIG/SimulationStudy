@@ -1,1 +1,0 @@
-((Microgale_soricoides:0.3513043801,Microgale_pusilla:0.3513043801)10284:4.886911643,Microgale_longicaudata:5.238216023)10283;

@@ -1,1 +1,0 @@
-((Zaglossus_bruijni:3.515970219,Tachyglossus_aculeatus:3.515970219)10726:25.39928186,(Zaglossus_attenboroughi:2.569045872,Zaglossus_bartoni:2.569045872)10727:26.34620621)10725;

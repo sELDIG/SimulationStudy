@@ -1,1 +1,0 @@
-((Tupaia_dorsalis:19.56522311,Tupaia_gracilis:19.56522311)8022:0.439581224,(Tupaia_javanica:18.99978175,Tupaia_nicobarica:18.99978175)8023:1.005022587)8021;

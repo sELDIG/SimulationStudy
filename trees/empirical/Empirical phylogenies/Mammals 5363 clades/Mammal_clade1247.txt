@@ -1,1 +1,0 @@
-((Phodopus_sungorus:0.8866419444,Phodopus_campbelli:0.8866419444)6612:2.791171344,Phodopus_roborovskii:3.677813288)6611;

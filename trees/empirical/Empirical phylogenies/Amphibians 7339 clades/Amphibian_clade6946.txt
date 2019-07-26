@@ -1,1 +1,0 @@
-((Pachytriton_inexpectatus:3.533662442,Pachytriton_labiatus:3.533662442)14287:1.870525593,(Pachytriton_granulosus:3.96645499,Pachytriton_feii:3.96645499)14288:1.437733045)14286;

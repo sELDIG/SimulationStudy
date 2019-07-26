@@ -1,1 +1,0 @@
-((Stenocephalemys_ruppi:3.620565896,Stenocephalemys_griseicauda:3.620565896)5761:3.937178372,(Stenocephalemys_albipes:2.085567131,Stenocephalemys_albocaudata:2.085567131)5762:5.472177137)5760;

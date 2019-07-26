@@ -1,1 +1,0 @@
-(((Mesocricetus_auratus:6.766580554,Mesocricetus_raddei:6.766580554)6611:1.669900387,(Mesocricetus_brandti:7.443718291,Mesocricetus_newtoni:7.443718291)6609:0.9927626499)6608:3.752538809,((Phodopus_sungorus:0.8866419444,Phodopus_campbelli:0.8866419444)6612:2.791171344,Phodopus_roborovskii:3.677813288)6610:8.511206462)6607;

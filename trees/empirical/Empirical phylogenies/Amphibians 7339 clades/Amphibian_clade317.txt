@@ -1,1 +1,0 @@
-((((Pristimantis_molybrignus:1.397338137,Pristimantis_rivasi:1.397338137)7659:0.888461351,Pristimantis_vicarius:2.285799488)7661:13.44220336,Pristimantis_corrugatus:15.72800285)7658:6.899536148,(Pristimantis_batrachites:7.072683661,Pristimantis_turpinorum:7.072683661)7660:15.55485534)7657;

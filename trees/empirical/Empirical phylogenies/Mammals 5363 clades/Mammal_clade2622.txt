@@ -1,1 +1,0 @@
-(((((Otolemur_crassicaudatus:6.344615836,Otolemur_garnettii:6.344615836)7990:1.811910911,Otolemur_monteiri:8.156526748)7989:6.499992698,Euoticus_pallidus:14.65651945)7988:5.55945331,Euoticus_elegantulus:20.21597276)7987:1.657850576,Galago_granti:21.87382333)7986;

@@ -1,1 +1,0 @@
-(((Atelopus_pastuso:0.2992107461,Atelopus_cruciger:0.2992107461)10119:6.374863534,Atelopus_nocturnus:6.67407428)10118:2.567575293,Atelopus_eusebiodiazi:9.241649573)10117;

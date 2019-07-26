@@ -1,1 +1,0 @@
-(((((Rhinolophus_sakejiensis:1.255560653,Rhinolophus_maendeleo:1.255560653)9119:1.666315026,Rhinolophus_hillorum:2.921875678)9118:3.14943639,Rhinolophus_yunanensis:6.071312068)9121:0.4909572947,Rhinolophus_virgo:6.562269363)9117:5.105167075,(Rhinolophus_shortridgei:6.589488903,Rhinolophus_bocharicus:6.589488903)9120:5.077947534)9116;

@@ -1,1 +1,0 @@
-(((Capricornis_sumatraensis:2.611647271,Capricornis_swinhoei:2.611647271)9210:1.06094043,(Capricornis_rubidus:1.315781656,Capricornis_milneedwardsii:1.315781656)9208:2.356806045)9207:0.4547521493,(Capricornis_crispus:2.183111074,Capricornis_thar:2.183111074)9209:1.944228776)9206;

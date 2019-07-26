@@ -1,1 +1,0 @@
-(((((Crocidura_musseri:2.59172831,Crocidura_rhoditis:2.59172831)9873:1.272053041,Crocidura_batakorum:3.863781351)9872:1.493347553,Crocidura_levicula:5.357128904)9875:2.243789709,Crocidura_sicula:7.600918613)9871:0.5841095517,(Crocidura_zimmermanni:7.45380651,Crocidura_luna:7.45380651)9874:0.7312216551)9870;

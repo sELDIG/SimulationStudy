@@ -1,1 +1,0 @@
-(((((Paraxerus_poensis:3.03,Paraxerus_flavovittis:3.03)7109:0,Paraxerus_boehmi:3.03)7112:1.558252149,(Paraxerus_palliatus:3.311213358,Paraxerus_vincenti:3.311213358)7111:1.277038791)7108:4.591747851,((Paraxerus_ochraceus:3.300266954,Paraxerus_cooperi:3.300266954)7110:1.356943285,Paraxerus_vexillarius:4.657210239)7113:4.522789761)7107:0,Paraxerus_cepapi:9.18)7106;

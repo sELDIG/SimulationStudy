@@ -1,1 +1,0 @@
-((Batomys_salomonseni:3.112127012,Batomys_russatus:3.112127012)5659:4.271970187,(Batomys_granti:2.652718057,Batomys_dentatus:2.652718057)5660:4.731379142)5658;

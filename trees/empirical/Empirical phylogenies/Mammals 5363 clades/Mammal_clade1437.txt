@@ -1,1 +1,0 @@
-(((Sicista_severtzovi:3.369362365,Sicista_kluchorica:3.369362365)6805:3.63933133,(Sicista_caudata:2.631041864,Sicista_caucasica:2.631041864)6803:4.377651831)6802:6.491417583,(Sicista_armenica:11.51563892,Sicista_pseudonapaea:11.51563892)6804:1.984472361)6801;

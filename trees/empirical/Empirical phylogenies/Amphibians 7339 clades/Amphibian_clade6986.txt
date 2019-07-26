@@ -1,1 +1,0 @@
-(((Taricha_granulosa:2.280980287,Taricha_torosa:2.280980287)14330:9.09120656,(Taricha_sierrae:6.696282481,Taricha_rivularis:6.696282481)14328:4.675904365)14327:35.33316772,((Notophthalmus_viridescens:16.07398825,Notophthalmus_perstriatus:16.07398825)14331:1.624845256,Notophthalmus_meridionalis:17.6988335)14329:29.00652106)14326;

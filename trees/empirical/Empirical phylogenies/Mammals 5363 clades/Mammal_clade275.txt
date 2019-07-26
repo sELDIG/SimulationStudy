@@ -1,1 +1,0 @@
-(((Lemniscomys_griselda:2.788592485,Lemniscomys_rosalia:2.788592485)5643:2.773379973,(Lemniscomys_linulus:2.521030724,Lemniscomys_macculus:2.521030724)5641:3.040941734)5640:7.738027542,(Lemniscomys_roseveari:4.138516693,Lemniscomys_hoogstraali:4.138516693)5642:9.161483307)5639;

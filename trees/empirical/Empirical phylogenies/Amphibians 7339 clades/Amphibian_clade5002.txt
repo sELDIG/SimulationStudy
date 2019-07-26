@@ -1,1 +1,0 @@
-(((Cacosternum_plimptoni:2.362240787,Cacosternum_australis:2.362240787)12345:0.8622492767,Microbatrachella_capensis:3.224490063)12343:1.686807615,((Cacosternum_parvum:3.597173678,Cacosternum_leleupi:3.597173678)12346:1.192261453,Cacosternum_aggestum:4.789435131)12344:0.1218625481)12342;

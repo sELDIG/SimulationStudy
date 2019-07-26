@@ -1,1 +1,0 @@
-(((Leptolalax_botsfordi:1.052140886,Leptolalax_nahangensis:1.052140886)13554:6.469576188,Leptolalax_applebyi:7.521717074)13552:20.25772202,(Leptolalax_pluvialis:0.2697732443,Leptolalax_firthi:0.2697732443)13553:27.50966585)13551;

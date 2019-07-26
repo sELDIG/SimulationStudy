@@ -1,1 +1,0 @@
-(((Microtus_townsendii:2.159863871,Microtus_breweri:2.159863871)6508:3.807496779,Microtus_pennsylvanicus:5.96736065)6506:0.9718242929,(Microtus_oregoni:2.879924209,Microtus_californicus:2.879924209)6507:4.059260734)6505;

@@ -1,1 +1,0 @@
-(((((Duttaphrynus_melanostictus:1.041568442,Duttaphrynus_parietalis:1.041568442)9757:0.004746178729,Duttaphrynus_brevirostris:1.04631462)9759:0.8020422627,Duttaphrynus_sp_FB_2009b:1.848356883)9756:3.531368505,(Duttaphrynus_scaber:1.717859057,Duttaphrynus_atukoralei:1.717859057)9758:3.661866331)9755:0.3125987687,Duttaphrynus_himalayanus:5.692324157)9754;

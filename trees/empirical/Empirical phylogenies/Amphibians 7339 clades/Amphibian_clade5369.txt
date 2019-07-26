@@ -1,1 +1,0 @@
-(((((Austrochaperina_septentrionalis:0.5320766305,Austrochaperina_archboldi:0.5320766305)12712:2.11151771,Austrochaperina_adamantina:2.64359434)12711:0.1575895043,Austrochaperina_pluvialis:2.801183845)12714:8.516225164,Austrochaperina_aquilonia:11.31740901)12710:2.226620748,(Austrochaperina_kosarek:4.846771607,Austrochaperina_palmipes:4.846771607)12713:8.697258149)12709;

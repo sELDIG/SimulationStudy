@@ -1,1 +1,0 @@
-((Pristimantis_parectatus:0.2142153387,Pristimantis_lythrodes:0.2142153387)7776:4.29877483,(Pristimantis_scopaeus:1.725255867,Pristimantis_espedeus:1.725255867)7777:2.787734301)7775;

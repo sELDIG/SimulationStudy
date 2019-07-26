@@ -1,1 +1,0 @@
-(((Pteropus_voeltzkowi:1.468231091,Pteropus_rufus:1.468231091)8858:1.068225063,Pteropus_aldabrensis:2.536456154)8856:3.348953515,(Pteropus_seychellensis:2.911249528,Pteropus_niger:2.911249528)8857:2.97416014)8855;

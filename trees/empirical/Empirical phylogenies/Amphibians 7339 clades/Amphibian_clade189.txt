@@ -1,1 +1,0 @@
-((((Pristimantis_leucopus:4.434595662,Pristimantis_eurydactylus:4.434595662)7531:0.3228832596,Pristimantis_dorsopictus:4.757478922)7533:9.066411453,Pristimantis_farisorum:13.82389037)7530:1.100962178,((Pristimantis_lemur:3.740893123,Pristimantis_anotis:3.740893123)7532:5.257563402,Pristimantis_cuentasi:8.998456525)7534:5.926396029)7529;
