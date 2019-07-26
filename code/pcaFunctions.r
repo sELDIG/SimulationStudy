@@ -2,6 +2,10 @@
 # Function that conducts PCA on treeOutput set of specified tree metrics
 # -- vars is a vector of column names to include, default is all vars
 # -- models is a vector of model abbreviations
+
+
+# new comment
+
 treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   
   if (models != 'all') {
