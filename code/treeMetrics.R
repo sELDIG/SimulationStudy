@@ -138,7 +138,7 @@ treeMetrics = function(treeInput) {
   tree = tryCatch({
     drop.extinct(treeInput)
   }, error = function(e) {
-    tree = drop.fossil(treeIn)
+    tree = drop.fossil(treeInput)
   })
   
   # Richness
