@@ -1,0 +1,1 @@
+(((Ctenomys_azarae:0.6092411288,Ctenomys_emilianus:0.6092411288)7382:1.623629897,Ctenomys_yolandae:2.232871026)7380:1.094809812,(Ctenomys_dorsalis:1.503690045,Ctenomys_bonettoi:1.503690045)7381:1.823990793)7379;

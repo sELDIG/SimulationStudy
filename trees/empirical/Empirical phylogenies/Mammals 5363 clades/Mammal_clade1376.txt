@@ -1,0 +1,1 @@
+(((Tylomys_panamensis:2.312668574,Tylomys_fulviventer:2.312668574)6743:2.331975176,Tylomys_mirae:4.64464375)6741:5.636220348,(Tylomys_tumbalensis:2.598177382,Tylomys_watsoni:2.598177382)6742:7.682686716)6740;

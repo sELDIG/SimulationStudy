@@ -1,0 +1,1 @@
+(((Nephelomys_albigularis:0.5784387069,Handleyomys_chapmani:0.5784387069)6149:1.310313223,Nephelomys_caracolus:1.88875193)6147:1.628885099,((Nephelomys_levipes:1.349557557,Handleyomys_rhabdops:1.349557557)6150:1.526235357,Handleyomys_fuscatus:2.875792914)6148:0.6418441154)6146;

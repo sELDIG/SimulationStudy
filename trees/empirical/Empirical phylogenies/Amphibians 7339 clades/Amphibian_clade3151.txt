@@ -1,0 +1,1 @@
+(((Anomaloglossus_baeobatrachus:14.32043693,Anomaloglossus_stepheni:14.32043693)10494:2.388702504,Anomaloglossus_tamacuarensis:16.70913944)10492:0.4947670507,((Anomaloglossus_ayarzaguenai:2.648980162,Anomaloglossus_parimae:2.648980162)10495:10.49097434,Anomaloglossus_breweri:13.1399545)10493:4.063951991)10491;

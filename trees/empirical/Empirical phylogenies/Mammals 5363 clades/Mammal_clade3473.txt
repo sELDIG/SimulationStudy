@@ -1,0 +1,1 @@
+(((Acerodon_mackloti:1.793178347,Acerodon_leucotis:1.793178347)8840:2.481353045,Acerodon_humilis:4.274531393)8838:4.295468607,(Acerodon_celebensis:2.106472877,Acerodon_jubatus:2.106472877)8839:6.463527123)8837;

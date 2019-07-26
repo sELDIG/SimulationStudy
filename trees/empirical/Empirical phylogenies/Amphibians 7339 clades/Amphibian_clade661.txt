@@ -1,0 +1,1 @@
+(((((Craugastor_bocourti:9.635943951,Craugastor_spatulatus:9.635943951)8004:0.5905449376,Craugastor_stuarti:10.22648889)8003:3.249342148,Craugastor_uno:13.47583104)8006:2.172190605,Craugastor_alfredi:15.64802164)8002:7.716387077,(Craugastor_augusti:7.536374778,Craugastor_tarahumaraensis:7.536374778)8005:15.82803394)8001;

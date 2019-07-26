@@ -1,0 +1,1 @@
+(((Craugastor_adamastus:2.849023973,Craugastor_escoces:2.849023973)8056:10.83741425,(Craugastor_merendonensis:2.471412934,Craugastor_campbelli:2.471412934)8054:11.21502529)8053:3.602669182,((Craugastor_rugosus:2.367179945,Craugastor_cruzi:2.367179945)8057:11.82652434,Craugastor_vocalis:14.19370428)8055:3.095403124)8052;

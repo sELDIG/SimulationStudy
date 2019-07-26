@@ -1,0 +1,1 @@
+((((Antechinus_flavipes:4.06549277,Antechinus_bellus:4.06549277)10569:0.9944223819,Antechinus_leo:5.059915152)10568:1.981907454,Antechinus_stuartii:7.041822606)10567:1.144082662,Antechinus_godmani:8.185905269)10566;

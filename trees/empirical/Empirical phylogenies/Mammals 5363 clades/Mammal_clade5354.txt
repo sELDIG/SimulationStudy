@@ -1,0 +1,1 @@
+((Lutreolina_crassicaudata:1.002731731,Didelphis_aurita:1.002731731)10719:3.023792662,(Didelphis_virginiana:2.091445241,Chironectes_minimus:2.091445241)10720:1.935079152)10718;

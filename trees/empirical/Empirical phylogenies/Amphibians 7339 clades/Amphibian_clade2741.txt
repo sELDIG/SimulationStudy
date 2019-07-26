@@ -1,0 +1,1 @@
+(((Peltophryne_peltocephalus:1.51705891,Peltophryne_florentinoi:1.51705891)10084:0.3641997789,Peltophryne_fustiger:1.881258689)10082:5.035280541,(Peltophryne_empua:0.6084604947,Peltophryne_cataulaciceps:0.6084604947)10083:6.308078735)10081;

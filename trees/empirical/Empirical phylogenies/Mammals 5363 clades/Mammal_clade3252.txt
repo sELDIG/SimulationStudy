@@ -1,0 +1,1 @@
+((((Chiroderma_trinitatum:2.301614922,Chiroderma_doriae:2.301614922)8618:1.705704037,(Chiroderma_improvisum:2.42205585,Chiroderma_villosum:2.42205585)8622:1.58526311)8621:1.027816323,Chiroderma_salvini:5.035135282)8617:4.760752689,((Vampyressa_bidens:3.012069661,Vampyressa_nymphaea:3.012069661)8620:2.597162503,Vampyressa_brocki:5.609232164)8619:4.186655807)8616;

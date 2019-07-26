@@ -1,0 +1,1 @@
+(((Taphozous_melanopogon:21.42342397,Taphozous_longimanus:21.42342397)8795:1.714340881,Taphozous_mauritianus:23.13776485)8793:7.453438742,((Taphozous_georgianus:18.23333763,Taphozous_australis:18.23333763)8796:2.923719832,Taphozous_hilli:21.15705746)8794:9.434146133)8792;

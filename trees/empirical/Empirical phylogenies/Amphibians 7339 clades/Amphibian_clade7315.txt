@@ -1,0 +1,1 @@
+((((Ichthyophis_longicephalus:0.6723449827,Ichthyophis_humphreyi:0.6723449827)14657:2.075058632,Ichthyophis_singaporensis:2.747403615)14659:0.3280161041,Ichthyophis_larutensis:3.075419719)14656:9.705416721,(Ichthyophis_kodaguensis:11.29251335,Ichthyophis_alfredi:11.29251335)14658:1.488323093)14655;

@@ -1,0 +1,1 @@
+(((Hapalemur_aureus:3.642310219,Hapalemur_meridionalis:3.642310219)7953:2.621556308,Lemur_catta:6.263866526)7951:3.947125003,(Hapalemur_griseus:6.201860535,Hapalemur_occidentalis:6.201860535)7952:4.009130995)7950;

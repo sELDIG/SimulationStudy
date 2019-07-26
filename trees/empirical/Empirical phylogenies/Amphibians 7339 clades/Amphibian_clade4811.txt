@@ -1,0 +1,1 @@
+(((Amolops_ricketti:15.63136553,Amolops_wuyiensis:15.63136553)12155:7.226478911,(Amolops_hongkongensis:15.19820169,Amolops_daiyunensis:15.19820169)12153:7.659642747)12152:2.42111018,(Amolops_cremnobatus:21.74384516,Amolops_larutensis:21.74384516)12154:3.53510946)12151;

@@ -1,0 +1,1 @@
+((((Artibeus_lituratus:1.552240887,Artibeus_schwartzi:1.552240887)8574:0.7414037729,Artibeus_jamaicensis:2.29364466)8576:0.3818766507,Artibeus_obscurus:2.675521311)8573:0.6336079852,(Artibeus_planirostris:1.179324925,Artibeus_amplus:1.179324925)8575:2.129804372)8572;

@@ -1,0 +1,1 @@
+((((Pristimantis_ixalus:3.357862787,Pristimantis_dundeei:3.357862787)7751:6.451904913,Pristimantis_almendarizi:9.809767699)7754:2.511279485,(Pristimantis_achuar:8.758129827,Pristimantis_floridus:8.758129827)7753:3.562917357)7750:1.495375449,(Pristimantis_colodactylus:3.252446445,Pristimantis_tubernasus:3.252446445)7752:10.56397619)7749;

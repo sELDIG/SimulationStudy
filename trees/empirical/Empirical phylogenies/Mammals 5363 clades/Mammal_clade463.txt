@@ -1,0 +1,1 @@
+(((Chiropodomys_major:4.23,Chiropodomys_gliroides:4.23)5830:0,Chiropodomys_pusillus:4.23)5828:7.088458796,((Chiropodomys_karlkoopmani:1.276675402,Chiropodomys_calamianensis:1.276675402)5831:2.084971222,Chiropodomys_muroides:3.361646624)5829:7.956812172)5827;

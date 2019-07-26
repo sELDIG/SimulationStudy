@@ -1,0 +1,1 @@
+((((Eptesicus_floweri:2.137958512,Eptesicus_malagasyensis:2.137958512)8244:4.652988154,Eptesicus_japonensis:6.790946666)8246:1.803428667,Eptesicus_pachyotis:8.594375333)8243:7.93462471,(Eptesicus_matroka:3.457273725,Eptesicus_andinus:3.457273725)8245:13.07172632)8242;

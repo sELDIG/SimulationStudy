@@ -1,0 +1,1 @@
+(((Pristimantis_quicato:4.484358818,Pristimantis_acatallelus:4.484358818)7608:4.723574237,Pristimantis_imthurni:9.207933055)7606:0.6465196904,(Pristimantis_incanus:3.089038779,Pristimantis_ornatus:3.089038779)7607:6.765413967)7605;

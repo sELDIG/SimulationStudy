@@ -1,0 +1,1 @@
+(((Otomops_wroughtoni:1.563768714,Otomops_cf._formosus:1.563768714)8467:0.8150233695,(Otomops_papuensis:1.55374099,Otomops_madagascariensis:1.55374099)8465:0.8250510934)8464:4.427874583,(Otomops_johnstonei:1.141437472,Otomops_secundus:1.141437472)8466:5.665229195)8463;

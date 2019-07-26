@@ -1,0 +1,1 @@
+(((Telmatobius_degener:0.6584415515,Telmatobius_schreiteri:0.6584415515)10874:1.785917051,Telmatobius_pinguiculus:2.444358602)10872:2.652944231,(Telmatobius_necopinus:0.0459479226,Telmatobius_stephani:0.0459479226)10873:5.05135491)10871;

@@ -1,0 +1,1 @@
+((((Eurycea_pterophila:0.5758937653,Eurycea_tridentifera:0.5758937653)14131:0.3389842219,Eurycea_latitans:0.9148779872)14130:2.085059706,Eurycea_neotenes:2.999937693)14129:0.3345489263,Eurycea_sp_Comal_Springs:3.334486619)14128;

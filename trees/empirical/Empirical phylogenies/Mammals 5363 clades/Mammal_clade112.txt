@@ -1,0 +1,1 @@
+((((Arvicanthis_niloticus:2.462946403,Arvicanthis_somalicus:2.462946403)5478:4.429168389,Arvicanthis_ansorgei:6.892114792)5480:1.051315973,Arvicanthis_nairobae:7.943430766)5477:2.758077053,((Arvicanthis_neumanni:4.044392441,Arvicanthis_rufinus:4.044392441)5482:2.559715143,(Arvicanthis_blicki:2.230313124,Arvicanthis_abyssinicus:2.230313124)5479:4.37379446)5481:4.097400235)5476;

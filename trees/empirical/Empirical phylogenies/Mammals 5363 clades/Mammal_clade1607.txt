@@ -1,0 +1,1 @@
+((((Spermophilus_taurensis:1.38199307,Spermophilus_elegans:1.38199307)6975:0.7353246324,Spermophilus_mollis:2.117317703)6973:1.308405211,(Spermophilus_ralli:1.127343573,Spermophilus_brevicauda:1.127343573)6974:2.298379341)6972:0.7453661008,Spermophilus_canus:4.171089015)6971;

@@ -1,0 +1,1 @@
+(((((Gephyromantis_decaryi:4.285450145,Gephyromantis_leucocephalus:4.285450145)11514:6.822907463,Gephyromantis_eiselti:11.10835761)11512:1.307344364,(Gephyromantis_blanci:0.6866697541,Gephyromantis_enki:0.6866697541)11513:11.72903222)11511:3.391296818,Gephyromantis_klemmeri:15.80699879)11510:8.820246588,Gephyromantis_boulengeri:24.62724538)11509;

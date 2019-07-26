@@ -1,0 +1,1 @@
+(((Atelopus_boulengeri:2.043622657,Atelopus_lynchi:2.043622657)10193:0.5288572419,Atelopus_nahumae:2.572479898)10191:3.385860353,(Atelopus_oxapampae:2.168955294,Atelopus_mittermeieri:2.168955294)10192:3.789384958)10190;

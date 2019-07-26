@@ -1,0 +1,1 @@
+(((Pristimantis_loujosti:2.096203841,Pristimantis_bellator:2.096203841)7522:4.45599952,(Pristimantis_cordovae:5.035853326,Pristimantis_lynchi:5.035853326)7520:1.516350035)7519:8.437527772,((Pristimantis_coronatus:2.43823309,Pristimantis_illotus:2.43823309)7523:2.170863908,Pristimantis_lividus:4.609096997)7521:10.38063413)7518;

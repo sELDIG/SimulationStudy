@@ -1,0 +1,1 @@
+((((Miniopterus_inflatus:5.442681035,Miniopterus_africanus:5.442681035)8524:1.656520852,Miniopterus_fraterculus:7.099201887)8526:0.8829972639,Miniopterus_natalensis:7.98219915)8523:1.40131265,(Miniopterus_schreibersii:8.510615464,Miniopterus_majori:8.510615464)8525:0.8728963363)8522;

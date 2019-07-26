@@ -1,0 +1,1 @@
+(((Ammospermophilus_leucurus:0.4577121424,Ammospermophilus_harrisii:0.4577121424)6997:0.6720370677,Ammospermophilus_interpres:1.12974921)6996:0.1816741868,Ammospermophilus_insularis:1.311423397)6995;

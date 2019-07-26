@@ -1,0 +1,1 @@
+(((Crocidura_negrina:0.6734130176,Crocidura_panayensis:0.6734130176)9905:5.946255586,Crocidura_palawanensis:6.619668603)9904:0.6900400247,Crocidura_beatus:7.309708628)9903;

@@ -1,0 +1,1 @@
+((((Pseudantechinus_macdonnellensis:2.538834892,Pseudantechinus_mimulus:2.538834892)10551:1.407352901,Pseudantechinus_woolleyae:3.946187793)10553:3.591947047,Pseudantechinus_bilarni:7.53813484)10550:0.4618651595,(Myoictis_wavicus:2.521228315,Pseudantechinus_roryi:2.521228315)10552:5.478771685)10549;

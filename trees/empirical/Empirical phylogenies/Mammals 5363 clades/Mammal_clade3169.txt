@@ -1,0 +1,1 @@
+((((Miniopterus_magnater:1.606238131,Miniopterus_sororculus:1.606238131)8535:1.763524116,Miniopterus_shortridgei:3.369762247)8537:1.676807496,Miniopterus_newtoni:5.046569743)8534:1.977189049,((Miniopterus_medius:1.239727169,Miniopterus_fuscus:1.239727169)8536:4.232145696,Miniopterus_petersoni:5.471872865)8538:1.551885928)8533;

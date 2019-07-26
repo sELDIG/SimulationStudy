@@ -1,0 +1,1 @@
+(((Carollia_manu:2.008084587,Carollia_sowelli:2.008084587)8644:0.7989564179,Carollia_subrufa:2.807041004)8642:2.304547388,((Carollia_perspicillata:2.818718955,Carollia_brevicauda:2.818718955)8645:1.637967855,Carollia_castanea:4.45668681)8643:0.6549015822)8641;

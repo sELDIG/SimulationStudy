@@ -1,0 +1,1 @@
+(((Plethodon_hubrichti:0.6002835769,Plethodon_nettingi:0.6002835769)14199:5.478174539,(Plethodon_richmondi:1.029060168,Plethodon_electromorphus:1.029060168)14197:5.049397948)14196:3.744977321,(Plethodon_cinereus:9.164397723,Plethodon_shenandoah:9.164397723)14198:0.6590377135)14195;

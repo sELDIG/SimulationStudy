@@ -1,0 +1,1 @@
+(((((Physalaemus_deimaticus:1.483843261,Physalaemus_orophilus:1.483843261)9429:3.851541189,Physalaemus_feioi:5.33538445)9428:1.938547468,Physalaemus_albifrons:7.273931918)9431:6.077057693,Physalaemus_nanus:13.35098961)9427:7.793802032,(Physalaemus_cicada:13.49067208,Physalaemus_cuqui:13.49067208)9430:7.654119558)9426;

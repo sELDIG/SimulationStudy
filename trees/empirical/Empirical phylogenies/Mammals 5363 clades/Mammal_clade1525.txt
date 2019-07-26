@@ -1,0 +1,1 @@
+((Orthogeomys_underwoodi:0.7425622167,Orthogeomys_hispidus:0.7425622167)6890:3.714653147,(Orthogeomys_grandis:1.667164231,Orthogeomys_cherriei:1.667164231)6891:2.790051133)6889;

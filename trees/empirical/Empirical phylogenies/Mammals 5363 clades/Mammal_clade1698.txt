@@ -1,0 +1,1 @@
+(((Sundasciurus_philippinensis:11.4023135,Sundasciurus_mindanensis:11.4023135)7065:1.027954502,Sundasciurus_brookei:12.430268)7063:2.087106293,(Callosciurus_baluensis:4.382493662,Callosciurus_erythraeus:4.382493662)7064:10.13488064)7062;

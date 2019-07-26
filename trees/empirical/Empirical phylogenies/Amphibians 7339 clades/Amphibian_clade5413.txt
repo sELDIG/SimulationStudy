@@ -1,0 +1,1 @@
+(((Liophryne_rhododactyla:15.88627472,Liophryne_dentata:15.88627472)12757:1.992381161,(Liophryne_similis:14.61028884,Liophryne_allisoni:14.61028884)12755:3.268367046)12754:7.585758912,((Liophryne_schlaginhaufeni:4.191900982,Liophryne_magnitympanum:4.191900982)12758:2.051502945,Liophryne_rubra:6.243403927)12756:19.22101087)12753;

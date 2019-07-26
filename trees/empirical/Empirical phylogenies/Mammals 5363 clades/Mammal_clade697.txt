@@ -1,0 +1,1 @@
+((((Nesomys_audeberti:2.813596648,Nesomys_lambertoni:2.813596648)6065:7.664204943,Nesomys_rufus:10.47780159)6063:5.172642601,(Brachyuromys_ramirohitra:7.642705753,Brachyuromys_betsileoensis:7.642705753)6064:8.007738438)6062:4.075450555,Hypogeomys_antimena:19.72589475)6061;

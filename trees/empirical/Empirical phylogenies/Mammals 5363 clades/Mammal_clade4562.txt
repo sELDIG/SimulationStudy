@@ -1,0 +1,1 @@
+(((Crocidura_greenwoodi:0.8455226813,Crocidura_latona:0.8455226813)9929:0.5792708938,Crocidura_picea:1.424793575)9927:4.282823409,(Crocidura_jacksoni:0.3980220563,Crocidura_usambarae:0.3980220563)9928:5.309594928)9926;

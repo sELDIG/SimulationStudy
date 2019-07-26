@@ -1,0 +1,1 @@
+((((Lophostoma_silvicolum:2.420593923,Lophostoma_evotis:2.420593923)8702:2.503257584,Lophostoma_schulzi:4.923851507)8704:4.058317529,Lophostoma_brasiliense:8.982169036)8701:1.145370678,((Lophostoma_yasuni:3.560343271,Lophostoma_carrikeri:3.560343271)8703:1.47817809,Lophostoma_aequatorialis:5.038521361)8705:5.089018353)8700;

@@ -1,0 +1,1 @@
+((((Pristimantis_actinolaimus:0.7932229551,Pristimantis_tungurahua:0.7932229551)7673:0.3603392725,Pristimantis_delicatus:1.153562228)7676:1.800934227,(Pristimantis_bellae:1.528281976,Pristimantis_polemistes:1.528281976)7675:1.42621448)7672:5.770788366,(Pristimantis_gracilis:7.522514406,Pristimantis_bicumulus:7.522514406)7674:1.202770415)7671;

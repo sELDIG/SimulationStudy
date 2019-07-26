@@ -1,0 +1,1 @@
+(((((Bubalus_bubalis:0.8962676074,Bubalus_carabanensis:0.8962676074)9371:0.7193230004,Bubalus_mindorensis:1.615590608)9370:0.6716485426,Bubalus_depressicornis:2.28723915)9369:1.277200533,Bubalus_quarlesi:3.564439683)9368:5.035133282,Syncerus_caffer:8.599572965)9367;

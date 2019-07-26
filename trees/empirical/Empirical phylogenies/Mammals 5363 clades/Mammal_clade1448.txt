@@ -1,0 +1,1 @@
+(((Idiurus_zenkeri:7.916315109,Idiurus_macrotis:7.916315109)6815:7.042490135,Anomalurus_derbianus:14.95880524)6813:15.29066704,((Anomalurus_pusillus:4.742830293,Anomalurus_beecrofti:4.742830293)6816:5.344411116,Anomalurus_pelii:10.08724141)6814:20.16223087)6812;

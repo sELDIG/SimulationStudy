@@ -1,0 +1,1 @@
+(((Pristimantis_miyatai:12.63763089,Pristimantis_taeniatus:12.63763089)7411:3.133671663,(Pristimantis_bogotensis:6.063679418,Pristimantis_frater:6.063679418)7409:9.707623135)7408:0.2497888272,(Pristimantis_librarius:9.525162914,Pristimantis_martiae:9.525162914)7410:6.495928466)7407;

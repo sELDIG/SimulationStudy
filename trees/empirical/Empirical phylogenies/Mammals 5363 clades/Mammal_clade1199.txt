@@ -1,0 +1,1 @@
+(((Lemmus_sibiricus:5.702002719,Lemmus_trimucronatus:5.702002719)6566:1.450262031,Lemmus_amurensis:7.15226475)6564:1.833383391,(Lemmus_portenkoi:3.263912404,Lemmus_lemmus:3.263912404)6565:5.721735737)6563;

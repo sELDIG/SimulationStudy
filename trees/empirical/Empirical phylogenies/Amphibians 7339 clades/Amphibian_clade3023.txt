@@ -1,0 +1,1 @@
+(((Dendrobates_leucomelas:10.85587824,Dendrobates_tinctorius:10.85587824)10366:1.366244418,Dendrobates_nubeculosus:12.22212266)10364:0.7831678961,(Dendrobates_auratus:1.288529182,Dendrobates_truncatus:1.288529182)10365:11.71676137)10363;

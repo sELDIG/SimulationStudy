@@ -1,0 +1,1 @@
+(((Reithrodontomys_megalotis:6.692857413,Reithrodontomys_zacatecae:6.692857413)6713:0.5519494324,Reithrodontomys_sumichrasti:7.244806845)6711:1.142833596,(Reithrodontomys_fulvescens:4.391175152,Reithrodontomys_hirsutus:4.391175152)6712:3.996465289)6710;

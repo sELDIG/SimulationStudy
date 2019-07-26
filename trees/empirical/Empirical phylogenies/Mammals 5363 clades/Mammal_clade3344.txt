@@ -1,0 +1,1 @@
+(((((Lonchorhina_inusitata:2.07,Lonchorhina_orinocensis:2.07)8714:0,Lonchorhina_aurita:2.07)8710:17.284325,Lonchorhina_fernandezi:19.354325)8713:2.954325,Lonchorhina_marinkellei:22.30865)8709:2.677755789,((Glyphonycteris_daviesi:5.393717715,Glyphonycteris_behnii:5.393717715)8712:8.124157884,Glyphonycteris_sylvestris:13.5178756)8711:11.46853019)8708;

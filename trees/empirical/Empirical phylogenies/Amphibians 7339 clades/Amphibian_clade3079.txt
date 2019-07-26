@@ -1,0 +1,1 @@
+(((Colostethus_inguinalis:2.746367158,Colostethus_panamansis:2.746367158)10422:8.997487526,Colostethus_imbricolus:11.74385468)10420:0.5871254144,(Colostethus_pratti:6.106933043,Colostethus_latinasus:6.106933043)10421:6.224047055)10419;

@@ -1,0 +1,1 @@
+((((Auliscomys_micropus:3.83,Auliscomys_boliviensis:3.83)6216:0,Auliscomys_sublimis:3.83)6218:4.413643139,Auliscomys_pictus:8.243643139)6215:1.06095343,(Andalgalomys_pearsoni:2.922171949,Andalgalomys_olrogi:2.922171949)6217:6.38242462)6214;

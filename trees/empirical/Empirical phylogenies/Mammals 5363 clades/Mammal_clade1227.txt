@@ -1,0 +1,1 @@
+(((Synaptomys_cooperi:4.009300333,Synaptomys_borealis:4.009300333)6593:8.885904913,(Proedromys_liangshanensis:3.19103024,Dinaromys_bogdanovi:3.19103024)6594:9.704175007)6592:0.2843173458,Neofiber_alleni:13.17952259)6591;

@@ -1,0 +1,1 @@
+(((((Hynobius_chinensis:2.124976804,Hynobius_maoershanensis:2.124976804)14439:3.08758527,Hynobius_guabangshanensis:5.212562075)14438:6.044930601,Hynobius_yiwuensis:11.25749268)14437:5.221779528,Hynobius_amjiensis:16.4792722)14436:6.080605888,Hynobius_naevius:22.55987809)14435;

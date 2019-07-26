@@ -1,0 +1,1 @@
+(((Pseudoeurycea_tlahcuiloh:3.389917287,Pseudoeurycea_lineola:3.389917287)13988:2.927181702,Pseudoeurycea_aurantia:6.317098989)13986:7.879462476,((Pseudoeurycea_ahuitzotl:1.258715056,Pseudoeurycea_orchimelas:1.258715056)13989:6.770584767,Pseudoeurycea_praecellens:8.029299824)13987:6.167261641)13985;

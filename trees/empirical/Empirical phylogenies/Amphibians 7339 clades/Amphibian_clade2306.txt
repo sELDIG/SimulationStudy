@@ -1,0 +1,1 @@
+((((Hyalinobatrachium_mesai:0.1992301471,Hyalinobatrachium_cappellei:0.1992301471)9648:6.293544414,Hyalinobatrachium_guairarepanense:6.492774561)9650:7.758538878,Hyalinobatrachium_esmeralda:14.25131344)9647:8.875725134,(Hyalinobatrachium_eurygnathum:8.742566627,Hyalinobatrachium_antisthenesi:8.742566627)9649:14.38447195)9646;

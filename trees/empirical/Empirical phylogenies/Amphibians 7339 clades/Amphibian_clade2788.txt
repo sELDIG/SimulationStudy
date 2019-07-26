@@ -1,0 +1,1 @@
+((((Atelopus_oxyrhynchus:7.024320135,Atelopus_famelicus:7.024320135)10132:0.6788763689,Atelopus_vogli:7.703196504)10130:0.3266435666,(Atelopus_chirripoensis:0.4418412038,Atelopus_galactogaster:0.4418412038)10131:7.587998866)10129:4.251808616,Atelopus_sonsonensis:12.28164869)10128;

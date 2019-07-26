@@ -1,0 +1,1 @@
+(((Choerophryne_allisoni:0.5027892026,Choerophryne_burtoni:0.5027892026)12752:9.111399429,Choerophryne_rostellifer:9.614188631)12750:3.654898015,(Choerophryne_longirostris:0.1048523553,Choerophryne_bryonopsis:0.1048523553)12751:13.16423429)12749;

@@ -1,0 +1,1 @@
+((((Damaliscus_pygargus:7.626952793,Damaliscus_lunatus:7.626952793)9227:1.435688503,(Alcelaphus_caama:3.723272531,Alcelaphus_buselaphus:3.723272531)9225:5.339368766)9224:0.9409610098,(Connochaetes_gnou:2.665958411,Connochaetes_taurinus:2.665958411)9226:7.337643896)9223:0.7013643308,Beatragus_hunteri:10.70496664)9222;

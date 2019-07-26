@@ -1,0 +1,1 @@
+(((((Leptonychotes_weddellii:4.955422956,Hydrurga_leptonyx:4.955422956)9613:1.795121572,Ommatophoca_rossii:6.750544527)9610:1.134847046,Lobodon_carcinophaga:7.885391574)9614:3.706468072,(Mirounga_angustirostris:2.703450248,Mirounga_leonina:2.703450248)9611:8.888409398)9609:2.502652136,(Monachus_monachus:9.001836294,Monachus_schauinslandi:9.001836294)9612:5.092675488)9608;

@@ -1,0 +1,1 @@
+(((Petrogale_herberti:3.06381601,Petrogale_penicillata:3.06381601)10417:2.740965873,Petrogale_inornata:5.804781883)10415:3.423535645,(Petrogale_assimilis:8.670777773,Petrogale_godmani:8.670777773)10416:0.5575397555)10414;

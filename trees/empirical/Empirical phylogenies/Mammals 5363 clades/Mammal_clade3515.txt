@@ -1,0 +1,1 @@
+((Pteropus_chrysoproctus:3.150487934,Pteropus_dasymallus:3.150487934)8880:5.156647237,(Pteropus_tonganus:6.086554919,Pteropus_mariannus:6.086554919)8881:2.220580251)8879;

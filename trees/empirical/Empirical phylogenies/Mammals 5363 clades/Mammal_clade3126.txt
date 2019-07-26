@@ -1,0 +1,1 @@
+((((Nyctinomops_aurispinosus:0.9962238908,Molossus_aztecus:0.9962238908)8492:2.760984296,Molossus_coibensis:3.757208187)8494:2.695341314,Nyctinomops_femorosaccus:6.4525495)8491:4.500631993,(Molossus_currentium:3.177091064,Molossus_barnesi:3.177091064)8493:7.77609043)8490;

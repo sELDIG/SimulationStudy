@@ -1,0 +1,1 @@
+((((Dendrolagus_dorianus:3.756789528,Dendrolagus_scottae:3.756789528)10411:0.7109937167,Dendrolagus_goodfellowi:4.467783244)10409:2.212944093,(Dendrolagus_matschiei:2.414194531,Dendrolagus_spadix:2.414194531)10410:4.266532807)10408:0.6821727134,Dendrolagus_inustus:7.362900051)10407;

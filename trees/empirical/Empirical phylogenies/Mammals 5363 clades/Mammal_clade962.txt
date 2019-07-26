@@ -1,0 +1,1 @@
+(((Chelemys_delfini:2.354897887,Chelemys_megalonyx:2.354897887)6329:2.596636591,Chelemys_macronyx:4.951534478)6327:1.637219852,((Geoxus_valdivianus:2.760351038,Abrothrix_illuteus:2.760351038)6330:2.076824376,Notiomys_edwardsii:4.837175414)6328:1.751578915)6326;

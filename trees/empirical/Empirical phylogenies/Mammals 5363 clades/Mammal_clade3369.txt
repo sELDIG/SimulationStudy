@@ -1,0 +1,1 @@
+(((Pteronotus_parnellii:4.651675655,Pteronotus_paraguanensis:4.651675655)8737:6.596114656,(Pteronotus_davyi:4.112614676,Pteronotus_gymnonotus:4.112614676)8735:7.135175636)8734:7.413901443,((Pteronotus_macleayii:9.428544288,Pteronotus_quadridens:9.428544288)8738:6.914864712,Pteronotus_personatus:16.343409)8736:2.318282754)8733;

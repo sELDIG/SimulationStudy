@@ -1,0 +1,1 @@
+((Thomasomys_hudsoni:1.327606733,Thomasomys_silvestris:1.327606733)6395:2.873888474,(Thomasomys_taczanowskii:2.942298137,Thomasomys_aureus:2.942298137)6396:1.25919707)6394;

@@ -1,0 +1,1 @@
+((((Episoriculus_caudatus:8.525959189,Episoriculus_leucops:8.525959189)10153:1.086253106,Episoriculus_macrurus:9.612212296)10152:1.042820054,Episoriculus_fumidus:10.65503235)10151:1.570943884,Soriculus_nigrescens:12.22597623)10150;

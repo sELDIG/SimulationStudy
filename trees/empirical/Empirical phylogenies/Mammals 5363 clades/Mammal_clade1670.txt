@@ -1,0 +1,1 @@
+((((Xerus_princeps:4.568071194,Xerus_erythropus:4.568071194)7037:7.753970124,(Xerus_rutilus:2.142102787,Xerus_inauris:2.142102787)7038:10.17993853)7036:2.302447658,Atlantoxerus_getulus:14.62448897)7035:10.9532716,Spermophilopsis_leptodactylus:25.57776057)7034;

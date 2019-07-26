@@ -1,0 +1,1 @@
+((((Pristimantis_luteolateralis:4.494138897,Pristimantis_walkeri:4.494138897)7403:9.014083984,Pristimantis_parvillus:13.50822288)7405:1.232750208,Pristimantis_chalceus:14.74097309)7402:1.040139822,((Pristimantis_pardalis:6.015047653,Pristimantis_pirrensis:6.015047653)7404:6.477427375,Pristimantis_altae:12.49247503)7406:3.288637884)7401;

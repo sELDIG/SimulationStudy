@@ -1,0 +1,1 @@
+((((Anomaloglossus_rufulus:2.256025288,Anomaloglossus_triunfo:2.256025288)10487:3.191397302,Anomaloglossus_astralogaster:5.44742259)10490:0.6438727638,(Anomaloglossus_wothuja:0.7943485374,Anomaloglossus_surinamensis:0.7943485374)10489:5.296946816)10486:15.35687053,(Anomaloglossus_atopoglossus:8.409999993,Anomaloglossus_confusus:8.409999993)10488:13.03816589)10485;

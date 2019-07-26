@@ -1,0 +1,1 @@
+(((Hystrix_brachyurus:1.754227082,Hystrix_crassispinis:1.754227082)7480:3.534340925,(Hystrix_africaeaustralis:4.381951669,Hystrix_sumatrae:4.381951669)7481:0.9066163383)7479:7.511431992,Hystrix_javanica:12.8)7478;

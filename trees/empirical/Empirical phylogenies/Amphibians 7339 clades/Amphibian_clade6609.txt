@@ -1,0 +1,1 @@
+((((Pseudoeurycea_altamontana:1.23936437,Pseudoeurycea_robertsi:1.23936437)13951:0.6258009235,Pseudoeurycea_longicauda:1.865165293)13953:4.983022413,Pseudoeurycea_tenchalli:6.848187706)13950:0.7904769039,(Pseudoeurycea_gadovii:6.314454899,Pseudoeurycea_melanomolga:6.314454899)13952:1.324209711)13949;

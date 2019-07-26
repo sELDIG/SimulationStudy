@@ -1,0 +1,1 @@
+((((Austrochaperina_derongo:0.9108632104,Austrochaperina_mehelyi:0.9108632104)12708:6.099291962,Austrochaperina_gracilipes:7.010155172)12706:0.6756332765,(Austrochaperina_hooglandi:5.536724696,Austrochaperina_robusta:5.536724696)12707:2.149063752)12705:4.542113916,Austrochaperina_polysticta:12.22790236)12704;

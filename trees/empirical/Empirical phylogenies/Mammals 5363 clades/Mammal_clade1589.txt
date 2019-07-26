@@ -1,0 +1,1 @@
+((((Cynomys_leucurus:1.148209809,Cynomys_parvidens:1.148209809)6955:1.880477721,Cynomys_gunnisoni:3.02868753)6958:0.889853783,(Cynomys_ludovicianus:0.761597264,Cynomys_mexicanus:0.761597264)6957:3.156944049)6954:3.686316856,(Ictidomys_mexicanus:6.702715686,Ictidomys_tridecemlineatus:6.702715686)6956:0.9021424827)6953;

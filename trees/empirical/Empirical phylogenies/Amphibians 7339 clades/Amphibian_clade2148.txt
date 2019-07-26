@@ -1,0 +1,1 @@
+(((((Pseudopaludicola_parnaiba:1.310536252,Pseudopaludicola_facureae:1.310536252)9492:7.923274017,Pseudopaludicola_llanera:9.233810269)9491:0.311777939,Pseudopaludicola_falcipes:9.545588208)9490:2.783454953,Pseudopaludicola_mineira:12.32904316)9489:5.995924786,Pseudopaludicola_murundu:18.32496795)9488;

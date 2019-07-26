@@ -1,0 +1,1 @@
+((((Phrynobatrachus_parvulus:0.954332975,Phrynobatrachus_hylaios:0.954332975)12523:1.952211764,Phrynobatrachus_sternfeldi:2.906544739)12525:1.710252497,Phrynobatrachus_jimzimkusi:4.616797236)12522:4.756938513,(Phrynobatrachus_parkeri:6.514206741,Phrynobatrachus_ukingensis:6.514206741)12524:2.859529009)12521;

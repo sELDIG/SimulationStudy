@@ -1,0 +1,1 @@
+(((Pteropus_poliocephalus:1.711249965,Pteropus_macrotis:1.711249965)8869:2.177560537,Pteropus_pohlei:3.888810502)8867:3.418909387,(Pteropus_ornatus:2.602644796,Pteropus_tuberculatus:2.602644796)8868:4.705075093)8866;

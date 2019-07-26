@@ -1,0 +1,1 @@
+(((Arctocephalus_gazella:2.198377997,Arctocephalus_tropicalis:2.198377997)9624:1.26579896,(Arctocephalus_townsendi:1.584105407,Arctocephalus_philippii:1.584105407)9622:1.88007155)9621:1.23698431,((Arctocephalus_galapagoensis:0.6112492263,Arctocephalus_australis:0.6112492263)9625:0.6918965081,Arctocephalus_forsteri:1.303145734)9623:3.398015533)9620;

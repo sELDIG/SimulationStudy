@@ -1,0 +1,1 @@
+((Pithecia_irrorata:4.959815618,Pithecia_monachus:4.959815618)7874:0.8651843823,(Pithecia_albicans:3.914053526,Pithecia_aequatorialis:3.914053526)7875:1.910946474)7873;

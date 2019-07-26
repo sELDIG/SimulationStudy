@@ -1,0 +1,1 @@
+(((Eospalax_smithii:4.00481045,Myospalax_psilurus:4.00481045)6763:4.292691893,Eospalax_fontanierii:8.297502344)6761:3.157119112,((Myospalax_myospalax:3.293964526,Eospalax_rothschildi:3.293964526)6764:1.922469579,Myospalax_aspalax:5.216434105)6762:6.238187351)6760;

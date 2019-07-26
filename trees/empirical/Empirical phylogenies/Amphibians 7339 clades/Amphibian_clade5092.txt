@@ -1,0 +1,1 @@
+((((Ptychadena_mascareniensis2:6.711498053,Ptychadena_gansi:6.711498053)12434:2.654364443,Ptychadena_nana:9.365862496)12436:1.910493898,Ptychadena_filwoha:11.27635639)12433:1.580680695,(Ptychadena_uzungwensis:5.489913855,Ptychadena_guibei:5.489913855)12435:7.367123234)12432;

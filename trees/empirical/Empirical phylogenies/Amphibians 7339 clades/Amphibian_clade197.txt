@@ -1,0 +1,1 @@
+((((Pristimantis_acutirostris:0.9479057973,Pristimantis_educatoris:0.9479057973)7539:1.977638067,Pristimantis_carlosceroni:2.925543864)7541:4.243560302,Pristimantis_adiastolus:7.169104167)7538:6.944318586,(Pristimantis_ocellatus:12.29607563,Pristimantis_padiali:12.29607563)7540:1.817347119)7537;

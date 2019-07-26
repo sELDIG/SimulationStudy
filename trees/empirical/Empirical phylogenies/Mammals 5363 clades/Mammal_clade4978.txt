@@ -1,0 +1,1 @@
+(((Loxodonta_cyclotis:7.081180654,Loxodonta_africana:7.081180654)10345:5.784863429,Mammut_americanum:12.86604408)10343:7.932364336,(Elephas_maximus:5.550359678,Mammuthus_primigenius:5.550359678)10344:15.24804874)10342;

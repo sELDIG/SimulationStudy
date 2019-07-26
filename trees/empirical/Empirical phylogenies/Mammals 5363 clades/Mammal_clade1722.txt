@@ -1,0 +1,1 @@
+((((Prosciurillus_murinus:2.950342609,Prosciurillus_rosenbergii:2.950342609)7089:2.199123241,(Rubrisciurus_rubriventer:3.377750692,Prosciurillus_abstrusus:3.377750692)7090:1.771715158)7088:6.47053415,Prosciurillus_leucomus:11.62)7087:1.09,Prosciurillus_weberi:12.71)7086;

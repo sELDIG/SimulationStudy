@@ -1,0 +1,1 @@
+(((Moschus_fuscus:0.5306149517,Moschus_leucogaster:0.5306149517)9351:0.7600661245,Moschus_chrysogaster:1.290681076)9349:2.491755644,(Moschus_berezovskii:1.489896247,Moschus_moschiferus:1.489896247)9350:2.292540474)9348;

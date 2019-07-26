@@ -1,0 +1,1 @@
+(((Strabomantis_bufoniformis:13.39222499,Strabomantis_anomalus:13.39222499)7919:6.998656931,Strabomantis_necerus:20.39088192)7917:12.50896228,(Strabomantis_sulcatus:26.7080721,Strabomantis_biporcatus:26.7080721)7918:6.191772103)7916;

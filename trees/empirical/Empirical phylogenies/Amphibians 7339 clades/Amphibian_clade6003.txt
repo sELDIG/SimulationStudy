@@ -1,0 +1,1 @@
+(((Leptopelis_gramineus:10.6498152,Leptopelis_aubryioides:10.6498152)13347:0.4164549976,(Leptopelis_bequaerti:6.159360995,Leptopelis_christyi:6.159360995)13345:4.906909205)13344:7.534716612,((Leptopelis_barbouri:8.494673959,Leptopelis_mossambicus:8.494673959)13348:2.059819502,Leptopelis_zebra:10.55449346)13346:8.046493351)13343;

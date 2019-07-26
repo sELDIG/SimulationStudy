@@ -1,0 +1,1 @@
+((Cratogeomys_planiceps:2.671617841,Cratogeomys_zinseri:2.671617841)6901:6.244241844,(Pappogeomys_alcorni:8.059988269,Pappogeomys_bulleri:8.059988269)6902:0.8558714159)6900;

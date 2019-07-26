@@ -1,0 +1,1 @@
+((((Strongylopus_kitumbeine:1.972422672,Strongylopus_springbokensis:1.972422672)12325:6.231141752,(Strongylopus_wageri:7.288161895,Strongylopus_hymenopus:7.288161895)12326:0.9154025288)12328:14.79275831,Strongylopus_grayii:22.99632273)12324:5.872463415,(Strongylopus_fasciatus:16.04171148,Strongylopus_bonaespei:16.04171148)12327:12.82707467)12323;

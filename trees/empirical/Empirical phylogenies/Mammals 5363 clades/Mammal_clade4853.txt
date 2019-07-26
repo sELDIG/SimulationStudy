@@ -1,0 +1,1 @@
+(((Paraechinus_aethiopicus:1.928475604,Paraechinus_micropus:1.928475604)10220:3.701063668,Paraechinus_nudiventris:5.629539272)10218:4.639347323,(Mesechinus_hughi:8.347946941,Mesechinus_dauuricus:8.347946941)10219:1.920939653)10217;

@@ -1,0 +1,1 @@
+(((((Trichosurus_vulpecula:3.994682894,Trichosurus_johnstonii:3.994682894)10490:0.518364386,Trichosurus_arnhemensis:4.51304728)10489:0.2360449799,Trichosurus_caninus:4.749092259)10488:2.342574407,Trichosurus_cunninghami:7.091666667)10487:2.136640319,Wyulda_squamicaudata:9.228306986)10486;

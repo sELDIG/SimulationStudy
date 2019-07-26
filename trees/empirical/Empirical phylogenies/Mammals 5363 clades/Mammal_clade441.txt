@@ -1,0 +1,1 @@
+((((Abeomelomys_sevia:2.796057274,Pogonomelomys_mayeri:2.796057274)5807:10.87060939,Pogonomelomys_bruijni:13.66666667)5809:1.733333333,Pogonomelomys_brassi:15.4)5806:0,((Mallomys_rothschildi:3.077361979,Mallomys_istapantap:3.077361979)5808:4.58625528,Mallomys_aroaensis:7.663617259)5810:7.736382741)5805;

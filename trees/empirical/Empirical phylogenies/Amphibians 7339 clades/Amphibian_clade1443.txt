@@ -1,0 +1,1 @@
+(((Dendropsophus_norandinus:1.348516095,Dendropsophus_reichlei:1.348516095)8786:0.5122410643,Dendropsophus_araguaya:1.860757159)8784:7.108963828,((Dendropsophus_novaisi:2.073975047,Dendropsophus_meridensis:2.073975047)8787:0.1127982608,Dendropsophus_cachimbo:2.186773307)8785:6.78294768)8783;

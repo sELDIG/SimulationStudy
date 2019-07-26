@@ -1,0 +1,1 @@
+(((((Mastomys_erythroleucus:3.018986063,Mastomys_awashensis:3.018986063)5753:3.606993072,Mastomys_natalensis:6.625979134)5751:1.103912889,(Mastomys_verheyeni:3.436483581,Mastomys_coucha:3.436483581)5752:4.293408443)5750:1.812761002,Mastomys_kollmannspergeri:9.542653025)5749:1.488027897,Mastomys_pernanus:11.03068092)5748;

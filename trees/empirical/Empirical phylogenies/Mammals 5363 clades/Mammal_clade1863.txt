@@ -1,0 +1,1 @@
+(((Eliomys_melanurus:4.704815962,Eliomys_quercinus:4.704815962)7230:12.5368507,Eliomys_munbyanus:17.24166667)7228:8.297147244,((Dryomys_niethammeri:8.172204637,Dryomys_nitedula:8.172204637)7231:8.683884766,Dryomys_laniger:16.8560894)7229:8.682724508)7227;

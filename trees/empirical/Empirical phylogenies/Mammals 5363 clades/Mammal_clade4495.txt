@@ -1,0 +1,1 @@
+((((Crocidura_viaria:5.528816556,Crocidura_fulvastra:5.528816556)9863:0.7157641298,Crocidura_olivieri:6.244580686)9861:1.118827219,(Crocidura_flavescens:6.862683977,Crocidura_hirta:6.862683977)9862:0.5007239277)9860:0.541897983,Crocidura_lamottei:7.905305888)9859;
