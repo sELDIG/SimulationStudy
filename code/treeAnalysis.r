@@ -38,5 +38,10 @@ withinModelPCAPlot(pcaOutput, "ra", xscore = 2, yscore = 3, colorBy = 'Dispersal
 
 
 
+# 6 - Empirical data; all clades/subclades of mammals and amphibians greater than 20 species
+mammalfiles = list.files('trees/empirical/mammal_clades/')
 
+mammalOut = metricsForManyTrees(mammalfiles, fileOut = "mammalMetrics.txt", append = FALSE)
+mammalOutput = read.table("mammalMetrics.txt", sep = '\t', header = T, fill = TRUE) %>%
+  filter(!is.na(S), S > 20)
 
