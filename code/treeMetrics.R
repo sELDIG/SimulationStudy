@@ -261,7 +261,8 @@ treeMetrics = function(treeInput) {
 
 # Run treeMetrics for many trees and save output as it goes
 
-metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, append = TRUE) {
+metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, append = TRUE, 
+                               treedir = 'trees') {
   
   if(is.null(treefiles)) {
     treefiles = list.files('trees')[grepl(".tre", list.files("trees"))]
@@ -281,7 +282,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
 
   for (treefile in treefiles) {
     
-    tree = read.tree(paste("trees/", treefile, sep = ""))
+    tree = read.tree(paste(treedir, "/", treefile, sep = ""))
     
     if(tree$Nnode + 1 >= minimumTreeSize) {
       model = str_extract(treefile, "^[A-Za-z]*")
