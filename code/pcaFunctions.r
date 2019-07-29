@@ -8,11 +8,11 @@
 
 treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   
-  if (models != 'all') {
+  if (models[1] != 'all') {
     treeOutput = filter(treeOutput, model %in% models)
   }
   
-  if (vars == 'all') {
+  if (vars[1] == 'all') {
     vars = names(treeOutput[, 3:ncol(treeOutput)])
   }
   outputSubset = treeOutput[, c("model", "simID", vars)]
@@ -179,3 +179,55 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
 
 
 
+# Function for exploring tree shape as a function of between-model classifications, plotting raw
+# tree metrics rather than PC scores
+
+betweenModelVarPlot = function(treeOutput,          # dataframe with model, simID, and PC scores
+                               xvar = 'beta',        # tree metric to be plotted on the x-axis
+                               yvar = 'gamma',        # tree metric to be plotted on the y-axis
+                               colorBy = 'model', # any variable/parameter name by which to color points
+                               pchBy = 'model',         # categorical variable/parameter name by which to specify point shape 
+                               ...) {
+  
+  # Reads in model classification codes and assigns colors and pchs
+  require(gsheet)
+  url = "https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=2047946073"
+  
+  modelClassification = gsheet2tbl(url)
+  
+  colors = c('turquoise', 'orangered', 'yellow2', 'darkblue', 'limegreen', 'magenta', 'blue', 'purple', 'brown', 'seagreen')
+  pch = c(15, 16, 17, 18, 1, 7, 8, 10)
+  
+  colorCode = data.frame(val = unique(modelClassification[, colorBy]), 
+                         color = colors[1:nrow(unique(modelClassification[, colorBy]))])
+  colorCode$color = as.character(colorCode$color)
+  names(colorCode)[1] = colorBy
+  
+  pchCode = data.frame(val = unique(modelClassification[, pchBy]),
+                       pch = pch[1:nrow(unique(modelClassification[, pchBy]))])
+  names(pchCode)[1] = pchBy
+  
+  plotOutput = left_join(treeOutput, modelClassification, by = c("model", "simID")) %>%
+    left_join(colorCode, by = unname(colorBy)) %>%
+    left_join(pchCode, by = unname(pchBy))
+  
+  plot(plotOutput[, xvar], plotOutput[, yvar], 
+       col = plotOutput$color,  
+       pch = plotOutput$pch, xlab = xvar, ylab = yvar, 
+       ylim = c(-max(abs(range(plotOutput[, yvar])), na.rm = TRUE), 
+                max(abs(range(plotOutput[, yvar]))), na.rm = TRUE),
+       xlim = c(-max(abs(range(plotOutput[, xvar])), na.rm = TRUE), 
+                max(abs(range(plotOutput[, xvar]))), na.rm = TRUE), ...)
+  legend("topleft", 
+         legend = c(toupper(colorBy), colorCode[,1]), bty = "n",
+         col = c('white', colorCode[,2]), pch = 16, pt.cex = 2)
+  
+  legend("topright", 
+         legend = c(toupper(pchBy), pchCode[,1]), bty = "n",
+         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
+  
+  par(new = TRUE)
+  plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
+       xlim = c(-1, 1), ylim = c(-1, 1))
+  
+}

@@ -22,6 +22,9 @@ varsForPCA = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MR
                "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
                "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
 
+varsIndependent = c("gamma", "beta", "MRD", "VRD", "MPD", "MGL_peakedness")
+
+
 # 3 - run PCA (default on all models together)
 # If you want to run PCA on just one or a few models, specify their abbreviation(s) with 'models'
 # e.g., models = 'hs'

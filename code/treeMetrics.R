@@ -135,11 +135,14 @@ treeMetrics = function(treeInput) {
   treeInput$root.edge = 0
 
   # Prune out extinct species
-  tree = tryCatch({
+  treeExtant = tryCatch({
     drop.extinct(treeInput)
   }, error = function(e) {
-    tree = drop.fossil(treeInput)
+    treeExtant = drop.fossil(treeInput)
   })
+  
+  # Randomly resolve any existing polytomies
+  tree = multi2di(treeExtant)
   
   # Richness
   S = length(tree$tip.label)
@@ -169,8 +172,13 @@ treeMetrics = function(treeInput) {
   # both analyses seem to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
   if(S < 6000) {
     # beta
-    beta.out = maxlik.betasplit.AH(tree.scaled)
-    beta.stat = beta.out$max_lik
+    tryCatch({
+      beta.out = maxlik.betasplit.AH(tree.scaled)
+      beta.stat = beta.out$max_lik
+      
+    }, error = function(e) {
+      beta.stat = NA
+    })
     
     # RPANDA
     MGL = spectR(tree)
@@ -180,12 +188,17 @@ treeMetrics = function(treeInput) {
     MGL_eigengap = MGL$eigengap
     
     # Mean Pairwise Distance (in scaled tree)
-    pairwise.dists = dist.nodes(tree.scaled)
-    sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
-    MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
+    tryCatch({
+      pairwise.dists = dist.nodes(tree.scaled)
+      sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
+      MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
+    }, error = function(e) {
+      MPD = NA
+    })
     
     # Variance Pairwise Distance (in scaled tree)
     VPD = tryCatch({
+      tri.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = FALSE)
       var(as.vector(tri.pairwise.dists))
     }, error = function(e) {
       VPD = NA
@@ -246,10 +259,9 @@ treeMetrics = function(treeInput) {
   utils::data(exampleTrees, package = "nLTT") # Set of birth-death trees
   nLTT_stat <- nLTT::nLTTstat(
     tree1 = exampleTrees[[1]], # Can be changed to generated Yule tree or any other tree
-    tree2 = treeInput
+    tree2 = tree
   )
 
-  
   return(list(S = S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
               Colless = Colless, Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, 
               VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
@@ -257,6 +269,8 @@ treeMetrics = function(treeInput) {
               MGL_principal_eigenvalue = MGL_principal_eigenvalue, MGL_asymmetry = MGL_asymmetry, 
               MGL_peakedness = MGL_peakedness, MGL_eigengap = MGL_eigengap, nLTT_stat = nLTT_stat))
 }
+
+
 
 
 # Run treeMetrics for many trees and save output as it goes
@@ -332,6 +346,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
     }
     
   }  
+  
 }
 
   
