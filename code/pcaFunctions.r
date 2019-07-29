@@ -1,10 +1,37 @@
+
+
+
+# These two functions are where the hard-coded color and symbol options reside for PCA plotting
+
+colorSelection = function(n) {
+  colors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
+             'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1')
+  
+  if (n > length(colors)) { 
+    warning("exceeding the maximum number of distinct colors; colors are recycled", immediate. = TRUE)
+  }
+  
+  return(rep(colors, ceiling(n/length(colors)))[1:n])
+}
+
+
+pchSelection = function(n) {
+  pch = c(15, 16, 17, 18, 1, 7, 8, 10, 2, 4, 12, 6, 3, 5)
+  
+  if (n > length(pch)) { 
+    warning("exceeding the maximum number of distinct symbols; symbols are recycled", immediate. = TRUE)
+  } 
+
+  return(rep, pch, ceiling(n/length(pch))[1:n])
+}
+
+
+
+
 # Script for calculating metrics on all simulated phylogenies and conducting PCA
 # Function that conducts PCA on treeOutput set of specified tree metrics
 # -- vars is a vector of column names to include, default is all vars
 # -- models is a vector of model abbreviations
-
-
-# new comment
 
 treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   
@@ -43,16 +70,13 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
   pcaScores = pcaOutput$pcaScores
   pcaLoadings = pcaOutput$pcaLoadings
   
-  colors = c('turquoise', 'orangered', 'yellow2', 'darkblue', 'limegreen', 'magenta', 'blue', 'purple', 'brown', 'seagreen')
-  pch = c(15, 16, 17, 18, 1, 7, 8, 10)
-
   colorCode = data.frame(val = unique(modelClassification[, colorBy]), 
-                         color = colors[1:nrow(unique(modelClassification[, colorBy]))])
+                         color = colorSelection(nrow(unique(modelClassification[, colorBy]))))
   colorCode$color = as.character(colorCode$color)
   names(colorCode)[1] = colorBy
   
   pchCode = data.frame(val = unique(modelClassification[, pchBy]),
-                       pch = pch[1:nrow(unique(modelClassification[, pchBy]))])
+                       pch = pchSelection(nrow(unique(modelClassification[, pchBy]))))
   names(pchCode)[1] = pchBy
   
   plotOutput = left_join(pcaScores, modelClassification, by = c("model", "simID")) %>%
@@ -115,23 +139,20 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
     
   } else {
     
-    colors = c('turquoise', 'orangered', 'yellow2', 'darkblue', 'limegreen', 'magenta', 'blue', 'purple', 'brown', 'seagreen')
     colorCode = data.frame(val = unique(modelScores[, colorBy]), 
-                           color = colors[1:length(unique(modelScores[, colorBy]))])
+                           color = colorSelection(length(unique(modelScores[, colorBy]))))
     colorCode$color = as.character(colorCode$color)
     names(colorCode)[1] = colorBy
     
     modelOutput = left_join(modelScores, colorCode, by = unname(colorBy))
   }
   
-  pch = c(15, 16, 17, 18, 1, 7, 8, 10)
   if (class(pchBy) == 'numeric') {
-    warning("Symbol size is best used for visualizing categorical variables")
+    warning("Symbol size is best used for visualizing categorical variables", immediate. = TRUE)
   } else {
     pchCode = data.frame(val = unique(modelScores[, pchBy]),
-                         pch = pch[1:length(unique(modelScores[, pchBy]))])
+                         pch = pchSelection(length(unique(modelScores[, pchBy]))))
     names(pchCode)[1] = pchBy
-    
   }
   
   plotOutput = left_join(modelOutput, pchCode, by = unname(pchBy))
@@ -195,16 +216,13 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
   
   modelClassification = gsheet2tbl(url)
   
-  colors = c('turquoise', 'orangered', 'yellow2', 'darkblue', 'limegreen', 'magenta', 'blue', 'purple', 'brown', 'seagreen')
-  pch = c(15, 16, 17, 18, 1, 7, 8, 10)
-  
   colorCode = data.frame(val = unique(modelClassification[, colorBy]), 
-                         color = colors[1:nrow(unique(modelClassification[, colorBy]))])
+                         color = colorSelection(nrow(unique(modelClassification[, colorBy]))))
   colorCode$color = as.character(colorCode$color)
   names(colorCode)[1] = colorBy
   
   pchCode = data.frame(val = unique(modelClassification[, pchBy]),
-                       pch = pch[1:nrow(unique(modelClassification[, pchBy]))])
+                       pch = pchSelection(nrow(unique(modelClassification[, pchBy]))))
   names(pchCode)[1] = pchBy
   
   plotOutput = left_join(treeOutput, modelClassification, by = c("model", "simID")) %>%
