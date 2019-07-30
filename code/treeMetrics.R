@@ -181,11 +181,18 @@ treeMetrics = function(treeInput) {
     })
     
     # RPANDA
-    MGL = spectR(tree)
-    MGL_principal_eigenvalue = MGL$principal_eigenvalue 
-    MGL_asymmetry = MGL$asymmetry  
-    MGL_peakedness = MGL$peakedness
-    MGL_eigengap = MGL$eigengap
+    tryCatch({
+      MGL = spectR(tree)
+      MGL_principal_eigenvalue = MGL$principal_eigenvalue 
+      MGL_asymmetry = MGL$asymmetry  
+      MGL_peakedness = MGL$peakedness
+      MGL_eigengap = MGL$eigengap
+    }, error = function(e) {
+      MGL_principal_eigenvalue = NA
+      MGL_asymmetry = NA
+      MGL_peakedness = NA
+      MGL_eigengap = NA
+    })
     
     # Mean Pairwise Distance (in scaled tree)
     tryCatch({
