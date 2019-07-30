@@ -136,7 +136,7 @@ treeMetrics = function(treeInput) {
 
   # Prune out extinct species
   treeExtant = tryCatch({
-    drop.extinct(treeInput)
+    drop.extinct(treeInput, tol = 1e-8)
   }, error = function(e) {
     treeExtant = drop.fossil(treeInput)
   })
