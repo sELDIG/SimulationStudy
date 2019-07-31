@@ -60,7 +60,7 @@ ui <- fluidPage(
                              label = "X-axis",
                              choices = c("Beta",
                                          "Gamma",
-                                         "Richness",
+                                         "log10 Richness",
                                          "PD",
                                          "Colless",
                                          "Sackin",
@@ -80,7 +80,7 @@ ui <- fluidPage(
                              label = "Y-axis",
                              choices = c("Gamma",
                                          "Beta", 
-                                         "Richness",
+                                         "log10 Richness",
                                          "PD",
                                          "Colless",
                                          "Sackin",
@@ -182,13 +182,13 @@ ui <- fluidPage(
                # Sidebar panel for inputs ----
                sidebarPanel(
                  
-                 helpText("Explore how principal components of tree shape vary with model categories"),
+                 helpText("First, choose which variables to include in the PCA"),
                  
                  selectInput(inputId = "xvar",
                              label = "X-axis",
                              choices = c("Beta",
                                          "Gamma",
-                                         "Richness",
+                                         "log10 Richness",
                                          "PD",
                                          "Colless",
                                          "Sackin",
@@ -208,7 +208,7 @@ ui <- fluidPage(
                              label = "Y-axis",
                              choices = c("Gamma",
                                          "Beta", 
-                                         "Richness",
+                                         "log10 Richness",
                                          "PD",
                                          "Colless",
                                          "Sackin",
@@ -309,7 +309,7 @@ server <- function(input, output, session) {
   output$varPlot <- renderPlot({
     
     xvar <- switch(input$xvar, 
-                   "Richness" = 'S',
+                   "log10 Richness" = 'log10S',
                    "PD" = 'PD',
                    "Gamma" = 'gamma',
                    "Beta" = 'beta', 
@@ -328,7 +328,7 @@ server <- function(input, output, session) {
                    "nLTT_stat" = 'nLTT_stat')
     
     yvar <- switch(input$yvar, 
-                   "Richness" = 'S',
+                   "log10 Richness" = 'log10S',
                    "PD" = 'PD',
                    "Gamma" = 'gamma',
                    "Beta" = 'beta', 

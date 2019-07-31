@@ -152,7 +152,8 @@ treeMetrics = function(treeInput) {
   tree = multi2di(treeExtant)
   
   # Richness
-  log10S = log10(length(tree$tip.label))
+  S = length(tree$tip.label)
+  log10S = log10(S)
   
   # Absolute tree length, which is the diagonal of the vcv matrix
   v.matrix = vcv(tree, corr=F)
@@ -177,7 +178,7 @@ treeMetrics = function(treeInput) {
   # Also calculate RPANDA spectral density metrics (Lewitus & Morlon 2016)
   
   # both analyses seem to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
-  if(10^log10S < 6000) {
+  if(S < 6000) {
     # beta
     tryCatch({
       beta.out = maxlik.betasplit.AH(tree.scaled)
@@ -276,7 +277,7 @@ treeMetrics = function(treeInput) {
     tree2 = tree
   )
 
-  return(list(log10S = log10S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
+  return(list(S = S, log10S = log10S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
               Colless = Colless, Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, 
               VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
               MPD = MPD, VPD = VPD, 
@@ -306,7 +307,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
   
   if(!append) {
     
-    treeOutput = data.frame(model = NA, simID = NA, S = NA, tree.length = NA, PD = NA, gamma = NA, 
+    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, gamma = NA, 
                             beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                             VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                             MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
@@ -329,7 +330,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
       metrics = tryCatch({
         treeMetrics(tree)
       }, error = function(e) {
-         metrics =  data.frame(model = NA, simID = NA, S = NA, tree.length = NA, PD = NA, gamma = NA, 
+         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, gamma = NA, 
                                beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                                VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                                MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
@@ -340,6 +341,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
       cat(paste(model, 
                 simID,
                 metrics$S, 
+                metrics$log10S,
                 metrics$tree.length,
                 metrics$PD, 
                 metrics$gamma,
