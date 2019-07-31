@@ -245,7 +245,8 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
   plot(plotOutput[, xvar], plotOutput[, yvar], 
        col = plotOutput$color,  
        pch = plotOutput$pch, xlab = xvar, ylab = yvar, 
-       xlim = c(minx - (maxx - minx)/8, maxx + (maxx - minx)/8), ...)
+       xlim = c(minx - (maxx - minx)/8, maxx + (maxx - minx)/8), 
+       ...)
   legend("topleft", 
          legend = c(toupper(colorBy), colorCode[,1]), bty = "n",
          col = c('white', colorCode[,2]), pch = 16, pt.cex = 2)

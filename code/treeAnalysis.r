@@ -15,7 +15,7 @@ source('code/pcaFunctions.r')
 # metricsForManyTrees(treefiles, fileOut = "treeOutput.txt", append = F)
 
 # 1 - read in output
-treeOutput = read.table("treeOutput.txt", header = T, sep = '\t')
+treeOutput = read.table("treeOutput.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
 
 # 2 - decide which vars to include in PCA
 varsForPCA = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
