@@ -3,9 +3,11 @@
 
 # These two functions are where the hard-coded color and symbol options reside for PCA plotting
 
-colorSelection = function(n) {
-  colors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
+colorSelection = function(n, alpha = 255) {
+  rawcolors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
              'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1')
+  colorvector = col2rgb(rawcolors)
+  colors = apply(colorvector, 2, function(x) rgb(x[1], x[2], x[3], alpha = alpha, maxColorValue = 255))
   
   if (n > length(colors)) { 
     warning("exceeding the maximum number of distinct colors; colors are recycled", immediate. = TRUE)
@@ -13,6 +15,9 @@ colorSelection = function(n) {
   
   return(rep(colors, ceiling(n/length(colors)))[1:n])
 }
+
+veccol <- col2rgb(c("lightblue", "lightgreen", "pink"))
+plot(1:3, col=rgb(veccol[,1], veccol[,2], veccol[,3], alpha=rep(200,3), maxColorValue = 255), pch=15)
 
 
 pchSelection = function(n) {
@@ -59,6 +64,7 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
                                yscore = 2,        # PC score plotted on the y-axis
                                colorBy = 'model', # any variable/parameter name by which to color points
                                pchBy = 'model',         # categorical variable/parameter name by which to specify point shape 
+                               alpha = 255,       # transparency of symbols, where 255 is solid and 0 is totally transparent
                                ...) {
   
   # Reads in model classification codes and assigns colors and pchs
@@ -71,7 +77,7 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
   pcaLoadings = pcaOutput$pcaLoadings
   
   colorCode = data.frame(val = unique(modelClassification[, colorBy]), 
-                         color = colorSelection(nrow(unique(modelClassification[, colorBy]))))
+                         color = colorSelection(nrow(unique(modelClassification[, colorBy])), alpha))
   colorCode$color = as.character(colorCode$color)
   names(colorCode)[1] = colorBy
   
@@ -117,9 +123,10 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
 withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID, and PC scores
                               modelAbbrev,             # specify the abbreviation of the model to explore 
                               xscore = 1,        # PC score plotted on the x-axis
-                               yscore = 2,        # PC score plotted on the y-axis
-                               colorBy,        # any variable/parameter name by which to color points
-                               pchBy,            # categorical variable/parameter name by which to specify point shape 
+                              yscore = 2,        # PC score plotted on the y-axis
+                              colorBy,        # any variable/parameter name by which to color points
+                              pchBy,            # categorical variable/parameter name by which to specify point shape 
+                              alpha = 255,      # transparency of symbols where 255 is solid and 0 is totally transparent 
                               ...) {
 
   pcaScores = pcaOutput$pcaScores %>%
@@ -140,7 +147,7 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
   } else {
     
     colorCode = data.frame(val = unique(modelScores[, colorBy]), 
-                           color = colorSelection(length(unique(modelScores[, colorBy]))))
+                           color = colorSelection(length(unique(modelScores[, colorBy])), alpha))
     colorCode$color = as.character(colorCode$color)
     names(colorCode)[1] = colorBy
     
@@ -208,6 +215,7 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
                                yvar = 'gamma',        # tree metric to be plotted on the y-axis
                                colorBy = 'model', # any variable/parameter name by which to color points
                                pchBy = 'model',         # categorical variable/parameter name by which to specify point shape 
+                               alpha = 255,      # transparency of symbols where 255 is solid and 0 is totally transparent 
                                ...) {
   
   # Reads in model classification codes and assigns colors and pchs
@@ -217,7 +225,7 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
   modelClassification = gsheet2tbl(url)
   
   colorCode = data.frame(val = unique(modelClassification[, colorBy]), 
-                         color = colorSelection(nrow(unique(modelClassification[, colorBy]))))
+                         color = colorSelection(nrow(unique(modelClassification[, colorBy])), alpha))
   colorCode$color = as.character(colorCode$color)
   names(colorCode)[1] = colorBy
   
@@ -229,13 +237,15 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
     left_join(colorCode, by = unname(colorBy)) %>%
     left_join(pchCode, by = unname(pchBy))
   
+  miny = min(plotOutput[, yvar], na.rm = TRUE)
+  maxy = max(plotOutput[, yvar], na.rm = TRUE)
+  minx = min(plotOutput[, xvar], na.rm = TRUE)
+  maxx = max(plotOutput[, xvar], na.rm = TRUE)
+  
   plot(plotOutput[, xvar], plotOutput[, yvar], 
        col = plotOutput$color,  
        pch = plotOutput$pch, xlab = xvar, ylab = yvar, 
-       ylim = c(-max(abs(range(plotOutput[, yvar])), na.rm = TRUE), 
-                max(abs(range(plotOutput[, yvar]))), na.rm = TRUE),
-       xlim = c(-max(abs(range(plotOutput[, xvar])), na.rm = TRUE), 
-                max(abs(range(plotOutput[, xvar]))), na.rm = TRUE), ...)
+       xlim = c(minx - (maxx - minx)/8, maxx + (maxx - minx)/8), ...)
   legend("topleft", 
          legend = c(toupper(colorBy), colorCode[,1]), bty = "n",
          col = c('white', colorCode[,2]), pch = 16, pt.cex = 2)
