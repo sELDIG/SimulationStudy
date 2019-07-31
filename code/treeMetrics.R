@@ -5,16 +5,18 @@
 
 # This function is a modification of the maxlik.betasplit() function
 # in the apTreeshape package for calculating 'beta'
+#
+# Code commented out below is from the original maxlik.betasplit function.
+# Due to underflow errors, beta was switched out for lbeta in the 
+# manner of Purvis et al. 2011, Phil Trans Roy Soc B 366: 2462-2477
+# (Purvis, pers. comm.)
+
 
 maxlik.betasplit.AH = function (phylo, up = 10, remove.outgroup = FALSE, confidence.interval = "none", 
                                 conf.level = 0.95, size.bootstrap = 100) 
 {
   vrais.aldous.fin <- function(i, n, b) {
-    # Code commented out below is from the original maxlik.betasplit function.
-    # Due to underflow errors, beta was switched out for lbeta in the 
-    # manner of Purvis et al. 2011, Phil Trans Roy Soc B 366: 2462-2477
-    # (Purvis, pers. comm.)
-    #aux <- beta(b + i + 1, b + n - i + 1)/beta(i + 1, n - 
+   #aux <- beta(b + i + 1, b + n - i + 1)/beta(i + 1, n - 
     #                                             i + 1)
     #if (is.na(aux) | (aux == Inf)) 
     #  aux <- (i/n)^b * (1 - i/n)^(b)
@@ -112,7 +114,12 @@ maxlik.betasplit.AH = function (phylo, up = 10, remove.outgroup = FALSE, confide
 }
 
 
+
+
+###########################################################################
 # Function for measuring various attributes on a phylogeny in Newick format
+#
+#   treeInput: a phylogenetic tree of class phylo
 
 treeMetrics = function(treeInput) {
 
@@ -280,13 +287,21 @@ treeMetrics = function(treeInput) {
 
 
 
+
+###########################################################
 # Run treeMetrics for many trees and save output as it goes
+#
+#   treefiles: vector of filenames
+#   minimumTreeSize: ignore trees with fewer tips
+#   fileOut: name of output file to sink to
+#   append: TRUE if adding to existing file, FALSE if creating a new output file
+#   treedir: path to folder with tree files
 
 metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, append = TRUE, 
                                treedir = 'trees') {
   
   if(is.null(treefiles)) {
-    treefiles = list.files('trees')[grepl(".tre", list.files("trees"))]
+    treefiles = list.files(treedir)[grepl(".tre", list.files(treedir))]
   }  
   
   if(!append) {
