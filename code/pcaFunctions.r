@@ -22,7 +22,7 @@ pchSelection = function(n) {
     warning("exceeding the maximum number of distinct symbols; symbols are recycled", immediate. = TRUE)
   } 
 
-  return(rep, pch, ceiling(n/length(pch))[1:n])
+  return(rep(pch, ceiling(n/length(pch)))[1:n])
 }
 
 
