@@ -152,7 +152,7 @@ treeMetrics = function(treeInput) {
   tree = multi2di(treeExtant)
   
   # Richness
-  S = length(tree$tip.label)
+  log10S = log10(length(tree$tip.label))
   
   # Absolute tree length, which is the diagonal of the vcv matrix
   v.matrix = vcv(tree, corr=F)
@@ -177,7 +177,7 @@ treeMetrics = function(treeInput) {
   # Also calculate RPANDA spectral density metrics (Lewitus & Morlon 2016)
   
   # both analyses seem to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
-  if(S < 6000) {
+  if(10^log10S < 6000) {
     # beta
     tryCatch({
       beta.out = maxlik.betasplit.AH(tree.scaled)
@@ -276,7 +276,7 @@ treeMetrics = function(treeInput) {
     tree2 = tree
   )
 
-  return(list(S = S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
+  return(list(log10S = log10S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
               Colless = Colless, Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, 
               VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
               MPD = MPD, VPD = VPD, 
