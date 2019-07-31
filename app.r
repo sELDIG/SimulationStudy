@@ -3,6 +3,7 @@
 library(dplyr)
 library(shiny)
 library(shinyBS)
+library(corrplot)
 
 source("code/treeMetrics.R")
 source("code/pcaFunctions.r")
@@ -184,47 +185,47 @@ ui <- fluidPage(
                  
                  helpText("First, choose which variables to include in the PCA"),
                  
-                 selectInput(inputId = "xvar",
+                 checkboxGroupInput(inputId = "pcaVars",
+                                    label = "Tree metrics",
+                                    choices = list("Beta" = "beta",
+                                                   "Gamma" = "gamma",
+                                                   "log10 Richness" = "log10S",
+                                                   "PD" = "PD",
+                                                   "Colless" = "Colless",
+                                                   "Sackin" = "Sackin",
+                                                   "Ratio of Yule / PDA likelihoods" = "Yule.PDA.ratio",
+                                                   "Mean Root Distance" = "MRD",
+                                                   "Variance in Root Distance" = "VRD",
+                                                   "Phylogenetic Species Variability" = "PSV",
+                                                   "mean I'" = "mean.Iprime",
+                                                   "Mean Pairwise Distance" = "MPD",
+                                                   "RPANDA spectral: principal eigenvalue" = "MGL_principal_eigenvalue",
+                                                   "RPANDA spectral: asymmetry" = "MGL_asymmetry",
+                                                   "RPANDA spectral: peakedness" = "MGL_peakedness",
+                                                   "RPANDA spectral: eigengap" = "MGL_eigengap",
+                                                   "nLTT_stat" = "nLTT_stat"),
+                                    selected = list("Beta" = "beta",
+                                                    "Gamma" = "gamma",
+                                                    "Mean Root Distance" = "MRD",
+                                                    "Variance in Root Distance" = "VRD",
+                                                    "Mean Pairwise Distance" = "MPD",
+                                                    "RPANDA spectral: peakedness" = "MGL_peakedness")),
+                 
+                 selectInput(inputId = "xvar2",
                              label = "X-axis",
-                             choices = c("Beta",
-                                         "Gamma",
-                                         "log10 Richness",
-                                         "PD",
-                                         "Colless",
-                                         "Sackin",
-                                         "Ratio of Yule / PDA likelihoods",
-                                         "Mean Root Distance",
-                                         "Variance in Root Distance",
-                                         "Phylogenetic Species Variability",
-                                         "mean I'",
-                                         "Mean Pairwise Distance",
-                                         "RPANDA spectral: principal eigenvalue",
-                                         "RPANDA spectral: asymmetry",
-                                         "RPANDA spectral: peakedness",
-                                         "RPANDA spectral: eigengap",
-                                         "nLTT_stat")),
+                             choices = c("PC1",
+                                         "PC2",
+                                         "PC3",
+                                         "PC4")),
                  
-                 selectInput(inputId = "yvar",
+                 selectInput(inputId = "yvar2",
                              label = "Y-axis",
-                             choices = c("Gamma",
-                                         "Beta", 
-                                         "log10 Richness",
-                                         "PD",
-                                         "Colless",
-                                         "Sackin",
-                                         "Ratio of Yule / PDA likelihoods",
-                                         "Mean Root Distance",
-                                         "Variance in Root Distance",
-                                         "Phylogenetic Species Variability",
-                                         "mean I'",
-                                         "Mean Pairwise Distance",
-                                         "RPANDA spectral: principal eigenvalue",
-                                         "RPANDA spectral: asymmetry",
-                                         "RPANDA spectral: peakedness",
-                                         "RPANDA spectral: eigengap",
-                                         "nLTT_stat")),
+                             choices = c("PC2",
+                                         "PC1",
+                                         "PC3",
+                                         "PC4")),
                  
-                 radioButtons(inputId = "colorBy",
+                 radioButtons(inputId = "PCAcolorBy",
                               label = "Trees color coded by:",
                               choices = c("Model", 
                                           "Model Family",
@@ -242,7 +243,7 @@ ui <- fluidPage(
                  radioTooltip(id = "colorBy", choice = "Allopatric", title = "Can speciation occur allopatrically in this model?", placement = "right", trigger = "hover"),
                  radioTooltip(id = "colorBy", choice = "Point Mutation Speciation", title = "Can speciation occur via point mutation in this model?", placement = "right", trigger = "hover"),
                  
-                 radioButtons(inputId = "pchBy",
+                 radioButtons(inputId = "PCApchBy",
                               label = "Tree symbols coded by:",
                               choices = c("Model",
                                           "Model Family",
@@ -276,7 +277,7 @@ ui <- fluidPage(
                                                    "GaSM (ga)" = 'ga'),
                                     selected = c('yu', 'pda', 'oh', 'etienne', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga')),
                  
-                 sliderInput("alphaSlider", h3("Transparency"),
+                 sliderInput("alphaSlider2", h3("Transparency"),
                              min = 0, max = 255, value = 200)
                  
                  
@@ -288,24 +289,131 @@ ui <- fluidPage(
                  fluidRow( 
                    verticalLayout( 
                      
-                     plotOutput("pcaPlot"))
+                     plotOutput("pcaPlot", height = 600),
+                     
+                     helpText("Refer to the correlation matrix below for how strongly variables covary."),
+                     
+                     plotOutput("corPlot", height = 600)
+                     )
+                 ) 
+               )
+               
+             ) #end sidebarLayout
+    ), #end tab
+    
+    # TAB 3
+    tabPanel("Individual Model Exploration",
+             
+             # Sidebar layout with input and output definitions ----
+             sidebarLayout(
+               
+               # Sidebar panel for inputs ----
+               sidebarPanel(
+                 
+                 helpText("Choose an individual model to explore"),
+                 
+                 selectInput(inputId = "model",
+                             label = "Select a model",
+                             choices = c("TreeSim (oh)",
+                                         "DAISIE (etienne)",
+                                         "Hurlbert-Stegen (hs)",
+                                         "Pontarp (pontarp)",
+                                         "Hartig (fh)",
+                                         "Coelho et al. (mt)",
+                                         "Leprieur et al. (split)",
+                                         "Rangel (ra)",
+                                         "GaSM (ga)")),
+                 
+                 helpText("Explore how various tree shape metrics vary with model parameters"),
+                 
+                 uiOutput("xparameter"),
+                 
+                 uiOutput("yparameter"),
+                 
+                 selectInput(inputId = "xvar3",
+                             label = "X-axis",
+                             choices = c("Beta",
+                                         "Gamma",
+                                         "log10 Richness",
+                                         "PD",
+                                         "Colless",
+                                         "Sackin",
+                                         "Ratio of Yule / PDA likelihoods",
+                                         "Mean Root Distance",
+                                         "Variance in Root Distance",
+                                         "Phylogenetic Species Variability",
+                                         "mean I'",
+                                         "Mean Pairwise Distance",
+                                         "RPANDA spectral: principal eigenvalue",
+                                         "RPANDA spectral: asymmetry",
+                                         "RPANDA spectral: peakedness",
+                                         "RPANDA spectral: eigengap",
+                                         "nLTT_stat")),
+                 
+                 selectInput(inputId = "yvar3",
+                             label = "Y-axis",
+                             choices = c("Gamma",
+                                         "Beta", 
+                                         "log10 Richness",
+                                         "PD",
+                                         "Colless",
+                                         "Sackin",
+                                         "Ratio of Yule / PDA likelihoods",
+                                         "Mean Root Distance",
+                                         "Variance in Root Distance",
+                                         "Phylogenetic Species Variability",
+                                         "mean I'",
+                                         "Mean Pairwise Distance",
+                                         "RPANDA spectral: principal eigenvalue",
+                                         "RPANDA spectral: asymmetry",
+                                         "RPANDA spectral: peakedness",
+                                         "RPANDA spectral: eigengap",
+                                         "nLTT_stat")),
+                 
+                 radioButtons(inputId = "modelColorBy",
+                              label = "Trees color coded by:",
+                              choices = c("")),
+                 
+                 radioButtons(inputId = "modelPchBy",
+                              label = "Tree symbols coded by:",
+                              choices = c("")),
+                 
+                sliderInput("alphaSlider3", h3("Transparency"),
+                             min = 0, max = 255, value = 200)
+                 
+                 
+               ),
+               
+               # Main panel for displaying outputs ----
+               mainPanel(
+                 
+                 fluidRow( 
+                   verticalLayout( 
+                     
+                     plotOutput("pcaPlot", height = 600),
+                     
+                     helpText("Refer to the correlation matrix below for how strongly variables covary."),
+                     
+                     plotOutput("corPlot", height = 600)
+                   )
                  ) 
                )
                
              ) #end sidebarLayout
     ) #end tab
+    
+    
   ) #end tabSetPanel
 ) #end fluidPage
+
+
 
 
 
 # Define server logic ----
 server <- function(input, output, session) {
   
-  #observeEvent(input$modelsToInclude, {
-  #  modelsReactive = input$modelsToInclude
-  #})
-  
+  # Plot trees based on two selected shape metrics
   output$varPlot <- renderPlot({
     
     xvar <- switch(input$xvar, 
@@ -347,14 +455,14 @@ server <- function(input, output, session) {
                    "nLTT_stat" = 'nLTT_stat')
     
     colorBy <- switch(input$colorBy, 
-                  "Model" = 'model', 
-                  "Model Family" = 'ModelFamily',
-                  "Entity Modeled" = 'EntityModeled',
-                  "Diversity Dependence" = 'DiversityDependence',
-                  "Sympatric" = 'Sympatric',
-                  "Allopatric" = 'Allopatric',
-                  "Point Mutation Speciation" = 'PointMutation')
-
+                      "Model" = 'model', 
+                      "Model Family" = 'ModelFamily',
+                      "Entity Modeled" = 'EntityModeled',
+                      "Diversity Dependence" = 'DiversityDependence',
+                      "Sympatric" = 'Sympatric',
+                      "Allopatric" = 'Allopatric',
+                      "Point Mutation Speciation" = 'PointMutation')
+    
     pchBy <- switch(input$pchBy, 
                     "Model" = 'model', 
                     "Model Family" = 'ModelFamily',
@@ -366,8 +474,8 @@ server <- function(input, output, session) {
     
     
     plottingOutput = filter(treeOutput, model %in% input$modelsToInclude)
-
-    par(mar = c(4, 4, 1, 1), cex.lab = 1.75)
+    
+    par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
     betweenModelVarPlot(treeOutput = plottingOutput, 
                         xvar = xvar, 
                         yvar = yvar, 
@@ -378,9 +486,78 @@ server <- function(input, output, session) {
   })
   
 
-  #output$model_text = renderText({
-  # paste("The set of models to plot are", paste(input$modelsToInclude, collapse = ", ")) 
-  #})
+  # Plot trees in PCA space
+  output$pcaPlot <- renderPlot({
+    
+    xvar2 <- switch(input$xvar2, 
+                   "PC1" = 1,
+                   "PC2" = 2,
+                   "PC3" = 3,
+                   "PC4" = 4)
+    
+    yvar2 <- switch(input$yvar2, 
+                    "PC1" = 1,
+                    "PC2" = 2,
+                    "PC3" = 3,
+                    "PC4" = 4)
+    
+    PCAcolorBy <- switch(input$PCAcolorBy, 
+                  "Model" = 'model', 
+                  "Model Family" = 'ModelFamily',
+                  "Entity Modeled" = 'EntityModeled',
+                  "Diversity Dependence" = 'DiversityDependence',
+                  "Sympatric" = 'Sympatric',
+                  "Allopatric" = 'Allopatric',
+                  "Point Mutation Speciation" = 'PointMutation')
+
+    PCApchBy <- switch(input$PCApchBy, 
+                    "Model" = 'model', 
+                    "Model Family" = 'ModelFamily',
+                    "Entity Modeled" = 'EntityModeled',
+                    "Diversity Dependence" = 'DiversityDependence',
+                    "Sympatric" = 'Sympatric',
+                    "Allopatric" = 'Allopatric',
+                    "Point Mutation Speciation" = 'PointMutation')
+    
+    
+    plottingOutput = filter(treeOutput, model %in% input$modelsToIncludePCA)
+    
+    pcaOutput = treeMetricsPCA(plottingOutput, models = input$modelsToInclude, vars = input$pcaVars)
+
+    par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
+    betweenModelPCAPlot(pcaOutput, 
+                        xscore = xvar2, 
+                        yscore = yvar2, 
+                        colorBy = PCAcolorBy, 
+                        pchBy = PCApchBy, 
+                        alpha = input$alphaSlider2,
+                        cex = 2)  
+  })
+  
+  
+  # Plot a correlation matrix of selected tree metric variables
+  output$corPlot <- renderPlot({
+    
+    corData = treeOutput[, input$pcaVars]
+    
+    varCor = cor(corData, use = "pairwise.complete.obs")
+    corrplot(varCor)
+    #varCor2 = corReorder(varCor, bottom = 10, right = 10, diagonal_new = FALSE, cex = 1.5)
+    
+  })
+  
+  
+  # Parameter values for plotting depend on the model selected
+  
+  output$xparameter = renderUI({
+    modelParams = read.csv(paste('parameters/', input$model, '_parameters.csv', sep = ''), header = TRUE)
+    
+    
+  })
+  
+  output$yparameter = renderUI({
+    
+  })
   
 }
 
