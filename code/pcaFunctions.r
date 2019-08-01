@@ -293,7 +293,6 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
     colorCode = data.frame(val = unique(modelOutput[, colorBy]), 
                            color = colorSelection(length(unique(modelOutput[, colorBy])), alpha))
     colorCode$color = as.character(colorCode$color)
-    colorCode$val = as.character(colorCode$val)
     names(colorCode)[1] = colorBy
     
     modelOutput = left_join(modelOutput, colorCode, by = unname(colorBy))
@@ -304,7 +303,6 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
   } else {
     pchCode = data.frame(val = unique(modelOutput[, pchBy]),
                          pch = pchSelection(length(unique(modelOutput[, pchBy]))))
-    pchCode$val = as.character(pchCode$val)
     names(pchCode)[1] = pchBy
   }
   

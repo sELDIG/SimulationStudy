@@ -192,7 +192,7 @@ ui <- fluidPage(
                  
                )
              ) #end sidebarLayout
-    ), #end tab
+    ), #end tab 1
     
     # TAB 2
     tabPanel("Between Sims: PCA space",
@@ -319,7 +319,7 @@ ui <- fluidPage(
                )
                
              ) #end sidebarLayout
-    ), #end tab
+    ), #end tab 2
     
     # TAB 3
     tabPanel("Individual Model Exploration",
@@ -334,8 +334,8 @@ ui <- fluidPage(
                  
                  selectInput(inputId = "model",
                              label = "Select a model",
-                             choices = c("TreeSim (oh)",
-                                         "DAISIE (etienne)",
+                             choices = c("DAISIE (etienne)",
+                                         "TreeSim (oh)",
                                          "Hurlbert-Stegen (hs)",
                                          "Pontarp (pontarp)",
                                          "Hartig (fh)",
@@ -388,9 +388,7 @@ ui <- fluidPage(
                  
                  uiOutput("parColorBy"),
                  
-                 #selectInput(inputId = "parColorBy", 
-                #             label = "Model parameter to code by color", 
-                #             choices = letters[11:15]),
+                 uiOutput("parPchBy"),
                  
                  sliderInput("alphaSlider3", "Transparency",
                              min = 0, max = 255, value = 200)
@@ -404,14 +402,14 @@ ui <- fluidPage(
                  fluidRow( 
                    verticalLayout( 
                      
-                     plotOutput("varParPlot", height = 600),
+                     plotOutput("varParPlot", height = 600)
                      
                    )
                  ) 
                )
                
              ) #end sidebarLayout
-    ) #end tab
+    ) #end tab 3
     
     
   ) #end tabSetPanel
@@ -577,8 +575,38 @@ server <- function(input, output, session) {
   })
 
   
+  output$parPchBy <- renderUI({
+    model <- switch(input$model, 
+                    "TreeSim (oh)" = 'oh',
+                    "DAISIE (etienne)" = 'etienne',
+                    "Hurlbert-Stegen (hs)" = 'hs',
+                    "Pontarp (pontarp)" = 'pontarp',
+                    "Hartig (fh)" = 'fh',
+                    "Coelho et al. (mt)" = 'mt',
+                    "Leprieur et al. (split)" = 'split',
+                    "Rangel (ra)" = 'ra',
+                    "GaSM (ga)" = 'ga')
+    
+    selectInput(inputId = "parPch",
+                label = "Model parameter to code by symbol",
+                choices = allModelParameterNames[[model]],
+                selected = allModelParameterNames[[model]][2])
+  })
+  
+  
   # Plot trees based on two selected shape metrics WITHIN AN INDIVIDUAL MODEL
   output$varParPlot <- renderPlot({
+    
+    model <- switch(input$model, 
+                    "TreeSim (oh)" = 'oh',
+                    "DAISIE (etienne)" = 'etienne',
+                    "Hurlbert-Stegen (hs)" = 'hs',
+                    "Pontarp (pontarp)" = 'pontarp',
+                    "Hartig (fh)" = 'fh',
+                    "Coelho et al. (mt)" = 'mt',
+                    "Leprieur et al. (split)" = 'split',
+                    "Rangel (ra)" = 'ra',
+                    "GaSM (ga)" = 'ga')
     
     xvar3 <- switch(input$xvar3, 
                    "log10 Richness" = 'log10S',
@@ -602,8 +630,8 @@ server <- function(input, output, session) {
     yvar3 <- switch(input$yvar3, 
                    "log10 Richness" = 'log10S',
                    "PD" = 'PD',
-                   "Gamma" = 'gamma',
-                   "Beta" = 'beta', 
+                   "Gamma" = 'Gamma',
+                   "Beta" = 'Beta', 
                    "Colless" = 'Colless',
                    "Sackin" = 'Sackin',
                    "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
@@ -620,15 +648,16 @@ server <- function(input, output, session) {
     
     
     par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
-    #withinModelVarPlot(treeOutput = treeOutput,
-    #                   modelAbbrev = input$model,
-    #                   modelParams = allModelParameterValues[[model]],
-    #                    xvar = xvar3, 
-    #                    yvar = yvar3, 
-    #                    colorBy = input$parColor, 
-    #                    pchBy = input$parPch, 
-    #                    alpha = input$alphaSlider3,
-    #                    cex = 2)  
+    #plot(1, 1, pch = 16, cex = 12, main = input$parPch)
+    withinModelVarPlot(treeOutput = treeOutput,
+                       modelAbbrev = model,
+                       modelParams = allModelParameterValues[[model]],
+                        xvar = xvar3, 
+                        yvar = yvar3, 
+                        colorBy = input$parColor, 
+                        pchBy = input$parPch, 
+                        alpha = input$alphaSlider3,
+                        cex = 2)  
   })
   
 }
