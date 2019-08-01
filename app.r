@@ -8,8 +8,24 @@ library(corrplot)
 source("code/treeMetrics.R")
 source("code/pcaFunctions.r")
 
+# Read in tree metrics output
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
 
+# Read in model parameter names and values for all models
+paramfiles = list.files("parameters")
+allModelParameterNames = list()
+allModelParameterValues = list()
+i = 0
+for (pfile in paramfiles) {
+  i = i + 1
+  paramVals = read.csv(paste("parameters/", pfile, sep = ""), header = T, stringsAsFactors = FALSE)
+  allModelParameterValues[[i]] = paramVals
+  allModelParameterNames[[i]] = names(paramVals)[3:ncol(paramVals)]
+  names(allModelParameterValues)[[i]] = str_extract(pfile, "^[A-Za-z]*")
+  names(allModelParameterNames)[[i]] = str_extract(pfile, "^[A-Za-z]*")
+}
+
+# Function for creating descriptive text over radio buttons upon hovering
 radioTooltip <- function(id, choice, title, placement = "bottom", trigger = "hover", options = NULL){
   
   options = shinyBS:::buildTooltipOrPopoverOptionsList(title, placement, trigger, options)
@@ -159,7 +175,7 @@ ui <- fluidPage(
                                                     "Rangel (ra)" = 'ra',
                                                     "GaSM (ga)" = 'ga')),
                  
-                 sliderInput("alphaSlider", h3("Transparency"),
+                 sliderInput("alphaSlider", "Transparency",
                              min = 0, max = 255, value = 200)
                  
                  
@@ -366,9 +382,11 @@ ui <- fluidPage(
                                          "RPANDA spectral: eigengap",
                                          "nLTT_stat")),
                  
-                 selectInput(inputId = "parColorBy", 
-                             label = "Model parameter to code by color", 
-                             choices = letters[11:15]),
+                 uiOutput("parColorBy"),
+                 
+                 #selectInput(inputId = "parColorBy", 
+                #             label = "Model parameter to code by color", 
+                #             choices = letters[11:15]),
                  
                  sliderInput("alphaSlider3", "Transparency",
                              min = 0, max = 255, value = 200)
@@ -383,8 +401,6 @@ ui <- fluidPage(
                    verticalLayout( 
                      
                      plotOutput("pcaPlot", height = 600),
-                     
-                     helpText("Refer to the correlation matrix below for how strongly variables covary."),
                      
                      plotOutput("corPlot", height = 600)
                    )
@@ -539,11 +555,25 @@ server <- function(input, output, session) {
   
   
   # Parameter values for coding depend on the model selected
+  if (input$model == 'hs') {
+    paramNames = letters[1:5]
+  } else {
+    paramNames = letters[6:10]
+  }
   
+  output$parColorBy <- renderUI({
+       SelectInput(inputId = "parColor",
+                label = "Model parameter to code by color",
+                choices = letters[1:5],
+                selected = letters[1])
+  })
+  
+  if(0) {
+    
   observe({
-    #if (input$parColorBy == "") {
+    if (input$parColorBy == "") {
     #  return()
-    #}
+    }
     
     model <- switch(input$model, 
                     "TreeSim (oh)" = 'oh',
@@ -565,13 +595,13 @@ server <- function(input, output, session) {
       paramNames = letters[6:10]
     }
     
-    updateSelectInput(session = session, inputId = "parColorBy",
-                      label = "Model parameter to code by color",
-                      choices = paramNames,
-                      selected = paramNames[1]
-    )
+    #updateSelectInput(session = session, inputId = "parColorBy",
+    #                  label = "Model parameter to code by color",
+    #                  choices = paramNames,
+    #                  selected = paramNames[1]
+    #)
   })
-  
+  }
 
 }
 

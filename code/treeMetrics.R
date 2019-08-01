@@ -277,7 +277,7 @@ treeMetrics = function(treeInput) {
     tree2 = tree
   )
 
-  return(list(S = S, log10S = log10S, tree.length = tree.length, PD = PD, gamma = gamma.stat, beta = beta.stat, 
+  return(list(S = S, log10S = log10S, tree.length = tree.length, PD = PD, Gamma = gamma.stat, Beta = beta.stat, 
               Colless = Colless, Sackin = Sackin, Yule.PDA.ratio = Yule.PDA.ratio, MRD = MRD, 
               VRD = VRD, PSV = PSV, mean.Iprime = mean.Iprime,
               MPD = MPD, VPD = VPD, 
@@ -307,8 +307,8 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
   
   if(!append) {
     
-    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, gamma = NA, 
-                            beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
+    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+                            Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                             VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                             MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
                             MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
@@ -330,8 +330,8 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
       metrics = tryCatch({
         treeMetrics(tree)
       }, error = function(e) {
-         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, gamma = NA, 
-                               beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
+         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+                               Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                                VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                                MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
                                MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
@@ -344,8 +344,8 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
                 metrics$log10S,
                 metrics$tree.length,
                 metrics$PD, 
-                metrics$gamma,
-                metrics$beta, 
+                metrics$Gamma,
+                metrics$Beta, 
                 metrics$Colless, 
                 metrics$Sackin,
                 metrics$Yule.PDA.ratio, 
