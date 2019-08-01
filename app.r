@@ -314,7 +314,7 @@ ui <- fluidPage(
                                           "Yes")),
                  
                  sliderInput("minRichness2", "Minimum size empirical tree",
-                             min = 20, max = max(500), value = 20)
+                             min = 20, max = 500, value = 20)
                  
                ),
                
@@ -414,7 +414,7 @@ ui <- fluidPage(
                                           "Yes")),
                  
                  sliderInput("minRichness3", "Minimum size empirical tree",
-                             min = 0, max = 255, value = 200)
+                             min = 20, max = 500, value = 20)
                  
                  
                  
@@ -570,6 +570,12 @@ server <- function(input, output, session) {
                         pchBy = PCApchBy, 
                         alpha = input$alphaSlider2,
                         cex = 2)  
+    
+    if (input$empiricalDataSwitch2 == "Yes") {
+      loadings = pcaOutput$pcaLoadings
+      
+    }
+    
   })
   
   
@@ -677,7 +683,6 @@ server <- function(input, output, session) {
     
     
     par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
-    #plot(1, 1, pch = 16, cex = 12, main = input$parPch)
     withinModelVarPlot(treeOutput = treeOutput,
                        modelAbbrev = model,
                        modelParams = allModelParameterValues[[model]],
@@ -686,7 +691,12 @@ server <- function(input, output, session) {
                         colorBy = input$parColor, 
                         pchBy = input$parPch, 
                         alpha = input$alphaSlider3,
-                        cex = 2)  
+                        cex = 2) 
+    
+    if (input$empiricalDataSwitch1 == "Yes") {
+      empData = filter(empiricalData, S >= input$minRichness1)
+      points(empData[, xvar], empData[, yvar], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))
+    }
   })
   
 }
