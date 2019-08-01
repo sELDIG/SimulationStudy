@@ -16,9 +16,6 @@ colorSelection = function(n, alpha = 255) {
   return(rep(colors, ceiling(n/length(colors)))[1:n])
 }
 
-veccol <- col2rgb(c("lightblue", "lightgreen", "pink"))
-plot(1:3, col=rgb(veccol[,1], veccol[,2], veccol[,3], alpha=rep(200,3), maxColorValue = 255), pch=15)
-
 
 pchSelection = function(n) {
   pch = c(15, 16, 17, 18, 1, 7, 8, 10, 2, 4, 12, 6, 3, 5)

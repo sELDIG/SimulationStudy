@@ -182,10 +182,13 @@ ui <- fluidPage(
                  sliderInput("alphaSlider", "Transparency",
                              min = 0, max = 255, value = 200),
                  
-                 radioButtons(inputId = "empiricalData1",
+                 radioButtons(inputId = "empiricalDataSwitch1",
                               label = "Overlay empirical data?",
                               choices = c("No", 
-                                          "Yes"))
+                                          "Yes")),
+                 
+                 sliderInput("minRichness1", "Minimum size empirical tree",
+                             min = 20, max = max(500), value = 20)
                  
                  
                ),
@@ -305,10 +308,13 @@ ui <- fluidPage(
                  sliderInput("alphaSlider2", "Transparency",
                              min = 0, max = 255, value = 200),
                  
-                 radioButtons(inputId = "empiricalData2",
+                 radioButtons(inputId = "empiricalDataSwitch2",
                               label = "Overlay empirical data?",
                               choices = c("No", 
-                                          "Yes"))
+                                          "Yes")),
+                 
+                 sliderInput("minRichness2", "Minimum size empirical tree",
+                             min = 20, max = max(500), value = 20)
                  
                ),
                
@@ -402,10 +408,13 @@ ui <- fluidPage(
                  sliderInput("alphaSlider3", "Transparency",
                              min = 0, max = 255, value = 200),
                  
-                 radioButtons(inputId = "empiricalData3",
+                 radioButtons(inputId = "empiricalDataSwitch3",
                               label = "Overlay empirical data?",
                               choices = c("No", 
-                                          "Yes"))
+                                          "Yes")),
+                 
+                 sliderInput("minRichness3", "Minimum size empirical tree",
+                             min = 0, max = 255, value = 200)
                  
                  
                  
@@ -507,6 +516,11 @@ server <- function(input, output, session) {
                         pchBy = pchBy, 
                         alpha = input$alphaSlider,
                         cex = 2)  
+    
+    if (input$empiricalDataSwitch1 == "Yes") {
+      empData = filter(empiricalData, S >= input$minRichness1)
+      points(empData[, xvar], empData[, yvar], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))
+    }
   })
   
 
