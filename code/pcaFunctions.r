@@ -211,8 +211,8 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
 # tree metrics rather than PC scores
 
 betweenModelVarPlot = function(treeOutput,          # dataframe with model, simID, and PC scores
-                               xvar = 'beta',        # tree metric to be plotted on the x-axis
-                               yvar = 'gamma',        # tree metric to be plotted on the y-axis
+                               xvar = 'Beta',        # tree metric to be plotted on the x-axis
+                               yvar = 'Gamma',        # tree metric to be plotted on the y-axis
                                colorBy = 'model', # any variable/parameter name by which to color points
                                pchBy = 'model',         # categorical variable/parameter name by which to specify point shape 
                                alpha = 255,      # transparency of symbols where 255 is solid and 0 is totally transparent 
@@ -258,5 +258,88 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
   par(new = TRUE)
   plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
        xlim = c(-1, 1), ylim = c(-1, 1))
+  
+}
+
+
+# Function for exploring tree shape metrics as a function of within-model parameters
+
+withinModelVarPlot = function(treeOutput,          # dataframe with model, simID, and tree shape metrics
+                              modelAbbrev,             # specify the abbreviation of the model to explore 
+                              modelParams = NULL,      # dataframe with simID and columns for all model parameters,
+                                                  #   if NULL, then read it in from 'parameters' folder
+                              xvar = 'Beta',        # PC score plotted on the x-axis
+                              yvar = 'Gamma',        # PC score plotted on the y-axis
+                              colorBy,        # any variable/parameter name by which to color points
+                              pchBy,            # categorical variable/parameter name by which to specify point shape 
+                              alpha = 255,      # transparency of symbols where 255 is solid and 0 is totally transparent 
+                              ...) {
+  
+  if (is.null(modelParams)) {
+    modelParams = read.csv(paste('parameters/', modelAbbrev, '_parameters.csv', sep = ''), header = TRUE, stringsAsFactors = FALSE)
+  }
+  
+  modelOutput = filter(treeOutput, model == modelAbbrev) %>%
+    left_join(modelParams, by = c("model", "simID"))
+  
+  if (is.numeric(modelOutput[, colorBy]) & length(unique(modelOutput[, colorBy])) > 4) {
+    
+    shades <- rainbow(130)[100:1]
+    percents <- as.integer(cut(modelOutput[, colorBy], 100, include.lowest = TRUE, ordered = TRUE))
+    modelOutput$color = shades[percents]
+   
+  } else {
+    
+    colorCode = data.frame(val = unique(modelOutput[, colorBy]), 
+                           color = colorSelection(length(unique(modelOutput[, colorBy])), alpha))
+    colorCode$color = as.character(colorCode$color)
+    colorCode$val = as.character(colorCode$val)
+    names(colorCode)[1] = colorBy
+    
+    modelOutput = left_join(modelOutput, colorCode, by = unname(colorBy))
+  }
+  
+  if (class(pchBy) == 'numeric' & length(unique(modelOutput[, pchBy])) > 5) {
+    warning("Symbol size is best used for visualizing categorical variables", immediate. = TRUE)
+  } else {
+    pchCode = data.frame(val = unique(modelOutput[, pchBy]),
+                         pch = pchSelection(length(unique(modelOutput[, pchBy]))))
+    pchCode$val = as.character(pchCode$val)
+    names(pchCode)[1] = pchBy
+  }
+  
+  plotOutput = left_join(modelOutput, pchCode, by = unname(pchBy))
+  
+  miny = min(plotOutput[, yvar], na.rm = TRUE)
+  maxy = max(plotOutput[, yvar], na.rm = TRUE)
+  minx = min(plotOutput[, xvar], na.rm = TRUE)
+  maxx = max(plotOutput[, xvar], na.rm = TRUE)
+  
+  plot(plotOutput[, xvar], plotOutput[, yvar], 
+       col = plotOutput$color, 
+       pch = plotOutput$pch, xlab = xvar, ylab = yvar, 
+       xlim = c(minx - (maxx - minx)/8, maxx + (maxx - minx)/8), 
+       ...)
+  
+  # color legend
+  if (is.numeric(modelOutput[, colorBy]) & length(unique(modelOutput[, colorBy])) > 4) {
+    maxvar = max(modelOutput[, colorBy], na.rm = TRUE)
+    minvar = min(modelOutput[, colorBy], na.rm = TRUE)
+    inc <- (maxvar - minvar) / 4
+    legend.text <- round(c(minvar, minvar + inc, minvar + 2 * inc, minvar + 3 * inc, maxvar))
+    
+    legend("topleft", 
+           legend = c(toupper(colorBy), legend.text), bty = "n",
+           fill = c('white', shades[c(1, 25, 50, 75, 100)]))
+    
+  } else {
+    
+    legend("topleft", legend = c(toupper(colorBy), as.character(colorCode[,1])), bty = "n",
+           col = c('white', as.character(colorCode[,2])), pch = 16, pt.cex = 2)
+  }
+  
+  legend("topright", 
+         legend = c(toupper(pchBy), as.character(pchCode[,1])), bty = "n",
+         col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
   
 }
