@@ -1,1 +1,0 @@
-((Ichthyophis_daribokensis:0.9582610012,Ichthyophis_biangularis:0.9582610012)14643:9.836656571,(Ichthyophis_lakimi:0.4635719314,Ichthyophis_youngorum:0.4635719314)14644:10.33134564)14642;

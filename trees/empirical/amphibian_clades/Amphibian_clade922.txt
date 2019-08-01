@@ -1,1 +1,0 @@
-((((Eleutherodactylus_audanti:8.433907011,Eleutherodactylus_haitianus:8.433907011)8265:1.880079109,Eleutherodactylus_abbotti:10.31398612)8264:0.6200332338,Eleutherodactylus_pituinus:10.93401935)8263:5.860999438,Eleutherodactylus_eileenae:16.79501879)8262;

@@ -1,1 +1,0 @@
-((((Eleutherodactylus_notidodes:7.095438423,Eleutherodactylus_warreni:7.095438423)8323:1.316289942,Eleutherodactylus_jasperi:8.411728365)8321:8.276677945,((Eleutherodactylus_limbensis:5.616922701,Eleutherodactylus_maurus:5.616922701)8324:0.5208658215,Eleutherodactylus_rufescens:6.137788522)8322:10.55061779)8320:8.777564603,Eleutherodactylus_adelus:25.46597091)8319;

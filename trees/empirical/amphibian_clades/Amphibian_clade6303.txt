@@ -1,1 +1,0 @@
-(((((Megophrys_damrei:1.021154003,Megophrys_medogensis:1.021154003)13647:6.457316259,Megophrys_jinggangensis:7.478470262)13646:4.086016881,Megophrys_tuberogranulatus:11.56448714)13645:2.057484115,Megophrys_wawuensis:13.62197126)13644:0.983885425,Megophrys_megacephala:14.60585668)13643;

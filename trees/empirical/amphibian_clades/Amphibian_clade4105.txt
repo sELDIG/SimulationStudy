@@ -1,1 +1,0 @@
-((((Mantidactylus_tricinctus:1.286980712,Mantidactylus_pauliani:1.286980712)11447:1.488860604,Mantidactylus_zolitschka:2.775841317)11449:2.277781507,Mantidactylus_madecassus:5.053622823)11446:5.411145371,(Mantidactylus_ambohimitombi:9.529333277,Mantidactylus_betsileanus:9.529333277)11448:0.9354349168)11445;

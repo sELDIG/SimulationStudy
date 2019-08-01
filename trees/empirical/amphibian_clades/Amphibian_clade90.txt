@@ -1,1 +1,0 @@
-((((((Pristimantis_bromeliaceus:5.392721943,Pristimantis_cf_mendax_SBH_2008:5.392721943)7435:4.689086769,Pristimantis_schultei:10.08180871)7434:2.111359865,Pristimantis_zeuctotylus:12.19316858)7433:1.691297711,Pristimantis_acuminatus:13.88446629)7432:4.908382779,Pristimantis_moro:18.79284907)7431:0.2583291546,Pristimantis_galdi:19.05117822)7430;

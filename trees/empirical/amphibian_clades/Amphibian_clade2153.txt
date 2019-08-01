@@ -1,1 +1,0 @@
-((((Paratelmatobius_gaigeae:8.68575334,Paratelmatobius_poecilogaster:8.68575334)9498:3.974759932,(Paratelmatobius_lutzii:3.297424782,Paratelmatobius_cardosoi:3.297424782)9496:9.363088491)9495:9.653093049,(Paratelmatobius_mantiqueira:0.01285957581,Paratelmatobius_yepiranga:0.01285957581)9497:22.30074675)9494:12.99838583,Scythrophrys_sawayae:35.31199215)9493;

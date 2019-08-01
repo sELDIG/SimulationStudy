@@ -1,1 +1,0 @@
-((((Bolitoglossa_altamazonica:4.329008039,Bolitoglossa_peruviana:4.329008039)13822:2.340130031,(Bolitoglossa_adspersa:3.760524744,Bolitoglossa_medemi:3.760524744)13823:2.908613326)13825:0.1485210543,Bolitoglossa_palmata:6.817659125)13821:0.5693498412,(Bolitoglossa_biseriata:1.678516191,Bolitoglossa_sima:1.678516191)13824:5.708492776)13820;

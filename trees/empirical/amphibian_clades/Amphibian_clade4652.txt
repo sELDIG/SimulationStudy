@@ -1,1 +1,0 @@
-((((Sanguirana_luzonensis:0.5452414369,Sanguirana_igorota:0.5452414369)11994:7.15750849,Sanguirana_sanguinea:7.702749927)11996:3.575510763,Sanguirana_tipanan:11.27826069)11993:8.950709821,(Sanguirana_everetti:6.06339752,Sanguirana_aurantipunctata:6.06339752)11995:14.16557299)11992;

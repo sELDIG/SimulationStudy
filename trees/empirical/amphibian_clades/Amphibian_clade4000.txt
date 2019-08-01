@@ -1,1 +1,0 @@
-((((Pseudophilautus_stellatus:0.7844261311,Pseudophilautus_dimbullae:0.7844261311)11343:1.0358737,Pseudophilautus_variabilis:1.820299831)11342:0.6006013833,Pseudophilautus_frankenbergi:2.420901214)11341:2.181427702,Pseudophilautus_fulvus:4.602328917)11340;

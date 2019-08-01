@@ -1,1 +1,0 @@
-(((Ptychadena_bibroni:19.77402064,Ptychadena_aequiplicata:19.77402064)12447:2.860881357,(Ptychadena_porosissima:9.301208055,Ptychadena_mahnerti:9.301208055)12448:13.33369394)12446:1.169846383,Ptychadena_cooperi:23.80474838)12445;

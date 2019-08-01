@@ -1,1 +1,0 @@
-(((Eleutherodactylus_amplinympha:1.786746143,Eleutherodactylus_martinicensis:1.786746143)8280:5.653360836,Eleutherodactylus_johnstonei:7.44010698)8278:11.24996827,(Eleutherodactylus_barlagnei:9.694737803,Eleutherodactylus_pinchoni:9.694737803)8279:8.995337442)8277;

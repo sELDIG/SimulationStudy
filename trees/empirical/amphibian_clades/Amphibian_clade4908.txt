@@ -1,1 +1,0 @@
-(((Platymantis_myersi:1.062459338,Platymantis_desticans:1.062459338)12251:0.2380925242,Platymantis_guppyi:1.300551862)12249:8.089911372,(Platymantis_taylori:7.549075666,Platymantis_parilis:7.549075666)12250:1.841387568)12248;

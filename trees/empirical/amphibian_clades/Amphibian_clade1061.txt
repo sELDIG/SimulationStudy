@@ -1,1 +1,0 @@
-(((((Isthmohyla_rivularis:3.086218034,Isthmohyla_tica:3.086218034)8407:1.655326378,Isthmohyla_angustilineata:4.741544412)8403:1.366559387,Isthmohyla_lancasteri:6.1081038)8406:0.5701154186,Isthmohyla_graceae:6.678219218)8402:1.651971299,((Isthmohyla_calypsa:0.1045148736,Isthmohyla_xanthosticta:0.1045148736)8405:0.3603037721,Isthmohyla_melacaena:0.4648186458)8404:7.865371871)8401;

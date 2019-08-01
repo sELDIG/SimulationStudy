@@ -1,1 +1,0 @@
-((((Leptolalax_platycephalus:0.6245854679,Leptolalax_solus:0.6245854679)13542:0.6614143685,Leptolalax_nokrekensis:1.285999836)13541:2.463678984,Leptolalax_kajangensis:3.74967882)13540:4.728143574,Leptolalax_gracilis:8.477822394)13539;

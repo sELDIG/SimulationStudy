@@ -1,1 +1,0 @@
-((((Stumpffia_grandis:3.831980379,Stumpffia_roseifemoralis:3.831980379)12923:2.7335226,Stumpffia_tetradactyla:6.56550298)12925:5.609205269,Stumpffia_tridactyla:12.17470825)12922:5.257627702,((Stumpffia_psologlossa:7.408715986,Stumpffia_gimmeli:7.408715986)12924:0.7253424388,Stumpffia_pygmaea:8.134058425)12926:9.298277525)12921;

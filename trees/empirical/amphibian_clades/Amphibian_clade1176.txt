@@ -1,1 +1,0 @@
-((Exerodonta_pinorum:0.189276946,Exerodonta_catracha:0.189276946)8517:10.4837296,(Exerodonta_melanomma:4.071828018,Exerodonta_sumichrasti:4.071828018)8518:6.601178524)8516;

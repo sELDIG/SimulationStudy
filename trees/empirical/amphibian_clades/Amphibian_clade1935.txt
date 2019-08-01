@@ -1,1 +1,0 @@
-(((Phasmahyla_guttata:2.893386498,Phasmahyla_exilis:2.893386498)9279:4.123816508,(Phasmahyla_cochranae:1.558264295,Phasmahyla_cruzi:1.558264295)9277:5.45893871)9276:3.28954931,((Phasmahyla_spectabilis:0.7012179753,Phasmahyla_jandaia:0.7012179753)9280:1.571258907,Phasmahyla_timbo:2.272476882)9278:8.034275433)9275;

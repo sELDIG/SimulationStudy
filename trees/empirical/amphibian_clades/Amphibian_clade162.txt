@@ -1,1 +1,0 @@
-(((((Pristimantis_douglasi:0.502687309,Pristimantis_uranobates:0.502687309)7507:2.189790597,Pristimantis_permixtus:2.692477906)7505:6.997956599,(Pristimantis_orpacobates:4.473793258,Pristimantis_medemi:4.473793258)7506:5.216641248)7504:0.06315351716,Pristimantis_susaguae:9.753588022)7503:5.066550046,Pristimantis_tenebrionis:14.82013807)7502;

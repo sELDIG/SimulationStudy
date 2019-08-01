@@ -1,1 +1,0 @@
-((((Limnonectes_finchi:1.992261017,Limnonectes_ingeri:1.992261017)11642:2.609476803,Limnonectes_malesianus:4.601737821)11640:6.953535765,(Limnonectes_macrodon:4.160801499,Limnonectes_shompenorum:4.160801499)11641:7.394472086)11639:8.079451242,Limnonectes_paramacrodon:19.63472483)11638;

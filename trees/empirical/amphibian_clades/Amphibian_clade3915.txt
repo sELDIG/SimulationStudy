@@ -1,1 +1,0 @@
-(((Theloderma_ryabovi:8.483797477,Theloderma_truongsonense:8.483797477)11258:0.4202610485,Theloderma_horridum:8.904058526)11256:0.8585944906,((Theloderma_lateriticum:2.557761348,Theloderma_kwangsiense:2.557761348)11259:5.151331273,Theloderma_phrynoderma:7.709092621)11257:2.053560395)11255;

@@ -1,1 +1,0 @@
-(((Pseudepidalea_latastii:23.3599449,Pseudepidalea_pseudoraddei:23.3599449)9839:1.507038169,(Pseudepidalea_raddei:20.58552674,Pseudepidalea_brongersmai:20.58552674)9837:4.28145633)9836:1.328399075,((Pseudepidalea_zugmayeri:6.053609538,Pseudepidalea_zamdaensis:6.053609538)9840:8.16564027,Pseudepidalea_luristanicus:14.21924981)9838:11.97613234)9835;

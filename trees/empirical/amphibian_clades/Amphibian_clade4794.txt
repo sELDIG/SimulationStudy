@@ -1,1 +1,0 @@
-((((Amolops_splendissimus:1.423599011,Amolops_aniqiaoensis:1.423599011)12136:4.628565275,(Amolops_nidorbellus:1.275917293,Amolops_tuberodepressus:1.275917293)12137:4.776246992)12139:3.42606938,Amolops_chakrataensis:9.478233666)12135:4.064837972,(Amolops_himalayanus:2.372123731,Amolops_jaunsari:2.372123731)12138:11.17094791)12134;

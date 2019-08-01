@@ -1,1 +1,0 @@
-((((Chiromantis_nongkhorensis:1.106890449,Chiromantis_marginis:1.106890449)11226:3.647259469,Chiromantis_kelleri:4.754149918)11228:2.766985448,Chiromantis_senapatiensis:7.521135366)11225:12.18857958,((Chiromantis_xerampelina:16.08982155,Chiromantis_doriae:16.08982155)11227:3.201225586,Chiromantis_rufescens:19.29104713)11229:0.4186678087)11224;

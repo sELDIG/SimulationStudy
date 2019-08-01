@@ -1,1 +1,0 @@
-(((Euphlyctis_aloysii:5.774740414,Euphlyctis_ehrenbergii:5.774740414)11763:2.257185473,(Euphlyctis_hexadactylus:0.1266962412,Euphlyctis_ghoshi:0.1266962412)11761:7.905229645)11760:16.2198579,((Euphlyctis_cyanophlyctis:5.893461392,Euphlyctis_ehrenbergi:5.893461392)11764:7.38017376,Euphlyctis_mudigere:13.27363515)11762:10.97814863)11759;

@@ -1,1 +1,0 @@
-(((((Albericus_valkuriarum:1.243760607,Albericus_alpestris:1.243760607)12731:0.9816168521,Albericus_murritus:2.225377459)12734:2.686550963,(Albericus_siegfriedi:3.195944453,Albericus_brevicrus:3.195944453)12733:1.715983969)12730:1.522047923,(Albericus_pandanicolus:1.648828241,Albericus_rhenaurum:1.648828241)12732:4.785148105)12729:7.287188378,Albericus_gunnari:13.72116472)12728;

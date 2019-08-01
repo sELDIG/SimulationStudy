@@ -1,1 +1,0 @@
-((((Telmatobius_oxycephalus:0.5070341173,Telmatobius_rimac:0.5070341173)10870:3.77294817,Telmatobius_punctatus:4.279982287)10869:0.1094952808,Telmatobius_carrillae:4.389477568)10868:0.6159077798,Telmatobius_mendelsoni:5.005385347)10867;

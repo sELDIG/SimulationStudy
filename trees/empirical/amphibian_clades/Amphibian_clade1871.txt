@@ -1,1 +1,0 @@
-((((((Nyctimystes_tyleri:1.402194054,Nyctimystes_obsoletus:1.402194054)9216:3.205318584,Nyctimystes_bivocalis:4.607512638)9215:0.6118784863,Nyctimystes_oktediensis:5.219391125)9214:1.217205379,Nyctimystes_eucavatus:6.436596503)9213:0.4995447819,Nyctimystes_daymani:6.936141285)9212:2.21656024,Nyctimystes_fluviatilis:9.152701525)9211;

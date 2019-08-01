@@ -1,1 +1,0 @@
-(((Pristimantis_incomptus:0.4544587689,Pristimantis_angustilineatus:0.4544587689)7602:5.908362535,Pristimantis_dendrobatoides:6.362821304)7600:4.256251667,(Pristimantis_helvolus:6.858282163,Pristimantis_scoloblepharus:6.858282163)7601:3.760790807)7599;

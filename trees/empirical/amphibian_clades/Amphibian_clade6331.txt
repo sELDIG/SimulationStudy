@@ -1,1 +1,0 @@
-((((Megophrys_parva:0.2356791367,Megophrys_stejnegeri:0.2356791367)13674:14.30374143,Megophrys_daweimontis:14.53942057)13673:4.066170131,Megophrys_serchhipii:18.6055907)13672:1.101980948,Megophrys_robusta:19.70757165)13671;

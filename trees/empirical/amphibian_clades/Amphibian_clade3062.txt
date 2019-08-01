@@ -1,1 +1,0 @@
-(((Ameerega_labialis:5.218897843,Ameerega_silverstonei:5.218897843)10405:5.223596989,Ameerega_berohoka:10.44249483)10403:0.6516096082,((Ameerega_pepperi:2.714651503,Ameerega_boliviana:2.714651503)10406:4.045036817,Ameerega_ignipedis:6.75968832)10404:4.33441612)10402;

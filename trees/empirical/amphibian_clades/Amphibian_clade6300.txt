@@ -1,1 +1,0 @@
-(((Megophrys_pachyproctus:1.897735871,Megophrys_mangshanensis:1.897735871)13642:3.445186773,Megophrys_kuatunensis:5.342922644)13641:1.712079454,Megophrys_zhangi:7.055002098)13640;

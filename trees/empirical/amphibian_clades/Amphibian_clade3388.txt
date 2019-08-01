@@ -1,1 +1,0 @@
-(((Cycloramphus_faustoi:9.021326692,Cycloramphus_diringshofeni:9.021326692)10731:2.553373042,Cycloramphus_lithomimeticus:11.57469973)10729:9.151919669,(Cycloramphus_boraceiensis:12.80617548,Cycloramphus_asper:12.80617548)10730:7.920443917)10728;

@@ -1,1 +1,0 @@
-(((Phrynobatrachus_minutus:4.153323637,Phrynobatrachus_schioetzi:4.153323637)12543:0.3004389884,Phrynobatrachus_bullans:4.453762626)12541:2.867623587,(Phrynobatrachus_nanus:2.486220081,Phrynobatrachus_guineensis:2.486220081)12542:4.835166131)12540;

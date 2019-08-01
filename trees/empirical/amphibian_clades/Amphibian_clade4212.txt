@@ -1,1 +1,0 @@
-(((Boophis_calcaratus:0.3054562672,Boophis_roseipalmatus:0.3054562672)11556:2.712142071,(Boophis_albipunctatus:0.4115945905,Boophis_reticulatus:0.4115945905)11554:2.606003748)11553:5.158489261,(Boophis_tsilomaro:0.1191620276,Boophis_opisthodon:0.1191620276)11555:8.056925571)11552;

@@ -1,1 +1,0 @@
-(((Ctenophryne_minor:10.95272157,Ctenophryne_geayi:10.95272157)13046:11.3027126,Ctenophryne_barbatula:22.25543417)13044:3.092180404,((Ctenophryne_carpish:4.730238154,Ctenophryne_aequatorialis:4.730238154)13047:1.130425459,Ctenophryne_aterrima:5.860663613)13045:19.48695096)13043;

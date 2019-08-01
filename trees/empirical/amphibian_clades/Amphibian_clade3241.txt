@@ -1,1 +1,0 @@
-(((Gastrotheca_aureomaculata:1.970241723,Gastrotheca_ruizi:1.970241723)10583:1.579223531,(Gastrotheca_argenteovirens:0.09026471493,Gastrotheca_trachyceps:0.09026471493)10584:3.459200539)10582:2.998554178,Gastrotheca_dunni:6.548019432)10581;

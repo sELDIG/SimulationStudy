@@ -1,1 +1,0 @@
-(((Ingerana_borealis:7.316155491,Ingerana_reticulata:7.316155491)11796:2.00031866,(Ingerana_mariae:0.9932699481,Ingerana_charlesdarwini:0.9932699481)11797:8.323204203)11795:17.25545718,Ingerana_sariba:26.57193133)11794;

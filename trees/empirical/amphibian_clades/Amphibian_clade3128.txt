@@ -1,1 +1,0 @@
-((((Aromobates_serranus:0.7508139349,Aromobates_cannatellai:0.7508139349)10470:0.939173892,Aromobates_leopardalis:1.689987827)10472:0.3707496267,Aromobates_ornatissimus:2.060737454)10469:4.435296107,(Aromobates_alboguttatus:1.750579894,Aromobates_ericksonae:1.750579894)10471:4.745453667)10468;

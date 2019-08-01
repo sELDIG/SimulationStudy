@@ -1,1 +1,0 @@
-((((Plethodon_teyahalee:1.1242613,Plethodon_oconaluftee:1.1242613)14168:4.972940642,Plethodon_cylindraceus:6.097201942)14170:0.1179993192,Plethodon_shermani:6.215201262)14167:0.7245437546,(Plethodon_chlorobryonis:1.019530213,Plethodon_variolatus:1.019530213)14169:5.920214803)14166;

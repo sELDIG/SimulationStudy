@@ -1,1 +1,0 @@
-(((((Limnonectes_diuatus:1.944712533,Limnonectes_kenepaiensis:1.944712533)11668:3.429693122,Limnonectes_micrixalus:5.374405655)11670:1.225469871,Limnonectes_macrognathus:6.599875526)11667:3.086259502,(Limnonectes_dammermani:1.776564838,Limnonectes_sisikdagu:1.776564838)11669:7.90957019)11666:2.651422609,Limnonectes_medogensis:12.33755764)11665;

@@ -1,1 +1,0 @@
-((((Limnonectes_timorensis:1.866894532,Limnonectes_doriae:1.866894532)11680:0.669679509,Limnonectes_namiyei:2.536574041)11682:0.2660129005,Limnonectes_rhacodus:2.802586941)11679:7.438509925,(Limnonectes_xizangensis:8.936921818,Limnonectes_khasianus:8.936921818)11681:1.304175049)11678;

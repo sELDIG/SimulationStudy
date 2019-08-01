@@ -1,1 +1,0 @@
-(((Physalaemus_soaresi:4.102635167,Physalaemus_aguirrei:4.102635167)9425:7.600580443,(Physalaemus_fernandezae:4.26446344,Physalaemus_lateristriga:4.26446344)9423:7.43875217)9422:0.789162744,(Physalaemus_atlanticus:2.445768449,Physalaemus_olfersii:2.445768449)9424:10.0466099)9421;

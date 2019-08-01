@@ -1,1 +1,0 @@
-(((Ansonia_mcgregori:5.350587701,Ansonia_muelleri:5.350587701)9852:5.819575971,(Ansonia_sp_1_Sanguila_et_al_2011:1.364528429,Ansonia_sp_2_Sanguila_et_al_2011:1.364528429)9850:9.805635242)9849:4.634695205,(Ansonia_fuliginea:14.16596217,Ansonia_guibei:14.16596217)9851:1.638896705)9848;

@@ -1,1 +1,0 @@
-(((Cophixalus_exiguus:1.462401381,Cophixalus_petrophilus:1.462401381)12584:5.835094391,(Cophixalus_mcdonaldi:0.3525297556,Cophixalus_melanops:0.3525297556)12582:6.944966017)12581:4.261497349,((Cophixalus_australis:2.93129458,Cophixalus_interruptus:2.93129458)12585:6.779827096,Cophixalus_misimae:9.711121676)12583:1.847871445)12580;

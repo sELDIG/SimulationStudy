@@ -1,1 +1,0 @@
-(((Hylarana_macrodactyla:9.696835079,Hylarana_taipehensis:9.696835079)12087:1.524858303,Hylarana_erythraea:11.22169338)12085:10.85524558,(Hylarana_guentheri:17.41719691,Hylarana_miopus:17.41719691)12086:4.65974205)12084;

@@ -1,1 +1,0 @@
-(((Pristimantis_riveti:9.429498952,Pristimantis_versicolor:9.429498952)7398:2.594639395,Pristimantis_phoxocephalus:12.02413835)7396:1.015986161,(Pristimantis_cryophilius:11.36138355,Pristimantis_spinosus:11.36138355)7397:1.678740962)7395;

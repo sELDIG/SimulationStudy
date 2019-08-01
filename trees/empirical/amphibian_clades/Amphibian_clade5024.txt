@@ -1,1 +1,0 @@
-(((Tomopterna_milletihorsini:0.1912654773,Tomopterna_wambensis:0.1912654773)12368:4.812888968,(Tomopterna_monticola:2.302810961,Tomopterna_kachowskii:2.302810961)12366:2.701343485)12365:13.98287347,((Tomopterna_gallmanni:0.5352874421,Tomopterna_natalensis:0.5352874421)12369:11.54396035,Tomopterna_elegans:12.07924779)12367:6.907780124)12364;

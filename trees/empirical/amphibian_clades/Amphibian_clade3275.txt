@@ -1,1 +1,0 @@
-(((Gastrotheca_megacephala:0.8360437689,Gastrotheca_bufona:0.8360437689)10617:1.579697539,Gastrotheca_albolineata:2.415741308)10616:0.1480096309,Gastrotheca_flamma:2.563750938)10615;

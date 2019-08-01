@@ -1,1 +1,0 @@
-((((Litoria_amboinensis:3.180705163,Litoria_darlingtoni:3.180705163)9054:4.427562014,Litoria_peronii:7.608267177)9053:0.5359590108,Litoria_tyleri:8.144226187)9052:9.443101627,Litoria_rothii:17.58732781)9051;

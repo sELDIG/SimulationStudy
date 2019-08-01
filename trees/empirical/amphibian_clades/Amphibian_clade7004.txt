@@ -1,1 +1,0 @@
-((((Tylototriton_ziegleri:0.2099187522,Tylototriton_pseudoverrucosus:0.2099187522)14346:0.5224955766,Tylototriton_hainanensis:0.7324143288)14348:0.7811276649,Tylototriton_uyenoi:1.513541994)14345:4.333887671,(Tylototriton_vietnamensis:2.372549109,Tylototriton_panhai:2.372549109)14347:3.474880556)14344;

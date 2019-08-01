@@ -1,1 +1,0 @@
-(((((Pristimantis_aemulatus:3.619124016,Pristimantis_bernali:3.619124016)7667:0.06841716685,Pristimantis_lasalleorum:3.687541183)7666:1.423283054,Pristimantis_percultus:5.110824237)7669:0.09147019386,Pristimantis_satagius:5.202294431)7665:1.429280853,(Pristimantis_diaphonus:5.513125044,Pristimantis_onorei:5.513125044)7668:1.118450241)7664;

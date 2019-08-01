@@ -1,1 +1,0 @@
-((((Scaphiophryne_madagascariensis:0.4265589528,Scaphiophryne_menabensis:0.4265589528)13054:0.342806738,Scaphiophryne_boribory:0.7693656907)13056:5.063041047,Scaphiophryne_marmorata:5.832406737)13053:12.54303509,((Scaphiophryne_gottlebei:7.407709282,Scaphiophryne_calcarata:7.407709282)13055:4.272693276,Scaphiophryne_spinosa:11.68040256)13057:6.695039273)13052;

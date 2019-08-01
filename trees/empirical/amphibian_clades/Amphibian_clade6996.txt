@@ -1,1 +1,0 @@
-(((Tylototriton_verrucosus:1.97517972,Tylototriton_kweichowensis:1.97517972)14340:10.84581721,(Tylototriton_taliangensis:6.526491985,Tylototriton_shanjing:6.526491985)14338:6.294504941)14337:3.444852657,((Tylototriton_wenxianensis:11.25930858,Tylototriton_asperrimus:11.25930858)14341:2.249260325,Tylototriton_dabienicus:13.50856891)14339:2.757280678)14336;

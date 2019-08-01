@@ -1,1 +1,0 @@
-(((Atelopus_ebenoides:0.7465831851,Atelopus_farci:0.7465831851)10127:0.9397011156,Atelopus_quimbaya:1.686284301)10126:4.321323535,Atelopus_simulatus:6.007607836)10125;

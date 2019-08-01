@@ -1,1 +1,0 @@
-((((Gephyromantis_malagasius:0.3959008621,Gephyromantis_striatus:0.3959008621)11527:8.154850746,Gephyromantis_ventrimaculatus:8.550751609)11529:0.3211350113,Gephyromantis_horridus:8.87188662)11526:7.716156411,((Gephyromantis_silvanus:7.590382909,Gephyromantis_rivicola:7.590382909)11528:6.28564005,Gephyromantis_webbi:13.87602296)11530:2.712020072)11525;

@@ -1,1 +1,0 @@
-(((Ptychadena_pujoli:0.1023576073,Ptychadena_submascareniensis:0.1023576073)12430:0.4668714845,Ptychadena_nilotica:0.5692290918)12428:17.42988121,(Ptychadena_ansorgii:2.152812712,Ptychadena_superciliaris:2.152812712)12429:15.84629759)12427;

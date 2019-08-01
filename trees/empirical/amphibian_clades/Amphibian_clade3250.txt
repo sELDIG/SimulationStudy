@@ -1,1 +1,0 @@
-((Gastrotheca_helenae:10.67627655,Gastrotheca_longipes:10.67627655)10591:14.50187837,(Gastrotheca_cornuta:17.54509985,Gastrotheca_dendronastes:17.54509985)10592:7.633055074)10590;

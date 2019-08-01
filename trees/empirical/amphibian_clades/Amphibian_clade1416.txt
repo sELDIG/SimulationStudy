@@ -1,1 +1,0 @@
-((((Dendropsophus_stingi:3.929184362,Dendropsophus_yaracuyanus:3.929184362)8758:1.186223825,Dendropsophus_tintinnabulum:5.115408187)8760:9.022759459,Dendropsophus_subocularis:14.13816765)8757:7.84000115,((Dendropsophus_battersbyi:8.168212034,Dendropsophus_bokermanni:8.168212034)8759:1.520397676,Dendropsophus_luddeckei:9.68860971)8761:12.28955909)8756;

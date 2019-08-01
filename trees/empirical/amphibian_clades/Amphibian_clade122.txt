@@ -1,1 +1,0 @@
-((((Pristimantis_buccinator:1.88876791,Pristimantis_citriogaster:1.88876791)7464:6.506553647,Pristimantis_malkini:8.395321557)7467:3.048058431,(Pristimantis_condor:8.333330778,Pristimantis_conspicillatus:8.333330778)7466:3.11004921)7463:1.310800869,(Pristimantis_achatinus:9.165435956,Pristimantis_lymani:9.165435956)7465:3.5887449)7462;

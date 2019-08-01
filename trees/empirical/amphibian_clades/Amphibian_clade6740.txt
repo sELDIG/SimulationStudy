@@ -1,1 +1,0 @@
-(((Thorius_papaloae:0.1144899611,Thorius_spilogaster:0.1144899611)14082:0.05982015366,Thorius_lunaris:0.1743101147)14081:5.258366326,Thorius_minutissimus:5.432676441)14080;

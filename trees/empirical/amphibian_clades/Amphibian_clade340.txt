@@ -1,1 +1,0 @@
-(((((Pristimantis_juanchoi:1.684721395,Pristimantis_hectus:1.684721395)7684:0.4219755199,(Pristimantis_pleurostriatus:0.6741301747,Pristimantis_simoteriscus:0.6741301747)7685:1.43256674)7683:5.891989141,Pristimantis_altamnis:7.998686056)7682:1.991213438,Pristimantis_abakapa:9.989899494)7681:5.901811956,Pristimantis_lindae:15.89171145)7680;

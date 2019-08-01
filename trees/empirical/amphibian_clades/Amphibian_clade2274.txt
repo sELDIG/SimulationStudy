@@ -1,1 +1,0 @@
-(((Vitreorana_castroviejoi:0.5993307588,Vitreorana_uranoscopa:0.5993307588)9617:4.343319738,Vitreorana_eurygnatha:4.942650497)9615:0.7747854581,((Vitreorana_ritae:1.597335451,Vitreorana_parvula:1.597335451)9618:1.383119921,Vitreorana_antisthenesi:2.980455371)9616:2.736980584)9614;

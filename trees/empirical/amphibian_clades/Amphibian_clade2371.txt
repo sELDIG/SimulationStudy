@@ -1,1 +1,0 @@
-(((Amietophrynus_superciliaris:0.6523057406,Amietophrynus_togoensis:0.6523057406)9714:4.55384253,Amietophrynus_funereus:5.206148271)9712:2.375358755,(Amietophrynus_taiensis:0.8365663776,Amietophrynus_blanfordii:0.8365663776)9713:6.744940648)9711;

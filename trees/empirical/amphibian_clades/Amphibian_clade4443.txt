@@ -1,1 +1,0 @@
-(((Occidozyga_laevis:0.2855076848,Occidozyga_vittata:0.2855076848)11786:0.5005858545,Occidozyga_semipalmata:0.7860935393)11784:5.965734442,(Occidozyga_celebensis:6.478091535,Occidozyga_floresiana:6.478091535)11785:0.273736446)11783;

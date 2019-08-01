@@ -1,1 +1,0 @@
-(((Eleutherodactylus_guantanamera:0.5867190946,Eleutherodactylus_ionthus:0.5867190946)8271:6.241289146,Eleutherodactylus_varians:6.828008241)8269:7.296855733,(Eleutherodactylus_leberi:10.84544902,Eleutherodactylus_melacara:10.84544902)8270:3.279414957)8268;

@@ -1,1 +1,0 @@
-(((((Ptychohyla_leonhardschultzei:1.722818037,Ptychohyla_zophodes:1.722818037)8440:1.220669705,Ptychohyla_euthysanota:2.943487743)8439:1.467467514,Ptychohyla_hypomykter:4.410955257)8442:3.164931245,Ptychohyla_dendrophasma:7.575886502)8438:0.2216996831,(Ptychohyla_erythromma:3.913271597,Ptychohyla_legleri:3.913271597)8441:3.884314588)8437;

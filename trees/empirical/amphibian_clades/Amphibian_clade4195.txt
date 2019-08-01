@@ -1,1 +1,0 @@
-((((Spinomantis_tavaratra:3.166918912,Spinomantis_massi:3.166918912)11537:4.923958688,Spinomantis_bertini:8.0908776)11539:3.217765023,Spinomantis_nussbaumi:11.30864262)11536:4.916103917,(Spinomantis_peraccae:13.62344727,Spinomantis_elegans:13.62344727)11538:2.601299269)11535;

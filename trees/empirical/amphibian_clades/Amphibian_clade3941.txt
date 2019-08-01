@@ -1,1 +1,0 @@
-((((Pseudophilautus_asankai:0.3998450456,Pseudophilautus_hoffmani:0.3998450456)11283:1.320403938,Pseudophilautus_pleurotaenia:1.720248983)11285:6.706361543,Pseudophilautus_ocularis:8.426610526)11282:1.580692336,((Pseudophilautus_decoris:1.049884891,Pseudophilautus_mittermeieri:1.049884891)11284:3.100889166,Pseudophilautus_tanu:4.150774057)11286:5.856528805)11281;
