@@ -4,12 +4,14 @@ library(dplyr)
 library(shiny)
 library(shinyBS)
 library(corrplot)
+library(stringr)
 
 source("code/treeMetrics.R")
 source("code/pcaFunctions.r")
 
 # Read in tree metrics output
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
+
 
 # Read in model parameter names and values for all models
 paramfiles = list.files("parameters")
@@ -24,6 +26,8 @@ for (pfile in paramfiles) {
   names(allModelParameterValues)[[i]] = str_extract(pfile, "^[A-Za-z]*")
   names(allModelParameterNames)[[i]] = str_extract(pfile, "^[A-Za-z]*")
 }
+
+
 
 # Function for creating descriptive text over radio buttons upon hovering
 radioTooltip <- function(id, choice, title, placement = "bottom", trigger = "hover", options = NULL){
@@ -203,8 +207,8 @@ ui <- fluidPage(
                  
                  checkboxGroupInput(inputId = "pcaVars",
                                     label = "Tree metrics",
-                                    choices = list("Beta" = "beta",
-                                                   "Gamma" = "gamma",
+                                    choices = list("Beta" = "Beta",
+                                                   "Gamma" = "Gamma",
                                                    "log10 Richness" = "log10S",
                                                    "PD" = "PD",
                                                    "Colless" = "Colless",
@@ -220,8 +224,8 @@ ui <- fluidPage(
                                                    "RPANDA spectral: peakedness" = "MGL_peakedness",
                                                    "RPANDA spectral: eigengap" = "MGL_eigengap",
                                                    "nLTT_stat" = "nLTT_stat"),
-                                    selected = list("Beta" = "beta",
-                                                    "Gamma" = "gamma",
+                                    selected = list("Beta" = "Beta",
+                                                    "Gamma" = "Gamma",
                                                     "Mean Root Distance" = "MRD",
                                                     "Variance in Root Distance" = "VRD",
                                                     "Mean Pairwise Distance" = "MPD",
@@ -400,9 +404,8 @@ ui <- fluidPage(
                  fluidRow( 
                    verticalLayout( 
                      
-                     plotOutput("pcaPlot", height = 600),
+                     plotOutput("varParPlot", height = 600),
                      
-                     plotOutput("corPlot", height = 600)
                    )
                  ) 
                )
@@ -412,7 +415,7 @@ ui <- fluidPage(
     
     
   ) #end tabSetPanel
-) #end fluidPage
+) #end UI
 
 
 
@@ -427,8 +430,8 @@ server <- function(input, output, session) {
     xvar <- switch(input$xvar, 
                    "log10 Richness" = 'log10S',
                    "PD" = 'PD',
-                   "Gamma" = 'gamma',
-                   "Beta" = 'beta', 
+                   "Gamma" = 'Gamma',
+                   "Beta" = 'Beta', 
                    "Colless" = 'Colless',
                    "Sackin" = 'Sackin',
                    "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
@@ -446,8 +449,8 @@ server <- function(input, output, session) {
     yvar <- switch(input$yvar, 
                    "log10 Richness" = 'log10S',
                    "PD" = 'PD',
-                   "Gamma" = 'gamma',
-                   "Beta" = 'beta', 
+                   "Gamma" = 'Gamma',
+                   "Beta" = 'Beta', 
                    "Colless" = 'Colless',
                    "Sackin" = 'Sackin',
                    "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
@@ -555,26 +558,7 @@ server <- function(input, output, session) {
   
   
   # Parameter values for coding depend on the model selected
-  if (input$model == 'hs') {
-    paramNames = letters[1:5]
-  } else {
-    paramNames = letters[6:10]
-  }
-  
   output$parColorBy <- renderUI({
-       SelectInput(inputId = "parColor",
-                label = "Model parameter to code by color",
-                choices = letters[1:5],
-                selected = letters[1])
-  })
-  
-  if(0) {
-    
-  observe({
-    if (input$parColorBy == "") {
-    #  return()
-    }
-    
     model <- switch(input$model, 
                     "TreeSim (oh)" = 'oh',
                     "DAISIE (etienne)" = 'etienne',
@@ -586,23 +570,67 @@ server <- function(input, output, session) {
                     "Rangel (ra)" = 'ra',
                     "GaSM (ga)" = 'ga')
     
-    #modelParams = read.csv(paste('parameters/', model, '_parameters.csv', sep = ''), header = TRUE)
-    #paramNames = names(modelParams)[3:ncol(modelParams)]
-
-    if (model == 'hs') {
-      paramNames = letters[1:5]
-    } else {
-      paramNames = letters[6:10]
-    }
-    
-    #updateSelectInput(session = session, inputId = "parColorBy",
-    #                  label = "Model parameter to code by color",
-    #                  choices = paramNames,
-    #                  selected = paramNames[1]
-    #)
+    selectInput(inputId = "parColor",
+                label = "Model parameter to code by color",
+                choices = allModelParameterNames[[model]],
+                selected = allModelParameterNames[[model]][1])
   })
-  }
 
+  
+  # Plot trees based on two selected shape metrics WITHIN AN INDIVIDUAL MODEL
+  output$varParPlot <- renderPlot({
+    
+    xvar3 <- switch(input$xvar3, 
+                   "log10 Richness" = 'log10S',
+                   "PD" = 'PD',
+                   "Gamma" = 'Gamma',
+                   "Beta" = 'Beta', 
+                   "Colless" = 'Colless',
+                   "Sackin" = 'Sackin',
+                   "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
+                   "Mean Root Distance" = 'MRD',
+                   "Variance in Root Distance" = 'VRD',
+                   "Phylogenetic Species Variability" = 'PSV',
+                   "mean I'" = 'mean.Iprime',
+                   "Mean Pairwise Distance" = 'MPD',
+                   "RPANDA spectral: principal eigenvalue" = 'MGL_principal_eigenvalue',
+                   "RPANDA spectral: asymmetry" = 'MGL_asymmetry',
+                   "RPANDA spectral: peakedness" = 'MGL_peakedness',
+                   "RPANDA spectral: eigengap" = 'MGL_eigengap',
+                   "nLTT_stat" = 'nLTT_stat')
+    
+    yvar3 <- switch(input$yvar3, 
+                   "log10 Richness" = 'log10S',
+                   "PD" = 'PD',
+                   "Gamma" = 'gamma',
+                   "Beta" = 'beta', 
+                   "Colless" = 'Colless',
+                   "Sackin" = 'Sackin',
+                   "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
+                   "Mean Root Distance" = 'MRD',
+                   "Variance in Root Distance" = 'VRD',
+                   "Phylogenetic Species Variability" = 'PSV',
+                   "mean I'" = 'mean.Iprime',
+                   "Mean Pairwise Distance" = 'MPD',
+                   "RPANDA spectral: principal eigenvalue" = 'MGL_principal_eigenvalue',
+                   "RPANDA spectral: asymmetry" = 'MGL_asymmetry',
+                   "RPANDA spectral: peakedness" = 'MGL_peakedness',
+                   "RPANDA spectral: eigengap" = 'MGL_eigengap',
+                   "nLTT_stat" = 'nLTT_stat')
+    
+    
+    par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
+    #withinModelVarPlot(treeOutput = treeOutput,
+    #                   modelAbbrev = input$model,
+    #                   modelParams = allModelParameterValues[[model]],
+    #                    xvar = xvar3, 
+    #                    yvar = yvar3, 
+    #                    colorBy = input$parColor, 
+    #                    pchBy = input$parPch, 
+    #                    alpha = input$alphaSlider3,
+    #                    cex = 2)  
+  })
+  
 }
 
 
