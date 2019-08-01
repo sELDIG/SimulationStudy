@@ -1,1 +1,0 @@
-((Rungwecebus_kipunji:1.354668363,Papio_ursinus:1.354668363)7616:0.6464288196,(Papio_papio:0.8864610414,Papio_cynocephalus:0.8864610414)7617:1.114636141)7615;

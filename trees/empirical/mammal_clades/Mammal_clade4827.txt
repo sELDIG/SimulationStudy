@@ -1,1 +1,0 @@
-((Cryptotis_colombiana:6.35,Cryptotis_meridensis:6.35)10192:0,(Cryptotis_goodwini:2.549309277,Cryptotis_peruviensis:2.549309277)10193:3.800690723)10191;

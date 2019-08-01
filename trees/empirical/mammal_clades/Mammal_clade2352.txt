@@ -1,1 +1,0 @@
-((((Colobus_polykomos:0.8166835013,Colobus_vellerosus:0.8166835013)7719:0.995992865,Colobus_guereza:1.812676366)7718:1.606286663,Colobus_angolensis:3.418963029)7717:1.989533311,Colobus_satanas:5.40849634)7716;

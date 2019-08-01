@@ -1,1 +1,0 @@
-(((Marmota_himalayana:1.493851491,Marmota_sibirica:1.493851491)6989:0.5385022964,Marmota_camtschatica:2.032353788)6987:0.8117783031,(Marmota_baibacina:1.960961212,Marmota_bobak:1.960961212)6988:0.8831708784)6986;

@@ -1,1 +1,0 @@
-(Cricetulus_griseus:0.5136650113,Cricetulus_barabensis:0.5136650113)6606;

@@ -1,1 +1,0 @@
-(((Crocidura_pullata:2.863747654,Crocidura_nicobarica:2.863747654)9917:1.09565236,Crocidura_allex:3.959400014)9915:0.1752503916,(Crocidura_tenuis:1.099081203,Crocidura_polia:1.099081203)9916:3.035569203)9914;

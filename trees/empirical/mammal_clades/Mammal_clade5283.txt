@@ -1,1 +1,0 @@
-((((Monodelphis_americana:2.829407464,Monodelphis_ronaldi:2.829407464)10649:4.108877532,Monodelphis_scalops:6.938284996)10652:7.247287568,(Monodelphis_iheringi:5.580200789,Monodelphis_reigi:5.580200789)10651:8.605371775)10648:3.824699445,(Monodelphis_brevicaudata:12.41215651,Monodelphis_glirina:12.41215651)10650:5.598115497)10647;

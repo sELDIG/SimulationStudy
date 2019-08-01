@@ -1,1 +1,0 @@
-(((((Cercopithecus_pogonias:1.604353456,Cercopithecus_wolfi:1.604353456)7642:2.490501947,Cercopithecus_mona:4.094855403)7641:0.8032480755,Cercopithecus_campbelli:4.898103478)7644:0.9428832719,Cercopithecus_neglectus:5.84098675)7640:0.4730944205,(Cercopithecus_diana:2.374086377,Cercopithecus_roloway:2.374086377)7643:3.939994794)7639;

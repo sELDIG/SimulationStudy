@@ -1,1 +1,0 @@
-((Epomophorus_minimus:0.5777377097,Epomophorus_grandis:0.5777377097)8902:0.8167338611,(Epomophorus_labiatus:0.6158558652,Epomophorus_anselli:0.6158558652)8903:0.7786157057)8901;

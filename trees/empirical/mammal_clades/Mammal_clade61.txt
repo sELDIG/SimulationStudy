@@ -1,1 +1,0 @@
-((Rattus_enganus:3.300942624,Rattus_annandalei:3.300942624)5426:1.625190444,(Rattus_tawitawiensis:1.386463686,Rattus_mollicomulus:1.386463686)5427:3.539669382)5425;

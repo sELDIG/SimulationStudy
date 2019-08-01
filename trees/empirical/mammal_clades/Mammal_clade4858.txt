@@ -1,1 +1,0 @@
-(((Hylomys_suillus:4.392822029,Hylomys_megalotis:4.392822029)10225:9.205128691,Hylomys_parvus:13.59795072)10223:12.34929324,(Neohylomys_hainanensis:13.13195062,Neotetracus_sinensis:13.13195062)10224:12.81529334)10222;

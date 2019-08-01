@@ -1,1 +1,0 @@
-(((Cercopithecus_lhoesti:0.7261622726,Cercopithecus_preussi:0.7261622726)7655:0.8187362204,Cercopithecus_solatus:1.544898493)7654:0.2847835572,Erythrocebus_patas:1.82968205)7653;

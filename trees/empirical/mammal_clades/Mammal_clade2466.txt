@@ -1,1 +1,0 @@
-(((Alouatta_arctoidea:0.3978763855,Alouatta_macconnelli:0.3978763855)7832:2.009703355,Alouatta_discolor:2.40757974)7831:0.6767266702,Alouatta_juara:3.084306411)7830;

@@ -1,1 +1,0 @@
-(((Crocidura_pasha:4.74086511,Crocidura_caliginea:4.74086511)9986:1.013649212,(Crocidura_baluensis:0.5055269683,Crocidura_attila:0.5055269683)9987:5.248987354)9985:1.116247187,Crocidura_floweri:6.870761509)9984;

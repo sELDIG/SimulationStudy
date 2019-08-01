@@ -1,1 +1,0 @@
-(((Dremomys_pyrrhomerus:7.630825694,Dremomys_rufigenis:7.630825694)7080:1.153026063,Dremomys_gularis:8.783851757)7079:0.7942109772,Dremomys_pernyi:9.578062734)7078;

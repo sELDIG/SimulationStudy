@@ -1,1 +1,0 @@
-(((Neotoma_floridana:3.108016373,Neotoma_magister:3.108016373)6698:0.498408451,Neotoma_goldmani:3.606424824)6696:0.8153943368,(Neotoma_devia:2.260657266,Neotoma_angustapalata:2.260657266)6697:2.161161894)6695;

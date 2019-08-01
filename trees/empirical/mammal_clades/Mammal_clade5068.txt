@@ -1,1 +1,0 @@
-((((Dorcopsis_atrata:1.787590414,Dorcopsis_muelleri:1.787590414)10434:0.9855328712,Dorcopsulus_macleayi:2.773123286)10436:1.087252031,Dorcopsulus_vanheurni:3.860375317)10433:1.169783978,(Dorcopsis_veterum:2.050416745,Dorcopsis_luctuosa:2.050416745)10435:2.97974255)10432;

@@ -1,1 +1,0 @@
-(((Crocidura_tansaniana:0.5670270556,Crocidura_kivuana:0.5670270556)9922:1.610641389,Crocidura_arispa:2.177668444)9920:3.031997694,(Crocidura_ultima:1.672905398,Crocidura_smithii:1.672905398)9921:3.536760741)9919;

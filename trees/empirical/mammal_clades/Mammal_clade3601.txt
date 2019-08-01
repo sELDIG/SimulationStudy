@@ -1,1 +1,0 @@
-(((Cynopterus_horsfieldii:3.582222557,Cynopterus_titthaecheilus:3.582222557)8968:2.321121943,Cynopterus_nusatenggara:5.9033445)8966:2.079635291,((Cynopterus_sphinx:4.092359233,Cynopterus_brachyotis:4.092359233)8969:3.232640767,Cynopterus_minutus:7.325)8967:0.6579797907)8965;

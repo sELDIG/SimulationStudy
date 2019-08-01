@@ -1,1 +1,0 @@
-(((((Sylvisorex_morio:1.750111877,Sylvisorex_isabellae:1.750111877)10038:2.389888123,Sylvisorex_vulcanorum:4.14)10037:0,(Sylvisorex_oriundus:1.941413695,Scutisorex_somereni:1.941413695)10040:2.198586305)10041:4.325789697,Sylvisorex_pluvialis:8.465789697)10036:4.720592623,(Sylvisorex_camerunensis:4.902535877,Sylvisorex_konganensis:4.902535877)10039:8.283846442)10035;

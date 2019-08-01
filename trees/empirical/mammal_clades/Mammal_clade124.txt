@@ -1,1 +1,0 @@
-(((Otomys_saundersiae:2.787235275,Otomys_denti:2.787235275)5491:2.43165093,Otomys_angoniensis:5.218886205)5489:2.220841152,(Otomys_tropicalis:5.248391484,Otomys_burtoni:5.248391484)5490:2.191335874)5488;

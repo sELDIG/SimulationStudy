@@ -1,1 +1,0 @@
-(((Crocidura_congobelgica:1.35,Crocidura_hikmiya:1.35)9969:0,Crocidura_poensis:1.35)9968:3.495516726,Crocidura_ansellorum:4.845516726)9967;

@@ -1,1 +1,0 @@
-(((Pseudomys_fieldi:10.84122177,Pseudomys_higginsi:10.84122177)5584:0.616122337,(Pseudomys_oralis:4.639489169,Pseudomys_australis:4.639489169)5582:6.81785494)5581:0.3654317291,(Pseudomys_nanus:11.44112221,Pseudomys_gracilicaudatus:11.44112221)5583:0.3816536292)5580;

@@ -1,1 +1,0 @@
-(((Platyrrhinus_recifinus:2.635894568,Platyrrhinus_lineatus:2.635894568)8607:5.013118397,(Platyrrhinus_vittatus:3.305679174,Platyrrhinus_infuscus:3.305679174)8605:4.343333791)8604:0.6409870355,(Platyrrhinus_albericoi:6.147368454,Platyrrhinus_umbratus:6.147368454)8606:2.142631546)8603;

@@ -1,1 +1,0 @@
-((((Casinycteris_argynnis:1.475435947,Scotonycteris_zenkeri:1.475435947)8990:6.074564053,Scotonycteris_ophiodon:7.55)8993:2.586265828,(Hypsignathus_monstrosus:4.094259019,Nanonycteris_veldkampii:4.094259019)8992:6.04200681)8989:4.955744348,((Eonycteris_major:4.561912061,Eonycteris_robusta:4.561912061)8991:2.716481068,Eonycteris_spelaea:7.278393129)8994:7.813617048)8988;

@@ -1,1 +1,0 @@
-(((Proteles_cristatus:2.150051727,Crocuta_crocuta:2.150051727)9727:6.699948273,Proteles_cristata:8.85)9725:0,(Hyaena_hyaena:6.228884066,Parahyaena_brunnea:6.228884066)9726:2.621115934)9724;

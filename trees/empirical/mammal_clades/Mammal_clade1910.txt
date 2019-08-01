@@ -1,1 +1,0 @@
-(((Isothrix_bistriata:2.190754029,Isothrix_sinnamariensis:2.190754029)7276:0.9272290716,Isothrix_negrensis:3.117983101)7275:1.333003273,Isothrix_pagurus:4.450986373)7274;

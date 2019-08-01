@@ -1,1 +1,0 @@
-((((Microgale_parvula:1.826031739,Microgale_principula:1.826031739)10282:3.163091991,Microgale_drouhardi:4.98912373)10280:2.891537104,(Microgale_monticola:4.580540549,Microgale_gymnorhyncha:4.580540549)10281:3.300120285)10279:3.72470903,Microgale_thomasi:11.60536986)10278;

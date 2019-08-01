@@ -1,1 +1,0 @@
-(((Naemorhedus_caudatus:2.378240831,Naemorhedus_griseus:2.378240831)9214:0.7247892771,Naemorhedus_baileyi:3.103030108)9212:1.025131487,(Ovibos_moschatus:1.869072036,Naemorhedus_goral:1.869072036)9213:2.259089559)9211;

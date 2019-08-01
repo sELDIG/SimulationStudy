@@ -1,1 +1,0 @@
-(((Ctenomys_tucumanus:1.192267315,Ctenomys_leucodon:1.192267315)7345:1.395660859,Ctenomys_maulinus:2.587928174)7343:1.742585188,(Ctenomys_torquatus:2.205228459,Ctenomys_haigi:2.205228459)7344:2.125284904)7342;

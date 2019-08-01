@@ -1,1 +1,0 @@
-(((Lariscus_niobe:3.977588961,Lariscus_hosei:3.977588961)7096:6.43781823,(Lariscus_obscurus:2.617413992,Lariscus_insignis:2.617413992)7094:7.797993199)7093:7.626138313,(Menetes_berdmorei:14.24910639,Rhinosciurus_laticaudatus:14.24910639)7095:3.792439118)7092;

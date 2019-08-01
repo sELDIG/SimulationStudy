@@ -1,1 +1,0 @@
-((((Crocidura_arabica:0.9586617228,Crocidura_eisentrauti:0.9586617228)10008:0.3641011284,Crocidura_bottegoides:1.322762851)10007:2.210551737,Crocidura_baileyi:3.533314588)10006:0.8239914361,Crocidura_desperata:4.357306024)10005;

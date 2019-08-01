@@ -1,1 +1,0 @@
-(((Myotis_rufopictus:2.872009949,Myotis_morrisi:2.872009949)8142:3.380391668,Myotis_cobanensis:6.252401616)8141:1.882603302,Myotis_bucharensis:8.135004918)8140;

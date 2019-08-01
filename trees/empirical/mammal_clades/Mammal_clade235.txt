@@ -1,1 +1,0 @@
-((((Mesembriomys_macrurus:3.247530242,Mesembriomys_gouldii:3.247530242)5603:1.874337936,Leporillus_apicalis:5.121868178)5601:1.518345989,(Conilurus_penicillatus:2.104586733,Leporillus_conditor:2.104586733)5602:4.535627433)5600:1.432394342,Pseudomys_fumeus:8.072608509)5599;

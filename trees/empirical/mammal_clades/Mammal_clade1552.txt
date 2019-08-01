@@ -1,1 +1,0 @@
-(((Thomomys_talpoides:5.100713298,Thomomys_monticola:5.100713298)6919:0.8101471476,Thomomys_mazama:5.910860445)6917:3.114311142,(Thomomys_idahoensis:3.225673079,Thomomys_clusius:3.225673079)6918:5.799498508)6916;

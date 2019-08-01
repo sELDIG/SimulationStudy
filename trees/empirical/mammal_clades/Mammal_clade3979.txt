@@ -1,1 +1,0 @@
-(((Alces_americanus:4.803337426,Alces_alces:4.803337426)9346:4.317679862,Hydropotes_inermis:9.121017287)9344:0.8555287006,(Capreolus_pygargus:1.685958512,Capreolus_capreolus:1.685958512)9345:8.290587476)9343;

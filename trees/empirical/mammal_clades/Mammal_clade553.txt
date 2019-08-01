@@ -1,1 +1,0 @@
-((((Meriones_shawi:2.44,Meriones_libycus:2.44)5919:0,Meriones_tristrami:2.44)5921:3.494153324,Meriones_crassus:5.934153324)5918:5.376969813,((Meriones_meridianus:3.708387684,Meriones_chengi:3.708387684)5923:2.380019391,(Meriones_unguiculatus:3.614067668,Meriones_sp._Garat_An_Njila:3.614067668)5920:2.474339407)5922:5.222716062)5917;

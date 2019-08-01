@@ -1,1 +1,0 @@
-(((Kerivoula_hardwickii:7.882857095,Kerivoula_kachinensis:7.882857095)8285:1.611846498,(Kerivoula_minuta:8.098310354,Kerivoula_picta:8.098310354)8283:1.396393239)8282:0.9823439729,(Kerivoula_intermedia:7.843004457,Kerivoula_whiteheadi:7.843004457)8284:2.634043109)8281;

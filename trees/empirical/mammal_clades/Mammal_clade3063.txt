@@ -1,1 +1,0 @@
-((((Tadarida_gallagheri:2.742208557,Tadarida_russata:2.742208557)8430:0.4663901246,(Tadarida_leucostigma:1.515759393,Tadarida_sarasinorum:1.515759393)8431:1.692839289)8429:2.841401318,Tadarida_trevori:6.05)8428:0,Tadarida_ventralis:6.05)8427;

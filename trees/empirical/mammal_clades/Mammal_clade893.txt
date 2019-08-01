@@ -1,1 +1,0 @@
-((((Deltamys_kempi:1.456522963,Akodon_mystax:1.456522963)6260:2.001096405,(Akodon_sanctipaulensis:1.41918942,Akodon_reigi:1.41918942)6261:2.038429948)6259:1.272380632,Akodon_aliquantulus:4.73)6258:0,Akodon_bogotensis:4.73)6257;

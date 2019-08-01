@@ -1,1 +1,0 @@
-((Trichosurus_vulpecula:3.994682894,Trichosurus_johnstonii:3.994682894)10490:0.518364386,Trichosurus_arnhemensis:4.51304728)10489;

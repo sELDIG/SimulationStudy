@@ -1,1 +1,0 @@
-(((Oryzomys_dimidiatus:1.628488057,Oryzomys_gorgasi:1.628488057)6120:1.311409659,Oryzomys_palustris:2.939897716)6118:1.412164532,(Oryzomys_couesi:0.6676156928,Oryzomys_mexicanus:0.6676156928)6119:3.684446555)6117;

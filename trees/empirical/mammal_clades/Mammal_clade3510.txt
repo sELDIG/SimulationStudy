@@ -1,1 +1,0 @@
-(((Pteropus_giganteus:2.833247762,Pteropus_lylei:2.833247762)8877:2.454383401,Pteropus_vampyrus:5.287631163)8875:0.5174327608,((Pteropus_rennelli:2.16,Pteropus_scapulatus:2.16)8878:0,Pteropus_yapensis:2.16)8876:3.645063924)8874;

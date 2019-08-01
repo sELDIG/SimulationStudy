@@ -1,1 +1,0 @@
-((Miniopterus_oceanensis:2.68975546,Miniopterus_robustior:2.68975546)8540:3.008862291,(Miniopterus_paululus:4.925963446,Miniopterus_griveaudi:4.925963446)8541:0.7726543053)8539;

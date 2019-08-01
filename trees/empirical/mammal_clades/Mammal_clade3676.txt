@@ -1,1 +1,0 @@
-(((Hipposideros_doriae:3.586646215,Hipposideros_vittatus:3.586646215)9043:3.497092261,Hipposideros_thomensis:7.083738476)9041:6.441338796,(Hipposideros_papua:2.72904666,Hipposideros_beatus:2.72904666)9042:10.79603061)9040;

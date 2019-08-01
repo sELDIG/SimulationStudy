@@ -1,1 +1,0 @@
-(((Neusticomys_peruviensis:1.670230005,Neusticomys_venezuelae:1.670230005)6433:1.607016991,Neusticomys_mussoi:3.277246996)6432:0.8264314614,Neusticomys_ferreirai:4.103678458)6431;

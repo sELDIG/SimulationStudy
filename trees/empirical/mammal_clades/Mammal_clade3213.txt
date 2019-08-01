@@ -1,1 +1,0 @@
-((Artibeus_fraterculus:2.549110765,Artibeus_hirsutus:2.549110765)8578:1.115929389,(Artibeus_fimbriatus:1.007953599,Artibeus_inopinatus:1.007953599)8579:2.657086555)8577;

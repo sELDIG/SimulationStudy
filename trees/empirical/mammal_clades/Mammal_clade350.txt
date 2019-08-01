@@ -1,1 +1,0 @@
-((((Apodemus_alpicola:1.18306282,Apodemus_ponticus:1.18306282)5717:1.091873302,Apodemus_flavicollis:2.274936122)5716:0.4738253095,Apodemus_uralensis:2.748761431)5715:0.4980030383,Apodemus_sylvaticus:3.24676447)5714;

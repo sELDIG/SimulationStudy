@@ -1,1 +1,0 @@
-(((Crocidura_suaveolens:3.291835884,Crocidura_shantungensis:3.291835884)9894:2.845089043,Crocidura_zarudnyi:6.136924927)9892:1.805704734,(Crocidura_sibirica:7.139163005,Crocidura_aleksandrisi:7.139163005)9893:0.8034666556)9891;

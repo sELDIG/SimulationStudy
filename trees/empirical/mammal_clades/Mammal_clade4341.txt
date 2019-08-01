@@ -1,1 +1,0 @@
-((((Crossarchus_obscurus:2.184095549,Crossarchus_platycephalus:2.184095549)9710:2.076633923,(Crossarchus_ansorgei:1.93361409,Crossarchus_alexandri:1.93361409)9708:2.327115382)9707:8.461312133,((Liberiictis_kuhni:5.137785076,Mungos_gambianus:5.137785076)9711:6.445056402,Mungos_mungo:11.58284148)9709:1.139200126)9706:1.707371273,Suricata_suricatta:14.42941288)9705;

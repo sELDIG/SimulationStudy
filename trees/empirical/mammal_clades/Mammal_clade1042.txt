@@ -1,1 +1,0 @@
-(((Euneomys_mordax:2.061107634,Euneomys_chinchilloides:2.061107634)6410:7.508892366,(Euneomys_fossor:2.645513554,Euneomys_petersoni:2.645513554)6408:6.924486446)6407:0,((Lenoxus_apicalis:3.713428501,Irenomys_tarsalis:3.713428501)6411:1.255642453,(Bolomys_urichi:2.255254181,Rhagomys_rufescens:2.255254181)6412:2.713816773)6409:4.600929047)6406;

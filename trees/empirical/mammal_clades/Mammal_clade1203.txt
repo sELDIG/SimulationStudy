@@ -1,1 +1,0 @@
-(((Ellobius_alaicus:2.389880172,Ellobius_fuscocapillus:2.389880172)6570:1.563613798,Ellobius_lutescens:3.95349397)6568:5.993920312,((Ellobius_tancrei:3.929969904,Ellobius_talpinus:3.929969904)6571:3.481751342,Prometheomys_schaposchnikowi:7.411721245)6569:2.535693036)6567;

@@ -1,1 +1,0 @@
-(((Eubalaena_glacialis:1.621275308,Eubalaena_japonica:1.621275308)9477:0.6742306125,Eubalaena_australis:2.295505921)9476:7.256915034,Balaena_mysticetus:9.552420955)9475;

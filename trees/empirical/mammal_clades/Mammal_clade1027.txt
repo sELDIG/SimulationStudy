@@ -1,1 +1,0 @@
-(((Thomasomys_pyrrhonotus:1.0687988,Thomasomys_oreas:1.0687988)6393:0.6146708727,Thomasomys_laniger:1.683469673)6392:1.783562301,Thomasomys_rhoadsi:3.467031975)6391;

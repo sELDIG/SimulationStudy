@@ -1,1 +1,0 @@
-(((Mormopterus_phrudus:2.413259365,Mormopterus_norfolkensis:2.413259365)8517:6.218506586,Mormopterus_loriae:8.631765951)8516:0.862405762,Mormopterus_minutus:9.494171713)8515;

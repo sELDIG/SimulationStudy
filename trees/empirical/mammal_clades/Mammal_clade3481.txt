@@ -1,1 +1,0 @@
-((((Pteropus_ocularis:2.440351226,Pteropus_conspicillatus:2.440351226)8849:0.7269543915,Pteropus_admiralitatum:3.167305618)8847:7.032694382,(Pteropus_griseus:2.105293329,Pteropus_caniceps:2.105293329)8848:8.094706671)8846:0,Pteropus_nitendiensis:10.2)8845;

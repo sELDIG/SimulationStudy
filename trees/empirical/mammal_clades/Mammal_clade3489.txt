@@ -1,1 +1,0 @@
-((Pteropus_anetianus:0.4650956862,Pteropus_samoensis:0.4650956862)8854:5.984904314,Pteropus_faunulus:6.45)8853;

@@ -1,1 +1,0 @@
-(((((Phalanger_alexandrae:1.601823601,Phalanger_lullulae:1.601823601)10472:4.018176399,Phalanger_ornatus:5.62)10471:0,Phalanger_matanim:5.62)10474:1.445356478,Phalanger_matabiru:7.065356478)10470:3.207308482,(Phalanger_rothschildi:3.663724758,Phalanger_intercastellanus:3.663724758)10473:6.608940202)10469;

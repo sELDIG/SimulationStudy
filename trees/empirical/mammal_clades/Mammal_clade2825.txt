@@ -1,1 +1,0 @@
-((((Chalinolobus_morio:9.299046198,Chalinolobus_gouldii:9.299046198)8191:0.646939904,Chalinolobus_nigrogriseus:9.945986102)8193:0.6145088715,Chalinolobus_tuberculatus:10.56049497)8190:7.397862026,((Chalinolobus_neocaledonicus:6.457797052,Chalinolobus_picatus:6.457797052)8192:2.61578389,Chalinolobus_dwyeri:9.073580942)8194:8.884776058)8189;

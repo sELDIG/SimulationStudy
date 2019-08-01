@@ -1,1 +1,0 @@
-((((Eliurus_majori:0.33254703,Eliurus_myoxinus:0.33254703)6053:3.66745297,Eliurus_grandidieri:4)6055:0,Eliurus_tanala:4)6052:2.8,(Eliurus_antsingy:1.570755069,Eliurus_petteri:1.570755069)6054:5.229244931)6051;

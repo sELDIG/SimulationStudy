@@ -1,1 +1,0 @@
-((((Echymipera_kalubu:0.3687814114,Echymipera_rufescens:0.3687814114)10609:1.760063723,Echymipera_clara:2.128845135)10611:0.7447504644,Echymipera_echinista:2.873595599)10608:3.606264583,(Echymipera_davidi:2.52915354,Rhynchomeles_prattorum:2.52915354)10610:3.950706642)10607;

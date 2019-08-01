@@ -1,1 +1,0 @@
-(((((Hylomyscus_denniae:0.505726641,Hylomyscus_alleni:0.505726641)5771:1.295047751,(Hylomyscus_baeri:1.210276749,Hylomyscus_grandis:1.210276749)5772:0.5904976432)5770:2.649225608,Hylomyscus_carillus:4.45)5774:0,Hylomyscus_aeta:4.45)5769:1.041768139,(Hylomyscus_stella:4.049600454,Hylomyscus_parvus:4.049600454)5773:1.442167685)5768;

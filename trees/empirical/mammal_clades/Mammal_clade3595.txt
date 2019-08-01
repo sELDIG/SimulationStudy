@@ -1,1 +1,0 @@
-((((Megaerops_ecaudatus:5.198909474,Megaerops_kusnotoi:5.198909474)8964:2.674872275,(Megaerops_niphanae:6.996188605,Megaerops_wetmorei:6.996188605)8962:0.8775931441)8961:1.287271352,(Ptenochirus_minor:4.040359893,Ptenochirus_jagori:4.040359893)8963:5.120693208)8960:0.2140370072,Cynopterus_luzoniensis:9.375090108)8959;

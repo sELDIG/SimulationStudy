@@ -1,1 +1,0 @@
-(((Oligoryzomys_flavescens:2.390292406,Oligoryzomys_fornesi:2.390292406)6202:0.5143691067,Oligoryzomys_chacoensis:2.904661512)6200:0.6228947086,((Oligoryzomys_moojeni:0.810720307,Oligoryzomys_messorius:0.810720307)6203:0.9596982336,Oligoryzomys_fulvescens:1.770418541)6201:1.75713768)6199;

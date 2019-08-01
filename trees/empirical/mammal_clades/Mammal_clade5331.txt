@@ -1,1 +1,0 @@
-((((Marmosops_ocellatus:1.308738015,Marmosops_paulensis:1.308738015)10698:0.2562075808,(Marmosops_creightoni:1.210084829,Marmosops_incanus:1.210084829)10699:0.354860767)10697:2.342953616,Marmosops_bishopi:3.907899212)10696:7.662840687,Marmosops_fuscatus:11.5707399)10695;

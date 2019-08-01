@@ -1,1 +1,0 @@
-((((Lonchophylla_mordax:9.137840981,Lonchophylla_robusta:9.137840981)8682:1.049659019,(Lonchophylla_hesperia:3.293237856,Lonchophylla_concava:3.293237856)8680:6.894262144)8679:0.3875,(Lonchophylla_orcesi:2.215076612,Lonchophylla_chocoana:2.215076612)8681:8.359923388)8678:0.7935938649,Lonchophylla_dekeyseri:11.36859386)8677;

@@ -1,1 +1,0 @@
-(((Crocidura_niobe:2.956867105,Crocidura_ludia:2.956867105)9995:2.469489015,Crocidura_zaphiri:5.42635612)9993:2.03226834,((Crocidura_raineyi:2.08785688,Crocidura_serezkyensis:2.08785688)9996:2.478619378,Crocidura_yankariensis:4.566476257)9994:2.892148202)9992;

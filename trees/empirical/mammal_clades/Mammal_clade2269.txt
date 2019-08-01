@@ -1,1 +1,0 @@
-(((Cercopithecus_cephus:4.359935505,Cercopithecus_ascanius:4.359935505)7637:0.8892983778,(Cercopithecus_mitis:3.672676252,Cercopithecus_albogularis:3.672676252)7635:1.576557631)7634:0.971154872,((Cercopithecus_petaurista:4.446805339,Cercopithecus_erythrogaster:4.446805339)7638:1.119648952,Cercopithecus_erythrotis:5.566454291)7636:0.6539344641)7633;

@@ -1,1 +1,0 @@
-(((Myotis_levis:4.074526766,Myotis_nigricans:4.074526766)8107:0.8089445031,Myotis_oxyotus:4.88347127)8106:0.709578077,Myotis_albescens:5.593049346)8105;

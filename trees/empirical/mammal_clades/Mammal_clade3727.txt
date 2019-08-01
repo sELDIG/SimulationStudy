@@ -1,1 +1,0 @@
-((((Rhinolophus_macrotis:0.7756727687,Rhinolophus_siamensis:0.7756727687)9093:1.197134511,Rhinolophus_megaphyllus:1.97280728)9096:2.073351427,(Rhinolophus_alcyone:1.566133711,Rhinolophus_marshalli:1.566133711)9095:2.480024996)9092:5.952291302,(Rhinolophus_subrufus:4.008194002,Rhinolophus_malayanus:4.008194002)9094:5.990256008)9091;

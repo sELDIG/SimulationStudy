@@ -1,1 +1,0 @@
-(((Microtus_arvalis:0.7777011148,Microtus_transcaspicus:0.7777011148)6496:0.7535615664,Microtus_kirgisorum:1.531262681)6495:0.8302687663,Microtus_levis:2.361531448)6494;

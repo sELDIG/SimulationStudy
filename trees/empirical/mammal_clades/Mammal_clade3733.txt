@@ -1,1 +1,0 @@
-(((Rhinolophus_beddomei:0.6389741767,Rhinolophus_luctus:0.6389741767)9100:0.4527556408,Rhinolophus_formosae:1.091729818)9098:18.14807923,(Rhinolophus_cornutus:14.27338545,Rhinolophus_osgoodi:14.27338545)9099:4.9664236)9097;

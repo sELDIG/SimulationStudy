@@ -1,1 +1,0 @@
-(Spermophilus_relictus:0.8805766941,Spermophilus_pygmaeus:0.8805766941)6967;

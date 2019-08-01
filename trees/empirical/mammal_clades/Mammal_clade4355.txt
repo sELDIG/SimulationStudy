@@ -1,1 +1,0 @@
-(((Mungotictis_decemlineata:9.190878635,Salanoia_concolor:9.190878635)9721:0.9312126023,(Galidictis_fasciata:4.351530939,Galidictis_grandidieri:4.351530939)9722:5.770560298)9720:2.092752102,Galidia_elegans:12.21484334)9719;

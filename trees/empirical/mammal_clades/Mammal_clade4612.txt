@@ -1,1 +1,0 @@
-(((Crocidura_nigeriae:2.648671691,Crocidura_armenica:2.648671691)9978:2.795806723,Crocidura_religiosa:5.444478414)9977:0.8735563507,Crocidura_stenocephala:6.318034764)9976;

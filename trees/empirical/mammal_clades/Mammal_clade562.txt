@@ -1,1 +1,0 @@
-((((Taterillus_petteri:3.86,Taterillus_tranieri:3.86)5929:0,Taterillus_emini:3.86)5928:5.532028382,Taterillus_congicus:9.392028382)5927:2.293757188,Taterillus_lacustris:11.68578557)5926;

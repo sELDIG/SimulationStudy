@@ -1,1 +1,0 @@
-((((Mimon_bennettii:4.887419834,Mimon_cozumelae:4.887419834)8695:1.533159441,Mimon_crenulatum:6.420579275)8697:5.732896725,Mimon_koepckeae:12.153476)8694:0.5109532613,((Phyllostomus_hastatus:5.332056201,Phyllostomus_elongatus:5.332056201)8696:3.376209497,Phylloderma_stenops:8.708265697)8698:3.956163564)8693;

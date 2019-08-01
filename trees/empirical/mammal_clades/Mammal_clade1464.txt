@@ -1,1 +1,0 @@
-((((Dipodomys_agilis:1.607449203,Dipodomys_simulans:1.607449203)6832:1.437041249,Dipodomys_venustus:3.044490452)6830:1.557417389,((Dipodomys_heermanni:1.295619615,Dipodomys_stephensi:1.295619615)6833:0.5474910441,Dipodomys_panamintinus:1.843110659)6831:2.758797183)6829:0.7046083244,Dipodomys_microps:5.306516166)6828;

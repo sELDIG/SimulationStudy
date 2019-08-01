@@ -1,1 +1,0 @@
-((Ctenomys_tucumanus:1.192267315,Ctenomys_leucodon:1.192267315)7344:1.395660859,Ctenomys_maulinus:2.587928174)7343;

@@ -1,1 +1,0 @@
-(((Melomys_frigicola:1.835518405,Melomys_aerosus:1.835518405)5542:1.224481595,Melomys_caurinus:3.06)5540:0,(Melomys_matambuai:2.978234375,Melomys_cooperae:2.978234375)5541:0.08176562527)5539;

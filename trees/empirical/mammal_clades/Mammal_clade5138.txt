@@ -1,1 +1,0 @@
-(((Pseudochirulus_schlegeli:3.96719019,Pseudochirulus_cinereus:3.96719019)10506:7.73280981,(Pseudochirulus_forbesi:11.03643135,Pseudochirulus_canescens:11.03643135)10504:0.6635686524)10503:0,((Pseudochirulus_herbertensis:8.205994916,Pseudochirulus_caroli:8.205994916)10507:2.509877142,Pseudochirulus_mayeri:10.71587206)10505:0.9841279413)10502;
