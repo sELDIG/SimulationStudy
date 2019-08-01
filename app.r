@@ -573,6 +573,14 @@ server <- function(input, output, session) {
     
     if (input$empiricalDataSwitch2 == "Yes") {
       loadings = pcaOutput$pcaLoadings
+      empDataMatrix = empiricalData[, input$pcaVars] %>%
+        data.matrix() %>%
+        na.omit()
+      
+      
+      empScores = empDataMatrix %*% loadings
+      
+      points(empScores[, xvar2], empScores[, yvar2], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))  
       
     }
     

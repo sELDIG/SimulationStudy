@@ -18,11 +18,11 @@ source('code/pcaFunctions.r')
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
 
 # 2 - decide which vars to include in PCA
-varsForPCA = c("PD", "gamma", "beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
+varsForPCA = c("PD", "Gamma", "Beta", "Colless", "Sackin", "Yule.PDA.ratio", "MRD",
                "VRD", "PSV", "mean.Iprime", "MPD", "MGL_principal_eigenvalue",
                "MGL_asymmetry", "MGL_peakedness", "MGL_eigengap", "nLTT_stat")
 
-varsIndependent = c("gamma", "beta", "MRD", "VRD", "MPD", "MGL_peakedness")
+varsIndependent = c("Gamma", "Beta", "MRD", "MPD", "MGL_peakedness")
 
 
 # 3 - run PCA (default on all models together)
