@@ -277,7 +277,7 @@ ui <- fluidPage(
                                                    "GaSM (ga)" = 'ga'),
                                     selected = c('yu', 'pda', 'oh', 'etienne', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga')),
                  
-                 sliderInput("alphaSlider2", h3("Transparency"),
+                 sliderInput("alphaSlider2", "Transparency",
                              min = 0, max = 255, value = 200)
                  
                  
@@ -326,10 +326,6 @@ ui <- fluidPage(
                  
                  helpText("Explore how various tree shape metrics vary with model parameters"),
                  
-                 uiOutput("xparameter"),
-                 
-                 uiOutput("yparameter"),
-                 
                  selectInput(inputId = "xvar3",
                              label = "X-axis",
                              choices = c("Beta",
@@ -370,15 +366,11 @@ ui <- fluidPage(
                                          "RPANDA spectral: eigengap",
                                          "nLTT_stat")),
                  
-                 radioButtons(inputId = "modelColorBy",
-                              label = "Trees color coded by:",
-                              choices = c("")),
+                 selectInput(inputId = "parColorBy", 
+                             label = "Model parameter to code by color", 
+                             choices = letters[11:15]),
                  
-                 radioButtons(inputId = "modelPchBy",
-                              label = "Tree symbols coded by:",
-                              choices = c("")),
-                 
-                sliderInput("alphaSlider3", h3("Transparency"),
+                 sliderInput("alphaSlider3", "Transparency",
                              min = 0, max = 255, value = 200)
                  
                  
@@ -542,23 +534,45 @@ server <- function(input, output, session) {
     
     varCor = cor(corData, use = "pairwise.complete.obs")
     corrplot(varCor)
-    #varCor2 = corReorder(varCor, bottom = 10, right = 10, diagonal_new = FALSE, cex = 1.5)
     
   })
   
   
-  # Parameter values for plotting depend on the model selected
+  # Parameter values for coding depend on the model selected
   
-  output$xparameter = renderUI({
-    modelParams = read.csv(paste('parameters/', input$model, '_parameters.csv', sep = ''), header = TRUE)
+  observe({
+    #if (input$parColorBy == "") {
+    #  return()
+    #}
     
+    model <- switch(input$model, 
+                    "TreeSim (oh)" = 'oh',
+                    "DAISIE (etienne)" = 'etienne',
+                    "Hurlbert-Stegen (hs)" = 'hs',
+                    "Pontarp (pontarp)" = 'pontarp',
+                    "Hartig (fh)" = 'fh',
+                    "Coelho et al. (mt)" = 'mt',
+                    "Leprieur et al. (split)" = 'split',
+                    "Rangel (ra)" = 'ra',
+                    "GaSM (ga)" = 'ga')
     
+    #modelParams = read.csv(paste('parameters/', model, '_parameters.csv', sep = ''), header = TRUE)
+    #paramNames = names(modelParams)[3:ncol(modelParams)]
+
+    if (model == 'hs') {
+      paramNames = letters[1:5]
+    } else {
+      paramNames = letters[6:10]
+    }
+    
+    updateSelectInput(session = session, inputId = "parColorBy",
+                      label = "Model parameter to code by color",
+                      choices = paramNames,
+                      selected = paramNames[1]
+    )
   })
   
-  output$yparameter = renderUI({
-    
-  })
-  
+
 }
 
 
