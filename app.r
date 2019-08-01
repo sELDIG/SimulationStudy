@@ -11,7 +11,7 @@ source("code/pcaFunctions.r")
 
 # Read in tree metrics output
 treeOutput = read.table("treeOutput.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
-
+empiricalData = read.table("amphibianAndMammalCladeMetrics.txt", header = T, sep = '\t', stringsAsFactors = FALSE)
 
 # Read in model parameter names and values for all models
 paramfiles = list.files("parameters")
@@ -180,7 +180,12 @@ ui <- fluidPage(
                                                     "GaSM (ga)" = 'ga')),
                  
                  sliderInput("alphaSlider", "Transparency",
-                             min = 0, max = 255, value = 200)
+                             min = 0, max = 255, value = 200),
+                 
+                 radioButtons(inputId = "empiricalData1",
+                              label = "Overlay empirical data?",
+                              choices = c("No", 
+                                          "Yes"))
                  
                  
                ),
@@ -298,8 +303,12 @@ ui <- fluidPage(
                                     selected = c('yu', 'pda', 'oh', 'etienne', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga')),
                  
                  sliderInput("alphaSlider2", "Transparency",
-                             min = 0, max = 255, value = 200)
+                             min = 0, max = 255, value = 200),
                  
+                 radioButtons(inputId = "empiricalData2",
+                              label = "Overlay empirical data?",
+                              choices = c("No", 
+                                          "Yes"))
                  
                ),
                
@@ -391,7 +400,13 @@ ui <- fluidPage(
                  uiOutput("parPchBy"),
                  
                  sliderInput("alphaSlider3", "Transparency",
-                             min = 0, max = 255, value = 200)
+                             min = 0, max = 255, value = 200),
+                 
+                 radioButtons(inputId = "empiricalData3",
+                              label = "Overlay empirical data?",
+                              choices = c("No", 
+                                          "Yes"))
+                 
                  
                  
                ),
