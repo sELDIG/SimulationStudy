@@ -703,7 +703,7 @@ server <- function(input, output, session) {
     
     if (input$empiricalDataSwitch1 == "Yes") {
       empData = filter(empiricalData, S >= input$minRichness1)
-      points(empData[, xvar], empData[, yvar], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))
+      points(empData[, xvar3], empData[, yvar3], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))
     }
   })
   
