@@ -433,7 +433,62 @@ ui <- fluidPage(
                )
                
              ) #end sidebarLayout
-    ) #end tab 3
+    ), #end tab 3
+    
+    # TAB 4
+    tabPanel("Metric boxplots",
+             
+             # Sidebar layout with input and output definitions ----
+             sidebarLayout(
+               
+               # Sidebar panel for inputs ----
+               sidebarPanel(
+                 
+                 helpText("Choose the metric to compare. Remember that some of these metrics are richness-dependent."),
+                 
+                 radioButtons(inputId = "metric",
+                             label = "Metric",
+                             choices = c("Beta",
+                                         "Gamma",
+                                         "log10 Richness",
+                                         "PD",
+                                         "Colless",
+                                         "Sackin",
+                                         "Ratio of Yule / PDA likelihoods",
+                                         "Mean Root Distance",
+                                         "Variance in Root Distance",
+                                         "Phylogenetic Species Variability",
+                                         "mean I'",
+                                         "Mean Pairwise Distance",
+                                         "RPANDA spectral: principal eigenvalue",
+                                         "RPANDA spectral: asymmetry",
+                                         "RPANDA spectral: peakedness",
+                                         "RPANDA spectral: eigengap",
+                                         "nLTT_stat")),
+                 
+                 radioButtons(inputId = "log",
+                              label = "Log10 transform?",
+                              choices = c("No",
+                                          "Yes"))
+                                          
+                 
+                 
+               ),
+               
+               # Main panel for displaying outputs ----
+               mainPanel(
+                 
+                 fluidRow( 
+                   verticalLayout( 
+                     
+                     plotOutput("boxPlot", height = 500)
+                     
+                   )
+                 ) 
+               )
+               
+             ) #end sidebarLayout
+    ) #end tab 4
     
     
   ) #end tabSetPanel
@@ -506,7 +561,9 @@ server <- function(input, output, session) {
                     "Point Mutation Speciation" = 'PointMutation')
     
     
-    plottingOutput = filter(treeOutput, model %in% input$modelsToInclude)
+    plottingOutput = filter(treeOutput, model %in% input$modelsToInclude) %>%
+      select(model, simID, !!xvar, !!yvar) %>%
+      na.omit()
     
     par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
     betweenModelVarPlot(treeOutput = plottingOutput, 
@@ -701,9 +758,46 @@ server <- function(input, output, session) {
                         alpha = input$alphaSlider3,
                         cex = 2) 
     
-    if (input$empiricalDataSwitch1 == "Yes") {
+    if (input$empiricalDataSwitch3 == "Yes") {
       empData = filter(empiricalData, S >= input$minRichness1)
       points(empData[, xvar3], empData[, yvar3], pch = 15, col = rgb(.3, .3, .3, .3, maxColorValue = 1))
+    }
+  })
+  
+  output$boxPlot <- renderPlot({
+    metric <- switch(input$metric, 
+                   "log10 Richness" = 'log10S',
+                   "PD" = 'PD',
+                   "Gamma" = 'Gamma',
+                   "Beta" = 'Beta', 
+                   "Colless" = 'Colless',
+                   "Sackin" = 'Sackin',
+                   "Ratio of Yule / PDA likelihoods" = 'Yule.PDA.ratio',
+                   "Mean Root Distance" = 'MRD',
+                   "Variance in Root Distance" = 'VRD',
+                   "Phylogenetic Species Variability" = 'PSV',
+                   "mean I'" = 'mean.Iprime',
+                   "Mean Pairwise Distance" = 'MPD',
+                   "RPANDA spectral: principal eigenvalue" = 'MGL_principal_eigenvalue',
+                   "RPANDA spectral: asymmetry" = 'MGL_asymmetry',
+                   "RPANDA spectral: peakedness" = 'MGL_peakedness',
+                   "RPANDA spectral: eigengap" = 'MGL_eigengap',
+                   "nLTT_stat" = 'nLTT_stat')
+    
+    
+    empirData = empiricalData
+    empirData$model = 'empirical'
+    allData = rbind(treeOutput, empirData)
+    colors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
+               'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1')
+    nModels = length(unique(treeOutput$model))
+    
+    if (input$log == "Yes") {
+      boxplot(log10(allData[, metric]) ~ allData$model, ylab = paste("log10", metric), 
+              col = c('gray70', colors[1:nModels]), las = 2)
+    } else {
+      boxplot(allData[, metric] ~ allData$model, ylab = metric, 
+              col = c('gray70', colors[1:nModels]), las = 2)
     }
   })
   

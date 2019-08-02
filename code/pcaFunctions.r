@@ -86,13 +86,14 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
     left_join(colorCode, by = unname(colorBy)) %>%
     left_join(pchCode, by = unname(pchBy))
 
+  maxAbsX = max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))
+  maxAbsY = max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))
+  
   plot(plotOutput[,paste("Comp.", xscore, sep = "")], plotOutput[, paste("Comp.", yscore, sep = "")], 
        col = plotOutput$color,  
        pch = plotOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
-       ylim = c(-max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))),
-       xlim = c(-max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))), ...)
+       ylim = c(-maxAbsY, maxAbsY),
+       xlim = c(-maxAbsX, maxAbsX), ...)
   legend("topleft", 
          legend = c(toupper(colorBy), colorCode[,1]), bty = "n",
          col = c('white', colorCode[,2]), pch = 16, pt.cex = 2)
@@ -100,16 +101,11 @@ betweenModelPCAPlot = function(pcaOutput,          # dataframe with model, simID
   legend("topright", 
          legend = c(toupper(pchBy), pchCode[,1]), bty = "n",
          col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
-  
-  par(new = TRUE)
-  plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
-       xlim = c(-1, 1), ylim = c(-1, 1))
-  
   # Only print the top variable loadings since it otherwise becomes messy
   mainLoadings = pcaLoadings[order(pcaLoadings[, xscore], decreasing = TRUE) <= 4 | 
                                order(pcaLoadings[,yscore], decreasing = TRUE) <= 4, 
                              c(xscore, yscore)]
-  text(mainLoadings[, 1], mainLoadings[, 2], row.names(mainLoadings))  
+  text(mainLoadings[, 1]*maxAbsX, mainLoadings[, 2]*maxAbsY, row.names(mainLoadings))  
 }
 
 
@@ -161,13 +157,14 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
   
   plotOutput = left_join(modelOutput, pchCode, by = unname(pchBy))
   
+  maxAbsX = max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))
+  maxAbsY = max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))
+  
   plot(plotOutput[,paste("Comp.", xscore, sep = "")], plotOutput[, paste("Comp.", yscore, sep = "")], 
        col = plotOutput$color, 
        pch = plotOutput$pch, xlab = paste("PC", xscore), ylab = paste("PC", yscore), 
-       ylim = c(-max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", yscore, sep = "")])))),
-       xlim = c(-max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")]))), 
-                max(abs(range(plotOutput[,paste("Comp.", xscore, sep = "")])))), ...)
+       ylim = c(-maxAbsY, maxAbsY),
+       xlim = c(-maxAbsX, maxAbsX), ...)
   
   # color legend
   if (is.numeric(modelScores[, colorBy]) & length(unique(modelScores[, colorBy])) > 4) {
@@ -190,15 +187,11 @@ withinModelPCAPlot = function(pcaOutput,          # dataframe with model, simID,
          legend = c(toupper(pchBy), as.character(pchCode[,1])), bty = "n",
          col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
   
-  par(new = TRUE)
-  plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
-       xlim = c(-1, 1), ylim = c(-1, 1))
-  
   # Only print the top variable loadings since it otherwise becomes messy
   mainLoadings = pcaLoadings[order(pcaLoadings[, xscore], decreasing = TRUE) <= 4 | 
                                order(pcaLoadings[,yscore], decreasing = TRUE) <= 4, 
                              c(xscore, yscore)]
-  text(mainLoadings[, 1], mainLoadings[, 2], row.names(mainLoadings))  
+  text(mainLoadings[, 1]*maxAbsX, mainLoadings[, 2]*maxAbsY, row.names(mainLoadings))  
 }
 
 
@@ -251,11 +244,6 @@ betweenModelVarPlot = function(treeOutput,          # dataframe with model, simI
   legend("topright", 
          legend = c(toupper(pchBy), pchCode[,1]), bty = "n",
          col = c('white', rep('black', nrow(pchCode))), pch = c(16, pchCode[,2]), pt.cex = 2)
-  
-  par(new = TRUE)
-  plot(0, 0, type = "n", xaxt = "n", yaxt = "n", xlab = "", ylab = "",
-       xlim = c(-1, 1), ylim = c(-1, 1))
-  
 }
 
 
