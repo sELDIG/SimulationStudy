@@ -2,7 +2,7 @@
 
 We planned several simulation experiments to see whether phylogenetic tree shape varies in response to certain parameters (e.g. environmental filtering, niche conservatism, dispersal) in the same way across simulation models. The full set of potential experiments is described here, and includes testing the effect of environmental filtering, niche conservatism, dispersal, speciation/mutation rate and time. The idea is that each model would be run at whatever were deemed "low", "medium" and "high" settings for each of those parameters, with other parameters fixed at "average" values.  
 
-#EXPERIMENTAL FILES#  
+###EXPERIMENTAL FILES###  
 Upload simulated tree files to the "experiments" folder of the github repo.  
 Please use the following filenaming convention:  
 
