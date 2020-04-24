@@ -58,7 +58,7 @@ Note: The replicate number need not be 1:10, repeating for each level, but could
 ### 2. Upload parameter file ###  
 
 Upload a parameter file in *.csv format titled "mm_experiment_parameters.csv" where **mm** is your model's abbreviation for this project.  
-This file will be similar to the parameter file you may have already uploaded to the 'parameters' folder.  
+This file will be similar to the parameter file you may have already uploaded to the [parameters folder](https://github.com/sELDIG/SimulationStudy/tree/master/parameters).  
 
 The first column should be called 'filename', in which the name of the simulation experiment tree is provided (e.g. 'hs_nic_L_1'; no need for the ".tre" suffix). The rest of the columns will be for the parameters specific to YOUR model, and their values.  
 
