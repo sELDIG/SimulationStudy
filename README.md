@@ -17,20 +17,22 @@ The complete set of processes governing the diversification of clades over time 
 3) What are the primary axes of variation of existing diversification simulation models, and how do those axes map onto distinct phylogenetic and spatial patterns?
 
 ## Steps
-Upload simulation output to the relevant folders within this repo:
+Upload simulation output to the relevant folders within this repo. Presumably you will upload output from a range of parameter space over which you ran your model. See separate instructions on the [Experiments Page](https://github.com/sELDIG/SimulationStudy/blob/master/experiments/experiments.md) for some of the variation in parameter space we are especially interested in. If simulation output is highly stochastic, you might consider providing output from replicate simulations with identical parameter settings, but in most cases 10-20 replicates should be plenty.  
+
+To make your simulation output visualizable in our [shiny app](https://hurlbertlab.shinyapps.io/simulationstudy/), follow the instructions below. This may include areas of parameter space not highlighted in the Experiments. Simulation output that will ALSO be part of the Experiments needs to be uploaded separately according to [those instructions](https://github.com/sELDIG/SimulationStudy/blob/master/experiments/experiments.md). (Sorry for the redundancy in effort; this is a locally adaptive maximum for me at the moment!)  
+
 
 1) Place phylogenies in the 'trees' folder in Newick format, labeled mm_xxxxx.tre where mm is a two-letter code identifying the model that generated it and 
 xxxxx = simulation ID (as many digits as necessary) that links to the set of parameters of that simulation.
 
-2) Place trait information in the 'traits' folder (if applicable). Files should be labeled mm_xxxxx_traits.csv and include a species column (species id's 
+2) (IGNORE FOR NOW) Place trait information in the 'traits' folder (if applicable). Files should be labeled mm_xxxxx_traits.csv and include a species column (species id's 
 should match the tip labels in the tree file), and one column for each trait (environmental traits first, resource/competition traits next).
 
-3) Place site x species info for each simulation in the 'sitexspecies' folder (if applicable). Files should be labeled mm_xxxxx_sites.csv, and include a 
+3) (IGNORE FOR NOW) Place site x species info for each simulation in the 'sitexspecies' folder (if applicable). Files should be labeled mm_xxxxx_sites.csv, and include a 
 site (or grid cell ID) column and a species column (i.e. long format), followed by an abundance column if applicable.
 
-## Exploring trees in PCA space
-To explore trees in PCA space, either across all models or for just a single model, first clone this repository to your local machine.
+4) Upload a parameters file, labeled mm_parameters.csv where mm is the two-letter code identifying the model that generated it. In this file, the first column will be called simID and will hold the unique simulation ID you are using to distinguish the different model runs. The other columns will be for the parameter settings of your model, so that a single row will describe the parameters used to generate a given set of output. (This will allow us to eventually explore within a given model the effect of these settings on metrics of tree shape within the [shiny app](https://hurlbertlab.shinyapps.io/simulationstudy/)).
 
-Open the repo and click on the simulationstudy.Rproj file which will open the project in RStudio. The file `treeAnalysis.r` provides a guideline for how you can explore the data yourself.
+5) Classify your simulation model according to the modeling approach and processes included on this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=2047946073). Importantly, there is a separate row for every unique simulation ID in case some of these values differ based on parameter settings, but in some cases all rows for a given model could potentially be identical. This information is for comparing between models on the [shiny app](https://hurlbertlab.shinyapps.io/simulationstudy/).
 
-You can view the knitted Rmarkdown file by opening `simulation_comparison.Rmd` and click the `Knit` button.
+6) Contact me (Allen: hurlbert AT bio.unc.edu) to let me know if you have uploaded trees, parameter file, and model classification. I will update the shiny app so that new models will then be visualizable.
