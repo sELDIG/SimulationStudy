@@ -288,6 +288,7 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
   } else {
     pchCode = data.frame(val = unique(modelOutput[, pchBy]),
                          pch = pchSelection(length(unique(modelOutput[, pchBy]))))
+    if (class(pchCode$val) == 'factor') { pchCode$val = as.character(pchCode$val) }
     names(pchCode)[1] = pchBy
   }
   
