@@ -263,7 +263,6 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
   if (is.null(modelParams)) {
     modelParams = read.csv(paste('parameters/', modelAbbrev, '_parameters.csv', sep = ''), header = TRUE, stringsAsFactors = FALSE)
   }
-  
   modelOutput = filter(treeOutput, model == modelAbbrev) %>%
     left_join(modelParams, by = c("model", "simID"))
   
