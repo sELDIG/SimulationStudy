@@ -1,4 +1,4 @@
-﻿model,simID,Founder,Dispersal,TimeSpeciation,Competition,NicheEvolution
+model,simID,Founder,Dispersal,TimeSpeciation,Competition,NicheEvolution
 ra,1,AtlRainForst,200,35,3,0.015
 ra,2,AtlRainForst,200,35,4,0.015
 ra,3,AtlRainForst,200,35,5,0.015

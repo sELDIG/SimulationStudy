@@ -5,7 +5,7 @@
 
 colorSelection = function(n, alpha = 255) {
   rawcolors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
-             'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1')
+             'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1', 'black')
   colorvector = col2rgb(rawcolors)
   colors = apply(colorvector, 2, function(x) rgb(x[1], x[2], x[3], alpha = alpha, maxColorValue = 255))
   
@@ -263,7 +263,6 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
   if (is.null(modelParams)) {
     modelParams = read.csv(paste('parameters/', modelAbbrev, '_parameters.csv', sep = ''), header = TRUE, stringsAsFactors = FALSE)
   }
-  
   modelOutput = filter(treeOutput, model == modelAbbrev) %>%
     left_join(modelParams, by = c("model", "simID"))
   
@@ -278,6 +277,7 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
     colorCode = data.frame(val = unique(modelOutput[, colorBy]), 
                            color = colorSelection(length(unique(modelOutput[, colorBy])), alpha))
     colorCode$color = as.character(colorCode$color)
+    if (class(colorCode$val) == 'factor') { colorCode$val = as.character(colorCode$val) }
     names(colorCode)[1] = colorBy
     
     modelOutput = left_join(modelOutput, colorCode, by = unname(colorBy))
@@ -288,6 +288,7 @@ withinModelVarPlot = function(treeOutput,          # dataframe with model, simID
   } else {
     pchCode = data.frame(val = unique(modelOutput[, pchBy]),
                          pch = pchSelection(length(unique(modelOutput[, pchBy]))))
+    if (class(pchCode$val) == 'factor') { pchCode$val = as.character(pchCode$val) }
     names(pchCode)[1] = pchBy
   }
   
