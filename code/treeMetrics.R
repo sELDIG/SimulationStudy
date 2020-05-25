@@ -306,7 +306,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
   
   if(!append) {
     
-    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
                             Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                             VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                             MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
@@ -329,7 +329,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
       metrics = tryCatch({
         treeMetrics(tree)
       }, error = function(e) {
-         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
                                Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                                VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                                MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
