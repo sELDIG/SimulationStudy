@@ -65,6 +65,7 @@ plotExperimentResults = function(
   
   modelColors = data.frame(model2 = unique(metrics$model2), color = colorSelection(length(unique(metrics$model2)), alpha = alpha))
   modelColors$model2 = as.character(modelColors$model2)
+  modelColors$color = as.character(modelColors$color)
   
   experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'tim'), 
                            phrase = c('environmental filtering', 'niche conservatism', 'disperal', 'mutation/speciation rate', 'time'))
@@ -101,7 +102,10 @@ plotExperimentResults = function(
   par(mfrow = c(4, 4), mar = c(3, 4, 1, 1), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0))
   
   for (p in 1:14) {
-    plot(grouped$level, c(as.matrix(grouped[, 2*p+2])), type = 'n', xlab = '', ylab = strsplit(names(grouped)[2*p+2], "_")[[1]][2])
+    plot(grouped$level, c(as.matrix(grouped[, 2*p+2])), type = 'n', xaxt = 'n', 
+         xlab = '', ylab = strsplit(names(grouped)[2*p+2], "_")[[1]][2])
+    mtext(c('Low', 'Med', 'High'), 1, at = 1:3, line = 1)
+    
     for (m in unique(grouped$model2)) {
       points(grouped$level[grouped$model2 == m], c(as.matrix(grouped[grouped$model2 == m, 2*p+2])), 
              type = 'b', col = grouped$color[grouped$model2 == m], pch = 16, cex = 2)
@@ -117,7 +121,8 @@ plotExperimentResults = function(
   
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
   
-  mtext(paste("Experimental results varying", experiments$phrase[experiments$experiment == experiment]), cex = 2, outer = T)
+  mtext(paste("Experimental results varying", experiments$phrase[experiments$experiment == experiment]), 
+        cex = 2, outer = T)
   
   dev.off()
   
