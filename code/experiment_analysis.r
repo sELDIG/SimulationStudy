@@ -4,15 +4,16 @@ library(dplyr)
 
 source('code/pcaFunctions.r')
 
-metrics = read.table('output_20200522.txt', header = T, sep = '\t', stringsAsFactors = FALSE)
+metrics = read.table('experiment_output.txt', header = T, sep = '\t', stringsAsFactors = FALSE)
 
 models = unique(metrics$model)
 
-joinedOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
+joinedOutput = data.frame(model = NA, model2 = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
                           Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                           VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                           MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
-                          MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
+                          MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA,
+                          env = NA, nic = NA, dis = NA, mut = NA, tim = NA)
 
 for (m in models) {
   param = read.csv(paste('parameters/', m, '_parameters.csv', sep = ''), header = T, stringsAsFactors = FALSE)
@@ -34,7 +35,8 @@ for (m in models) {
   
   # Join treatment columns to metrics output for a given model
   metricsSubset = filter(metrics, model == m) %>%
-    left_join(treatmentsOrdered, by = c('model', 'simID'))
+    left_join(treatmentsOrdered, by = c('model', 'simID')) %>%
+    dplyr::select(model, model2, simID, S:tim)
   
   joinedOutput = rbind(joinedOutput, metricsSubset)
   
@@ -95,11 +97,11 @@ plotExperimentResults = function(
               treatmentStandardized == 'H' ~ 3)) %>%
     arrange(level) %>%
     left_join(modelColors, by = 'model2') %>%
-    select(model2, treatment, level, mean_log10S:sd_nLTT_stat, color)
+    dplyr::select(model2, treatment, level, mean_log10S:sd_nLTT_stat, color)
   
 
   pdf(paste('figures/', experiment, '_results_', Sys.Date(), '.pdf', sep = ''), height = 8, width = 10)
-  par(mfrow = c(4, 4), mar = c(3, 4, 1, 1), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0))
+  par(mfrow = c(4, 4), mar = c(3, 4, 1, 1), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), cex.lab = 1.5)
   
   for (p in 1:14) {
     plot(grouped$level, c(as.matrix(grouped[, 2*p+2])), type = 'n', xaxt = 'n', 
