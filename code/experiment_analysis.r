@@ -41,7 +41,33 @@ for (m in models) {
   joinedOutput = rbind(joinedOutput, metricsSubset)
   
 }
-joinedOutput = joinedOutput[-1, ]
+joinedOutput = joinedOutput[-1, ] %>%
+  mutate(envStandardized = toupper(substr(env, 1, 1)),
+         nicStandardized = toupper(substr(nic, 1, 1)),
+         disStandardized = toupper(substr(dis, 1, 1)),
+         mutStandardized = toupper(substr(mut, 1, 1)),
+         timStandardized = toupper(substr(tim, 1, 1)),
+         envLevel = case_when(
+           envStandardized == 'L' ~ 1,
+           envStandardized == 'M' ~ 2,
+           envStandardized == 'H' ~ 3),
+         nicLevel = case_when(
+           nicStandardized == 'L' ~ 1,
+           nicStandardized == 'M' ~ 2,
+           nicStandardized == 'H' ~ 3),
+         disLevel = case_when(
+           disStandardized == 'L' ~ 1,
+           disStandardized == 'M' ~ 2,
+           disStandardized == 'H' ~ 3),
+         mutLevel = case_when(
+           mutStandardized == 'L' ~ 1,
+           mutStandardized == 'M' ~ 2,
+           mutStandardized == 'H' ~ 3),
+         timLevel = case_when(
+           timStandardized == 'L' ~ 1,
+           timStandardized == 'M' ~ 2,
+           timStandardized == 'H' ~ 3))
+         
 
 
 
@@ -130,3 +156,92 @@ plotExperimentResults = function(
   
 
 }
+
+
+
+# Statistical analysis - 1. correlations
+
+corrCalc = function(experiment, experimentData, mod) {
+  
+  if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim')) {
+    stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', or 'tim'.")
+  }
+  
+  modelData = filter(experimentData, model2 == mod)
+  
+  # Only calculate a correlation coefficient if there are 3 distinct levels for a given experiment
+  if (sum(1:3 %in% unique(modelData[, paste(experiment, "Level", sep = "")])) == 3) {
+    corDF = data.frame(model = mod, 
+                        experiment = experiment,
+                        r.log10S = cor(modelData$log10S, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.PD = cor(modelData$PD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.Gamma = cor(modelData$Gamma, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.Beta = cor(modelData$Beta, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.Colless = cor(modelData$Colless, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.Sackin = cor(modelData$Sackin, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.Yule.PDA.ratio = cor(modelData$Yule.PDA.ratio, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.MRD = cor(modelData$MRD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.VRD = cor(modelData$VRD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.PSV = cor(modelData$PSV, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.mean.Iprime = cor(modelData$mean.Iprime, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.MPD = cor(modelData$MPD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.VPD = cor(modelData$VPD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
+                        r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'))
+      
+  } else {
+    corDF = data.frame(model = mod, 
+                        experiment = experiment,
+                        r.log10S = NA,
+                        r.PD = NA,
+                        r.Gamma = NA,
+                        r.Beta = NA,
+                        r.Colless = NA,
+                        r.Sackin = NA,
+                        r.Yule.PDA.ratio = NA,
+                        r.MRD = NA,
+                        r.VRD = NA,
+                        r.PSV = NA,
+                        r.mean.Iprime = NA,
+                        r.MPD = NA,
+                        r.VPD = NA,
+                        r.nLTT_stat = NA)
+    
+  }
+    
+  return(corDF)  
+}
+
+
+
+corrOutput = data.frame(model = NA, 
+                    experiment = NA,
+                    r.log10S = NA,
+                    r.PD = NA,
+                    r.Gamma = NA,
+                    r.Beta = NA,
+                    r.Colless = NA,
+                    r.Sackin = NA,
+                    r.Yule.PDA.ratio = NA,
+                    r.MRD = NA,
+                    r.VRD = NA,
+                    r.PSV = NA,
+                    r.mean.Iprime = NA,
+                    r.MPD = NA,
+                    r.VPD = NA,
+                    r.nLTT_stat = NA)
+
+for (m in unique(joinedOutput$model2)) {
+  
+  for (e in c('env', 'nic', 'dis', 'mut', 'tim')) {
+    corrs = corrCalc(experiment = e, joinedOutput, mod = m)
+  
+    corrOutput = rbind(corrOutput, corrs)
+  }
+}
+
+
+
+# Statistical analysis 2. Mixed effects model
+
+envMod = lmer(metric ~ envLevel + (1 + envLevel|model2), data = joinedOutput, REML = FALSE)
+coef()
