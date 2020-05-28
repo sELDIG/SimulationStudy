@@ -1,4 +1,4 @@
-Model,simID,Carrying_cap,abiotic_niche_width,dispersal,abiotic_dif_habitats,resource_dif_habitats,respource_niche_width,replicate,env,nic,com,dis,mut,tim
+model,simID,Carrying_cap,abiotic_niche_width,dispersal,abiotic_dif_habitats,resource_dif_habitats,respource_niche_width,replicate,env,nic,com,dis,mut,tim
 pontarp,1222221,500,1,0.01,1,1,0.4,1,medium,medium,medium,medium,medium,medium
 pontarp,1222222,500,1,0.01,1,1,0.4,2,medium,medium,medium,medium,medium,medium
 pontarp,1222223,500,1,0.01,1,1,0.4,3,medium,medium,medium,medium,medium,medium
