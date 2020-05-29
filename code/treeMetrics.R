@@ -137,6 +137,7 @@ treeMetrics = function(treeInput) {
   require(nLTT)
   require(stringr)
   require(Rfast)
+  require(castor)
   
   # Drop root edge
   treeInput$root.edge = 0
@@ -173,21 +174,40 @@ treeMetrics = function(treeInput) {
   #Pybus & Harvey (2000)'s gamma statistic
   gamma.stat = gammaStat(tree.scaled)
 
-  # Some metrics are difficult to calculate on very large trees.
+  # beta
   # Calculate Blum & Francois (2006)'s Beta metric of tree imbalance using apTreeshape package
+  tryCatch({
+    beta.out = maxlik.betasplit.AH(tree.scaled)
+    beta.stat = beta.out$max_lik
+    
+  }, error = function(e) {
+    beta.stat = NA
+  })
+  
+  # Mean Pairwise Distance (in scaled tree)
+  tryCatch({
+    pairwise.dists = dist.nodes(tree.scaled)
+    sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
+    MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
+  }, error = function(e) {
+    MPD = NA
+  })
+  
+  # Variance Pairwise Distance (in scaled tree)
+  tryCatch({
+    tri.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = FALSE)
+    VPD = var(as.vector(tri.pairwise.dists))
+  }, error = function(e) {
+    VPD = NA
+  })
+  
+  
+  # Some metrics are difficult to calculate on very large trees.
   # Also calculate RPANDA spectral density metrics (Lewitus & Morlon 2016)
   
-  # both analyses seem to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
+  # RPANDA analyses seem to bonk on very large phylogenies, so only try calculating for fewer than 6000 species
   if(S < 6000) {
-    # beta
-    tryCatch({
-      beta.out = maxlik.betasplit.AH(tree.scaled)
-      beta.stat = beta.out$max_lik
-      
-    }, error = function(e) {
-      beta.stat = NA
-    })
-    
+
     # RPANDA
     tryCatch({
       MGL = spectR(tree)
@@ -201,33 +221,12 @@ treeMetrics = function(treeInput) {
       MGL_peakedness = NA
       MGL_eigengap = NA
     })
-    
-    # Mean Pairwise Distance (in scaled tree)
-    tryCatch({
-      pairwise.dists = dist.nodes(tree.scaled)
-      sum.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = TRUE)
-      MPD = sum.pairwise.dists/(ncol(pairwise.dists)*(ncol(pairwise.dists)-1)/2)
-    }, error = function(e) {
-      MPD = NA
-    })
-    
-    # Variance Pairwise Distance (in scaled tree)
-    VPD = tryCatch({
-      tri.pairwise.dists = upper_tri(pairwise.dists, diag = FALSE, suma = FALSE)
-      var(as.vector(tri.pairwise.dists))
-    }, error = function(e) {
-      VPD = NA
-    })
-    
 
   } else {
-    beta.stat = NA
     MGL_principal_eigenvalue = NA
     MGL_asymmetry = NA  
     MGL_peakedness = NA
     MGL_eigengap = NA
-    MPD = NA
-    VPD = NA
   }
   
   # Colless index
@@ -240,10 +239,10 @@ treeMetrics = function(treeInput) {
   Yule.PDA.ratio = shape.statistic(tree.shape)
   
   # Mean Root Distance (MRD, also abbreviated N-bar, Shao & Sokal 1990) (Agapow & Purvis 2002)
-  # Modified from code originally by ELIOT MILLER 25 AUGUST 2011
-  phylo.bl1 <- compute.brlen(tree, 1)
-  all.dist <- dist.nodes(phylo.bl1)
-  root.dist <- all.dist[length(tree$tip.label)+1, 1:length(tree$tip.label)]
+  # using castor package
+  # --get_all_distances_to_root returns tip and node distances; only want tip distances which are returned first
+  
+  root.dist <- get_all_distances_to_root(tree, as_edge_count = TRUE)[1:(tree$Nnode+1)]
   MRD = mean(root.dist)
   
   # Variance in root distances across the tips, Shao & Sokal 1990 (Agapow & Purvis 2002)
@@ -307,7 +306,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
   
   if(!append) {
     
-    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+    treeOutput = data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
                             Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                             VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                             MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
@@ -330,7 +329,7 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
       metrics = tryCatch({
         treeMetrics(tree)
       }, error = function(e) {
-         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Bamma = NA, 
+         metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
                                Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
                                VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
                                MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
