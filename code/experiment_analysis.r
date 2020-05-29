@@ -1,6 +1,7 @@
 # Join parameter files indicating high, medium, and low treatment levels to tree output.
 
 library(dplyr)
+library(nlme)
 
 source('code/pcaFunctions.r')
 
@@ -189,28 +190,31 @@ corrCalc = function(experiment, experimentData, mod) {
                         r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'))
       
   } else {
-    corDF = data.frame(model = mod, 
-                        experiment = experiment,
-                        r.log10S = NA,
-                        r.PD = NA,
-                        r.Gamma = NA,
-                        r.Beta = NA,
-                        r.Colless = NA,
-                        r.Sackin = NA,
-                        r.Yule.PDA.ratio = NA,
-                        r.MRD = NA,
-                        r.VRD = NA,
-                        r.PSV = NA,
-                        r.mean.Iprime = NA,
-                        r.MPD = NA,
-                        r.VPD = NA,
-                        r.nLTT_stat = NA)
-    
+    corDF = NA
   }
     
   return(corDF)  
 }
 
+
+# Function for extracting salient features of model output from an lmer model
+extractLMEoutput = function(lmeObject, expName, metricName) {
+  
+  lme.summ = summary(lmeObject)
+  
+  out.df = data.frame(experiment = rep(expName, lme.summ$ngrps + 1), 
+                      metric = rep(metricName, lme.summ$ngrps + 1),
+                      model = c('global', row.names(coef(lmeObject)[[1]])),
+                      slope = c(coef(lme.summ)[2, 1], coef(lmeObject)[[1]][, 2]),
+                      intercept = c(coef(lme.summ)[1, 1], coef(lmeObject)[[1]][, 1]),
+                      ngroups = rep(lme.summ$ngrps, lme.summ$ngrps + 1),
+                      totalObs = rep(lme.summ$devcomp$dims[1], lme.summ$ngrps + 1),
+                      global.slope.sd = c(coef(lme.summ)[2, 2], rep(NA, lme.summ$ngrps)),
+                      global.int.sd = c(coef(lme.summ)[1, 2], rep(NA, lme.summ$ngrps)))
+  
+  return(out.df)
+  
+}
 
 
 corrOutput = data.frame(model = NA, 
@@ -235,13 +239,44 @@ for (m in unique(joinedOutput$model2)) {
   for (e in c('env', 'nic', 'dis', 'mut', 'tim')) {
     corrs = corrCalc(experiment = e, joinedOutput, mod = m)
   
-    corrOutput = rbind(corrOutput, corrs)
+    if (!is.na(corrs)) {
+      corrOutput = rbind(corrOutput, corrs)  
+    }
   }
 }
+corrOutput = corrOutput[-1, ]
+
 
 
 
 # Statistical analysis 2. Mixed effects model
+metrics = names(joinedOutput)[c(5, 7:18, 23)]
 
-envMod = lmer(metric ~ envLevel + (1 + envLevel|model2), data = joinedOutput, REML = FALSE)
-coef()
+MEoutput = data.frame(experiment = NA, 
+                      metric = NA,
+                      model = NA,
+                      slope = NA,
+                      intercept = NA,
+                      ngroups = NA,
+                      totalObs = NA,
+                      global.slope.sd = NA,
+                      global.int.sd = NA)
+
+for (experiment in c('env', 'nic', 'dis', 'mut', 'tim')) {
+  
+  # Check whether there are multiple models available to run lmer for a given experiment
+  if(length(unique(joinedOutput$model2[!is.na(joinedOutput[[paste(experiment, "Level", sep = "")]])])) >= 2) {
+    
+    for (met in metrics) {
+      
+      lme.mod = lmer(joinedOutput[[met]] ~ joinedOutput[[paste(experiment, "Level", sep = "")]] + 
+                       (1 + joinedOutput[[paste(experiment, "Level", sep = "")]] | model2), 
+                     data = joinedOutput, REML = FALSE)
+      
+      lmeOut = extractLMEoutput(lme.mod, experiment, met)
+      
+      MEoutput = rbind(MEoutput, lmeOut)
+    }
+    
+  }
+}
