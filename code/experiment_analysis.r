@@ -6,6 +6,11 @@ library(nlme)
 source('code/pcaFunctions.r')
 source('code/experiment_analysis_functions.r')
 
+
+experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'tim'), 
+                         phrase = c('environmental filtering', 'niche conservatism', 'disperal', 'mutation/speciation rate', 'time'))
+
+
 # Read in output and join to parameter files
 metrics = read.table('experiment_output.txt', header = T, sep = '\t', stringsAsFactors = FALSE)
 
@@ -112,7 +117,54 @@ for (m in unique(joinedOutput$model2)) {
     }
   }
 }
-corrOutput = corrOutput[-1, ]
+corrOutput = corrOutput[-1, ] %>%
+  arrange(experiment, model)
+
+
+# Plotting histograms of correlations
+pdf('figures/corr_histograms.pdf', height = 8, width = 10)
+par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+
+for (experiment in c('env', 'nic', 'dis', 'mut', 'tim')) {
+  for (met in names(corrOutput[3:ncol(corrOutput)])) {
+      hist(corrOutput[corrOutput$experiment == experiment, met], xlab = met, yaxt = 'n',
+           main = "", xlim = c(-1, 1), breaks = seq(-1, 1, by = .2), col = 'gray50')
+      axis(2, at = 0:3, las = 1)
+      abline(v = 0, col = 'red', lwd = 3)
+  }
+  mtext(paste(experiments$phrase[experiments$experiment == experiment], "experiment"), 3, outer = T, cex = 3)
+  par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+}
+dev.off()
+
+
+# Plotting correlation coefficients by model
+pdf('figures/corr_plots.pdf', height = 8, width = 10)
+par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+
+for (experiment in c('env', 'nic', 'dis', 'mut', 'tim')) {
+  
+  tmp = filter(corrOutput, experiment == exp)
+  models = unique(tmp$model)
+  
+  for (met in names(corrOutput[3:ncol(corrOutput)])) {
+    tmp1 = tmp %>% arrange(get(met))
+    plot(tmp1[, met], 1:nrow(tmp1), pch = 16, col = colorSelection(nrow(tmp)), 
+         cex = 2, xlim = c(-1, 1), xlab = met, yaxt = 'n', ylab = '')
+    abline(v = 0, col = 'black', lwd = 2)
+  }
+  # legend panel
+  plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
+  points(rep(0.8, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)),
+         pch = 16, col = colorSelection(nrow(tmp)), cex = 2)
+  text(rep(1, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)), modelColors$model2)
+  
+  
+  mtext(paste(experiments$phrase[experiments$experiment == experiment], "experiment"), 3, outer = T, cex = 3)
+  
+  par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+}
+dev.off()
 
 
 
