@@ -148,7 +148,7 @@ dev.off()
 
 # Plotting correlation coefficients by model
 pdf('figures/corr_plots.pdf', height = 8, width = 10)
-par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+par(mar = c(4, 4, 0, 0), oma = c(0, 0, 4, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
 
 for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
   
@@ -166,9 +166,9 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
   text(rep(1, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)), tmp$model2)
   
   
-  mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2)
+  mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2, line = 1)
   
-  par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+  par(mar = c(4, 4, 0, 0), oma = c(0, 0, 4, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
 }
 dev.off()
 
