@@ -97,22 +97,22 @@ corrCalc = function(experiment, experimentData, mod) {
   
   # Only calculate a correlation coefficient if there are 3 distinct levels for a given experiment
   if (sum(1:3 %in% unique(modelData[, paste(experiment, "Level", sep = "")])) == 3) {
-    corDF = data.frame(model = mod, 
+    corDF = data.frame(model2 = mod, 
                        experiment = experiment,
-                       r.log10S = cor(modelData$log10S, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.PD = cor(modelData$PD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.Gamma = cor(modelData$Gamma, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.Beta = cor(modelData$Beta, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.Colless = cor(modelData$Colless, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.Sackin = cor(modelData$Sackin, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.Yule.PDA.ratio = cor(modelData$Yule.PDA.ratio, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.MRD = cor(modelData$MRD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.VRD = cor(modelData$VRD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.PSV = cor(modelData$PSV, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.mean.Iprime = cor(modelData$mean.Iprime, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.MPD = cor(modelData$MPD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.VPD = cor(modelData$VPD, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'),
-                       r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'complete.obs', method = 'spearman'))
+                       r.log10S = cor(modelData$log10S, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.PD = cor(modelData$PD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Gamma = cor(modelData$Gamma, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Beta = cor(modelData$Beta, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Colless = cor(modelData$Colless, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Sackin = cor(modelData$Sackin, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Yule.PDA.ratio = cor(modelData$Yule.PDA.ratio, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.MRD = cor(modelData$MRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.VRD = cor(modelData$VRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.PSV = cor(modelData$PSV, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.mean.Iprime = cor(modelData$mean.Iprime, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.MPD = cor(modelData$MPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.VPD = cor(modelData$VPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'))
     
   } else {
     corDF = NA
