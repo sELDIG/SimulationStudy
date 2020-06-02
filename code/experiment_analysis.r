@@ -49,7 +49,13 @@ for (m in models) {
   joinedOutput = rbind(joinedOutput, metricsSubset)
   
 }
-joinedOutput = joinedOutput[-1, ] %>%
+
+modelColors = data.frame(model2 = unique(joinedOutput$model2), color = colorSelection(length(unique(joinedOutput$model2))))
+modelColors$model2 = as.character(modelColors$model2)
+modelColors$color = as.character(modelColors$color)
+
+
+expOutput = joinedOutput[-1, ] %>%
   mutate(envStandardized = toupper(substr(env, 1, 1)),
          nicStandardized = toupper(substr(nic, 1, 1)),
          disStandardized = toupper(substr(dis, 1, 1)),
@@ -74,23 +80,24 @@ joinedOutput = joinedOutput[-1, ] %>%
          timLevel = case_when(
            timStandardized == 'L' ~ 1,
            timStandardized == 'M' ~ 2,
-           timStandardized == 'H' ~ 3))
-         
+           timStandardized == 'H' ~ 3)) %>%
+  left_join(modelColors, by = 'model2')
+
 
 
 
 ## Plotting results
 
-plotExperimentResults('env', joinedOutput)
-plotExperimentResults('nic', joinedOutput)
-plotExperimentResults('dis', joinedOutput)
-plotExperimentResults('mut', joinedOutput)
-plotExperimentResults('tim', joinedOutput)
+plotExperimentResults('env', expOutput)
+plotExperimentResults('nic', expOutput)
+plotExperimentResults('dis', expOutput)
+plotExperimentResults('mut', expOutput)
+plotExperimentResults('tim', expOutput)
 
 
 
 # Correlation output
-corrOutput = data.frame(model = NA, 
+corrOutput = data.frame(model2 = NA, 
                     experiment = NA,
                     r.log10S = NA,
                     r.PD = NA,
@@ -107,10 +114,10 @@ corrOutput = data.frame(model = NA,
                     r.VPD = NA,
                     r.nLTT_stat = NA)
 
-for (m in unique(joinedOutput$model2)) {
+for (m in unique(expOutput$model2)) {
   
   for (e in c('env', 'nic', 'dis', 'mut', 'tim')) {
-    corrs = corrCalc(experiment = e, joinedOutput, mod = m)
+    corrs = corrCalc(experiment = e, expOutput, mod = m)
   
     if (!is.na(corrs)) {
       corrOutput = rbind(corrOutput, corrs)  
@@ -118,7 +125,8 @@ for (m in unique(joinedOutput$model2)) {
   }
 }
 corrOutput = corrOutput[-1, ] %>%
-  arrange(experiment, model)
+  left_join(modelColors, by = 'model2') %>%
+  arrange(experiment, model2)
 
 
 # Plotting histograms of correlations
@@ -142,25 +150,23 @@ dev.off()
 pdf('figures/corr_plots.pdf', height = 8, width = 10)
 par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
 
-for (experiment in c('env', 'nic', 'dis', 'mut', 'tim')) {
+for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
   
-  tmp = filter(corrOutput, experiment == exp)
-  models = unique(tmp$model)
-  
-  for (met in names(corrOutput[3:ncol(corrOutput)])) {
-    tmp1 = tmp %>% arrange(get(met))
-    plot(tmp1[, met], 1:nrow(tmp1), pch = 16, col = colorSelection(nrow(tmp)), 
+  for (met in names(corrOutput[3:(ncol(corrOutput)-1)])) {
+    tmp = filter(corrOutput, experiment == exp) %>% 
+      arrange(get(met))
+    plot(tmp[, met], 1:nrow(tmp), pch = 16, col = tmp$color, 
          cex = 2, xlim = c(-1, 1), xlab = met, yaxt = 'n', ylab = '')
     abline(v = 0, col = 'black', lwd = 2)
   }
   # legend panel
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
   points(rep(0.8, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)),
-         pch = 16, col = colorSelection(nrow(tmp)), cex = 2)
-  text(rep(1, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)), modelColors$model2)
+         pch = 16, col = tmp$color, cex = 2)
+  text(rep(1, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)), tmp$model2)
   
   
-  mtext(paste(experiments$phrase[experiments$experiment == experiment], "experiment"), 3, outer = T, cex = 3)
+  mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2)
   
   par(mar = c(4, 4, 0, 0), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
 }
@@ -170,7 +176,7 @@ dev.off()
 
 
 # Mixed effects model output
-metrics = names(joinedOutput)[c(5, 7:18, 23)]
+metrics = names(expOutput)[c(5, 7:18, 23)]
 
 MEoutput = data.frame(experiment = NA, 
                       metric = NA,
@@ -185,13 +191,13 @@ MEoutput = data.frame(experiment = NA,
 for (experiment in c('env', 'nic', 'dis', 'mut', 'tim')) {
   
   # Check whether there are multiple models available to run lmer for a given experiment
-  if(length(unique(joinedOutput$model2[!is.na(joinedOutput[[paste(experiment, "Level", sep = "")]])])) >= 2) {
+  if(length(unique(expOutput$model2[!is.na(expOutput[[paste(experiment, "Level", sep = "")]])])) >= 2) {
     
     for (met in metrics) {
       
-      lme.mod = lmer(joinedOutput[[met]] ~ joinedOutput[[paste(experiment, "Level", sep = "")]] + 
-                       (1 + joinedOutput[[paste(experiment, "Level", sep = "")]] | model2), 
-                     data = joinedOutput, REML = FALSE)
+      lme.mod = lmer(expOutput[[met]] ~ expOutput[[paste(experiment, "Level", sep = "")]] + 
+                       (1 + expOutput[[paste(experiment, "Level", sep = "")]] | model2), 
+                     data = expOutput, REML = FALSE)
       
       lmeOut = extractLMEoutput(lme.mod, experiment, met)
       
