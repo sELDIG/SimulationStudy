@@ -148,7 +148,7 @@ dev.off()
 
 # Plotting correlation coefficients by model
 pdf('figures/corr_plots.pdf', height = 8, width = 10)
-par(mar = c(4, 4, 0, 0), oma = c(0, 0, 4, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), mfrow = c(4, 4), cex.axis = 1.3)
 
 for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
   
@@ -156,19 +156,21 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
     tmp = filter(corrOutput, experiment == exp) %>% 
       arrange(get(met))
     plot(tmp[, met], 1:nrow(tmp), pch = 16, col = tmp$color, 
-         cex = 2, xlim = c(-1, 1), xlab = met, yaxt = 'n', ylab = '')
+         cex = 2, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '')
+    text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
     abline(v = 0, col = 'black', lwd = 2)
   }
   # legend panel
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
-  points(rep(0.8, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)),
+  points(rep(0.8, nrow(tmp)), seq(0.6, 1.4, length.out = nrow(tmp)),
          pch = 16, col = tmp$color, cex = 2)
-  text(rep(1, nrow(tmp)), seq(0.7, 1.3, length.out = nrow(tmp)), tmp$model2)
+  text(rep(1, nrow(tmp)), seq(0.6, 1.4, length.out = nrow(tmp)), tmp$model2, cex = 1.5)
   
   
   mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2, line = 1)
+  mtext("correlation coefficient", 1, outer = T, cex = 1.5, line = 0, at = .3)
   
-  par(mar = c(4, 4, 0, 0), oma = c(0, 0, 4, 0), mgp = c(2.5, 1, 0), mfrow = c(4, 4))
+  par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), mfrow = c(4, 4))
 }
 dev.off()
 
