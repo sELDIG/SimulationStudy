@@ -167,6 +167,7 @@ ui <- fluidPage(
                                                    "Leprieur et al. (split)" = 'split',
                                                    "Rangel (ra)" = 'ra',
                                                    "gen3sis (ga)" = 'ga',
+                                                   "Cabral et al. (ca)" = 'ca',
                                                    "Xu-Etienne (XE)" = 'XE'),
                                     selected = list("Yule (yu)" = 'yu',
                                                     "PDA (pda)" = 'pda',
@@ -179,6 +180,7 @@ ui <- fluidPage(
                                                     "Leprieur et al. (split)" = 'split',
                                                     "Rangel (ra)" = 'ra',
                                                     "gen3sis (ga)" = 'ga',
+                                                    "Cabral et al. (ca)" = 'ca',
                                                     "Xu-Etienne (XE)" = 'XE')),
                  
                  sliderInput("alphaSlider", "Transparency",
@@ -305,8 +307,9 @@ ui <- fluidPage(
                                                    "Leprieur et al. (split)" = 'split',
                                                    "Rangel (ra)" = 'ra',
                                                    "gen3sis (ga)" = 'ga',
+                                                   "Cabral et al. (ca)" = 'ca',
                                                    "Xu-Etienne (XE)" = 'XE'),
-                                    selected = c('yu', 'pda', 'oh', 've', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga', 'pontarp', 'XE')),
+                                    selected = c('yu', 'pda', 'oh', 've', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga', 'ca', 'XE')),
                  
                  sliderInput("alphaSlider2", "Transparency",
                              min = 0, max = 255, value = 200),
@@ -361,6 +364,7 @@ ui <- fluidPage(
                                          "Leprieur et al. (split)",
                                          "Rangel (ra)",
                                          "gen3sis (ga)",
+                                         "Cabral et al. (ca)",
                                          "Xu-Etienne (XE)")),
                  
                  helpText("Explore how various tree shape metrics vary with model parameters"),
@@ -671,6 +675,7 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "gen3sis (ga)" = 'ga',
+                    "Cabral et al. (ca)" = 'ca',
                     "Xu-Etienne (XE)" = 'XE')
     
     selectInput(inputId = "parColor",
@@ -691,6 +696,7 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "gen3sis (ga)" = 'ga',
+                    "Cabral et al. (ca)" = 'ca',
                     "Xu-Etienne (XE)" = 'XE')
     
     selectInput(inputId = "parPch",
@@ -713,6 +719,7 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "gen3sis (ga)" = 'ga',
+                    "Cabral et al. (ca)" = 'ca',
                     "Xu-Etienne (XE)" = 'XE')
     
     xvar3 <- switch(input$xvar3, 
