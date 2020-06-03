@@ -9,7 +9,7 @@
 # ?PhyloSim
 # browseVignettes("PhyloSim")
 
-library(PhyloSim)
+#library(PhyloSim)
 library(ape)
 
 # And here the code to create new phylogenies. See options of the function to turn various things on and off
