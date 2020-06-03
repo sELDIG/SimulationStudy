@@ -157,7 +157,7 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'tim')) {
       arrange(get(met))
     plot(tmp[, met], 1:nrow(tmp), pch = 16, col = tmp$color, 
          cex = 2, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '')
-    text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
+    text(-1, nrow(tmp), substr(met, 3, nchar(met)), cex = 1.5, adj = c(0, 1))
     abline(v = 0, col = 'black', lwd = 2)
   }
   # legend panel
