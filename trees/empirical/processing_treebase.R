@@ -3,7 +3,7 @@
 
 library(TreeSim)
 library(apTreeshape)
-load("trees/empirical/treebase_input.Rda")
+load("trees/empirical/treebase_input.rda")
 
 numbtrees <- length(treebase)
 treeswithlength <- NULL # creates a list of trees that can be used for length statistics
