@@ -167,7 +167,6 @@ ui <- fluidPage(
                                                    "Leprieur et al. (split)" = 'split',
                                                    "Rangel (ra)" = 'ra',
                                                    "GaSM (ga)" = 'ga',
-                                                   "Pontarp (pontarp)" = 'pontarp',
                                                    "Xu-Etienne (XE)" = 'XE'),
                                     selected = list("Yule (yu)" = 'yu',
                                                     "PDA (pda)" = 'pda',
@@ -180,7 +179,6 @@ ui <- fluidPage(
                                                     "Leprieur et al. (split)" = 'split',
                                                     "Rangel (ra)" = 'ra',
                                                     "GaSM (ga)" = 'ga',
-                                                    "Pontarp (pontarp)" = 'pontarp',
                                                     "Xu-Etienne (XE)" = 'XE')),
                  
                  sliderInput("alphaSlider", "Transparency",
@@ -307,7 +305,6 @@ ui <- fluidPage(
                                                    "Leprieur et al. (split)" = 'split',
                                                    "Rangel (ra)" = 'ra',
                                                    "GaSM (ga)" = 'ga',
-                                                   "Pontarp (pontarp)" = 'pontarp',
                                                    "Xu-Etienne (XE)" = 'XE'),
                                     selected = c('yu', 'pda', 'oh', 've', 'hs', 'pontarp', 'fh', 'mt', 'split', 'ra', 'ga', 'pontarp', 'XE')),
                  
@@ -364,7 +361,6 @@ ui <- fluidPage(
                                          "Leprieur et al. (split)",
                                          "Rangel (ra)",
                                          "GaSM (ga)",
-                                         "Pontarp (pontarp)",
                                          "Xu-Etienne (XE)")),
                  
                  helpText("Explore how various tree shape metrics vary with model parameters"),
@@ -570,7 +566,7 @@ server <- function(input, output, session) {
     
     
     plottingOutput = filter(treeOutput, model %in% input$modelsToInclude) %>%
-      select(model, simID, !!xvar, !!yvar) %>%
+      dplyr::select(model, simID, !!xvar, !!yvar) %>%
       na.omit()
     
     par(mar = c(5, 5, 1, 1), cex.lab = 1.75)
@@ -675,7 +671,6 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "GaSM (ga)" = 'ga',
-                    "Pontarp (pontarp)" = 'pontarp',
                     "Xu-Etienne (XE)" = 'XE')
     
     selectInput(inputId = "parColor",
@@ -696,7 +691,6 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "GaSM (ga)" = 'ga',
-                    "Pontarp (pontarp)" = 'pontarp',
                     "Xu-Etienne (XE)" = 'XE')
     
     selectInput(inputId = "parPch",
@@ -719,7 +713,6 @@ server <- function(input, output, session) {
                     "Leprieur et al. (split)" = 'split',
                     "Rangel (ra)" = 'ra',
                     "GaSM (ga)" = 'ga',
-                    "Pontarp (pontarp)" = 'pontarp',
                     "Xu-Etienne (XE)" = 'XE')
     
     xvar3 <- switch(input$xvar3, 
