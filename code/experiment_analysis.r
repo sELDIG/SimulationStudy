@@ -8,7 +8,7 @@ source('code/experiment_analysis_functions.r')
 
 
 experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'tim'), 
-                         phrase = c('environmental filtering', 'niche conservatism', 'disperal', 'mutation/speciation rate', 'time'))
+                         phrase = c('environmental filtering', 'niche conservatism', 'dispersal', 'mutation/speciation rate', 'time'))
 
 
 # Read in output and join to parameter files
