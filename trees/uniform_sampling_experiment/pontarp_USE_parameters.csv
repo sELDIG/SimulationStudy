@@ -1,4 +1,4 @@
-model,simID,K,abiotic_niche_width,dispersal,abioic_env_gradient,resource_gradient,biotic_niche_width,mutation_step
+model,simID,K,abiotic_niche_width,dispersal,abiotic_env_gradient,resource_gradient,biotic_niche_width,mutation_step
 pontarp,11,1500,1,0.09142421,0.9152127,0.5,0.2629447,0.02142881
 pontarp,12,1500,1,0.01963534,0.6882268,0.5,0.1449533,0.0828171
 pontarp,13,1500,1,0.0884526,0.5750755,0.5,0.1465821,0.07935619
