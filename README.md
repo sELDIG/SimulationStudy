@@ -2,7 +2,7 @@
 Inferring modes of diversification from simulation models: identifying robust patterns and reliable methods
 
 ## Interested group members: (add your name here!)
-Allen*, Mikael, Juliano, Florian, Roland, Thorsten, Susanne, Shan, Thiago, Odile, Loic, Oskar
+Allen*, Mikael, Juliano, Florian, Susanne, Shan, Thiago, Loïc, Oskar, Catherine, Rampal, Antonin, Pedro Neves, Liang Xu, David
 
 ## Project Links
 [GoogleDoc](https://docs.google.com/document/d/1F9rXWp_DAleZarrXXYzAgbGqgjtE2dTUe7VqpxMdBW4/edit)  
@@ -11,16 +11,12 @@ Allen*, Mikael, Juliano, Florian, Roland, Thorsten, Susanne, Shan, Thiago, Odile
 ## Summary
 The complete set of processes governing the diversification of clades over time and space is unknown, yet many simulation models exist that try to codify subsets of possible processes and examine the consequences for various spatial and phylogenetic patterns. In some cases it is unknown how much the output from a given simulation model is sensitive to the specific implementation decisions used to model the processes of interest. Comparing simulation models that use very different implementations of similar processes can shed light on which patterns are most robust and which processes are most reliably inferred.
 
-## Questions
-1) Which empirical phylogenetic metrics are most variable and which are robust to the different assumptions made across distinct simulation modeling frameworks? 
-2) How well do common analytical frameworks (RPANDA, BAMM, DDD, etc) capture actual diversification rates of data not simulated under the model generating processes?
-3) What are the primary axes of variation of existing diversification simulation models, and how do those axes map onto distinct phylogenetic and spatial patterns?
+## Experiment  
+Upload simulation output to the relevant folders within this repo (trees > uniform_sampling_experiment). For the currently prescribed methods for our simulation experiment, refer to the project [Google Doc](https://docs.google.com/document/d/1F9rXWp_DAleZarrXXYzAgbGqgjtE2dTUe7VqpxMdBW4/edit).   
 
-## Steps
-Upload simulation output to the relevant folders within this repo. Presumably you will upload output from a range of parameter space over which you ran your model. See the [Experiments Page](https://github.com/sELDIG/SimulationStudy/blob/master/experiments/experiments.md) for some of the variation in parameter space we are especially interested in. If simulation output is highly stochastic, you might consider providing output from replicate simulations with identical parameter settings, but in most cases 10-20 replicates should be plenty.  
+## Shiny app
 
-To make your simulation output visualizable in our [shiny app](https://hurlbertlab.shinyapps.io/simulationstudy/), follow the instructions below. This may include areas of parameter space not highlighted in the Experiments.  
-
+To make your simulation output visualizable in our [shiny app](https://hurlbertlab.shinyapps.io/simulationstudy/), follow the instructions below. I will eventually make sure all (or at least some subset of) simulated trees provided in the **Experiment** get added here.  
 
 1) Place phylogenies in the 'trees' folder in Newick format, labeled **mm_xxxxx.tre** where **mm** is a two-letter code identifying the model that generated it and 
 **xxxxx** = simID (as many digits as necessary, should be an integer) that links to the set of parameters of that simulation.

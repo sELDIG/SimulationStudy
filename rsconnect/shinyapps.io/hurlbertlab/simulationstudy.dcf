@@ -1,0 +1,10 @@
+name: simulationstudy
+title:
+username:
+account: hurlbertlab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1065021
+bundleId: 3225227
+url: https://hurlbertlab.shinyapps.io/simulationstudy/
+when: 1591216878.66199

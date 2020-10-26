@@ -19,19 +19,6 @@ parameterList <- expand.grid(dispersal = c(0,1), density = c(0,1), environment =
 
 parameterList$id = 1:nrow(parameterList)
 
-parameterList$model = "fh"
-parameterList$simID = 1:nrow(parameterList)
-
-parameterList$ModelFamily = "conceptual"
-
-parameterList$EntityModeled = "individuals"
-parameterList$Allopatric =  ifelse(parameterList$fission == 2, "y", "n")
-parameterList$Sympatric =  ifelse(parameterList$fission == 1, "y", "n")
-parameterList$PointMutation =  ifelse(parameterList$fission == 0, "y", "n")
-parameterList$SpeciationModeImplementation = "probabilistic"
-parameterList$DiversityDependence = "y"
-  
-  
 write.csv(parameterList, file = "fh-parameters.csv")
 
 simulations = list()
@@ -39,8 +26,6 @@ simulations = list()
 for(i in 1:nrow(parameterList)){
   par <- createCompletePar(x = 100, y = 100, dispersal = parameterList$dispersal[i] , runs = c(5000), density = parameterList$density[i], environment = parameterList$environment[i], specRate = parameterList$speciationRate[i], protracted = parameterList$protracted[i]  )
 
-  try({
-  
   new.simulation <- runSimulation(par)
   
   simulations[[i]] = new.simulation
@@ -54,8 +39,6 @@ for(i in 1:nrow(parameterList)){
   extantPhylogeny <- drop.fossil(phylogeny)
   
   write.tree(extantPhylogeny, file =  paste("./trees/fh_", i, ".tre", sep=""))
-  
-  })
 }
 
 save(simulations, file = "simulations.Rdata")
