@@ -130,12 +130,17 @@ for (e in experiments$experiment) {
   
   for (mod in relevantModels) {
     
-    corDF = corrCalcUSE(e, metrics, mod)
-    
-    if (class(corDF) == 'data.frame') {
-      corrOutput = rbind(corrOutput, corDF)
+    # Check for new model-experiment combinations to run
+    if (!paste(mod, e) %in% paste(corrOutput$model, corrOutput$experiment)) {
+
+      corDF = corrCalcUSE(e, metrics, mod)
+      
+      if (class(corDF) == 'data.frame') {
+        corrOutput = rbind(corrOutput, corDF)
+      }
+      
     }
-    
+
   }
     
 }
@@ -153,33 +158,50 @@ corrOutput = left_join(corrOutput, modelColors, by = 'model')
 
 # Plotting correlation coefficients by model
 pdf('figures/USE_corr_plots.pdf', height = 8, width = 10)
-layout(matrix(c(1:15, 15), nrow = 4, byrow = T))
-par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), cex.axis = 1.3)
 
 for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
   
+  layout(matrix(c(1:15, 15), nrow = 4, byrow = T))
+  par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), cex.axis = 1.3)
+  
   for (met in unique(corrOutput$metric)) {
+
     tmp = filter(corrOutput, experiment == exp, metric == met)
+    
     plot(tmp$r, 1:nrow(tmp), pch = 18, col = tmp$color, 
-         cex = 2, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '')
+         cex = 3, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
     segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2)
     text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
     abline(v = 0, col = 'black', lwd = 2)
   }
   # legend panel
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
-  points(rep(0.6, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)),
-         pch = 18, col = tmp$color, cex = 2)
-  text(rep(.65, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)), paste(tmp$model, '-', tmp$parameter), cex = 1.3, adj = 0)
   
-  
+  numMods = nrow(tmp)
+  if (numMods <= 6) {
+    points(rep(0.58, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)),
+           pch = 18, col = tmp$color, cex = 2)
+    text(rep(.61, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)), 
+         paste(tmp$model, '-', tmp$parameter), cex = 1.3, adj = 0)
+    
+  } else {
+    firstHalf = round(numMods/2)
+    
+    points(rep(0.58, firstHalf), seq(0.62, 1.38, length.out = firstHalf),
+           pch = 18, col = tmp$color[1:firstHalf], cex = 2)
+    text(rep(.61, firstHalf), seq(0.62, 1.38, length.out = firstHalf), 
+         paste(tmp$model[1:firstHalf], '-', tmp$parameter[1:firstHalf]), cex = 1.3, adj = 0)
+
+    points(rep(1.08, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)),
+           pch = 18, col = tmp$color[(firstHalf + 1):numMods], cex = 2)
+    text(rep(1.12, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)), 
+         paste(tmp$model[(firstHalf + 1):numMods], '-', tmp$parameter[(firstHalf + 1):numMods]), cex = 1.3, adj = 0)
+    
+  }
+
   mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2, line = 1)
   mtext("correlation coefficient", 1, outer = T, cex = 1.5, line = 0, at = .3)
   
   par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), mfrow = c(4, 4))
 }
 dev.off()
-
-
-
-
