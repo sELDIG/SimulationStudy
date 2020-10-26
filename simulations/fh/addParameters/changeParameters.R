@@ -7,11 +7,7 @@ pars$dis = ifelse(pars$dispersal == 0, "Low", "High")
 pars$mut = ifelse(pars$speciationRate == 2, "Low", "High")
 pars$tim = "Medium"
 
-pars$tim = ifelse(pars$environment == 0, "Low", "High")
-
-env,tim,com,nic,dis,mut
-
-'env', 'nic', 'dis', 'com', 'mut', and 'tim',
+write.csv(pars, "../../../parameters/fh_parameters.csv")
 
 # We will analyze the following "experiments":
 #   
@@ -28,7 +24,10 @@ env,tim,com,nic,dis,mut
 
 
 
+
 # Questions - absent treated as low?
+# Order of variables?
 # speciation rate and speciation type (fission, point mutation)
 # "average" 
 # niche conservatism != mutation?
+# 
