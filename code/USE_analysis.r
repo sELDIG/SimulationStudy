@@ -107,7 +107,7 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
 
 experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com', 'tim'), 
                          phrase = c('environmental filtering', 'niche conservatism', 'dispersal', 
-                                    'competition', 'mutation/speciation rate', 'time'))
+                                    'mutation/speciation rate', 'competition', 'time'))
 
 url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
 paramKey <- gsheet2tbl(url)
@@ -153,9 +153,10 @@ corrOutput = left_join(corrOutput, modelColors, by = 'model')
 
 # Plotting correlation coefficients by model
 pdf('figures/USE_corr_plots.pdf', height = 8, width = 10)
-par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), mfrow = c(4, 4), cex.axis = 1.3)
+layout(matrix(c(1:15, 15), nrow = 4, byrow = T))
+par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), cex.axis = 1.3)
 
-for (exp in c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
+for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
   
   for (met in unique(corrOutput$metric)) {
     tmp = filter(corrOutput, experiment == exp, metric == met)
@@ -167,9 +168,9 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
   }
   # legend panel
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
-  points(rep(0.8, nrow(tmp)), seq(0.6, 1.4, length.out = nrow(tmp)),
+  points(rep(0.6, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)),
          pch = 18, col = tmp$color, cex = 2)
-  text(rep(1, nrow(tmp)), seq(0.6, 1.4, length.out = nrow(tmp)), tmp$model, cex = 1.5)
+  text(rep(.65, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)), paste(tmp$model, '-', tmp$parameter), cex = 1.3, adj = 0)
   
   
   mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2, line = 1)
