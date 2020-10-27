@@ -10,12 +10,14 @@ n = 5000
 dispersalGlobal = sample(c(T,F), n, replace = T, prob = c(0.2, 0.8))
 
 parameterList <- data.frame(
+  model = rep("fh", n),
+  simID = 1:n,
   dispersal = ifelse(dispersalGlobal, 0, runif(n, 1, 5)),
   density = runif(n, 0, 1),
   environment = runif(n, 0, 1),
   speciationRate = runif(n, 0.5, 5),
   fission = sample.int(3, n, replace = T),
-  id = 1:n
+  scenario = fission
 )
 
 parameterList$dispersalGlobal = dispersalGlobal
@@ -23,6 +25,8 @@ parameterList$dispersalGlobal = dispersalGlobal
   
 
 write.csv(parameterList, file = "fh-parameters-2.csv")
+write.csv(parameterList, file = "../../trees/uniform_sampling_experiment/fh_USE_parameters.csv")
+
 
 simulations = list()
 
@@ -47,12 +51,6 @@ for(i in 1:nrow(parameterList)){
 save(simulations, file = "simulations.Rdata")
 
 
-# the output is in simulation output. If several time steps are provided in runs, the output is a unnamed list for the time steps, and each entry will contain all state variables
-
-# so, the phylogeny after 1000 time steps is in 
 
 
-
-specRich(new.simulation)
-sac(new.simulation)
 
