@@ -151,7 +151,7 @@ modelColors = data.frame(model = models, color = colorSelection(length(models)))
 modelColors$model = as.character(modelColors$model)
 modelColors$color = as.character(modelColors$color)
 
-corrOutput = left_join(corrOutput, modelColors, by = 'model')
+corrOutput2 = left_join(corrOutput, modelColors, by = 'model')
 
 
 
@@ -164,9 +164,9 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
   layout(matrix(c(1:15, 15), nrow = 4, byrow = T))
   par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), cex.axis = 1.3)
   
-  for (met in unique(corrOutput$metric)) {
+  for (met in unique(corrOutput2$metric)) {
 
-    tmp = filter(corrOutput, experiment == exp, metric == met)
+    tmp = filter(corrOutput2, experiment == exp, metric == met)
     
     plot(tmp$r, 1:nrow(tmp), pch = 18, col = tmp$color, 
          cex = 3, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
@@ -205,3 +205,27 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
   par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), mfrow = c(4, 4))
 }
 dev.off()
+
+
+# Plot of distribution of correlation coefficients by model
+pdf('figures/USE_r_by_model.pdf', height = 8, width = 6)
+par(mfrow = c(length(unique(corrOutput2$model)), 1), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
+for (mod in unique(corrOutput2$model)) {
+  hist(corrOutput2$r[corrOutput2$model == mod], xlab = '', main = '', col = corrOutput2$color[corrOutput2$model == mod], xlim = c(-1, 1), breaks = seq(-1, 1, by = .1))
+  legend("topleft", mod, bty = 'n', cex = 2)
+}
+mtext("Correlation coefficient", 1, cex = 2, outer = T, line = 1)
+dev.off()
+
+
+# Plot of distribution of correlation coefficients by experiment
+pdf('figures/USE_r_by_experiment.pdf', height = 8, width = 6)
+par(mfrow = c(5, 1), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
+for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
+  hist(corrOutput2$r[corrOutput2$experiment == exp], xlab = '', main = '', col = 'gray50', 
+       xlim = c(-1, 1), breaks = seq(-1, 1, by = .1))
+  legend("topleft", exp, bty = 'n', cex = 2)
+}
+mtext("Correlation coefficient", 1, cex = 2, outer = T, line = 1)
+dev.off()
+
