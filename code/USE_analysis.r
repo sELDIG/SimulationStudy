@@ -1,17 +1,48 @@
 # Analyzing Uniform Sampling Experiment trees
 
-# For each process (env, nic, dis, mut, tim), examine the relationship between
-# the strength of the parameter value associated with that process and tree metrics.
-
-# 
-
 # Load libraries
 library(gsheet)
 library(dplyr)
 library(stringr)
+library(ape)
+library(geiger)
+library(lessR)
+library(gsheet)
 
 source('code/pcaFunctions.r')
 source('code/experiment_analysis_functions.r')
+source('code/treeMetrics.r')
+
+
+
+# Script for calculating tree metrics for trees that have not already been analyzed
+
+# Read in existing output file
+treeOutput = read.table('USE_treeOutput.txt', sep = '\t', header = T)
+
+analyzedTrees = paste(treeOutput$model, "_", treeOutput$simID, ".tre", sep = "")
+
+# Get list of tree files in USE experiment folder
+allTreeFiles = list.files('trees/uniform_sampling_experiment')[grepl(".tre", list.files('trees/uniform_sampling_experiment'))]
+
+treesToRun = allTreeFiles[!allTreeFiles %in% analyzedTrees]
+
+# Calculate tree metrics for remaining trees and append
+metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_treeOutput.txt', append = TRUE, 
+                    treedir = 'trees/uniform_sampling_experiment')
+
+
+
+
+
+
+
+
+
+# For each process (env, nic, dis, mut, tim), examine the relationship between
+# the strength of the parameter value associated with that process and tree metrics.
+
+# 
 
 # Calculate correlations between tree metrics and treatment levels for each model
 corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
