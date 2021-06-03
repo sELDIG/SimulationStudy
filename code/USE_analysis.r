@@ -33,7 +33,13 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 
 
 
-
+# Function for calculating CI for spearman's rho
+# --from https://stats.stackexchange.com/questions/18887/how-to-calculate-a-confidence-interval-for-spearmans-rank-correlation
+spearman_CI <- function(x, y, alpha = 0.05){
+  rs <- cor(x, y, method = "spearman", use = "complete.obs")
+  n <- sum(complete.cases(x, y))
+  sort(tanh(atanh(rs) + c(-1,1)*sqrt((1+rs^2/2)/(n-3))*qnorm(p = alpha/2)))
+}
 
 
 
@@ -45,7 +51,7 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 # 
 
 # Calculate correlations between tree metrics and treatment levels for each model
-corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
+corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'spearman') {
   
   if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
     stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
@@ -104,11 +110,22 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
         if (sum(!is.na(modelData[, metrics[m]])) > 3) { # require at least 4 data points to calculate CI's
           
           corr = cor.test(modelData[, metrics[m]], modelData[, experimentalParam[p]], 
-                          use = 'na.or.complete', method = 'pearson')
+                          use = 'na.or.complete', method = cor.method)
           
           corDF$r[m + (p-1)*length(metrics)] = sign*corr$estimate
-          corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
-          corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
+          
+          if (cor.method == 'pearson') {
+            
+            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
+            
+          } else if (cor.method == 'spearman') {
+            
+            corCI = spearman_CI(modelData[, metrics[m]], modelData[, experimentalParam[p]])
+            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corCI[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corCI[2]
+            
+          }
           
         } else {
           
