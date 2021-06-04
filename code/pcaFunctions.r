@@ -5,7 +5,7 @@
 
 colorSelection = function(n, alpha = 255) {
   rawcolors = c('turquoise', 'red', 'yellow2', 'darkblue', 'limegreen', 'hotpink', 'blue', 
-             'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick4', 'olivedrab1', 'black')
+             'purple', 'brown', 'seagreen', 'darkorange', 'pink', 'firebrick3', 'olivedrab1', 'black', 'gray50', 'tan3')
   colorvector = col2rgb(rawcolors)
   colors = apply(colorvector, 2, function(x) rgb(x[1], x[2], x[3], alpha = alpha, maxColorValue = 255))
   
