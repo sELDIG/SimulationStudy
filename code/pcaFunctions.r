@@ -18,7 +18,7 @@ colorSelection = function(n, alpha = 255) {
 
 
 pchSelection = function(n) {
-  pch = c(15, 16, 17, 18, 1, 7, 8, 10, 2, 4, 12, 6, 3, 5)
+  pch = c(15, 16, 17, 18, 1, 7, 8, 10, 2, 4, 12, 6, 3, 5, 9, 11, 13)
   
   if (n > length(pch)) { 
     warning("exceeding the maximum number of distinct symbols; symbols are recycled", immediate. = TRUE)
