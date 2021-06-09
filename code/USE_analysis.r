@@ -33,7 +33,13 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 
 
 
-
+# Function for calculating CI for spearman's rho
+# --from https://stats.stackexchange.com/questions/18887/how-to-calculate-a-confidence-interval-for-spearmans-rank-correlation
+spearman_CI <- function(x, y, alpha = 0.05){
+  rs <- cor(x, y, method = "spearman", use = "complete.obs")
+  n <- sum(complete.cases(x, y))
+  sort(tanh(atanh(rs) + c(-1,1)*sqrt((1+rs^2/2)/(n-3))*qnorm(p = alpha/2)))
+}
 
 
 
@@ -45,7 +51,7 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 # 
 
 # Calculate correlations between tree metrics and treatment levels for each model
-corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
+corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'spearman') {
   
   if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
     stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
@@ -104,11 +110,22 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev) {
         if (sum(!is.na(modelData[, metrics[m]])) > 3) { # require at least 4 data points to calculate CI's
           
           corr = cor.test(modelData[, metrics[m]], modelData[, experimentalParam[p]], 
-                          use = 'na.or.complete', method = 'pearson')
+                          use = 'na.or.complete', method = cor.method)
           
           corDF$r[m + (p-1)*length(metrics)] = sign*corr$estimate
-          corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
-          corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
+          
+          if (cor.method == 'pearson') {
+            
+            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
+            
+          } else if (cor.method == 'spearman') {
+            
+            corCI = spearman_CI(modelData[, metrics[m]], modelData[, experimentalParam[p]])
+            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corCI[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corCI[2]
+            
+          }
           
         } else {
           
@@ -143,6 +160,8 @@ experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com', 'tim'
 url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
 paramKey <- gsheet2tbl(url)
 
+tempParamKey = paramKey[!grepl("gen", paramKey$model),] #temporary fix; delete and change code below to paramKey after gen is fixed
+
 # Read in output and join to parameter files
 metrics = read.table('USE_treeOutput.txt', header = T, sep = '\t')
 
@@ -156,7 +175,7 @@ corrOutput = data.frame(model = character(),
 
 for (e in experiments$experiment) {
 
-  relevantModels = filter(paramKey, experiment == e) %>%
+  relevantModels = filter(tempParamKey, experiment == e) %>% #### Change this back to paramKey once gen is fixed
     distinct(model) %>% unlist()
   
   for (mod in relevantModels) {
@@ -177,7 +196,7 @@ for (e in experiments$experiment) {
 }
 
 
-models = unique(paramKey$model)
+models = unique(tempParamKey$model)  #### Change this back to paramKey once gen is fixed
 modelColors = data.frame(model = models, color = colorSelection(length(models)))
 modelColors$model = as.character(modelColors$model)
 modelColors$color = as.character(modelColors$color)
@@ -190,7 +209,7 @@ corrOutput2 = left_join(corrOutput, modelColors, by = 'model')
 # Plotting correlation coefficients by model
 pdf('figures/USE_corr_plots.pdf', height = 8, width = 10)
 
-for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
+for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
   
   layout(matrix(c(1:15, 15), nrow = 4, byrow = T))
   par(mar = c(4, 4, 0, 1), oma = c(3, 0, 4, 0), mgp = c(2.2, 1, 0), cex.axis = 1.3)
@@ -200,10 +219,11 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
     tmp = filter(corrOutput2, experiment == exp, metric == met)
     
     plot(tmp$r, 1:nrow(tmp), pch = 18, col = tmp$color, 
-         cex = 3, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
-    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2)
-    text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
+         cex = 1.8, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
     abline(v = 0, col = 'black', lwd = 2)
+    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2.5)
+    text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
+    
   }
   # legend panel
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
@@ -221,12 +241,12 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com', 'tim')) {
     points(rep(0.58, firstHalf), seq(0.62, 1.38, length.out = firstHalf),
            pch = 18, col = tmp$color[1:firstHalf], cex = 2)
     text(rep(.61, firstHalf), seq(0.62, 1.38, length.out = firstHalf), 
-         paste(tmp$model[1:firstHalf], '-', tmp$parameter[1:firstHalf]), cex = 1.3, adj = 0)
+         paste(tmp$model[1:firstHalf], '-', tmp$parameter[1:firstHalf]), cex = 1.1, adj = 0)
 
     points(rep(1.08, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)),
            pch = 18, col = tmp$color[(firstHalf + 1):numMods], cex = 2)
     text(rep(1.12, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)), 
-         paste(tmp$model[(firstHalf + 1):numMods], '-', tmp$parameter[(firstHalf + 1):numMods]), cex = 1.3, adj = 0)
+         paste(tmp$model[(firstHalf + 1):numMods], '-', tmp$parameter[(firstHalf + 1):numMods]), cex = 1.1, adj = 0)
     
   }
 
