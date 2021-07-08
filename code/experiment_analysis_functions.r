@@ -146,8 +146,7 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'sp
     stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
   }
   
-  url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
-  paramKey <- gsheet2tbl(url)
+  paramKey <- read.csv('simulation_configuration/simulation_parameters_key.csv', header = T)
   
   # split out the root model abbreviation if necessary
   mod = word(modelAbbrev, 1, sep = fixed("."))
@@ -259,12 +258,16 @@ extractLMEoutput = function(lmeObject, expName, metricName) {
 }
 
 
+
+
+
 # Function for aligning simulation parameters across models according to the process each parameter is associated with.
 # I.e., create columns for each process (in some cases, two columns for a process because some models have two parameters
 # associated with that process) in which the relevant parameter value is stored.
 
-# Associations between parameters and processes is given here: 
+# Associations between parameters and processes is originally given here: 
 # https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897
+# but has been written to 'simulation_configuration/simulation_parameters_key.csv'
 
 # Parameters are multiplied by the sign specified in the above spreadsheet to ensure that the strength of the process
 # increases with an increase in the parameter value.
@@ -275,10 +278,8 @@ alignParametersWithProcesses = function(modelAbbrev) {
   
   params$model2 = ifelse("scenario" %in% names(params), paste(modelAbbrev, ".", params$scenario, sep = ""), modelAbbrev)
   
-  url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
-  
   # Here we drop the scenario description, assuming that the process-parameter association is not scenario-dependent
-  paramKey <- gsheet2tbl(url) %>% 
+  paramKey <- read.csv('simulation_configuration/simulation_parameters_key.csv', header = T) %>% 
     mutate(model = word(model, sep = "\\.")) %>%
     filter(model == modelAbbrev) %>%
     distinct()
