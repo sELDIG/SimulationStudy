@@ -13,7 +13,52 @@ source('code/pcaFunctions.r')
 source('code/experiment_analysis_functions.r')
 source('code/treeMetrics.r')
 
+# Parameter key across simulations; 
+# url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
+# paramKey <- gsheet2tbl(url)
+# write.csv(paramKey, 'simulation_configuration/simulation_parameters_key.csv', row.names = F)
 
+
+
+# Align parameter values with the relevant experiment, create a dataframe with columns for
+# model, model2 (with scenario suffix if appropriate), simID, and columns for the parameter
+# names and parameter values associated with 5 processes: env, dis, nic, mut, com
+
+modelList = c('ca', 'fh', 'gen', 'hs', 'pontarp', 've', 'xe')
+
+for (m in modelList) {
+  
+  if (!exists("processDF")) {
+    processDF = alignParametersWithProcesses(m)
+  } else {
+    processDF = rbind(processDF, alignParametersWithProcesses(m))
+  }
+  
+}
+
+# Join tree metrics to the aligned parameter-process dataframe: for analysis, use **processDFmetrics**
+treeOutput = read.table('USE_treeOutput.txt', sep = '\t', header = T)
+
+processDFmetrics = left_join(processDF, treeOutput, by = c('model', 'simID'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#################################################
+#
+# OLDER ANALYSIS BELOW MAY STILL BE USEFUL....  #
+#
+#################################################
 
 # Script for calculating tree metrics for trees that have not already been analyzed
 
@@ -33,121 +78,6 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 
 
 
-# Function for calculating CI for spearman's rho
-# --from https://stats.stackexchange.com/questions/18887/how-to-calculate-a-confidence-interval-for-spearmans-rank-correlation
-spearman_CI <- function(x, y, alpha = 0.05){
-  rs <- cor(x, y, method = "spearman", use = "complete.obs")
-  n <- sum(complete.cases(x, y))
-  sort(tanh(atanh(rs) + c(-1,1)*sqrt((1+rs^2/2)/(n-3))*qnorm(p = alpha/2)))
-}
-
-
-
-
-
-# For each process (env, nic, dis, mut, tim), examine the relationship between
-# the strength of the parameter value associated with that process and tree metrics.
-
-# 
-
-# Calculate correlations between tree metrics and treatment levels for each model
-corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'spearman') {
-  
-  if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
-    stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
-  }
-  
-  url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
-  paramKey <- gsheet2tbl(url)
-  
-  # split out the root model abbreviation if necessary
-  mod = word(modelAbbrev, 1, sep = fixed("."))
-  
-  modelParams = read.csv(paste0('trees/uniform_sampling_experiment/', mod, '_USE_parameters.csv'), header = T)
-  
-  
-  # In some cases a single simulation model can be run under different "scenarios" that should
-  # effectively be analyzed separately. In this case, a "scenario" column should be added to
-  # the [model]_USE_parameters.csv file with a code for distinguishing them.
-
-  if ('scenario' %in% names(modelParams)) {
-    modelParams$model2 = paste(modelParams$model, modelParams$scenario, sep = '.')  
-  } else {
-    modelParams$model2 = modelParams$model
-  }
-  
-  modelData = experimentData %>%
-    right_join(modelParams, by = c('simID', 'model')) %>%
-    filter(model2 == modelAbbrev)
-  
-  experimentalParam = paramKey$parameterName[paramKey$model == modelAbbrev & paramKey$experiment == experiment]
-  
-  if (length(experimentalParam) > 0) { #check that there is a parameter for this experiment
-
-    metrics = c('log10S', 'PD', 'Gamma', 'Beta', 'Colless', 'Sackin', 'Yule.PDA.ratio', 'MRD', 'VRD', 'PSV',
-                'mean.Iprime', 'MPD', 'VPD', 'nLTT_stat')
-    
-    corDF = data.frame(model = rep(modelAbbrev, length(metrics)*length( experimentalParam)),
-                       experiment = rep(experiment, length(metrics)*length( experimentalParam)),
-                       parameter = rep(experimentalParam, each = length(metrics)),
-                       metric = rep(metrics, length( experimentalParam)),
-                       r = rep(NA, length(metrics)*length( experimentalParam)),
-                       r.L95 = rep(NA, length(metrics)*length( experimentalParam)),
-                       r.U95 = rep(NA, length(metrics)*length( experimentalParam)))
-    
-    for (p in 1:length(experimentalParam)) {   # if multiple params are listed, then cycle through
-      
-      # Some parameters may be configured such that there is a positive correlation between the
-      # strength of the process and the parameter value and vice versa. Multiply correlations through
-      # by this 'sign' so that the interpretation is similar for all parameters:
-      
-      # A positive correlation means that the process increases in strength
-      sign = paramKey$sign[paramKey$model == modelAbbrev & paramKey$parameterName == experimentalParam[p]]
-      
-
-      for (m in 1:length(metrics)) { # conduct a correlation with the model parameter and each tree metric
-        
-        if (sum(!is.na(modelData[, metrics[m]])) > 3) { # require at least 4 data points to calculate CI's
-          
-          corr = cor.test(modelData[, metrics[m]], modelData[, experimentalParam[p]], 
-                          use = 'na.or.complete', method = cor.method)
-          
-          corDF$r[m + (p-1)*length(metrics)] = sign*corr$estimate
-          
-          if (cor.method == 'pearson') {
-            
-            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
-            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
-            
-          } else if (cor.method == 'spearman') {
-            
-            corCI = spearman_CI(modelData[, metrics[m]], modelData[, experimentalParam[p]])
-            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corCI[1]
-            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corCI[2]
-            
-          }
-          
-        } else {
-          
-          corDF$r[m + (p-1)*length(metrics)] = NA
-          corDF$r.L95[m + (p-1)*length(metrics)] = NA
-          corDF$r.U95[m + (p-1)*length(metrics)] = NA
-          
-        }
-        
-      } # end metric loop
-      
-    } # end parameter loop
-        
-  } else { # if there is no parameter associated with this experiment, then NA
-    
-    corDF = NA
-    
-  }
-
-  return(corDF)  
-}
-
 
 
 #########################################################################################
@@ -159,8 +89,6 @@ experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com', 'tim'
 
 url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
 paramKey <- gsheet2tbl(url)
-
-tempParamKey = paramKey[!grepl("gen", paramKey$model),] #temporary fix; delete and change code below to paramKey after gen is fixed
 
 # Read in output and join to parameter files
 metrics = read.table('USE_treeOutput.txt', header = T, sep = '\t')
@@ -175,7 +103,7 @@ corrOutput = data.frame(model = character(),
 
 for (e in experiments$experiment) {
 
-  relevantModels = filter(tempParamKey, experiment == e) %>% #### Change this back to paramKey once gen is fixed
+  relevantModels = filter(paramKey, experiment == e) %>% #### Change this back to paramKey once gen is fixed
     distinct(model) %>% unlist()
   
   for (mod in relevantModels) {
@@ -196,7 +124,7 @@ for (e in experiments$experiment) {
 }
 
 
-models = unique(tempParamKey$model)  #### Change this back to paramKey once gen is fixed
+models = unique(paramKey$model)  #### Change this back to paramKey once gen is fixed
 modelColors = data.frame(model = models, color = colorSelection(length(models)))
 modelColors$model = as.character(modelColors$model)
 modelColors$color = as.character(modelColors$color)
