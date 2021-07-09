@@ -279,7 +279,7 @@ alignParametersWithProcesses = function(modelAbbrev) {
   params$model2 = ifelse("scenario" %in% names(params), paste(modelAbbrev, ".", params$scenario, sep = ""), modelAbbrev)
   
   # Here we drop the scenario description, assuming that the process-parameter association is not scenario-dependent
-  paramKey <- read.csv('simulation_configuration/simulation_parameters_key.csv', header = T) %>% 
+  paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv', header = T) %>% 
     mutate(model = word(model, sep = "\\.")) %>%
     filter(model == modelAbbrev) %>%
     distinct()

@@ -7,7 +7,6 @@ library(stringr)
 library(ape)
 library(geiger)
 library(lessR)
-library(gsheet)
 
 source('code/pcaFunctions.r')
 source('code/experiment_analysis_functions.r')
@@ -16,7 +15,7 @@ source('code/treeMetrics.r')
 # Parameter key across simulations; 
 # url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
 # paramKey <- gsheet2tbl(url)
-# write.csv(paramKey, 'simulation_configuration/simulation_parameters_key.csv', row.names = F)
+# write.csv(paramKey, 'experiments/uniform_sampling_experiment/simulation_parameters_key.csv', row.names = F)
 
 
 
@@ -41,7 +40,8 @@ treeOutput = read.table('USE_treeOutput.txt', sep = '\t', header = T)
 
 processDFmetrics = left_join(processDF, treeOutput, by = c('model', 'simID'))
 
-
+write.csv(processDFmetrics, 'experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics.csv', 
+          row.names = F)
 
 
 
