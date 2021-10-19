@@ -142,6 +142,8 @@ spearman_CI <- function(x, y, alpha = 0.05){
 # Calculate correlations between tree metrics and treatment levels for each model
 corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'spearman') {
   
+  require(stringr)
+  
   if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim', 'com')) {
     stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
   }
