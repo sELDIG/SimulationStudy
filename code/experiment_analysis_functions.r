@@ -148,7 +148,7 @@ corrCalcUSE = function(experimentData, experiment, modelAbbrev, cor.method = 'sp
     stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', 'com', or 'tim'.")
   }
   
-  paramKey <- read.csv('simulation_configuration/simulation_parameters_key.csv', header = T)
+  paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv', header = T)
   
   # split out the root model abbreviation if necessary
   mod = word(modelAbbrev, 1, sep = fixed("."))
