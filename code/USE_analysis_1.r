@@ -1,7 +1,20 @@
 
+# Load libraries
+library(gsheet)
+library(dplyr)
+library(stringr)
+library(ape)
+library(geiger)
+library(lessR)
 
-# 
+source('code/pcaFunctions.r')
+source('code/experiment_analysis_functions.r')
+source('code/treeMetrics.r')
+
+# Read in dataframe of tree metrics and simulation parameters
 processDFmetrics = read.csv('experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics.csv')
+
+paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv')
 
 
 
@@ -13,15 +26,10 @@ processDFmetrics = read.csv('experiments/uniform_sampling_experiment/process_par
 #########################################################################################
 # Generate correlations between all parameters relevant to experiments and tree metrics
 
-experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com', 'tim'), 
+experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com'), 
                          phrase = c('environmental filtering', 'niche conservatism', 'dispersal', 
-                                    'mutation/speciation rate', 'competition', 'time'))
+                                    'mutation/speciation rate', 'competition'))
 
-url <- 'https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897'
-paramKey <- gsheet2tbl(url)
-
-# Read in output and join to parameter files
-metrics = read.table('USE_treeOutput.txt', header = T, sep = '\t')
 
 corrOutput = data.frame(model = character(),
                         experiment = character(),
@@ -33,7 +41,7 @@ corrOutput = data.frame(model = character(),
 
 for (e in experiments$experiment) {
   
-  relevantModels = filter(paramKey, experiment == e) %>% #### Change this back to paramKey once gen is fixed
+  relevantModels = filter(paramKey, experiment == e) %>% 
     distinct(model) %>% unlist()
   
   for (mod in relevantModels) {
@@ -41,7 +49,7 @@ for (e in experiments$experiment) {
     # Check for new model-experiment combinations to run
     if (!paste(mod, e) %in% paste(corrOutput$model, corrOutput$experiment)) {
       
-      corDF = corrCalcUSE(e, metrics, mod)
+      corDF = corrCalcUSE(processDFmetrics, e, mod)
       
       if (class(corDF) == 'data.frame') {
         corrOutput = rbind(corrOutput, corDF)
@@ -65,7 +73,7 @@ corrOutput2 = left_join(corrOutput, modelColors, by = 'model')
 
 
 # Plotting correlation coefficients by model
-pdf('figures/USE_corr_plots.pdf', height = 8, width = 10)
+pdf(paste0('figures/USE_corr_plots_', Sys.Date(), '.pdf'), height = 8, width = 10)
 
 for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
   
@@ -116,9 +124,23 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
 dev.off()
 
 
+
+
 # Plot of distribution of correlation coefficients by model
-pdf('figures/USE_r_by_model.pdf', height = 8, width = 6)
-par(mfrow = c(length(unique(corrOutput2$model)), 1), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
+nModels = length(unique(corrOutput2$model))
+
+if (nModels < 9) {
+  
+  pdf(paste0('figures/USE_r_by_model_', Sys.Date(), '.pdf'), height = 8, width = 6)
+  par(mfrow = c(nModels, 1), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
+  
+} else {
+  
+  pdf(paste0('figures/USE_r_by_model_', Sys.Date(), '.pdf'), height = 8, width = 10)
+  par(mfrow = c(ceiling(nModels/2), 2), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
+  
+}
+
 for (mod in unique(corrOutput2$model)) {
   hist(corrOutput2$r[corrOutput2$model == mod], xlab = '', main = '', col = corrOutput2$color[corrOutput2$model == mod], xlim = c(-1, 1), breaks = seq(-1, 1, by = .1))
   legend("topleft", mod, bty = 'n', cex = 2)
@@ -127,8 +149,10 @@ mtext("Correlation coefficient", 1, cex = 2, outer = T, line = 1)
 dev.off()
 
 
+
+
 # Plot of distribution of correlation coefficients by experiment
-pdf('figures/USE_r_by_experiment.pdf', height = 8, width = 6)
+pdf(paste0('figures/USE_r_by_experiment_', Sys.Date(), '.pdf'), height = 8, width = 6)
 par(mfrow = c(5, 1), mar = c(3, 3, 1, 1), oma = c(4, 0, 0, 0))
 for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
   hist(corrOutput2$r[corrOutput2$experiment == exp], xlab = '', main = '', col = 'gray50', 
