@@ -35,10 +35,18 @@ xe,com,psi,1,"Strength of the Janzen-Connell effect; the larger the value is, th
 xe,com,sig_phi,1,"variance of the phylogenetic relatedness effect distribution; the larger the value is, the remoter phylogenetically related species the phylogenetic relatedness effect can affect."
 xe,dis,dispersal,1,"variance of the dispersal distribution; the larger the value is, the further the species can disperse."
 xe,dis,spatial,1,"variance of the spatial effectiveness of the phylogenetic Janzen-Connell effect; the larger the value is, the futher the effect can affect."
-fh,dis,dispersal,1,NA
-fh,com,density,1,NA
-fh,env,environment,1,NA
-fh,mut,speciationRate,1,NA
+fh.1,dis,dispersal,1,NA
+fh.1,com,density,1,NA
+fh.1,env,environment,1,NA
+fh.1,mut,speciationRate,1,NA
+fh.2,dis,dispersal,1,NA
+fh.2,com,density,1,NA
+fh.2,env,environment,1,NA
+fh.2,mut,speciationRate,1,NA
+fh.3,dis,dispersal,1,NA
+fh.3,com,density,1,NA
+fh.3,env,environment,1,NA
+fh.3,mut,speciationRate,1,NA
 gen.NULL,dis,dispersal_shape,-1,"shape of a Weibull distribution, the larger the value, the shorter is the tail of the dispersal function (NOTE: allways weibull here)"
 gen.NULL,dis,dispersal_scale,1,scale of a Weiull distribution
 gen.NULL,mut,divergence_threshold,1,cumulated genetic isolation of populations to triger a speciation event
