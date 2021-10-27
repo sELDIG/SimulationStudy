@@ -270,7 +270,7 @@ extractLMEoutput = function(lmeObject, expName, metricName) {
 
 # Associations between parameters and processes is originally given here: 
 # https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897
-# but has been written to 'simulation_configuration/simulation_parameters_key.csv'
+# but has been written to 'experiments/uniform_sampling_experiment/simulation_parameters_key.csv'
 
 # Parameters are multiplied by the sign specified in the above spreadsheet to ensure that the strength of the process
 # increases with an increase in the parameter value.
