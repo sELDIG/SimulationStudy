@@ -140,7 +140,7 @@ spearman_CI <- function(x, y, alpha = 0.05){
 # 
 
 # Calculate correlations between tree metrics and treatment levels for each model
-corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'spearman') {
+corrCalcUSE = function(experimentData, experiment, modelAbbrev, cor.method = 'spearman') {
   
   require(stringr)
   
@@ -167,9 +167,10 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'sp
   }
   
   modelData = experimentData %>%
-    right_join(modelParams, by = c('simID', 'model')) %>%
+    right_join(modelParams, by = c('simID', 'model', 'model2')) %>%
     filter(model2 == modelAbbrev)
   
+  # Check for simulation output of the specified model for this experiment
   experimentalParam = paramKey$parameterName[paramKey$model == modelAbbrev & paramKey$experiment == experiment]
   
   if (length(experimentalParam) > 0) { #check that there is a parameter for this experiment
@@ -185,7 +186,7 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'sp
                        r.L95 = rep(NA, length(metrics)*length( experimentalParam)),
                        r.U95 = rep(NA, length(metrics)*length( experimentalParam)))
     
-    for (p in 1:length(experimentalParam)) {   # if multiple params are listed, then cycle through
+    for (p in 1:length(experimentalParam)) {   # if two params are listed, then cycle through
       
       # Some parameters may be configured such that there is a positive correlation between the
       # strength of the process and the parameter value and vice versa. Multiply correlations through
@@ -199,7 +200,7 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'sp
         
         if (sum(!is.na(modelData[, metrics[m]])) > 3) { # require at least 4 data points to calculate CI's
           
-          corr = cor.test(modelData[, metrics[m]], modelData[, experimentalParam[p]], 
+          corr = cor.test(modelData[, metrics[m]], modelData[, paste0(experiment, p)], 
                           use = 'na.or.complete', method = cor.method)
           
           corDF$r[m + (p-1)*length(metrics)] = sign*corr$estimate
@@ -211,7 +212,7 @@ corrCalcUSE = function(experiment, experimentData, modelAbbrev, cor.method = 'sp
             
           } else if (cor.method == 'spearman') {
             
-            corCI = spearman_CI(modelData[, metrics[m]], modelData[, experimentalParam[p]])
+            corCI = spearman_CI(modelData[, metrics[m]], modelData[, paste0(experiment, p)])
             corDF$r.L95[m + (p-1)*length(metrics)] = sign*corCI[1]
             corDF$r.U95[m + (p-1)*length(metrics)] = sign*corCI[2]
             
