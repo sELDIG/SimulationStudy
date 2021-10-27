@@ -279,7 +279,11 @@ alignParametersWithProcesses = function(modelAbbrev) {
   
   params = read.csv(paste("trees/uniform_sampling_experiment/", modelAbbrev, "_USE_parameters.csv", sep = ""), header = T)
   
-  params$model2 = ifelse("scenario" %in% names(params), paste(modelAbbrev, ".", params$scenario, sep = ""), modelAbbrev)
+  if ("scenario" %in% names(params)) {
+    params$model2 = paste(modelAbbrev, ".", params$scenario, sep = "")
+  } else {
+    params$model2 = params$model
+  }
   
   # Here we drop the scenario description, assuming that the process-parameter association is not scenario-dependent
   paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv', header = T) %>% 
