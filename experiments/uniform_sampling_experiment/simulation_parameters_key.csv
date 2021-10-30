@@ -1,0 +1,66 @@
+model,experiment,parameterName,sign,explanationOfEffect
+hs.K,env,w,-1,variance of a distribution that determines how fitness declines with distance from the optimal environmental temperature
+hs.K,nic,sigma_E,-1,variance of a distribution that determines how different a daughter species is from its parent in thermal optimum trait
+hs.K,mut,alpha,1,per capita probability of point mutation speciation
+hs.K,dis,beta,1,per capita probability of dispersing to adjacent grid cell
+hs.S,env,w,-1,variance of a distribution that determines how fitness declines with distance from the optimal environmental temperature
+hs.S,nic,sigma_E,-1,variance of a distribution that determines how different a daughter species is from its parent in thermal optimum trait
+hs.S,mut,alpha,1,per capita probability of point mutation speciation
+hs.S,dis,beta,1,per capita probability of dispersing to adjacent grid cell
+hs.D,env,w,-1,variance of a distribution that determines how fitness declines with distance from the optimal environmental temperature
+hs.D,nic,sigma_E,-1,variance of a distribution that determines how different a daughter species is from its parent in thermal optimum trait
+hs.D,mut,alpha,1,per capita probability of point mutation speciation
+hs.D,dis,beta,1,per capita probability of dispersing to adjacent grid cell
+hs.N,env,w,-1,variance of a distribution that determines how fitness declines with distance from the optimal environmental temperature
+hs.N,nic,sigma_E,-1,variance of a distribution that determines how different a daughter species is from its parent in thermal optimum trait
+hs.N,mut,alpha,1,per capita probability of point mutation speciation
+hs.N,dis,beta,1,per capita probability of dispersing to adjacent grid cell
+pontarp,dis,dispersal,1,per capital probablilty of dispersing to adjacent habitat
+pontarp,env,abiotic_env_gradient,1,difference between environmental optima (in relation to individuals abiotic niche which affetcs fitness )
+pontarp,com,biotic_niche_width,1,"individual's niche in resource use, in relative to the resource distribution"
+pontarp,nic,mutation_step,-1,variance in trait mutation
+ca,mut,Mutation_rate,1,"metabolic constant for kicking-start a protrected speciation process. The larger the value, the more point-mutation should take happen (mutants still need to establish population and survive the period for speciation for speciation to fully emerge)."
+ca,nic,Niche_evolution,-1,maximum deviance from the ancestral species's trait values if there is mutation. That means the larger the value the larger is the niche evolution and lower is the niche conservatism.
+ca,dis,Dispersal_alpha,1,"mean dispersal distance in a Clark's 2Dt dispersal kernel (in grid cell), relevant for local and nearby dispersal/connectivity. The larger the value, the stronger is the local-dispersal ability."
+ca,dis,Dispersal_P,-1,"fatness of the tail in the Clark's 2Dt dispersal kernel (adimensional), relevant for long-distance dispersal (LDD) and biogeographical colonization. The larger the value the lower is the LDD."
+ca,com,SppPool_size,1,"number of species initialized in the mainland species pool. The larger the species poo size, the stronger is the diffuse interspecific competition by increasing the chance of species overlapping their niche/functional space. It could, however, cause diffuse facilitation for small herbs by stabilizing local dynamics."
+ca,tim,EnvTimeStep,1,"length of the environmental/geomorphological time step (in years), the larger the value the slower is the environmental dynamis and therefore the longer the simulated arena can accumulate species (either by colonization or speciation), as the overall number of time steps of the entire simulation scale by 17 times the value of this parameter."
+ca,env,MaxOptimalElevation,1,the maximum possible elevation optima requirement in the species pool. The higher the stronger is the environmental filtering as the simulation arena has a limited availability of elevations.
+ca,tim,TimeOfPhyloTree,1,"the time step (relative to the overall simulation time) for which phylogenetic trees were generated. There are three possible relative time steps (early, intermediate, late in the simulation). The intermediate trees might have a higher number of species, but the later trees more likely to be in equilibrium."
+ve,dis,gam,1,per mainland species colonisation rate
+ve,mut,lac,1,per island lineage cladogenesis rate
+ve,mut,laa,1,per island lineage anagenesis rate
+xe,mut,v,1,per capita probability of point mutation speciation (changed variable name from 'nv' to 'v' which is what is used in parameter file)
+xe,com,psi,1,"Strength of the Janzen-Connell effect; the larger the value is, the severe the species is suffered from its conspecific density"
+xe,com,sig_phi,1,"variance of the phylogenetic relatedness effect distribution; the larger the value is, the remoter phylogenetically related species the phylogenetic relatedness effect can affect."
+xe,dis,dispersal,1,"variance of the dispersal distribution; the larger the value is, the further the species can disperse."
+xe,dis,spatial,1,"variance of the spatial effectiveness of the phylogenetic Janzen-Connell effect; the larger the value is, the futher the effect can affect."
+fh.1,dis,dispersal,1,NA
+fh.1,com,density,1,NA
+fh.1,env,environment,1,NA
+fh.1,mut,speciationRate,1,NA
+fh.2,dis,dispersal,1,NA
+fh.2,com,density,1,NA
+fh.2,env,environment,1,NA
+fh.2,mut,speciationRate,1,NA
+fh.3,dis,dispersal,1,NA
+fh.3,com,density,1,NA
+fh.3,env,environment,1,NA
+fh.3,mut,speciationRate,1,NA
+gen.NULL,dis,dispersal_shape,-1,"shape of a Weibull distribution, the larger the value, the shorter is the tail of the dispersal function (NOTE: allways weibull here)"
+gen.NULL,dis,dispersal_scale,1,scale of a Weiull distribution
+gen.NULL,mut,divergence_threshold,1,cumulated genetic isolation of populations to triger a speciation event
+gen.NULL,mut,mutation,-1,strength of population optimum temperature trait change
+gen.NULL,env,niche_strength,1,"niche width, the bigger the value, the narrower the niche"
+gen.TEMPSP,dis,dispersal_shape,-1,"shape of a Weibull distribution, the larger the value, the shorter is the tail of the dispersal function (NOTE: allways weibull here)"
+gen.TEMPSP,dis,dispersal_scale,1,scale of a Weiull distribution
+gen.TEMPSP,mut,divergence_threshold,1,cumulated genetic isolation of populations to triger a speciation event
+gen.TEMPSP,mut,mutation,-1,strength of population optimum temperature trait change
+gen.TEMPSP,env,niche_strength,1,"niche width, the bigger the value, the narrower the niche"
+gen.TEMPSP,tim,divergence_temperature,-1,"rate of species divergence is temperature dependent, slope of divergence along temperature gradient"
+gen.K,dis,dispersal_shape,-1,"shape of a Weibull distribution, the larger the value, the shorter is the tail of the dispersal function (NOTE: allways weibull here)"
+gen.K,dis,dispersal_scale,1,scale of a Weiull distribution
+gen.K,mut,divergence_threshold,1,cumulated genetic isolation of populations to triger a speciation event
+gen.K,mut,mutation,-1,strength of population optimum temperature trait change
+gen.K,env,niche_strength,1,"niche width, the bigger the value, the narrower the niche"
+gen.K,com,abundance_scale_pwr,-1,strength of carrying capacity
