@@ -47,8 +47,8 @@ treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   outputSubset = treeOutput[, c("model", "simID", vars)]
   outputSubsetNoNAs = na.omit(outputSubset)  
   
-  pc = princomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], cor = TRUE)
-  pcaScores = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$scores) 
+  pc = prcomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], scale. = TRUE)
+  pcaScores = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$x) 
   
   return(list(pcaScores = pcaScores, pcaLoadings = pc$loadings))
 }
