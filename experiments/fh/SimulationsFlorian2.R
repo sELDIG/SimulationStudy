@@ -16,16 +16,17 @@ parameterList <- data.frame(
   density = runif(n, 0, 1),
   environment = runif(n, 0, 1),
   speciationRate = runif(n, 0.5, 5),
-  fission = sample.int(3, n, replace = T),
-  scenario = fission
+  fission = sample.int(3, n, replace = T)
 )
 
 parameterList$dispersalGlobal = dispersalGlobal
-
+parameterList$scenario = parameterList$fission
   
 
 write.csv(parameterList, file = "fh-parameters-2.csv")
-write.csv(parameterList, file = "../../trees/uniform_sampling_experiment/fh_USE_parameters.csv")
+
+parameterList2 = parameterList[1:951,]
+write.csv(parameterList2, file = "../../trees/uniform_sampling_experiment/fh_USE_parameters.csv")
 
 
 simulations = list()
