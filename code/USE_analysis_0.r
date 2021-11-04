@@ -55,8 +55,17 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
                     treedir = 'trees/uniform_sampling_experiment')
 
 
+# PCA on tree metrics
+# --excluding MGL variables because we have no data for large trees
+nonMGLvars = names(treeOutput[3:ncol(treeOutput)])[!grepl("MGL", names(treeOutput[3:ncol(treeOutput)]))]
+
+pcs = treeMetricsPCA(treeOutput, vars = nonMGLvars)
+pcscores = pcs$pcaScores
+
+treeOutputPCA = left_join(treeOutput, pcscores, by = c('model', 'simID'))
+
 # Join process-parameter linkage dataframe to tree output
-processDFmetrics = left_join(processDF, treeOutput, by = c('model', 'simID'))
+processDFmetrics = left_join(processDF, treeOutputPCA, by = c('model', 'simID'))
 
 write.csv(processDFmetrics, 'experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics.csv', 
           row.names = F)

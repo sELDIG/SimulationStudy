@@ -140,7 +140,12 @@ spearman_CI <- function(x, y, alpha = 0.05){
 # 
 
 # Calculate correlations between tree metrics and treatment levels for each model
-corrCalcUSE = function(experimentData, experiment, modelAbbrev, cor.method = 'spearman') {
+corrCalcUSE = function(experimentData, 
+                       experiment, 
+                       modelAbbrev, 
+                       cor.method = 'spearman',
+                       metrics = c('log10S', 'PD', 'Gamma', 'Beta', 'Colless', 'Sackin', 'Yule.PDA.ratio', 'MRD', 'VRD', 'PSV',
+                                   'mean.Iprime', 'MPD', 'VPD', 'nLTT_stat')) {
   
   require(stringr)
   
@@ -175,8 +180,7 @@ corrCalcUSE = function(experimentData, experiment, modelAbbrev, cor.method = 'sp
   
   if (length(experimentalParam) > 0) { #check that there is a parameter for this experiment
     
-    metrics = c('log10S', 'PD', 'Gamma', 'Beta', 'Colless', 'Sackin', 'Yule.PDA.ratio', 'MRD', 'VRD', 'PSV',
-                'mean.Iprime', 'MPD', 'VPD', 'nLTT_stat')
+    
     
     corDF = data.frame(model = rep(modelAbbrev, length(metrics)*length( experimentalParam)),
                        experiment = rep(experiment, length(metrics)*length( experimentalParam)),
