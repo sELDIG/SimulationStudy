@@ -57,10 +57,11 @@ metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_
 
 # PCA on tree metrics
 # --excluding MGL variables because we have no data for large trees
-nonMGLvars = names(treeOutput[3:ncol(treeOutput)])[!grepl("MGL", names(treeOutput[3:ncol(treeOutput)]))]
+nonMGLvars = names(treeOutput[4:ncol(treeOutput)])[!grepl("MGL", names(treeOutput[4:ncol(treeOutput)]))]
 
 pcs = treeMetricsPCA(treeOutput, vars = nonMGLvars)
 pcscores = pcs$pcaScores
+pcloadings = pcs$pcaLoadings
 
 treeOutputPCA = left_join(treeOutput, pcscores, by = c('model', 'simID'))
 

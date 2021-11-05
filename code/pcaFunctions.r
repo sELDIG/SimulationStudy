@@ -50,7 +50,7 @@ treeMetricsPCA = function(treeOutput, models = 'all', vars = 'all') {
   pc = prcomp(outputSubsetNoNAs[, names(outputSubsetNoNAs) %in% vars], scale. = TRUE)
   pcaScores = cbind(outputSubsetNoNAs[, c("model", "simID")], pc$x) 
   
-  return(list(pcaScores = pcaScores, pcaLoadings = pc$loadings))
+  return(list(pcaScores = pcaScores, pcaLoadings = pc$rotation))
 }
 
 
