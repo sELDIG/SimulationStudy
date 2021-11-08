@@ -327,27 +327,7 @@ alignParametersWithProcesses = function(modelAbbrev) {
       com2Name = com2name
     )
     
-  outputDF$env1 = ifelse(!is.na(outputDF$env1Name), 
-                         outputDF[, env1name] * paramKey$sign[paramKey$parameterName == env1name], NA)
-  outputDF$env2 = ifelse(!is.na(outputDF$env2Name), 
-                         outputDF[, env2name] * paramKey$sign[paramKey$parameterName == env2name], NA)
-  outputDF$dis1 = ifelse(!is.na(outputDF$dis1Name), 
-                         outputDF[, dis1name] * paramKey$sign[paramKey$parameterName == dis1name], NA)
-  outputDF$dis2 = ifelse(!is.na(outputDF$dis2Name), 
-                         outputDF[, dis2name] * paramKey$sign[paramKey$parameterName == dis2name], NA)
-  outputDF$nic1 = ifelse(!is.na(outputDF$nic1Name), 
-                         outputDF[, nic1name] * paramKey$sign[paramKey$parameterName == nic1name], NA)
-  outputDF$nic2 = ifelse(!is.na(outputDF$nic2Name), 
-                         outputDF[, nic2name] * paramKey$sign[paramKey$parameterName == nic2name], NA)
-  outputDF$mut1 = ifelse(!is.na(outputDF$mut1Name), 
-                         outputDF[, mut1name] * paramKey$sign[paramKey$parameterName == mut1name], NA)
-  outputDF$mut2 = ifelse(!is.na(outputDF$mut2Name), 
-                         outputDF[, mut2name] * paramKey$sign[paramKey$parameterName == mut2name], NA)
-  outputDF$com1 = ifelse(!is.na(outputDF$com1Name), 
-                         outputDF[, com1name] * paramKey$sign[paramKey$parameterName == com1name], NA)
-  outputDF$com2 = ifelse(!is.na(outputDF$com2Name), 
-                         outputDF[, com2name] * paramKey$sign[paramKey$parameterName == com2name], NA)
-  
+
   output = outputDF %>%
     dplyr::select(model, model2, simID, env1Name:com2)
   
