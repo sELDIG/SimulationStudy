@@ -50,9 +50,18 @@ allTreeFiles = list.files('trees/uniform_sampling_experiment')[grepl(".tre", lis
 
 treesToRun = allTreeFiles[!allTreeFiles %in% analyzedTrees]
 
-# Calculate tree metrics for remaining trees and append
-metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_treeOutput.txt', append = TRUE, 
-                    treedir = 'trees/uniform_sampling_experiment')
+###################
+# If you want to calc metrics for new trees, set to TRUE
+
+runMoreTrees = FALSE
+
+if(runMoreTREES) {
+  
+  # Calculate tree metrics for remaining trees and append
+  metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_treeOutput.txt', append = TRUE, 
+                      treedir = 'trees/uniform_sampling_experiment')
+
+}
 
 
 # PCA on tree metrics
