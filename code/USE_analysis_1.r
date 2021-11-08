@@ -76,6 +76,55 @@ corrOutput2 = left_join(corrOutput, modelColors, by = 'model')
 write.csv(corrOutput2, "experiments/uniform_sampling_experiment/treeMetric_parameter_correlation_output.csv", row.names = F)
 
 
+
+
+# Summarizing best correlations for each model-experiment
+
+maxcorr = corrOutput2 %>% 
+  filter(metric != "S", !grepl("PC", metric)) %>% 
+  group_by(model, experiment) %>% 
+  summarize(metric2 = metric[abs(r) == max(abs(r))], 
+            param = parameter[abs(r) == max(abs(r))],
+            r = r[abs(r) == max(abs(r))], 
+            r.L95 = r.L95[metric == metric2 & parameter == param], 
+            r.U95 = r.U95[metric == metric2 & parameter == param]) %>%
+  rename(metric = metric2,
+         parameter = param) %>%
+  left_join(data.frame(experiment = experiments$experiment, 
+                       color = colorSelection(length(experiments$experiment)), 
+                       ypos = 1:length(experiments$experiment)), by = 'experiment')
+
+
+
+
+####################################
+# Plotting the maximum parameter-metric correlation for each experiment in each model
+
+pdf(paste0('figures/USE_max_corrs_by_model_and_experiment_', Sys.Date(), '.pdf'), height = 8, width = 10)
+par(mar = c(2, 5, 1, 1), mfrow = c(4, 4))
+for (m in unique(maxcorr$model)) {
+  
+  tmp = filter(maxcorr, model == m)
+  
+  plot(tmp$r, tmp$ypos, pch = 18, col = tmp$color, 
+       cex = 1.8, xlim = c(-1.3, 1.3), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 6.5), cex.lab = .8)
+  abline(v = 0, col = 'black', lwd = 1.2)
+  segments(tmp$r.L95, tmp$ypos, tmp$r.U95, tmp$ypos, col = tmp$color, lwd = 2.5)
+  text(-1.3, 6.5, m, cex = 2, adj = c(0, 1))
+  
+  text(tmp$r, tmp$ypos + .3, paste(tmp$parameter, "-", tmp$metric), cex = 0.75)
+  
+  mtext(tmp$experiment, 2, at = tmp$ypos, las = 1, line = 1, cex = 1, col = tmp$color)
+}
+dev.off()
+
+
+
+
+
+
+
+
 # Plotting correlation coefficients by model for individual tree metrics
 pdf(paste0('figures/USE_corr_plots_', Sys.Date(), '.pdf'), height = 8, width = 10)
 
