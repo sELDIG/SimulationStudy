@@ -55,7 +55,7 @@ treesToRun = allTreeFiles[!allTreeFiles %in% analyzedTrees]
 
 runMoreTrees = FALSE
 
-if(runMoreTREES) {
+if(runMoreTrees) {
   
   # Calculate tree metrics for remaining trees and append
   metricsForManyTrees(treefiles = treesToRun, minimumTreeSize = 5, fileOut = 'USE_treeOutput.txt', append = TRUE, 
