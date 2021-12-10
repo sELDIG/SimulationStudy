@@ -40,7 +40,7 @@ corrOutput = data.frame(model = character(),
                         r.U95 = double())
 
 metriccolumns = processDFmetrics %>%
-  select(S:VPD, nLTT_stat:PC6) %>% names()
+  dplyr::select(S:VPD, nLTT_stat:PC6) %>% names()
 
 for (e in experiments$experiment) {
   
