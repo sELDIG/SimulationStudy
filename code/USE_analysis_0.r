@@ -77,6 +77,6 @@ treeOutputPCA = left_join(treeOutput, pcscores, by = c('model', 'simID'))
 # Join process-parameter linkage dataframe to tree output
 processDFmetrics = left_join(processDF, treeOutputPCA, by = c('model', 'simID'))
 
-write.csv(processDFmetrics, 'experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics.csv', 
+write.csv(processDFmetrics, 'experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv', 
           row.names = F)
 
