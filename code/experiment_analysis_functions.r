@@ -1,125 +1,85 @@
 # Functions for analyzing and summarizing simulation experiment data
 
-# Plot tree metrics across low, medium, and high levels for a given experiment
-plotExperimentResults = function(
-  experiment,                       #specify 'env', 'nic', 'dis', 'mut', or 'tim'
-  metrics,                          #specify dataframe with tree metrics and treatment level columns ('joinedOutput' above)
-  alpha = 255                       #color transparency (255 = opaque, 1 = transparent)
-) {
-  
-  if (!experiment %in% c('env', 'nic', 'dis', 'mut', 'tim')) {
-    stop("'experiment' must be one of the following abbreviations: env, nic, dis, mut, or tim")
-  }
-  
-  if (! experiment %in% names(metrics)) {
-    stop("The 'metrics' dataframe does not have a column for that experiment.")
-  }
-  
-  names(metrics)[names(metrics) == experiment] = 'treatment'
-  
-  modelColors = data.frame(model2 = unique(metrics$model2), color = colorSelection(length(unique(metrics$model2)), alpha = alpha))
-  modelColors$model2 = as.character(modelColors$model2)
-  modelColors$color = as.character(modelColors$color)
-  
-  experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'tim'), 
-                           phrase = c('environmental filtering', 'niche conservatism', 'disperal', 'mutation/speciation rate', 'time'))
-  
-  grouped = metrics %>%
-    filter(treatment != "") %>%
-    group_by(treatment, model2) %>%
-    summarize(n = n(),
-              mean_log10S = mean(log10S, na.rm = T), sd_log10S = var(log10S, na.rm = T)^.5,
-              mean_PD = mean(PD, na.rm = T), sd_PD = var(PD, na.rm = T)^.5,
-              mean_Gamma = mean(Gamma, na.rm = T), sd_Gamma = var(Gamma, na.rm = T)^.5,
-              mean_Beta = mean(Beta, na.rm = T), sd_Beta = var(Beta, na.rm = T)^.5,
-              mean_Colless = mean(Colless, na.rm = T), sd_Colless = var(Colless, na.rm = T)^.5,
-              mean_Sackin = mean(Sackin, na.rm = T), sd_Sackin = var(Sackin, na.rm = T)^.5,
-              mean_Yule.PDA.ratio = mean(Yule.PDA.ratio, na.rm = T), sd_Yule.PDA.ratio = var(Yule.PDA.ratio, na.rm = T)^.5,
-              mean_MRD = mean(MRD, na.rm = T), sd_MRD = var(MRD, na.rm = T)^.5,
-              mean_VRD = mean(VRD, na.rm = T), sd_VRD = var(VRD, na.rm = T)^.5,
-              mean_PSV = mean(PSV, na.rm = T), sd_PSV = var(PSV, na.rm = T)^.5,
-              mean_mean.Iprime = mean(mean.Iprime, na.rm = T), sd_mean.Iprime = var(mean.Iprime, na.rm = T)^.5,
-              mean_MPD = mean(MPD, na.rm = T), sd_MPD = var(MPD, na.rm = T)^.5,
-              mean_VPD = mean(VPD, na.rm = T), sd_VPD = var(VPD, na.rm = T)^.5,
-              mean_nLTT_stat = mean(nLTT_stat, na.rm = T), sd_nLTT_stat = var(nLTT_stat, na.rm = T)^.5  ) %>%
-    mutate(treatmentStandardized = toupper(substr(treatment, 1, 1)),
-           level = case_when(
-             treatmentStandardized == 'L' ~ 1,
-             treatmentStandardized == 'M' ~ 2,
-             treatmentStandardized == 'H' ~ 3)) %>%
-    arrange(level) %>%
-    left_join(modelColors, by = 'model2') %>%
-    dplyr::select(model2, treatment, level, mean_log10S:sd_nLTT_stat, color)
-  
-  
-  pdf(paste('figures/', experiment, '_results_', Sys.Date(), '.pdf', sep = ''), height = 8, width = 10)
-  par(mfrow = c(4, 4), mar = c(3, 4, 1, 1), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), cex.lab = 1.5)
-  
-  for (p in 1:14) {
-    plot(grouped$level, c(as.matrix(grouped[, 2*p+2])), type = 'n', xaxt = 'n', 
-         xlab = '', ylab = strsplit(names(grouped)[2*p+2], "_")[[1]][2])
-    mtext(c('Low', 'Med', 'High'), 1, at = 1:3, line = 1)
-    
-    for (m in unique(grouped$model2)) {
-      points(grouped$level[grouped$model2 == m], c(as.matrix(grouped[grouped$model2 == m, 2*p+2])), 
-             type = 'b', col = grouped$color[grouped$model2 == m], pch = 16, cex = 2)
-      #lines()
-      
-    }
-  }
-  
-  plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
-  points(rep(0.8, nrow(modelColors)), seq(0.7, 1.3, length.out = nrow(modelColors)),
-         pch = 16, col = modelColors$color, cex = 3)
-  text(rep(1, nrow(modelColors)), seq(0.7, 1.3, length.out = nrow(modelColors)), modelColors$model2)
-  
-  plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
-  
-  mtext(paste("Experimental results varying", experiments$phrase[experiments$experiment == experiment]), 
-        cex = 2, outer = T)
-  
-  dev.off()
-  
-  
-}
 
+# Function for aligning simulation parameters across models according to the process each parameter is associated with.
+# I.e., create columns for each process (in some cases, two columns for a process because some models have two parameters
+# associated with that process) in which the relevant parameter value is stored.
 
+# Associations between parameters and processes is originally given here: 
+# https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897
+# but has been written to 'experiments/uniform_sampling_experiment/simulation_parameters_key.csv'
 
+# Parameters are multiplied by the sign specified in the above spreadsheet to ensure that the strength of the process
+# increases with an increase in the parameter value.
 
-# Calculate correlations between tree metrics and treatment levels for each model
-corrCalc = function(experiment, experimentData, mod) {
+alignParametersWithProcesses = function(modelAbbrev) {
   
-  if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim')) {
-    stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', or 'tim'.")
-  }
+  params = read.csv(paste("trees/uniform_sampling_experiment/", modelAbbrev, "_USE_parameters.csv", sep = ""), header = T)
   
-  modelData = filter(experimentData, model2 == mod)
-  
-  # Only calculate a correlation coefficient if there are 3 distinct levels for a given experiment
-  if (sum(1:3 %in% unique(modelData[, paste(experiment, "Level", sep = "")])) == 3) {
-    corDF = data.frame(model2 = mod, 
-                       experiment = experiment,
-                       r.log10S = cor(modelData$log10S, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.PD = cor(modelData$PD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.Gamma = cor(modelData$Gamma, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.Beta = cor(modelData$Beta, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.Colless = cor(modelData$Colless, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.Sackin = cor(modelData$Sackin, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.Yule.PDA.ratio = cor(modelData$Yule.PDA.ratio, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.MRD = cor(modelData$MRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.VRD = cor(modelData$VRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.PSV = cor(modelData$PSV, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.mean.Iprime = cor(modelData$mean.Iprime, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.MPD = cor(modelData$MPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.VPD = cor(modelData$VPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
-                       r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'))
-    
+  if ("scenario" %in% names(params)) {
+    params$model2 = paste(modelAbbrev, ".", params$scenario, sep = "")
   } else {
-    corDF = NA
+    params$model2 = params$model
   }
   
-  return(corDF)  
+  # Here we drop the scenario description, assuming that the process-parameter association is not scenario-dependent
+  paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv', header = T) %>% 
+    mutate(model = word(model, sep = "\\.")) %>%
+    dplyr::filter(model == modelAbbrev) %>%
+    distinct()
+  
+  # parameter names associated with each process
+  env1name = ifelse("env" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "env"][1], NA)
+  env2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "env"])) == 2, 
+                    paramKey$parameterName[paramKey$experiment == "env"][2], NA)
+  dis1name = ifelse("dis" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "dis"][1], NA)
+  dis2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "dis"])) == 2, 
+                    paramKey$parameterName[paramKey$experiment == "dis"][2], NA)
+  nic1name = ifelse("nic" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "nic"][1], NA)
+  nic2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "nic"])) == 2, 
+                    paramKey$parameterName[paramKey$experiment == "nic"][2], NA)
+  mut1name = ifelse("mut" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "mut"][1], NA)
+  mut2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "mut"])) == 2, 
+                    paramKey$parameterName[paramKey$experiment == "mut"][2], NA)
+  com1name = ifelse("com" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "com"][1], NA)
+  com2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "com"])) == 2, 
+                    paramKey$parameterName[paramKey$experiment == "com"][2], NA)
+  
+  
+  outputDF = params %>%
+    mutate(
+      env1Name = env1name,
+      env2Name = env2name,
+      dis1Name = dis1name,
+      dis2Name = dis2name,
+      nic1Name = nic1name,
+      nic2Name = nic2name,
+      mut1Name = mut1name,
+      mut2Name = mut2name,
+      com1Name = com1name,
+      com2Name = com2name
+    )
+  
+  outputDF$env1 = ifelse(!is.na(outputDF$env1Name), paramKey$sign[paramKey$parameterName == env1name] * outputDF[, env1name], NA)
+  outputDF$env2 = ifelse(!is.na(outputDF$env2Name), paramKey$sign[paramKey$parameterName == env2name] * outputDF[, env2name], NA)
+  outputDF$dis1 = ifelse(!is.na(outputDF$dis1Name), paramKey$sign[paramKey$parameterName == dis1name] * outputDF[, dis1name], NA)
+  outputDF$dis2 = ifelse(!is.na(outputDF$dis2Name), paramKey$sign[paramKey$parameterName == dis2name] * outputDF[, dis2name], NA)
+  outputDF$nic1 = ifelse(!is.na(outputDF$nic1Name), paramKey$sign[paramKey$parameterName == nic1name] * outputDF[, nic1name], NA)
+  outputDF$nic2 = ifelse(!is.na(outputDF$nic2Name), paramKey$sign[paramKey$parameterName == nic2name] * outputDF[, nic2name], NA)
+  outputDF$mut1 = ifelse(!is.na(outputDF$mut1Name), paramKey$sign[paramKey$parameterName == mut1name] * outputDF[, mut1name], NA)
+  outputDF$mut2 = ifelse(!is.na(outputDF$mut2Name), paramKey$sign[paramKey$parameterName == mut2name] * outputDF[, mut2name], NA)
+  outputDF$com1 = ifelse(!is.na(outputDF$com1Name), paramKey$sign[paramKey$parameterName == com1name] * outputDF[, com1name], NA)
+  outputDF$com2 = ifelse(!is.na(outputDF$com2Name), paramKey$sign[paramKey$parameterName == com2name] * outputDF[, com2name], NA)
+  
+  output = outputDF %>%
+    dplyr::select(model, model2, simID, env1Name:com2)
+  
+  return(output)  
 }
+
+
+
+
 
 
 # Function for calculating CI for spearman's rho
@@ -268,78 +228,129 @@ extractLMEoutput = function(lmeObject, expName, metricName) {
 
 
 
-# Function for aligning simulation parameters across models according to the process each parameter is associated with.
-# I.e., create columns for each process (in some cases, two columns for a process because some models have two parameters
-# associated with that process) in which the relevant parameter value is stored.
 
-# Associations between parameters and processes is originally given here: 
-# https://docs.google.com/spreadsheets/d/1pcUuINauW11cE5OpHVQf_ZuzHzhm2VJkCn7-lSEJXYI/edit#gid=1171496897
-# but has been written to 'experiments/uniform_sampling_experiment/simulation_parameters_key.csv'
 
-# Parameters are multiplied by the sign specified in the above spreadsheet to ensure that the strength of the process
-# increases with an increase in the parameter value.
 
-alignParametersWithProcesses = function(modelAbbrev) {
+#####################################
+# Old functions
+#####################################
+
+# Plot tree metrics across low, medium, and high levels for a given experiment
+plotExperimentResults = function(
+  experiment,                       #specify 'env', 'nic', 'dis', 'mut', or 'tim'
+  metrics,                          #specify dataframe with tree metrics and treatment level columns ('joinedOutput' above)
+  alpha = 255                       #color transparency (255 = opaque, 1 = transparent)
+) {
   
-  params = read.csv(paste("trees/uniform_sampling_experiment/", modelAbbrev, "_USE_parameters.csv", sep = ""), header = T)
-  
-  if ("scenario" %in% names(params)) {
-    params$model2 = paste(modelAbbrev, ".", params$scenario, sep = "")
-  } else {
-    params$model2 = params$model
+  if (!experiment %in% c('env', 'nic', 'dis', 'mut', 'tim')) {
+    stop("'experiment' must be one of the following abbreviations: env, nic, dis, mut, or tim")
   }
   
-  # Here we drop the scenario description, assuming that the process-parameter association is not scenario-dependent
-  paramKey <- read.csv('experiments/uniform_sampling_experiment/simulation_parameters_key.csv', header = T) %>% 
-    mutate(model = word(model, sep = "\\.")) %>%
-    filter(model == modelAbbrev) %>%
-    distinct()
+  if (! experiment %in% names(metrics)) {
+    stop("The 'metrics' dataframe does not have a column for that experiment.")
+  }
   
-  # parameter names associated with each process
-  env1name = ifelse("env" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "env"][1], NA)
-  env2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "env"])) == 2, 
-                    paramKey$parameterName[paramKey$experiment == "env"][2], NA)
-  dis1name = ifelse("dis" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "dis"][1], NA)
-  dis2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "dis"])) == 2, 
-                    paramKey$parameterName[paramKey$experiment == "dis"][2], NA)
-  nic1name = ifelse("nic" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "nic"][1], NA)
-  nic2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "nic"])) == 2, 
-                    paramKey$parameterName[paramKey$experiment == "nic"][2], NA)
-  mut1name = ifelse("mut" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "mut"][1], NA)
-  mut2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "mut"])) == 2, 
-                    paramKey$parameterName[paramKey$experiment == "mut"][2], NA)
-  com1name = ifelse("com" %in% paramKey$experiment, paramKey$parameterName[paramKey$experiment == "com"][1], NA)
-  com2name = ifelse(length(unique(paramKey$parameterName[paramKey$experiment == "com"])) == 2, 
-                    paramKey$parameterName[paramKey$experiment == "com"][2], NA)
+  names(metrics)[names(metrics) == experiment] = 'treatment'
+  
+  modelColors = data.frame(model2 = unique(metrics$model2), color = colorSelection(length(unique(metrics$model2)), alpha = alpha))
+  modelColors$model2 = as.character(modelColors$model2)
+  modelColors$color = as.character(modelColors$color)
+  
+  experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'tim'), 
+                           phrase = c('environmental filtering', 'niche conservatism', 'disperal', 'mutation/speciation rate', 'time'))
+  
+  grouped = metrics %>%
+    filter(treatment != "") %>%
+    group_by(treatment, model2) %>%
+    summarize(n = n(),
+              mean_log10S = mean(log10S, na.rm = T), sd_log10S = var(log10S, na.rm = T)^.5,
+              mean_PD = mean(PD, na.rm = T), sd_PD = var(PD, na.rm = T)^.5,
+              mean_Gamma = mean(Gamma, na.rm = T), sd_Gamma = var(Gamma, na.rm = T)^.5,
+              mean_Beta = mean(Beta, na.rm = T), sd_Beta = var(Beta, na.rm = T)^.5,
+              mean_Colless = mean(Colless, na.rm = T), sd_Colless = var(Colless, na.rm = T)^.5,
+              mean_Sackin = mean(Sackin, na.rm = T), sd_Sackin = var(Sackin, na.rm = T)^.5,
+              mean_Yule.PDA.ratio = mean(Yule.PDA.ratio, na.rm = T), sd_Yule.PDA.ratio = var(Yule.PDA.ratio, na.rm = T)^.5,
+              mean_MRD = mean(MRD, na.rm = T), sd_MRD = var(MRD, na.rm = T)^.5,
+              mean_VRD = mean(VRD, na.rm = T), sd_VRD = var(VRD, na.rm = T)^.5,
+              mean_PSV = mean(PSV, na.rm = T), sd_PSV = var(PSV, na.rm = T)^.5,
+              mean_mean.Iprime = mean(mean.Iprime, na.rm = T), sd_mean.Iprime = var(mean.Iprime, na.rm = T)^.5,
+              mean_MPD = mean(MPD, na.rm = T), sd_MPD = var(MPD, na.rm = T)^.5,
+              mean_VPD = mean(VPD, na.rm = T), sd_VPD = var(VPD, na.rm = T)^.5,
+              mean_nLTT_stat = mean(nLTT_stat, na.rm = T), sd_nLTT_stat = var(nLTT_stat, na.rm = T)^.5  ) %>%
+    mutate(treatmentStandardized = toupper(substr(treatment, 1, 1)),
+           level = case_when(
+             treatmentStandardized == 'L' ~ 1,
+             treatmentStandardized == 'M' ~ 2,
+             treatmentStandardized == 'H' ~ 3)) %>%
+    arrange(level) %>%
+    left_join(modelColors, by = 'model2') %>%
+    dplyr::select(model2, treatment, level, mean_log10S:sd_nLTT_stat, color)
   
   
-  outputDF = params %>%
-    mutate(
-      env1Name = env1name,
-      env2Name = env2name,
-      dis1Name = dis1name,
-      dis2Name = dis2name,
-      nic1Name = nic1name,
-      nic2Name = nic2name,
-      mut1Name = mut1name,
-      mut2Name = mut2name,
-      com1Name = com1name,
-      com2Name = com2name
-    )
+  pdf(paste('figures/', experiment, '_results_', Sys.Date(), '.pdf', sep = ''), height = 8, width = 10)
+  par(mfrow = c(4, 4), mar = c(3, 4, 1, 1), oma = c(0, 0, 3, 0), mgp = c(2.5, 1, 0), cex.lab = 1.5)
+  
+  for (p in 1:14) {
+    plot(grouped$level, c(as.matrix(grouped[, 2*p+2])), type = 'n', xaxt = 'n', 
+         xlab = '', ylab = strsplit(names(grouped)[2*p+2], "_")[[1]][2])
+    mtext(c('Low', 'Med', 'High'), 1, at = 1:3, line = 1)
     
-  outputDF$env1 = ifelse(!is.na(outputDF$env1Name), outputDF[, env1name], NA)
-  outputDF$env2 = ifelse(!is.na(outputDF$env2Name), outputDF[, env2name], NA)
-  outputDF$dis1 = ifelse(!is.na(outputDF$dis1Name), outputDF[, dis1name], NA)
-  outputDF$dis2 = ifelse(!is.na(outputDF$dis2Name), outputDF[, dis2name], NA)
-  outputDF$nic1 = ifelse(!is.na(outputDF$nic1Name), outputDF[, nic1name], NA)
-  outputDF$nic2 = ifelse(!is.na(outputDF$nic2Name), outputDF[, nic2name], NA)
-  outputDF$mut1 = ifelse(!is.na(outputDF$mut1Name), outputDF[, mut1name], NA)
-  outputDF$mut2 = ifelse(!is.na(outputDF$mut2Name), outputDF[, mut2name], NA)
-  outputDF$com1 = ifelse(!is.na(outputDF$com1Name), outputDF[, com1name], NA)
-  outputDF$com2 = ifelse(!is.na(outputDF$com2Name), outputDF[, com2name], NA)
+    for (m in unique(grouped$model2)) {
+      points(grouped$level[grouped$model2 == m], c(as.matrix(grouped[grouped$model2 == m, 2*p+2])), 
+             type = 'b', col = grouped$color[grouped$model2 == m], pch = 16, cex = 2)
+      #lines()
+      
+    }
+  }
   
-  output = outputDF %>%
-    dplyr::select(model, model2, simID, env1Name:com2)
+  plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
+  points(rep(0.8, nrow(modelColors)), seq(0.7, 1.3, length.out = nrow(modelColors)),
+         pch = 16, col = modelColors$color, cex = 3)
+  text(rep(1, nrow(modelColors)), seq(0.7, 1.3, length.out = nrow(modelColors)), modelColors$model2)
   
-  return(output)  
+  plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
+  
+  mtext(paste("Experimental results varying", experiments$phrase[experiments$experiment == experiment]), 
+        cex = 2, outer = T)
+  
+  dev.off()
+  
+  
+}
+
+
+
+# Calculate correlations between tree metrics and treatment levels for each model
+corrCalc = function(experiment, experimentData, mod) {
+  
+  if (! experiment %in% c('env', 'nic', 'dis', 'mut', 'tim')) {
+    stop("'experiment' but be either 'env', 'nic', 'dis', 'mut', or 'tim'.")
+  }
+  
+  modelData = filter(experimentData, model2 == mod)
+  
+  # Only calculate a correlation coefficient if there are 3 distinct levels for a given experiment
+  if (sum(1:3 %in% unique(modelData[, paste(experiment, "Level", sep = "")])) == 3) {
+    corDF = data.frame(model2 = mod, 
+                       experiment = experiment,
+                       r.log10S = cor(modelData$log10S, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.PD = cor(modelData$PD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Gamma = cor(modelData$Gamma, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Beta = cor(modelData$Beta, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Colless = cor(modelData$Colless, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Sackin = cor(modelData$Sackin, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.Yule.PDA.ratio = cor(modelData$Yule.PDA.ratio, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.MRD = cor(modelData$MRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.VRD = cor(modelData$VRD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.PSV = cor(modelData$PSV, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.mean.Iprime = cor(modelData$mean.Iprime, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.MPD = cor(modelData$MPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.VPD = cor(modelData$VPD, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'),
+                       r.nLTT_stat = cor(modelData$nLTT_stat, modelData[,paste(experiment, "Level", sep = "")], use = 'na.or.complete', method = 'spearman'))
+    
+  } else {
+    corDF = NA
+  }
+  
+  return(corDF)  
 }
