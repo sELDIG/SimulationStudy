@@ -142,7 +142,8 @@ corrCalcUSE = function(experimentData,
     
     
     
-    corDF = data.frame(model = rep(modelAbbrev, length(metrics)*length( experimentalParam)),
+    corDF = data.frame(model = rep(mod, length(metrics)*length( experimentalParam)),
+                       model2 = rep(modelAbbrev, length(metrics)*length( experimentalParam)),
                        experiment = rep(experiment, length(metrics)*length( experimentalParam)),
                        parameter = rep(experimentalParam, each = length(metrics)),
                        metric = rep(metrics, length( experimentalParam)),
@@ -152,14 +153,9 @@ corrCalcUSE = function(experimentData,
     
     for (p in 1:length(experimentalParam)) {   # if two params are listed, then cycle through
       
-      # Some parameters may be configured such that there is a positive correlation between the
-      # strength of the process and the parameter value and vice versa. Multiply correlations through
-      # by this 'sign' so that the interpretation is similar for all parameters:
-      
+      # Assumes that parameters have already been adjusted by multiplying by the sign specified in the paramKey dataframe
       # A positive correlation means that the process increases in strength
-      sign = paramKey$sign[paramKey$model == modelAbbrev & paramKey$parameterName == experimentalParam[p]]
-      
-      
+
       for (m in 1:length(metrics)) { # conduct a correlation with the model parameter and each tree metric
         
         if (sum(!is.na(modelData[, metrics[m]])) > 3) { # require at least 4 data points to calculate CI's
@@ -167,18 +163,18 @@ corrCalcUSE = function(experimentData,
           corr = cor.test(modelData[, metrics[m]], modelData[, paste0(experiment, p)], 
                           use = 'na.or.complete', method = cor.method)
           
-          corDF$r[m + (p-1)*length(metrics)] = sign*corr$estimate
+          corDF$r[m + (p-1)*length(metrics)] = corr$estimate
           
           if (cor.method == 'pearson') {
             
-            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corr$conf.int[1]
-            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corr$conf.int[2]
+            corDF$r.L95[m + (p-1)*length(metrics)] = corr$conf.int[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = corr$conf.int[2]
             
           } else if (cor.method == 'spearman') {
             
             corCI = spearman_CI(modelData[, metrics[m]], modelData[, paste0(experiment, p)])
-            corDF$r.L95[m + (p-1)*length(metrics)] = sign*corCI[1]
-            corDF$r.U95[m + (p-1)*length(metrics)] = sign*corCI[2]
+            corDF$r.L95[m + (p-1)*length(metrics)] = corCI[1]
+            corDF$r.U95[m + (p-1)*length(metrics)] = corCI[2]
             
           }
           
@@ -203,26 +199,6 @@ corrCalcUSE = function(experimentData,
   return(corDF)  
 }
 
-
-
-# Function for extracting salient features of model output from an lmer model
-extractLMEoutput = function(lmeObject, expName, metricName) {
-  
-  lme.summ = summary(lmeObject)
-  
-  out.df = data.frame(experiment = rep(expName, lme.summ$ngrps + 1), 
-                      metric = rep(metricName, lme.summ$ngrps + 1),
-                      model = c('global', row.names(coef(lmeObject)[[1]])),
-                      slope = c(coef(lme.summ)[2, 1], coef(lmeObject)[[1]][, 2]),
-                      intercept = c(coef(lme.summ)[1, 1], coef(lmeObject)[[1]][, 1]),
-                      ngroups = rep(lme.summ$ngrps, lme.summ$ngrps + 1),
-                      totalObs = rep(lme.summ$devcomp$dims[1], lme.summ$ngrps + 1),
-                      global.slope.sd = c(coef(lme.summ)[2, 2], rep(NA, lme.summ$ngrps)),
-                      global.int.sd = c(coef(lme.summ)[1, 2], rep(NA, lme.summ$ngrps)))
-  
-  return(out.df)
-  
-}
 
 
 
@@ -354,3 +330,26 @@ corrCalc = function(experiment, experimentData, mod) {
   
   return(corDF)  
 }
+
+
+
+# Function for extracting salient features of model output from an lmer model
+extractLMEoutput = function(lmeObject, expName, metricName) {
+  
+  lme.summ = summary(lmeObject)
+  
+  out.df = data.frame(experiment = rep(expName, lme.summ$ngrps + 1), 
+                      metric = rep(metricName, lme.summ$ngrps + 1),
+                      model = c('global', row.names(coef(lmeObject)[[1]])),
+                      slope = c(coef(lme.summ)[2, 1], coef(lmeObject)[[1]][, 2]),
+                      intercept = c(coef(lme.summ)[1, 1], coef(lmeObject)[[1]][, 1]),
+                      ngroups = rep(lme.summ$ngrps, lme.summ$ngrps + 1),
+                      totalObs = rep(lme.summ$devcomp$dims[1], lme.summ$ngrps + 1),
+                      global.slope.sd = c(coef(lme.summ)[2, 2], rep(NA, lme.summ$ngrps)),
+                      global.int.sd = c(coef(lme.summ)[1, 2], rep(NA, lme.summ$ngrps)))
+  
+  return(out.df)
+  
+}
+
+

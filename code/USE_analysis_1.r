@@ -32,6 +32,7 @@ experiments = data.frame(experiment = c('env', 'nic', 'dis', 'mut', 'com'),
 
 
 corrOutput = data.frame(model = character(),
+                        model2 = character(),
                         experiment = character(),
                         parameter = character(),
                         metric = character(),
@@ -66,12 +67,26 @@ for (e in experiments$experiment) {
 }
 
 
-models = unique(paramKey$model)  #### Change this back to paramKey once gen is fixed
-modelColors = data.frame(model = models, color = colorSelection(length(models)))
-modelColors$model = as.character(modelColors$model)
-modelColors$color = as.character(modelColors$color)
 
-corrOutput2 = left_join(corrOutput, modelColors, by = 'model')
+# Manually setting model colors/symbols -- will need to adjust if new models added
+scenarioSymbols = c(16, 17, 15, 18)
+
+modelColors = data.frame(model = unique(corrOutput$model),
+                         color = as.character(colorSelection(length(unique(corrOutput$model)))))
+
+modelLegend = unique(corrOutput[, c('model', 'model2')]) %>%
+  left_join(modelColors, by = 'model') %>%
+  mutate(symbol = c(16, 17, 15, 18, 
+                    16, 
+                    16, 
+                    16, 17, 15,
+                    16, 17, 15,
+                    16, 
+                    16))
+
+
+
+corrOutput2 = left_join(corrOutput, modelLegend, by = c('model', 'model2'))
 
 write.csv(corrOutput2, "experiments/uniform_sampling_experiment/treeMetric_parameter_correlation_output.csv", row.names = F)
 
@@ -82,7 +97,7 @@ write.csv(corrOutput2, "experiments/uniform_sampling_experiment/treeMetric_param
 
 maxcorr = corrOutput2 %>% 
   filter(metric != "S", !grepl("PC", metric)) %>% 
-  group_by(model, experiment) %>% 
+  group_by(model2, experiment) %>% 
   summarize(metric2 = metric[abs(r) == max(abs(r))], 
             param = parameter[abs(r) == max(abs(r))],
             r = r[abs(r) == max(abs(r))], 
@@ -102,14 +117,14 @@ maxcorr = corrOutput2 %>%
 
 pdf(paste0('figures/USE_max_corrs_by_model_and_experiment_', Sys.Date(), '.pdf'), height = 8, width = 10)
 par(mar = c(2, 5, 1, 1), mfrow = c(4, 4))
-for (m in unique(maxcorr$model)) {
+for (m in unique(maxcorr$model2)) {
   
-  tmp = filter(maxcorr, model == m)
+  tmp = filter(maxcorr, model2 == m)
   
-  plot(tmp$r, tmp$ypos, pch = 18, col = tmp$color, 
+  plot(tmp$r, tmp$ypos, pch = tmp$symbol, col = tmp$color, 
        cex = 1.8, xlim = c(-1.3, 1.3), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 6.5), cex.lab = .8)
   abline(v = 0, col = 'black', lwd = 1.2)
-  segments(tmp$r.L95, tmp$ypos, tmp$r.U95, tmp$ypos, col = tmp$color, lwd = 2.5)
+  segments(tmp$r.L95, tmp$ypos, tmp$r.U95, tmp$ypos, col = tmp$color, lwd = 2)
   text(-1.3, 6.5, m, cex = 2, adj = c(0, 1))
   
   text(tmp$r, tmp$ypos + .3, paste(tmp$parameter, "-", tmp$metric), cex = 0.75)
@@ -138,10 +153,10 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
     
     tmp = filter(corrOutput2, experiment == exp, metric == met)
     
-    plot(tmp$r, 1:nrow(tmp), pch = 18, col = tmp$color, 
+    plot(tmp$r, 1:nrow(tmp), pch = tmp$symbol, col = tmp$color, 
          cex = 1.8, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
     abline(v = 0, col = 'black', lwd = 2)
-    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2.5)
+    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2)
     text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
     
   }
@@ -151,22 +166,22 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
   numMods = nrow(tmp)
   if (numMods <= 6) {
     points(rep(0.58, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)),
-           pch = 18, col = tmp$color, cex = 2)
+           pch = tmp$symbol, col = tmp$color, cex = 2)
     text(rep(.61, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)), 
-         paste(tmp$model, '-', tmp$parameter), cex = 1.3, adj = 0)
+         paste(tmp$model2, '-', tmp$parameter), cex = 1.3, adj = 0)
     
   } else {
     firstHalf = round(numMods/2)
     
     points(rep(0.58, firstHalf), seq(0.62, 1.38, length.out = firstHalf),
-           pch = 18, col = tmp$color[1:firstHalf], cex = 2)
+           pch = tmp$symbol[1:firstHalf], col = tmp$color[1:firstHalf], cex = 2)
     text(rep(.61, firstHalf), seq(0.62, 1.38, length.out = firstHalf), 
-         paste(tmp$model[1:firstHalf], '-', tmp$parameter[1:firstHalf]), cex = 1.1, adj = 0)
+         paste(tmp$model2[1:firstHalf], '-', tmp$parameter[1:firstHalf]), cex = 1.1, adj = 0)
     
     points(rep(1.08, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)),
-           pch = 18, col = tmp$color[(firstHalf + 1):numMods], cex = 2)
+           pch = tmp$symbol[(firstHalf + 1):numMods], col = tmp$color[(firstHalf + 1):numMods], cex = 2)
     text(rep(1.12, (numMods - firstHalf)), seq(0.62, 1.38, length.out = (numMods - firstHalf)), 
-         paste(tmp$model[(firstHalf + 1):numMods], '-', tmp$parameter[(firstHalf + 1):numMods]), cex = 1.1, adj = 0)
+         paste(tmp$model2[(firstHalf + 1):numMods], '-', tmp$parameter[(firstHalf + 1):numMods]), cex = 1.1, adj = 0)
     
   }
   
@@ -191,10 +206,10 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
     
     tmp = filter(corrOutput2, experiment == exp, metric == met)
     
-    plot(tmp$r, 1:nrow(tmp), pch = 18, col = tmp$color, 
+    plot(tmp$r, 1:nrow(tmp), pch = tmp$symbol, col = tmp$color, 
          cex = 1.8, xlim = c(-1, 1), xlab = '', yaxt = 'n', ylab = '', ylim = c(0.5, 1.1*nrow(tmp)))
     abline(v = 0, col = 'black', lwd = 2)
-    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2.5)
+    segments(tmp$r.L95, 1:nrow(tmp), tmp$r.U95, 1:nrow(tmp), col = tmp$color, lwd = 2)
     text(-1, nrow(tmp), met, cex = 1.5, adj = c(0, 1))
     
   }
@@ -202,9 +217,9 @@ for (exp in c('env', 'nic', 'dis', 'mut', 'com')) {
   plot(1, 1, type = 'n', xlab = '', ylab = '', yaxt = 'n', xaxt = 'n', bty = 'n')
   
   points(rep(0.58, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)),
-         pch = 18, col = tmp$color, cex = 2)
+         pch = tmp$symbol, col = tmp$color, cex = 2)
   text(rep(.61, nrow(tmp)), seq(0.62, 1.38, length.out = nrow(tmp)), 
-       paste(tmp$model, '-', tmp$parameter), cex = 1.3, adj = 0)
+       paste(tmp$model2, '-', tmp$parameter), cex = 1.3, adj = 0)
   
   mtext(paste(experiments$phrase[experiments$experiment == exp], "experiment"), 3, outer = T, cex = 2, line = 1)
   mtext("correlation coefficient", 1, outer = T, cex = 1.5, line = 0, at = .3)
@@ -223,7 +238,7 @@ dev.off()
 
 
 # Plot of distribution of correlation coefficients by model
-nModels = length(unique(corrOutput2$model))
+nModels = length(unique(corrOutput2$model2))
 
 if (nModels < 9) {
   
@@ -237,8 +252,8 @@ if (nModels < 9) {
   
 }
 
-for (mod in unique(corrOutput2$model)) {
-  hist(corrOutput2$r[corrOutput2$model == mod], xlab = '', main = '', col = corrOutput2$color[corrOutput2$model == mod], xlim = c(-1, 1), breaks = seq(-1, 1, by = .1))
+for (mod in unique(corrOutput2$model2)) {
+  hist(corrOutput2$r[corrOutput2$model2 == mod], xlab = '', main = '', col = corrOutput2$color[corrOutput2$model2 == mod], xlim = c(-1, 1), breaks = seq(-1, 1, by = .1))
   legend("topleft", mod, bty = 'n', cex = 2)
 }
 mtext("Correlation coefficient", 1, cex = 2, outer = T, line = 1)
