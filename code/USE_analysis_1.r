@@ -82,6 +82,7 @@ modelLegend = unique(corrOutput[, c('model', 'model2')]) %>%
                     16, 17, 15,
                     16, 17, 15,
                     16, 
+                    16,
                     16))
 
 
