@@ -157,6 +157,7 @@ treeMetrics = function(treeInput) {
   log10S = log10(S)
   
   # Absolute tree length, which is the diagonal of the vcv matrix
+  # (distance from tip to root; https://bio.libretexts.org/Bookshelves/Evolutionary_Developmental_Biology/Phylogenetic_Comparative_Methods_(Harmon)/03%3A_Introduction_to_Brownian_Motion/3.04%3A_Brownian_Motion_on_a_Phylogenetic_Tree)
   v.matrix = vcv(tree, corr=F)
   tree.length = diag(v.matrix)[1]
   
