@@ -84,12 +84,13 @@ corrs = corOut %>%
 
  
 
-image.real <- function(mat, xCol = c("blue", "white", "white", "red"), range = c(-1,1)) { 
+image.real <- function(mat, xCol = c("blue", "white", "white", "red"), 
+                       range = c(-1,1), x.labels = rownames(mat), y.labels = colnames(mat)) { 
   mat <- t(mat)[,nrow(mat):1]
   fields::image.plot(mat, axes = FALSE, zlim = range, 
                      col = colorRampPalette(xCol)(30))
-  axis(1, at = seq(0, 1, length = nrow(mat)), labels = rownames(mat))
-  axis(2, at = seq(0, 1, length = ncol(mat)), labels = colnames(mat), las = 2)
+  axis(1, at = seq(0, 1, length = nrow(mat)), labels = x.labels)
+  axis(2, at = seq(0, 1, length = ncol(mat)), labels = y.labels, las = 2)
   box() 
 }
 
@@ -98,7 +99,7 @@ image.real <- function(mat, xCol = c("blue", "white", "white", "red"), range = c
 par(mfrow = c(1, 2), mar = c(3,11,3,3))
 
 # Values: % agreement, Color: average sign
-image.real(signMat) 
+image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
 for(i in 1:length(statisticsIndices)){
   for(j in 1:length(predictorsIndices)){
     text((j-1)/(length(predictorsIndices)-1),
@@ -110,7 +111,7 @@ mtext(paste0(rep("(", 5), numModelsPerPredictor, rep(")", 5)), 1, at = seq(0, 1,
 title(main = "% agreement in effect direction")
 
 # Values: average correlation coefficient, Color: average sign
-image.real(signMat) 
+image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
 for(i in 1:length(statisticsIndices)){
   for(j in 1:length(predictorsIndices)){
     text((j-1)/(length(predictorsIndices)-1),
