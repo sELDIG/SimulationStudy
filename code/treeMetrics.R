@@ -374,3 +374,69 @@ metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
 }
 
   
+## Using Thijs Janzen's 'treestats' R package
+library(devtools)
+devtools::install_github("thijsjanzen/treestats")
+
+metricsForManyTrees = function(treefiles = NULL, minimumTreeSize = 20, fileOut, 
+                               treedir = 'trees') {
+  
+  if(is.null(treefiles)) {
+    treefiles = list.files(treedir)[grepl(".tre", list.files(treedir))]
+  }  
+  
+  for (treefile in treefiles) {
+    
+    tree = read.tree(paste(treedir, "/", treefile, sep = ""))
+    
+    if(tree$Nnode + 1 >= minimumTreeSize) {
+      model = str_extract(treefile, "^[A-Za-z]*")
+      simID = str_extract(treefile, "[0-9]+")
+      
+      print(paste(treefile, Sys.time()))
+      
+      metrics = tryCatch({
+        calc_all_stats(tree)
+      }, error = function(e) {
+        metrics =  data.frame(model = NA, simID = NA, S = NA, log10S = NA, tree.length = NA, PD = NA, Gamma = NA, 
+                              Beta = NA, Colless = NA, Sackin = NA, Yule.PDA.ratio = NA, MRD = NA, 
+                              VRD = NA, PSV = NA, mean.Iprime = NA, MPD = NA, VPD = NA, 
+                              MGL_principal_eigenvalue = NA, MGL_asymmetry = NA,
+                              MGL_peakedness = NA, MGL_eigengap = NA, nLTT_stat = NA)
+      })
+      
+      sink(fileOut, append = TRUE)
+      cat(paste(model, 
+                simID,
+                metrics$S, 
+                metrics$log10S,
+                metrics$tree.length,
+                metrics$PD, 
+                metrics$Gamma,
+                metrics$Beta, 
+                metrics$Colless, 
+                metrics$Sackin,
+                metrics$Yule.PDA.ratio, 
+                metrics$MRD, 
+                metrics$VRD, 
+                metrics$PSV, 
+                metrics$mean.Iprime, 
+                metrics$MPD, 
+                metrics$VPD,
+                metrics$MGL_principal_eigenvalue, 
+                metrics$MGL_asymmetry, 
+                metrics$MGL_peakedness, 
+                metrics$MGL_eigengap, 
+                metrics$nLTT_stat,
+                '\n',
+                sep = '\t'))
+      sink()
+      
+      
+    } else {
+      print(paste(treefile, "skipped -- not enough species"))
+    }
+    
+  }  
+  
+}
