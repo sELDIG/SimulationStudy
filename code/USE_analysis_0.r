@@ -23,7 +23,7 @@ paramKey = read.csv('experiments/uniform_sampling_experiment/simulation_paramete
 # model, model2 (with scenario suffix if appropriate), simID, and columns for the parameter
 # names and parameter values associated with 5 processes: env, dis, nic, mut, com
 
-modelList = c('ca', 'fh', 'gen', 'hs', 'pontarp', 've', 'xe')
+modelList = c('ca', 'fh', 'gen', 'hs', 'pontarp', 've', 'xe', 'la')
 
 for (m in modelList) {
   

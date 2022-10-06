@@ -2,6 +2,7 @@ simuData <- read.csv("./experiments/uniform_sampling_experiment/process_paramete
 simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_parameters_key.csv")
 
 
+head(simuDataKey)
 
 statistics = colnames(simuData)[-(1:24)]
 statisticsIndices = 25:ncol(simuData)
@@ -25,9 +26,14 @@ for(i in 1:length(statisticsIndices)){
       x = scale(tmp[,statisticsIndices[i]])
       y = tmp[,predictorsIndices[j]]
       if(! all(is.na(y))){
-      fit <- summary(lm(y ~ x))
-      R2[k] = fit$r.squared
-      sig[k] = ifelse(fit$coefficients[2,4] <0.05, sign(fit$coefficients[2,1]), 0)
+      
+      corRes = cor.test(x,y, method = "spearman")
+        
+      # fit <- summary(lm(y ~ x))
+      # R2[k] = fit$r.squared
+      # sig[k] = ifelse(fit$coefficients[2,4] <0.05, sign(fit$coefficients[2,1]), 0)
+      R2[k] = corRes$estimate
+      sig[k] = sign(corRes$estimate)
       } else{
         R2[k] = NA
         sig[k] = NA
