@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # This script 
 # 1) examines simulated trees and metrics and relates them to simulation parameter values.
 # 2) identifies which process-parameters are most correlated with which tree metrics
@@ -10,7 +8,6 @@ library(RColorBrewer)
 library(dplyr)
 
 # Read in simulated tree data
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
 simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
 simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_parameters_key.csv")
 
@@ -97,14 +94,6 @@ corrs = corOut %>%
 
  
 
-<<<<<<< HEAD
-image.real <- function(mat, xCol = c("blue", "white", "white", "red"), range = c(-1,1)) { 
-  mat <- t(mat)[,nrow(mat):1]
-  fields::image.plot(mat, axes = FALSE, zlim = range, 
-                     col = colorRampPalette(xCol)(30))
-  axis(1, at = seq(0, 1, length = nrow(mat)), labels = rownames(mat))
-  axis(2, at = seq(0, 1, length = ncol(mat)), labels = colnames(mat), las = 2)
-=======
 image.real <- function(mat, xCol = c("blue", "white", "white", "red"), 
                        range = c(-1,1), x.labels = rownames(mat), y.labels = colnames(mat)) { 
   mat <- t(mat)[,nrow(mat):1]
@@ -112,7 +101,6 @@ image.real <- function(mat, xCol = c("blue", "white", "white", "red"),
                      col = colorRampPalette(xCol)(30))
   axis(1, at = seq(0, 1, length = nrow(mat)), labels = x.labels)
   axis(2, at = seq(0, 1, length = ncol(mat)), labels = y.labels, las = 2)
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
   box() 
 }
 
@@ -121,11 +109,7 @@ image.real <- function(mat, xCol = c("blue", "white", "white", "red"),
 par(mfrow = c(1, 2), mar = c(3,11,3,3))
 
 # Values: % agreement, Color: average sign
-<<<<<<< HEAD
-image.real(signMat) 
-=======
 image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
 for(i in 1:length(statisticsIndices)){
   for(j in 1:length(predictorsIndices)){
     text((j-1)/(length(predictorsIndices)-1),
@@ -137,11 +121,7 @@ mtext(paste0(rep("(", 5), numModelsPerPredictor, rep(")", 5)), 1, at = seq(0, 1,
 title(main = "% agreement in effect direction")
 
 # Values: average correlation coefficient, Color: average sign
-<<<<<<< HEAD
-image.real(signMat) 
-=======
 image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
 for(i in 1:length(statisticsIndices)){
   for(j in 1:length(predictorsIndices)){
     text((j-1)/(length(predictorsIndices)-1),
@@ -175,12 +155,8 @@ for(i in 1:length(statisticsIndices)){
 }
 
 
-<<<<<<< HEAD
-
-=======
 ########################################################################################
 # Random Forests for predicting parameter values from tree metrics
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
 
 library(ranger)
 
@@ -226,8 +202,6 @@ for(i in 1:length(statisticsIndices)){
   }
 }
 
-<<<<<<< HEAD
-=======
 #######################################################################################################
 # Empirical sister clades
 empiricalSisterCladeFiles = list.files('trees/empirical')[grepl('pair', list.files('trees/empirical'))]
@@ -489,4 +463,3 @@ text(.65, max(dispersalParams$scaledValue, na.rm = T), "Models", cex = 1.5)
 
 dev.off()
 
->>>>>>> 1614d5e1bc64cd80d94f900ffebc7f681457894d
