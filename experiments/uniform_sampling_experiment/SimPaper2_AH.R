@@ -14,9 +14,16 @@ simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_pa
 
 head(simuDataKey)
 
+# All tree metrics
 statistics = colnames(simuData)[25:43]
 statisticsIndices = 25:43
 
+# Only the tree metrics not strongly correlated with richness
+#   --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
+statistics2 = colnames(simuData)[c(26, 28, 29, 33:43)]
+statisticsIndices2 = c(26, 28, 29, 33:43)
+
+# Indices for the simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
 predictors = colnames(simuData)[c(14,16,18,20,22)]
 numModelsPerPredictor = c(5, 7, 4, 7, 6)
@@ -157,8 +164,9 @@ for(i in 1:length(statisticsIndices)){
 
 ########################################################################################
 # Random Forests for predicting parameter values from tree metrics
-
 library(ranger)
+
+# Preliminary analysis using all tree metrics
 
 predictability = array(dim = c(length(statistics), length(predictors), length(models)))
 predictabilityR2 = array(dim = c(length(predictors), length(models)))
@@ -202,6 +210,64 @@ for(i in 1:length(statisticsIndices)){
   }
 }
 
+
+
+# Analysis using only the tree metrics that are not strongly correlated with richness
+
+predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
+predictability2R2 = array(dim = c(length(predictors), length(models)))
+
+for(j in 1:length(predictorsIndices)){
+  for(k in 1:length(models)){
+    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices2)]
+    tmp = tmp[complete.cases(tmp),]
+    if(nrow(tmp) > 0){
+      form = as.formula(paste(predictors[j], "~ ."))
+      x = ranger(form, data = tmp, importance = 'permutation',
+                 scale.permutation.importance = T)
+      predictability2[,j,k] = importance(x)     
+      predictability2R2[j,k] = x$r.squared
+    } 
+  }
+}
+
+
+rownames(predictability2R2) = predictors
+colnames(predictability2R2) = models
+
+image.real(predictability2R2, range = c(0,1), xCol = c("beige", "firebrick2"))
+title(main = "Random forest [R2] (non-richness metrics)")
+
+
+predMean2 = apply(predictability2, c(1,2), mean, na.rm = T)
+predSD2 = apply(predictability2, c(1,2), sd, na.rm = T)
+
+rownames(predMean2) = statistics2
+colnames(predMean2) = predictors
+
+image.real(predMean2, range = NULL, xCol = c("beige", "firebrick2"))
+title(main = "mean variable importance (non-richness metrics)")
+
+for(i in 1:length(statisticsIndices2)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices2)-1), 
+         labels = round(predMean2[i,j] / predSD2[i,j], digits = 2))
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 #######################################################################################################
 # Empirical sister clades
 empiricalSisterCladeFiles = list.files('trees/empirical')[grepl('pair', list.files('trees/empirical'))]
@@ -216,7 +282,7 @@ predictability = array(dim = c(length(statistics), length(predictors), length(mo
 predictabilityR2 = array(dim = c(length(predictors), length(models)))
 
 
-# Random forests for each model, saving predictions of parameter values from random forests for each empirical tree
+# Random forests for each model, saving predictions of parameter values from random forests for each empirical tree (based on all tree metrics)
 predictedValues = data.frame(tree = character(),
                              model = character(), 
                              predictor = character(),
@@ -242,8 +308,6 @@ for(j in 1:length(predictorsIndices)){
     } 
   }
 }
-
-
 
 
 # Need to standardize the predicted parameter values relative to the range of values examined within a given model.  
@@ -327,10 +391,12 @@ modelColors = data.frame(model = unique(predictedValues$model),
 scaledPredictions = predictedValues %>%
   left_join(modelParamMinMax, by = c('model', 'predictor')) %>%
   mutate(pair = str_extract(tree, "[1-9]"),
-         clade = rep(c(1, 2), 174),
-         scaledValue = apply(scaledPredictions[, c('value', 'minVal', 'maxVal')], 1, 
-                             function(x) scaleFunction(value = x[1], min = x[2], max = x[3]))) %>%
-  left_join(modelColors, by = 'model')
+         clade = rep(c(1, 2), 174))
+
+scaledPredictions$scaledValue = apply(scaledPredictions[, c('value', 'minVal', 'maxVal')], 1, 
+                             function(x) scaleFunction(value = x[1], min = x[2], max = x[3]))
+
+scaledPredictions = left_join(scaledPredictions, modelColors, by = 'model')
 
 
 
@@ -359,7 +425,7 @@ for (pro in processes) {
     for (m in unique(tmp$model)) {
       
       points(tmp$clade[tmp$model==m], tmp$scaledValue[tmp$model==m], type = 'b', col = tmp$color[tmp$model==m], lwd = 3)
-      
+      text(2.1, tmp$scaledValue[tmp$model==m & tmp$clade == 2], m, adj = 0)
     }
   }
 
@@ -411,7 +477,7 @@ plot(clade2, show.tip.label = F, main = "Cetartiodactyla", cex.main = 1.5)
 
 # Metrics associated with dispersal are VRD, mean.Iprime, (Colless, Sackin, Yule, MRD, MGL_principal_eigenvalue)
 
-dispMetrics = c('VRD', 'mean.Iprime', 'Colless', 'Sackin', 'Yule.PDA.ratio', 'MRD', 'MGL_principal_eigenvalue')
+dispMetrics = c('VRD', 'mean.Iprime', 'Beta', 'Colless', 'Sackin', 'Yule.PDA.ratio', 'MRD', 'MGL_principal_eigenvalue')
 
 
 # Get scaled values of tree metrics relative to the distribution of metrics from all simulated trees
@@ -463,3 +529,234 @@ text(.65, max(dispersalParams$scaledValue, na.rm = T), "Models", cex = 1.5)
 
 dev.off()
 
+
+
+###############################################################################################
+# Plots based on random forests using tree metrics NOT STRONGLY CORRELATED WITH RICHNESS
+
+# Random forests for each model, saving predictions of parameter values from random forests for each empirical tree (based on tree metrics NOT STRONGLY CORRELATED WITH RICHNESS)
+predictedValues2 = data.frame(tree = character(),
+                              model = character(), 
+                              predictor = character(),
+                              value = numeric())
+empMetrics2 = empiricalMetrics[, c(5, 7, 8, 12:23)]
+
+predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
+predictability2R2 = array(dim = c(length(predictors), length(models)))
+
+
+for(j in 1:length(predictorsIndices)){
+  for(k in 1:length(models)){
+    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices2)]
+    tmp = tmp[complete.cases(tmp),]
+    if(nrow(tmp) > 0){
+      form = as.formula(paste(predictors[j], "~ ."))
+      x = ranger(form, data = tmp, importance = 'permutation',
+                 scale.permutation.importance = T)
+      predictions = predict(x, data = empMetrics2)
+      
+      tmpPredictions = data.frame(tree = word(empiricalMetrics$tree, 1, sep = fixed('.')),
+                                  model = rep(models[k], nrow(empMetrics2)),
+                                  predictor = rep(predictors[j], nrow(empMetrics2)),
+                                  value = predictions$predictions)
+      
+      predictedValues2 = rbind(predictedValues2, tmpPredictions)
+      
+    } 
+  }
+}
+
+
+# Need to log-transform these in predictedValues
+predictedValues2$value[predictedValues2$model == 'ca' & predictedValues2$predictor %in% c('mut1', 'com1')] = 
+  log10(predictedValues2$value[predictedValues2$model == 'ca' & predictedValues2$predictor %in% c('mut1', 'com1')])
+
+predictedValues2$value[predictedValues2$model %in% c('hs', 'xe') & predictedValues2$predictor %in% c('mut1', 'dis1')] = 
+  log10(predictedValues2$value[predictedValues2$model %in% c('hs', 'xe') & predictedValues2$predictor %in% c('mut1', 'dis1')])
+
+
+scaledPredictions2 = predictedValues2 %>%
+  left_join(modelParamMinMax, by = c('model', 'predictor')) %>%
+  mutate(pair = str_extract(tree, "[1-9]"),
+         clade = rep(c(1, 2), 174))
+
+scaledPredictions2$scaledValue = apply(scaledPredictions2[, c('value', 'minVal', 'maxVal')], 1, 
+                             function(x) scaleFunction(value = x[1], min = x[2], max = x[3]))
+
+scaledPredictions2 = left_join(scaledPredictions2, modelColors, by = 'model')
+
+ 
+
+# Then can plot distribution of scaled scores between sister clades (connecting points within models) for all processes
+pdf('figures/empirical_sisterclade_comparisons_non-S-correlated_metrics.pdf', height = 8, width = 10)
+
+pairs = unique(scaledPredictions2$pair)
+processes = unique(scaledPredictions2$predictor)
+
+for (pro in processes) {
+  
+  for (p in pairs) {
+    
+    tmp = filter(scaledPredictions2, pair == p, predictor == pro)
+    
+    if (p == 1) {
+      
+      par(mfrow = c(2, 3), mar = c(3, 3, 3, 0), oma = c(0, 3, 3, 0))
+      
+    } 
+    plot(c(0.5,2.5), range(tmp$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "", las = 1,
+         main = word(tmp$tree[2], 2, sep = "_"))
+    axis(1, at = 1:2, labels = c('clade 1', 'clade 2'))
+    
+    for (m in unique(tmp$model)) {
+      
+      points(tmp$clade[tmp$model==m], tmp$scaledValue[tmp$model==m], type = 'b', col = tmp$color[tmp$model==m], lwd = 3)
+      text(2.1, tmp$scaledValue[tmp$model==m & tmp$clade == 2], m, adj = 0)
+    }
+  }
+  
+  mtext(pro, side = 3, outer = TRUE, cex = 2)
+  mtext("Scaled parameter", 2, outer = TRUE, cex = 1.5)
+}
+dev.off()
+
+
+########################################################################################
+# A few example figures of a select clade and process, along with the tree metrics 
+# most associated with that process based on earlier correlation analysis
+
+
+# Cetartiodactyla and dispersal
+clade1 = read.tree('trees/empirical/pair2_cetartiodactyla sister clade carnivora perrisodactyla.txt')
+clade2 = read.tree('trees/empirical/pair2_cetartiodactyla.txt')
+
+pdf('figures/cetartiodactyla_dispersal_non-S-correlated_metrics.pdf', height = 8, width = 10)
+par(mfcol = c(2, 2), mar = c(3, 4, 1, 1), oma = c(1, 0, 3, 0))
+plot(clade1, show.tip.label = F, main = "Carnivora/Perrisodactyla", cex.main = 1.5)
+plot(clade2, show.tip.label = F, main = "Cetartiodactyla", cex.main = 1.5)
+
+# Metrics associated with dispersal are VRD, mean.Iprime, MRD, MGL_principal_eigenvalue (excluding those correlated with S)
+
+dispMetrics2 = c('VRD', 'Beta', 'mean.Iprime', 'MRD', 'MGL_principal_eigenvalue')
+
+
+# Get scaled values of tree metrics relative to the distribution of metrics from all simulated trees
+# In this case it seemed easier/more straightforward to calculate quantiles
+# (in part because the distribution for many of these simulated metrics is highly skewed)
+scaledMetrics2 = data.frame(metric = dispMetrics2, 
+                           clade1 = rep(NA, length(dispMetrics2)), 
+                           clade2 = rep(NA, length(dispMetrics2)),
+                           metricColor = brewer.pal(length(dispMetrics2), 'Blues'))
+
+for (d in dispMetrics2) {
+  
+  scaledMetrics2$clade1[scaledMetrics2$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 2 & empiricalMetrics$clade == 1, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+  scaledMetrics2$clade2[scaledMetrics2$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 2 & empiricalMetrics$clade == 2, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+}
+
+
+
+plot(c(0.5,2.5), range(c(scaledMetrics2$clade1, scaledMetrics2$clade2), na.rm = T), type = 'n', xaxt = 'n', xlab = "", ylab = "Scaled tree metric", las = 1, cex.lab = 1.3)
+axis(1, at = 1:2, labels = c('Carnivora/\nPerrisodactyla', 'Cetartiodactyla'), tck = -.01)
+
+for (m in scaledMetrics2$metric) {
+  
+  points(x = c(1, 2), y = scaledMetrics2[scaledMetrics2$metric == m, 2:3], 
+         type = 'b', col = scaledMetrics2$metricColor[scaledMetrics2$metric == m], lwd = 3)
+  
+  text(2.1, scaledMetrics2$clade2[scaledMetrics2$metric == m], m, adj = 0)
+  
+}
+text(.65, max(scaledMetrics2$clade1, na.rm = T), "Metrics", cex = 1.5)
+
+# Inferred dispersal parameters for different models
+dispersalParams2 = filter(scaledPredictions2, pair == 2, predictor == 'dis1')
+
+plot(c(0.5,2.5), range(dispersalParams2$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "low <--    Inferred dispersal    --> high", las = 1, cex.lab = 1.3)
+axis(1, at = 1:2, labels = c('Carnivora/\nPerrisodactyla', 'Cetartiodactyla'), tck = -.01)
+
+for (m in unique(dispersalParams2$model)) {
+  
+  points(dispersalParams2$clade[dispersalParams2$model==m], dispersalParams2$scaledValue[dispersalParams2$model==m], 
+         type = 'b', col = dispersalParams2$color[dispersalParams2$model==m], lwd = 3)
+  
+  text(2.1, dispersalParams2$scaledValue[dispersalParams2$model==m & dispersalParams2$clade == 2], m, adj = 0)
+  
+}
+text(.65, max(dispersalParams2$scaledValue, na.rm = T), "Models", cex = 1.5)
+
+dev.off()
+
+
+
+########################################################################################
+# Example 2: Hummingbirds vs sisters
+
+clade1 = read.tree('trees/empirical/pair4_humminbirds sister clade swifts.txt')
+clade2 = read.tree('trees/empirical/pair4_hummingbirds.txt')
+
+pdf('figures/hummingbirds_env_filtering_non-S-correlated_metrics.pdf', height = 8, width = 10)
+par(mfcol = c(2, 2), mar = c(3, 4, 3, 1), oma = c(1, 0, 3, 0))
+plot(clade1, show.tip.label = F, main = "", cex.main = 1.5)
+mtext("A) Swifts", 3, adj = 0, cex = 1.3, bty='n', line = 1)
+plot(clade2, show.tip.label = F, main = "", cex.main = 1.5)
+mtext("B) Hummingbirds", 3, adj = 0, cex = 1.3, bty='n', line = 1)
+
+# Metrics associated with environmental filtering, 80% agreement (excluding those correlated with S)
+
+envMetrics = c('MGL_peakedness', 'Gamma', 'Beta')
+
+
+# Get scaled values of tree metrics relative to the distribution of metrics from all simulated trees
+# In this case it seemed easier/more straightforward to calculate quantiles
+# (in part because the distribution for many of these simulated metrics is highly skewed)
+scaledMetrics3 = data.frame(metric = envMetrics, 
+                            clade1 = rep(NA, length(envMetrics)), 
+                            clade2 = rep(NA, length(envMetrics)),
+                            metricColor = brewer.pal(length(envMetrics), 'Blues'))
+
+for (d in envMetrics) {
+  
+  scaledMetrics3$clade1[scaledMetrics3$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 4 & empiricalMetrics$clade == 1, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+  scaledMetrics3$clade2[scaledMetrics3$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 4 & empiricalMetrics$clade == 2, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+}
+
+
+
+plot(c(0.8,2.6), range(c(scaledMetrics3$clade1, scaledMetrics3$clade2), na.rm = T), type = 'n', xaxt = 'n', xlab = "", ylab = "Scaled tree metric", las = 1, cex.lab = 1.3, main = "", cex.main = 1.3)
+axis(1, at = 1:2, labels = c('Swifts', 'Hummingbirds'), tck = -.01, cex.axis = 1.3)
+
+for (m in scaledMetrics3$metric) {
+  
+  points(x = c(1, 2), y = scaledMetrics3[scaledMetrics3$metric == m, 2:3], 
+         type = 'b', col = scaledMetrics3$metricColor[scaledMetrics3$metric == m], lwd = 3)
+  
+  text(2.1, scaledMetrics3$clade2[scaledMetrics3$metric == m], m, adj = 0)
+  
+}
+#text(.65, max(c(scaledMetrics3$clade1, scaledMetrics3$clade2), na.rm = T), "Metrics", cex = 1.5)
+mtext("C) Tree metrics correlated with env. filtering", 3, adj = 0, cex = 1.3, bty='n', line = 1)
+
+
+# Inferred environmental filtering parameters for different models
+envParams = filter(scaledPredictions2, pair == 4, predictor == 'env1')
+
+plot(c(0.8,2.6), range(envParams$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "low <-- Inferred env filtering --> high", las = 1, cex.lab = 1.3, main = "", cex.main = 1.3)
+axis(1, at = 1:2, labels = c('Swifts', 'Hummingbirds'), tck = -.01, cex.axis = 1.3)
+
+for (m in unique(envParams$model)) {
+  
+  points(envParams$clade[envParams$model==m], envParams$scaledValue[envParams$model==m], 
+         type = 'b', col = envParams$color[envParams$model==m], lwd = 3)
+  
+  text(2.1, envParams$scaledValue[envParams$model==m & envParams$clade == 2], m, adj = 0)
+  
+}
+#text(.65, max(envParams$scaledValue, na.rm = T), "Models", cex = 1.5)
+mtext("D) Inference from simulation models", 3, adj = 0, cex = 1.3, bty='n', line = 1)
+
+dev.off()
