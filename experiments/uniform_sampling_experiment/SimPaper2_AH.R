@@ -692,7 +692,7 @@ dev.off()
 
 
 ########################################################################################
-# Example 2: Hummingbirds vs sisters
+# Example 2: Hummingbirds vs sisters and environmental filtering
 
 clade1 = read.tree('trees/empirical/pair4_humminbirds sister clade swifts.txt')
 clade2 = read.tree('trees/empirical/pair4_hummingbirds.txt')
@@ -758,5 +758,80 @@ for (m in unique(envParams$model)) {
 }
 #text(.65, max(envParams$scaledValue, na.rm = T), "Models", cex = 1.5)
 mtext("D) Inference from simulation models", 3, adj = 0, cex = 1.3, bty='n', line = 1)
+
+dev.off()
+
+
+
+
+########################################################################################
+# Example 3: Lagomorpha vs Rodentia and niche conservatism
+
+clade1 = read.tree('trees/empirical/pair5_lagomorpha sister clade rodentia.txt')
+clade2 = read.tree('trees/empirical/pair5_lagomorpha.txt')
+
+pdf('figures/lagomorpha_nic_non-S-correlated_metrics.pdf', height = 8, width = 10)
+par(mfcol = c(2, 2), mar = c(3, 4, 3, 1), oma = c(1, 0, 3, 0))
+plot(clade1, show.tip.label = F, main = "", cex.main = 1.5)
+mtext("A) Rodentia", 3, adj = 0, cex = 1.2, bty='n', line = 1)
+plot(clade2, show.tip.label = F, main = "", cex.main = 1.5)
+mtext("B) Lagomorpha", 3, adj = 0, cex = 1.2, bty='n', line = 1)
+
+# Metrics associated with niche conservatism, at least 80% agreement (excluding those correlated with S)
+
+nicMetrics = c('MGL_peakedness')
+
+
+# Get scaled values of tree metrics relative to the distribution of metrics from all simulated trees
+# In this case it seemed easier/more straightforward to calculate quantiles
+# (in part because the distribution for many of these simulated metrics is highly skewed)
+metColors = brewer.pal(length(nicMetrics), 'Blues')
+
+scaledMetrics4 = data.frame(metric = nicMetrics, 
+                            clade1 = rep(NA, length(nicMetrics)), 
+                            clade2 = rep(NA, length(nicMetrics)),
+                            metricColor = metColors[1:length(nicMetrics)])
+
+for (d in nicMetrics) {
+  
+  scaledMetrics4$clade1[scaledMetrics4$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 5 & empiricalMetrics$clade == 1, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+  scaledMetrics4$clade2[scaledMetrics4$metric == d] = sum(empiricalMetrics[empiricalMetrics$pair== 5 & empiricalMetrics$clade == 2, d] > processDFmetrics[, d], na.rm = T)/nrow(processDFmetrics)
+  
+}
+
+
+
+plot(c(0.8,2.6), range(c(scaledMetrics4$clade1, scaledMetrics4$clade2), na.rm = T), type = 'n', xaxt = 'n', xlab = "", ylab = "Scaled tree metric", las = 1, cex.lab = 1.3, main = "", cex.main = 1.3)
+axis(1, at = 1:2, labels = c('Rodentia', 'Lagomorpha'), tck = -.01, cex.axis = 1.3)
+
+for (m in scaledMetrics4$metric) {
+  
+  points(x = c(1, 2), y = scaledMetrics4[scaledMetrics4$metric == m, 2:3], 
+         type = 'b', col = scaledMetrics4$metricColor[scaledMetrics4$metric == m], lwd = 3)
+  
+  text(2.1, scaledMetrics4$clade2[scaledMetrics4$metric == m], m, adj = 0)
+  
+}
+#text(.65, max(c(scaledMetrics4$clade1, scaledMetrics4$clade2), na.rm = T), "Metrics", cex = 1.5)
+mtext("C) Tree metrics correlated with niche conservatism", 3, adj = 0, cex = 1.2, bty='n', line = 1)
+
+
+# Inferred niche conservatism parameters for different models
+nicParams = filter(scaledPredictions2, pair == 5, predictor == 'nic1')
+
+plot(c(0.8,2.6), range(nicParams$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "low <- Inferred niche conservatism ->  high", las = 1, cex.lab = 1.3, main = "", cex.main = 1.3)
+axis(1, at = 1:2, labels = c('Rodentia', 'Lagomorpha'), tck = -.01, cex.axis = 1.3)
+
+for (m in unique(nicParams$model)) {
+  
+  points(nicParams$clade[nicParams$model==m], nicParams$scaledValue[nicParams$model==m], 
+         type = 'b', col = nicParams$color[nicParams$model==m], lwd = 3)
+  
+  text(2.1, nicParams$scaledValue[nicParams$model==m & nicParams$clade == 2], m, adj = 0)
+  
+}
+#text(.65, max(nicParams$scaledValue, na.rm = T), "Models", cex = 1.5)
+mtext("D) Inference from simulation models", 3, adj = 0, cex = 1.2, bty='n', line = 1)
 
 dev.off()
