@@ -1,0 +1,197 @@
+---
+title: "Analysis"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+# Read and process data
+
+```{r}
+library(RColorBrewer)
+library(dplyr)
+library(tidyr)
+
+# Read in simulated tree data
+simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
+simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_parameters_key.csv")
+
+
+head(simuDataKey)
+
+# Indices for the 19 tree metrics in the data frame
+statistics = colnames(simuData)[25:43]
+statisticsIndices = 25:43
+
+# Only the tree metrics not strongly correlated with richness
+#   --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
+statistics2 = colnames(simuData)[c(26, 28, 29, 33:43)]
+statisticsIndices2 = c(26, 28, 29, 33:43)
+
+# Indices for the 5 simulation processes (env, dis, mut, nic, com)
+predictorsIndices = c(14,16,18,20,22)
+predictors = colnames(simuData)[c(14,16,18,20,22)]
+numModelsPerPredictor = c(5, 7, 4, 7, 6)
+
+# 8 models
+models = levels(simuData$model)
+```
+
+# Consistency analysis
+
+## Agggregate statistics
+
+```{r}
+signMat = matrix(nrow = length(statistics), 
+                 ncol = length(predictors),
+                 dimnames = list(statistics, predictors))
+R2Mat = disAg = disAg2 = signMat
+
+R2MatFull = signMatFull = array(dim = c(length(statistics), length(predictors), length(models)),
+                               dimnames = list(statistics, predictors, models)) 
+
+
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    R2 = sig = rep(NA, length(models))
+    for(k in 1:length(models)){
+      tmp = simuData[simuData$model == models[k],]
+      x = scale(tmp[,statisticsIndices[i]])
+      y = tmp[,predictorsIndices[j]]
+      if(! all(is.na(y))){
+      
+      corRes = cor.test(x,y, method = "spearman")
+        
+      # fit <- summary(lm(y ~ x))
+      # R2[k] = fit$r.squared
+      # sig[k] = ifelse(fit$coefficients[2,4] <0.05, sign(fit$coefficients[2,1]), 0)
+      R2[k] = corRes$estimate
+      sig[k] = corRes$p.value
+      } else{
+        R2[k] = NA
+        sig[k] = NA
+      }
+    }
+    R2MatFull[i,j,] = R2
+    signMatFull[i,j,] = sig
+    R2Mat[i,j] = mean(R2, na.rm = T)
+    signMat[i,j] = sum(sig, na.rm = T) / sum(!is.na(sig))
+    disAg[i,j] = abs(sum(sig == 1, na.rm = T) - sum(sig == -1, na.rm = T)) / abs(sum(sig %in% c(1,-1), na.rm = T))
+    disAg2[i,j] = max(sum(sig == 1, na.rm = T), sum(sig == -1, na.rm = T)) / abs(sum(sig %in% c(1,-1), na.rm = T))
+  }
+}
+```
+
+## Full plot
+
+```{r}
+image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred"), 
+                       range = c(-1,1), x.labels = dimnames(mat)[[1]],      y.labels = dimnames(mat)[[2]]) { 
+  
+  newMat = matrix(nrow = dim(mat)[1], ncol = 50)
+  for(i in 1:dim(mat)[1]){
+    for(k in 1:dim(mat)[2])
+      newMat[i,(1+(k-1)*10):((k-1)*10 + dim(mat)[3])] = mat[i,k,]
+  }
+  
+  newMat <- t(newMat)
+  xpos = rep(0:(dim(mat)[2]-1), each = dim(mat)[3])*10 + 1:dim(mat)[3] 
+  ypos = 1:dim(mat)[1]
+  fields::image.plot(x = 1:50, y = 1:19, z = newMat, axes = FALSE, zlim = range, 
+                     col = colorRampPalette(xCol)(30), xlab = "", ylab = "")
+  
+  abline(v = c(0,10,20,30,40,50) + 0.5)
+  abline(v = c(0,10,20,30,40,50) - 1.5)
+  abline(h = c(1:20) + 0.5)
+  axis(2, at = 1:nrow(mat), labels = x.labels, las = 2, cex.axis = 0.8)
+  axis(3, at = seq(5, 45, by = 10), labels = y.labels, las = 1)
+  axis(1, at = xpos, labels = rep(dimnames(mat)[[3]], 5), cex.axis = 0.65, las = 2)
+  
+  # text(x = xpos, y = 0, srt = 45, adj = 1, xpd = TRUE, labels = rep(dimnames(mat)[[3]], 5), cex = 0.65)
+  box() 
+  
+  for(i in 1:dim(mat2)[1]){
+    for(k in 1:dim(mat2)[2]){
+       for(j in 1:dim(mat2)[3])
+        if(!is.na(mat2[i,k,j]) & mat2[i,k,j] < 0.05){
+          text(x = 10*(k-1) +j,  y = i, labels = "*" )
+      }
+    }
+  }
+}
+
+par(mar = c(5,10,5,3))
+image.real3d(R2MatFull, signMatFull)
+
+```
+
+## Averaging across models
+
+Define plotting function for 2d
+
+```{r}
+
+image.real <- function(mat, xCol = c("blue", "white", "white", "red"), 
+                       range = c(-1,1), x.labels = rownames(mat), y.labels = colnames(mat)) { 
+  mat <- t(mat)[,nrow(mat):1]
+  fields::image.plot(mat, axes = FALSE, zlim = range, 
+                     col = colorRampPalette(xCol)(30))
+  axis(1, at = seq(0, 1, length = nrow(mat)), labels = x.labels)
+  axis(2, at = seq(0, 1, length = ncol(mat)), labels = y.labels, las = 2)
+  box() 
+}
+
+
+# 2-panel figure
+par(mfrow = c(1, 2), mar = c(3,11,3,3))
+
+# Values: % agreement, Color: average sign
+image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
+
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices)-1), 
+         labels = 100*round(disAg2[i,j], digits = 2))
+  }
+}
+mtext(paste0(rep("(", 5), numModelsPerPredictor, rep(")", 5)), 1, at = seq(0, 1, length = ncol(signMat)), line = 2)
+title(main = "% agreement in effect direction")
+
+# Values: average correlation coefficient, Color: average sign
+image.real(signMat, x.labels = c('env', 'dis', 'nic', 'mut', 'com')) 
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices)-1), 
+         labels = round(R2Mat[i,j], digits = 2))
+  }
+}
+mtext(paste0(rep("(", 5), numModelsPerPredictor, rep(")", 5)), 1, at = seq(0, 1, length = ncol(signMat)), line = 2)
+title(main = "Average correlation coefficient")
+
+
+image.real(R2Mat, range = c(-1,1), xCol = c("beige", "firebrick2")) 
+title(main = "R2 between parameter and tree metric")
+
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices)-1), 
+         labels = round(R2Mat[i,j], digits = 2))
+  }
+}
+
+
+image.real(disAg2) 
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices)-1), 
+         labels = round(disAg[i,j], digits = 2))
+  }
+}
+
+
+```
