@@ -6,7 +6,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Read and process data
+# Read and process data0
 
 ```{r}
 library(RColorBrewer)
@@ -20,14 +20,13 @@ simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_pa
 
 head(simuDataKey)
 
-# Indices for the 19 tree metrics in the data frame
-statistics = colnames(simuData)[25:43]
-statisticsIndices = 25:43
+statisticsIndices = 25:43 # all 19 tree metrics
+statisticsIndices = c(26, 28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
+statisticsIndices = 25:50 # all 19 tree metrics plus first 7 PCA
+  
+statistics = colnames(simuData)[statisticsIndices]
 
-# Only the tree metrics not strongly correlated with richness
-#   --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
-statistics2 = colnames(simuData)[c(26, 28, 29, 33:43)]
-statisticsIndices2 = c(26, 28, 29, 33:43)
+nStats = length(statisticsIndices)
 
 # Indices for the 5 simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
@@ -98,12 +97,12 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
   newMat <- t(newMat)
   xpos = rep(0:(dim(mat)[2]-1), each = dim(mat)[3])*10 + 1:dim(mat)[3] 
   ypos = 1:dim(mat)[1]
-  fields::image.plot(x = 1:50, y = 1:19, z = newMat, axes = FALSE, zlim = range, 
+  fields::image.plot(x = 1:50, y = 1:nStats, z = newMat, axes = FALSE, zlim = range, 
                      col = colorRampPalette(xCol)(30), xlab = "", ylab = "")
   
   abline(v = c(0,10,20,30,40,50) + 0.5)
   abline(v = c(0,10,20,30,40,50) - 1.5)
-  abline(h = c(1:20) + 0.5)
+  abline(h = c(1:(nStats +1)) + 0.5)
   axis(2, at = 1:nrow(mat), labels = x.labels, las = 2, cex.axis = 0.8)
   axis(3, at = seq(5, 45, by = 10), labels = y.labels, las = 1)
   axis(1, at = xpos, labels = rep(dimnames(mat)[[3]], 5), cex.axis = 0.65, las = 2)
