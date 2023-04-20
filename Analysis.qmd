@@ -331,7 +331,7 @@ for(k in 1:length(modelsTMP)){
     test = test[complete.cases(test),]
     if(nrow(test) > 0 & k != j){
       y = predict(x, test)
-      CpredictabilityR2[k,j] = cor(y$predictions, test$dis1, method = "kendall")
+      CpredictabilityR2[k,j] = cor.test(y$predictions, test$dis1, method = "kendall")
     }
   }
 }
