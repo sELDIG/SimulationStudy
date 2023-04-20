@@ -12,6 +12,8 @@ editor_options:
 library(RColorBrewer)
 library(dplyr)
 library(tidyr)
+library(ranger)
+library(stringr)
 
 # Read in simulated tree data
 simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
@@ -190,6 +192,193 @@ for(i in 1:length(statisticsIndices)){
          1-(i-1)/(length(statisticsIndices)-1), 
          labels = round(disAg[i,j], digits = 2))
   }
+}
+
+
+```
+
+## Model inversion within each model
+
+Run random forests within each simulation model in order to predict model parameter values from simulation-derived tree shape metrics. Then plug in empirical tree shape metrics to infer a process parameter value assuming that the tree arose from the processes represented by a particular simulation model.
+
+```{r}
+
+# run a version of metricsForManyTrees() to get tree metric output for empirical sister clades (but that function assumes diff model ID naming convention, so had to manually tweak)
+empiricalMetrics = read.table('empiricalSisterClades_treeOutput.txt', header = T, sep = '\t')
+empiricalMetrics$clade = rep(c(1,2), 6)
+empiricalMetrics$cladeName = c('Xenarthra', 'Afrotheria',
+                               'Carnivora/\nPerissodactyla', 'Cetartiodactyla',
+                               'Swifts', 'Hummingbirds',
+                               'Rodentia', 'Lagomorpha',
+                               'Coraciiformes', 'Passeriformes',
+                               'Pelecaniformes', 'Ciconiiformes')
+empMetrics = empiricalMetrics[, 4:22]
+empMetrics2 = empiricalMetrics[, c(5, 7, 8, 12:23)]
+
+predictedValues2 = data.frame(tree = character(),
+                              model = character(), 
+                              predictor = character(),
+                              value = numeric())
+
+predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
+predictability2R2 = array(dim = c(length(predictors), length(models)))
+
+
+for(j in 1:length(predictorsIndices)){
+  for(k in 1:length(models)){
+    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices2)]
+    tmp = tmp[complete.cases(tmp),]
+    if(nrow(tmp) > 0){
+      form = as.formula(paste(predictors[j], "~ ."))
+      x = ranger(form, data = tmp, importance = 'permutation',
+                 scale.permutation.importance = T)
+      predictions = predict(x, data = empMetrics2)
+      
+      tmpPredictions = data.frame(tree = word(empiricalMetrics$tree, 1, sep = fixed('.')),
+                                  model = rep(models[k], nrow(empMetrics2)),
+                                  predictor = rep(predictors[j], nrow(empMetrics2)),
+                                  value = predictions$predictions)
+      
+      predictedValues2 = rbind(predictedValues2, tmpPredictions)
+      
+    } 
+  }
+}
+
+
+
+# Need to standardize the predicted parameter values relative to the range of values examined within a given model.  
+#   scaled = (x - min) / (max - min)          
+
+#so first need to identify min and max values for each model-parameter combo:
+
+modelParamRange = simuData %>%
+  group_by(model) %>%
+  summarize(env1Min = min(env1, na.rm = T),
+            env1Max = max(env1, na.rm = T),
+            com1Min = min(com1, na.rm = T),
+            com1Max = max(com1, na.rm = T),
+            dis1Min = min(dis1, na.rm = T),
+            dis1Max = max(dis1, na.rm = T),
+            nic1Min = min(nic1, na.rm = T),
+            nic1Max = max(nic1, na.rm = T),
+            mut1Min = min(mut1, na.rm = T),
+            mut1Max = max(mut1, na.rm = T))
+
+# Note that for some model/parameter combinations, the modeler varied parameter values uniformly on a log scale, while for others values varied uniformly on an arithmetic scale.
+
+# I examined the skewness values of all sets of values, and determined that each of the following combinations had a skewness of 0.7 or greater and merited being log-transformed prior to scaling. 
+# (Otherwise, the scaled values, e.g. in model 'hs' for dis1 or mut1 are close to 0)
+
+# ca: mut1, com1
+# hs: dis1, mut1
+# xe: dis1, mut1
+
+modelParamRange$com1Min[modelParamRange$model == 'ca'] = log10(modelParamRange$com1Min[modelParamRange$model == 'ca'])
+modelParamRange$com1Max[modelParamRange$model == 'ca'] = log10(modelParamRange$com1Max[modelParamRange$model == 'ca'])
+modelParamRange$dis1Min[modelParamRange$model %in% c('hs', 'xe')] = log10(modelParamRange$dis1Min[modelParamRange$model %in% c('hs', 'xe')])
+modelParamRange$dis1Max[modelParamRange$model %in% c('hs', 'xe')] = log10(modelParamRange$dis1Max[modelParamRange$model %in% c('hs', 'xe')])
+modelParamRange$mut1Min[modelParamRange$model %in% c('hs', 'xe', 'ca')] = log10(modelParamRange$mut1Min[modelParamRange$model %in% c('hs', 'xe', 'ca')])
+modelParamRange$mut1Max[modelParamRange$model %in% c('hs', 'xe', 'ca')] = log10(modelParamRange$mut1Max[modelParamRange$model %in% c('hs', 'xe', 'ca')])
+
+# Rearrange
+modelParamMinMax = data.frame(model = rep(modelParamRange$model, 5), 
+                              predictor = rep(c('env1', 'com1', 'dis1', 'nic1', 'mut1'), each = 8),
+                              minVal = c(modelParamRange$env1Min, modelParamRange$com1Min, modelParamRange$dis1Min, 
+                                         modelParamRange$nic1Min, modelParamRange$mut1Min),
+                              maxVal = c(modelParamRange$env1Max, modelParamRange$com1Max, modelParamRange$dis1Max, 
+                                         modelParamRange$nic1Max, modelParamRange$mut1Max))
+
+
+# Also need to log-transform the same parameter values in predictedValues2
+predictedValues2$value[predictedValues2$model == 'ca' & predictedValues2$predictor %in% c('mut1', 'com1')] = 
+  log10(predictedValues2$value[predictedValues2$model == 'ca' & predictedValues2$predictor %in% c('mut1', 'com1')])
+
+predictedValues2$value[predictedValues2$model %in% c('hs', 'xe') & predictedValues2$predictor %in% c('mut1', 'dis1')] = 
+  log10(predictedValues2$value[predictedValues2$model %in% c('hs', 'xe') & predictedValues2$predictor %in% c('mut1', 'dis1')])
+
+
+# Function for rescaling a value between the min and max such that the scaled value varies between 0 and 1.
+# If either the min or max are NA, Inf, or -Inf, returns NA
+scaleFunction = function(value, min, max) {
+  
+  if (!min %in% c(-Inf, NA, Inf) & !max %in% c(-Inf, NA, Inf)) {
+    
+    scaledValue = (value - min) / (max - min)
+  
+  } else {
+  
+    scaledValue = NA
+  
+  }
+  return(scaledValue)
+}
+
+
+
+
+scaledPredictions2 = predictedValues2 %>%
+  left_join(modelParamMinMax, by = c('model', 'predictor')) %>%
+  mutate(pair = str_extract(tree, "[1-9]"),
+         clade = rep(c(1, 2), 174))
+
+scaledPredictions2$scaledValue = apply(scaledPredictions2[, c('value', 'minVal', 'maxVal')], 1, 
+                             function(x) scaleFunction(value = x[1], min = x[2], max = x[3]))
+
+#Okabe-Ito color blind friendly palette
+modelColors = data.frame(model = unique(predictedValues2$model),
+                         color = c(rgb(0,0,0),
+                                   rgb(230/255, 159/255, 0),
+                                   rgb(86/255, 180/255, 233/255),
+                                   rgb(0, 158/255, 115/255),
+                                   rgb(240/255, 228/255, 66/255),
+                                   rgb(0, 114/255, 178/255),
+                                   rgb(213/255, 94/255, 0),
+                                   rgb(204/255, 121/255, 167/255)))
+
+scaledPredictions2 = left_join(scaledPredictions2, modelColors, by = 'model')
+
+
+
+# Plot of model inversion for dispersal across 6 empirical sister clade pairs
+# --bottom panel illustrates relative magnitude of mean.Iprime which was identified as the tree metric most diagnostic of dispersal
+
+pairs = unique(scaledPredictions2$pair)
+
+# Specify dispersal process
+pro = 'dis1' 
+
+par(mfrow = c(2, 3), mar = c(3, 3, 1, 0), oma = c(0, 3, 0, 0))
+
+for (p in pairs) {
+    
+  tmp = filter(scaledPredictions2, pair == p, predictor == pro)
+    
+  plot(c(0.5,2.5), range(tmp$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "", las = 1,
+       ylim = c(0, 1), yaxt = 'n')
+  axis(1, at = 1:2, labels = empiricalMetrics$cladeName[empiricalMetrics$pair == p], 
+       tck = 0, cex.axis = 1.1)
+  axis(2, at = seq(0.3, 1, by = 0.1), las = 1)
+ 
+  abline(h = 0.26)
+     
+  for (m in unique(tmp$model)) {
+      
+    points(tmp$clade[tmp$model==m], tmp$scaledValue[tmp$model==m], type = 'b', col = tmp$color[tmp$model==m], lwd = 3)
+    text(2.1, tmp$scaledValue[tmp$model==m & tmp$clade == 2], m, adj = 0)
+  }
+
+  # Add barplots showing empirical values of mean.Iprime for the two sister clades
+  par(new = T)
+  barplot(empiricalMetrics$mean.Iprime[empiricalMetrics$pair == p], 
+          yaxt = 'n', ylim = c(0, 2.5), space = .95, border = NA, xlim = c(0.25, 4.5))  
+  
+  if (p %in% c(1, 5)) {
+    mtext("Tree Metric:", 2, cex = .9, line = 3, at = 0.3)
+    mtext("mean I'", 2, cex = 1, line = 0.5, at = 0.3)
+    mtext("Inferred Dispersal", 2, cex = 1.1, line = 3, at = 1.6)
+  }
+  
 }
 
 
