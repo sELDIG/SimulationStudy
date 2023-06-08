@@ -22,14 +22,15 @@ simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_pa
 
 head(simuDataKey)
 
-# Indices for the 19 tree metrics in the data frame
-statistics = colnames(simuData)[25:43]
-statisticsIndices = 25:43
+statisticsIndices1 = 25:43 # all 19 tree metrics
+statisticsIndices2 = c(26, 28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
+statisticsIndices3 = 25:50 # all 19 tree metrics plus first 7 PCA
+  
+statisticsIndices = statisticsIndices3
 
-# Only the tree metrics not strongly correlated with richness
-#   --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
-statistics2 = colnames(simuData)[c(26, 28, 29, 33:43)]
-statisticsIndices2 = c(26, 28, 29, 33:43)
+statistics = colnames(simuData)[statisticsIndices]
+
+nStats = length(statisticsIndices)
 
 # Indices for the 5 simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
@@ -100,12 +101,12 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
   newMat <- t(newMat)
   xpos = rep(0:(dim(mat)[2]-1), each = dim(mat)[3])*10 + 1:dim(mat)[3] 
   ypos = 1:dim(mat)[1]
-  fields::image.plot(x = 1:50, y = 1:19, z = newMat, axes = FALSE, zlim = range, 
+  fields::image.plot(x = 1:50, y = 1:nStats, z = newMat, axes = FALSE, zlim = range, 
                      col = colorRampPalette(xCol)(30), xlab = "", ylab = "")
   
   abline(v = c(0,10,20,30,40,50) + 0.5)
   abline(v = c(0,10,20,30,40,50) - 1.5)
-  abline(h = c(1:20) + 0.5)
+  abline(h = c(1:(nStats +1)) + 0.5)
   axis(2, at = 1:nrow(mat), labels = x.labels, las = 2, cex.axis = 0.8)
   axis(3, at = seq(5, 45, by = 10), labels = substr(y.labels, 1, 3), las = 1)
   axis(1, at = xpos, labels = rep(dimnames(mat)[[3]], 5), cex.axis = 0.65, las = 2)
@@ -206,9 +207,181 @@ for(i in 1:length(statisticsIndices)){
 
 ```
 
-## Model inversion within each model
+
+
+
+
+# Model inversion 
+
+## Old analysis
+
+
+```{r}
+# Random Forests for predicting parameter values from tree metrics
+library(ranger)
+
+# Preliminary analysis using all tree metrics
+
+predictability = array(dim = c(length(statistics), length(predictors), length(models)))
+predictabilityR2 = array(dim = c(length(predictors), length(models)))
+
+for(j in 1:length(predictorsIndices)){
+  for(k in 1:length(models)){
+    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices)]
+    tmp = tmp[complete.cases(tmp),]
+    if(nrow(tmp) > 0){
+      form = as.formula(paste(predictors[j], "~ ."))
+      x = ranger(form, data = tmp, importance = 'permutation',
+                 scale.permutation.importance = T)
+      predictability[,j,k] = importance(x)     
+      predictabilityR2[j,k] = x$r.squared
+    } 
+  }
+}
+
+
+rownames(predictabilityR2) = predictors
+colnames(predictabilityR2) = models
+
+image.real(predictabilityR2, range = c(0,1), xCol = c("beige", "firebrick2"))
+title(main = "Random forest predictability [R2]")
+
+
+predMean = apply(predictability, c(1,2), mean, na.rm = T)
+predSD = apply(predictability, c(1,2), sd, na.rm = T)
+
+rownames(predMean) = statistics
+colnames(predMean) = predictors
+
+image.real(predMean, range = NULL, xCol = c("beige", "firebrick2"))
+title(main = "mean variable importance for predicting across models")
+
+for(i in 1:length(statisticsIndices)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices)-1), 
+         labels = round(predMean[i,j] / predSD[i,j], digits = 2))
+  }
+}
+```
+
+### Analysis using only the tree metrics that are not strongly correlated with richness
+
+```{r}
+statistics2 = colnames(simuData)[statisticsIndices2]
+
+
+
+predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
+predictability2R2 = array(dim = c(length(predictors), length(models)))
+
+for(j in 1:length(predictorsIndices)){
+  for(k in 1:length(models)){
+    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices2)]
+    tmp = tmp[complete.cases(tmp),]
+    if(nrow(tmp) > 0){
+      form = as.formula(paste(predictors[j], "~ ."))
+      x = ranger(form, data = tmp, importance = 'permutation',
+                 scale.permutation.importance = T)
+      predictability2[,j,k] = importance(x)     
+      predictability2R2[j,k] = x$r.squared
+    } 
+  }
+}
+
+
+rownames(predictability2R2) = predictors
+colnames(predictability2R2) = models
+
+image.real(predictability2R2, range = c(0,1), xCol = c("beige", "firebrick2"))
+title(main = "Random forest [R2] (non-richness metrics)")
+
+
+predMean2 = apply(predictability2, c(1,2), mean, na.rm = T)
+predSD2 = apply(predictability2, c(1,2), sd, na.rm = T)
+
+rownames(predMean2) = statistics2
+colnames(predMean2) = predictors
+
+image.real(predMean2, range = NULL, xCol = c("beige", "firebrick2"))
+title(main = "mean variable importance (non-richness metrics)")
+
+for(i in 1:length(statisticsIndices2)){
+  for(j in 1:length(predictorsIndices)){
+    text((j-1)/(length(predictorsIndices)-1),
+         1-(i-1)/(length(statisticsIndices2)-1), 
+         labels = round(predMean2[i,j] / predSD2[i,j], digits = 2))
+  }
+}
+```
+
+
+## Between models
+
+
+
+```{r}
+predictors[2]
+
+modelsTMP = models[-5]
+
+CpredictabilityR2 = array(dim = c(length(modelsTMP), length(modelsTMP)))
+
+for(k in 1:length(modelsTMP)){
+  train = simuData[simuData$model == modelsTMP[k],c(predictorsIndices[2], statisticsIndices2)]
+  train = train[complete.cases(train),]
+  if(nrow(train) > 0){
+    form = as.formula(paste(predictors[2], "~ ."))
+    x = ranger(form, data = train)
+  } 
+  for(j in 1:length(modelsTMP)){
+    test = simuData[simuData$model == modelsTMP[j],c(predictorsIndices[2], statisticsIndices2)]
+    test = test[complete.cases(test),]
+    if(nrow(test) > 0 & k != j){
+      y = predict(x, test)
+      CpredictabilityR2[k,j] = cor.test(y$predictions, test$dis1, method = "kendall")
+    }
+  }
+}
+
+# could add row and column sums 
+
+rownames(CpredictabilityR2) = modelsTMP
+colnames(CpredictabilityR2) = modelsTMP
+
+tmp = predictability2R2[2,-5]
+
+for(i in 1:length(modelsTMP)) CpredictabilityR2[i,i] = tmp[i]
+
+xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred")
+
+par(mar = c(5,5,5,5))
+
+image.real(CpredictabilityR2, range = c(-1,1), xCol = xCol)
+title(main = paste("Random forest cross-model predictability [R2], mean =", mean(predictabilityR2)), xlab = "test", ylab = "train")
+
+for(i in 1:length(modelsTMP)){
+  for(j in 1:length(modelsTMP)){
+    text((j-1)/(length(modelsTMP)-1),
+         1-(i-1)/(length(modelsTMP)-1), 
+         labels = round(CpredictabilityR2[i,j], digits = 2))
+  }
+}
+```
+
+
+
+
+
+
+
+# Case studies
+
+
+## within each model
 
 Run random forests within each simulation model in order to predict model parameter values from simulation-derived tree shape metrics. Then plug in empirical tree shape metrics to infer a process parameter value assuming that the tree arose from the processes represented by a particular simulation model.
+
 
 ```{r}
 
