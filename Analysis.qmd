@@ -108,9 +108,9 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
   abline(v = c(0,10,20,30,40,50) + 0.5)
   abline(v = c(0,10,20,30,40,50) - 1.5)
   abline(h = c(1:(nStats +1)) + 0.5)
-  axis(2, at = 1:nrow(mat), labels = x.labels, las = 2, cex.axis = 0.8)
-  axis(3, at = seq(5, 45, by = 10), labels = y.labels, las = 1)
-  axis(1, at = xpos, labels = rep(dimnames(mat)[[3]], 5), cex.axis = 0.65, las = 2)
+  axis(2, at = 1:nrow(mat), labels = x.labels, las = 2, cex.axis = 1)
+  axis(3, at = seq(5, 45, by = 10), labels = y.labels, cex.axis = 1.25, las = 1)
+  axis(1, at = xpos, labels = rep(dimnames(mat)[[3]], 5), cex.axis = 0.9, las = 2)
   
   # text(x = xpos, y = 0, srt = 45, adj = 1, xpd = TRUE, labels = rep(dimnames(mat)[[3]], 5), cex = 0.65)
   box() 
@@ -126,7 +126,19 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
 }
 
 par(mar = c(5,10,5,3))
-image.real3d(R2MatFull, signMatFull)
+
+# Tidier labels
+alt.x.labels = dimnames(R2MatFull)[[1]]
+alt.x.labels[c(2, 8, 12, 15, 16, 17, 18, 19)] = c("tree length", "Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
+
+# Modifying a few model abbreviations here (e.g. am and pw)
+dimnames(R2MatFull)[[3]] = c("ca", "fh", "gen", "hs", "am", "pw", "ve", "xe")
+
+image.real3d(R2MatFull, signMatFull, x.labels = alt.x.labels, y.labels = c("env. filtering", "dispersal", "niche conserv.", "mut./speciation", "competition"))
+
+mtext("Models", 1, line = 3.5, cex = 2)
+mtext("Metrics", 2, at = 10, cex = 2, line = 8)
+mtext("Processes", 3, cex = 2, line = 3)
 
 ```
 
