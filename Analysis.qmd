@@ -19,18 +19,11 @@ library(stringr)
 simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
 simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_parameters_key.csv")
 
-
 head(simuDataKey)
 
 statisticsIndices1 = 25:43 # all 19 tree metrics
-statisticsIndices2 = c(26, 28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
+statisticsIndices2 = c(28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
 statisticsIndices3 = 25:50 # all 19 tree metrics plus first 7 PCA
-  
-statisticsIndices = statisticsIndices3
-
-statistics = colnames(simuData)[statisticsIndices]
-
-nStats = length(statisticsIndices)
 
 # Indices for the 5 simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
@@ -43,16 +36,24 @@ models = levels(simuData$model)
 
 # Consistency analysis
 
-## Agggregate statistics
+## Calculating correlation coefficients
+
+Calculating individual as well as model-averaged correlation coefficients between all metrics and processes 
 
 ```{r}
+statisticsIndices = statisticsIndices3
+statistics = colnames(simuData)[statisticsIndices]
+nStats = length(statisticsIndices)
+
 signMat = matrix(nrow = length(statistics), 
                  ncol = length(predictors),
                  dimnames = list(statistics, predictors))
+
 R2Mat = disAg = disAg2 = signMat
 
-R2MatFull = signMatFull = array(dim = c(length(statistics), length(predictors), length(models)),
-                               dimnames = list(statistics, predictors, models)) 
+R2MatFull = signMatFull = array(
+    dim = c(length(statistics), length(predictors), length(models)),
+    dimnames = list(statistics, predictors, models)) 
 
 
 for(i in 1:length(statisticsIndices)){
@@ -64,7 +65,7 @@ for(i in 1:length(statisticsIndices)){
       y = tmp[,predictorsIndices[j]]
       if(! all(is.na(y))){
       
-      corRes = cor.test(x,y, method = "spearman")
+      corRes = cor.test(x,y, method = "kendall")
         
       # fit <- summary(lm(y ~ x))
       # R2[k] = fit$r.squared
@@ -141,7 +142,7 @@ mtext("Processes", 3, cex = 2, line = 3)
 
 ```
 
-## Averaging across models
+## Plot averaged across models
 
 Define plotting function for 2d
 
@@ -208,76 +209,35 @@ for(i in 1:length(statisticsIndices)){
   }
 }
 
-
 ```
-
 
 
 
 
 # Model inversion 
 
-## Old analysis
-
-
 ```{r}
-# Random Forests for predicting parameter values from tree metrics
 library(ranger)
-
-# Preliminary analysis using all tree metrics
-
-predictability = array(dim = c(length(statistics), length(predictors), length(models)))
-predictabilityR2 = array(dim = c(length(predictors), length(models)))
-
-for(j in 1:length(predictorsIndices)){
-  for(k in 1:length(models)){
-    tmp = simuData[simuData$model == models[k],c(predictorsIndices[j], statisticsIndices)]
-    tmp = tmp[complete.cases(tmp),]
-    if(nrow(tmp) > 0){
-      form = as.formula(paste(predictors[j], "~ ."))
-      x = ranger(form, data = tmp, importance = 'permutation',
-                 scale.permutation.importance = T)
-      predictability[,j,k] = importance(x)     
-      predictabilityR2[j,k] = x$r.squared
-    } 
-  }
-}
-
-
-rownames(predictabilityR2) = predictors
-colnames(predictabilityR2) = models
-
-image.real(predictabilityR2, range = c(0,1), xCol = c("beige", "firebrick2"))
-title(main = "Random forest predictability [R2]")
-
-
-predMean = apply(predictability, c(1,2), mean, na.rm = T)
-predSD = apply(predictability, c(1,2), sd, na.rm = T)
-
-rownames(predMean) = statistics
-colnames(predMean) = predictors
-
-image.real(predMean, range = NULL, xCol = c("beige", "firebrick2"))
-title(main = "mean variable importance for predicting across models")
-
-for(i in 1:length(statisticsIndices)){
-  for(j in 1:length(predictorsIndices)){
-    text((j-1)/(length(predictorsIndices)-1),
-         1-(i-1)/(length(statisticsIndices)-1), 
-         labels = round(predMean[i,j] / predSD[i,j], digits = 2))
-  }
-}
 ```
 
-### Analysis using only the tree metrics that are not strongly correlated with richness
+
+## Calculating RF and CV RF values
+
+To be fair, we run this analysis using only the tree metrics that are not strongly correlated with richness
 
 ```{r}
+
 statistics2 = colnames(simuData)[statisticsIndices2]
 
+predictability2 = array(dim = c(length(statistics2), 
+                                length(predictors), 
+                                length(models)))
 
-
-predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
-predictability2R2 = array(dim = c(length(predictors), length(models)))
+predictability2R2 = array(dim = c(length(predictors), 
+                                  length(models)))
+rownames(predictability2R2) = predictors
+colnames(predictability2R2) = models
+predictabilityR2CV = predictability2R2
 
 for(j in 1:length(predictorsIndices)){
   for(k in 1:length(models)){
@@ -285,22 +245,61 @@ for(j in 1:length(predictorsIndices)){
     tmp = tmp[complete.cases(tmp),]
     if(nrow(tmp) > 0){
       form = as.formula(paste(predictors[j], "~ ."))
-      x = ranger(form, data = tmp, importance = 'permutation',
-                 scale.permutation.importance = T)
+      x = ranger(form, data = tmp, 
+                 importance = 'permutation',
+                scale.permutation.importance = T)
       predictability2[,j,k] = importance(x)     
       predictability2R2[j,k] = x$r.squared
+      
+      cvindices = sample(1:5, size = nrow(tmp), replace = T)
+      r2 = rep(NA, 5)
+      for(i in 1:5){
+         x = ranger(form, data = tmp[cvindices != i, ])
+         xp = predict(x, data = tmp[cvindices == i,] )
+         r2[i] = cor(tmp[cvindices == i, 1], xp$predictions)
+      }
+      predictabilityR2CV[j,k] = mean(r2)
     } 
   }
 }
+```
 
+## Predictability within a model
 
-rownames(predictability2R2) = predictors
-colnames(predictability2R2) = models
+Internally calculated R2 values from the ranger package
 
+```{r}
 image.real(predictability2R2, range = c(0,1), xCol = c("beige", "firebrick2"))
 title(main = "Random forest [R2] (non-richness metrics)")
+```
+
+The internally caluclated R2 values of a RF can sometimes be misleading. That's why we additionaly calculated R2 values from a 5-fold CV in the calculation loop above. Results are very similar
+
+```{r}
+image.real(predictabilityR2CV, range = c(0,1), xCol = c("beige", "firebrick2"))
+title(main = "Random forest [R2] CV predictability (non-richness metrics)")
+```
+
+The same as a barplot
 
 
+```{r}
+x = barplot(t(predictabilityR2CV), beside = T, las = 1, horiz = F, ylim = c(0,1.1), ylab = "Correlation predicted observed")
+
+x = as.vector(x)
+x2 = as.vector(t(predictabilityR2CV))
+
+for(i in 1:length(x)){
+  if(!is.na(x2[i])){
+    text(x[i],x2[i] + 0.02, models[(i-1)%%8 + 1], srt = 90,cex= 0.8, adj = 0)    
+  }
+}
+
+```
+
+
+
+```{r}
 predMean2 = apply(predictability2, c(1,2), mean, na.rm = T)
 predSD2 = apply(predictability2, c(1,2), sd, na.rm = T)
 
@@ -343,7 +342,7 @@ for(k in 1:length(modelsTMP)){
     test = test[complete.cases(test),]
     if(nrow(test) > 0 & k != j){
       y = predict(x, test)
-      CpredictabilityR2[k,j] = cor.test(y$predictions, test$dis1, method = "kendall")
+      CpredictabilityR2[k,j] = cor(y$predictions, test$dis1, method = "kendall")
     }
   }
 }
