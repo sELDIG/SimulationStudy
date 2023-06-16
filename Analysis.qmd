@@ -424,7 +424,7 @@ empiricalMetrics = read.table('empiricalSisterClades_treeOutput.txt', header = T
 empiricalMetrics$clade = rep(c(1,2), 6)
 empiricalMetrics$cladeName = c('Xenarthra', 'Afrotheria',
                                'Carnivora/\nPerissodactyla', 'Cetartiodactyla',
-                               'Swifts', 'Hummingbirds',
+                               'Apodi', 'Trochili',
                                'Rodentia', 'Lagomorpha',
                                'Coraciiformes', 'Passeriformes',
                                'Pelecaniformes', 'Ciconiiformes')
@@ -439,6 +439,11 @@ predictedValues2 = data.frame(tree = character(),
 predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
 predictability2R2 = array(dim = c(length(predictors), length(models)))
 
+
+############################################################
+# FLORIAN - double check that these RF models correspond to
+#           the final models we present above
+############################################################
 
 for(j in 1:length(predictorsIndices)){
   for(k in 1:length(models)){
@@ -552,21 +557,31 @@ modelColors = data.frame(model = unique(predictedValues2$model),
                                    rgb(213/255, 94/255, 0),
                                    rgb(204/255, 121/255, 167/255)))
 
-scaledPredictions2 = left_join(scaledPredictions2, modelColors, by = 'model')
+newModelLabels = data.frame(model = c('ca', 'fh', 'gen', 'hs', 'la', 'pontarp', 've', 'xe'), 
+newLabel = c('ca', 'fh', 'gen', 'hs', 'am', 'pw', 've', 'xe'))
+
+scaledPredictions2 = left_join(scaledPredictions2, modelColors, by = 'model') %>% 
+  left_join(newModelLabels, by = 'model')
 
 
 
 # Plot of model inversion for dispersal across 6 empirical sister clade pairs
 # --bottom panel illustrates relative magnitude of mean.Iprime which was identified as the tree metric most diagnostic of dispersal
 
-pairs = unique(scaledPredictions2$pair)
+# Determines order of panels:
+pairs = c(1, 2, 5, 4, 6, 8)
 
 # Specify dispersal process
 pro = 'dis1' 
 
 par(mfrow = c(2, 3), mar = c(3, 3, 1, 0), oma = c(0, 3, 0, 0))
 
+panelLetters = letters[1:6]
+panelIndex = 0
+
 for (p in pairs) {
+  
+  panelIndex = panelIndex + 1
     
   tmp = filter(scaledPredictions2, pair == p, predictor == pro)
     
@@ -581,15 +596,18 @@ for (p in pairs) {
   for (m in unique(tmp$model)) {
       
     points(tmp$clade[tmp$model==m], tmp$scaledValue[tmp$model==m], type = 'b', col = tmp$color[tmp$model==m], lwd = 3)
-    text(2.1, tmp$scaledValue[tmp$model==m & tmp$clade == 2], m, adj = 0)
+    text(2.1, tmp$scaledValue[tmp$model==m & tmp$clade == 2], tmp$newLabel[tmp$model==m], adj = 0)
   }
+  
+  # panel label
+  text(.55, 0.97, paste0("(", panelLetters[panelIndex], ")"), cex = 2)
 
   # Add barplots showing empirical values of mean.Iprime for the two sister clades
   par(new = T)
   barplot(empiricalMetrics$mean.Iprime[empiricalMetrics$pair == p], 
           yaxt = 'n', ylim = c(0, 2.5), space = .95, border = NA, xlim = c(0.25, 4.5))  
   
-  if (p %in% c(1, 5)) {
+  if (panelIndex %in% c(1, 4)) {
     mtext("Tree Metric:", 2, cex = .9, line = 3, at = 0.3)
     mtext("mean I'", 2, cex = 1, line = 0.5, at = 0.3)
     mtext("Inferred Dispersal", 2, cex = 1.1, line = 3, at = 1.6)
