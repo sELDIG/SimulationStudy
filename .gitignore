@@ -9,3 +9,4 @@ experiments/fh/experiment*
 experiment-sim_MCBD*
 Analysis.html
 Analysis_files/
+Analysis_cache/

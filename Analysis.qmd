@@ -1,10 +1,19 @@
 ---
 title: "Analysis"
-format: html
+format: 
+  html:
+    embed-resources: true
+    self-contained-math: true
 editor: visual
 editor_options: 
   chunk_output_type: console
 ---
+
+```{r, echo=FALSE}
+cacheData = F
+```
+
+
 
 # Read and process data
 
@@ -34,13 +43,19 @@ numModelsPerPredictor = c(5, 7, 4, 7, 6)
 models = levels(simuData$model)
 ```
 
+# Clustering / redundancy analysis
+
+
+TODO - add correlation analysis between metrics that was previously in the method section 
+
+
 # Consistency analysis
 
 ## Calculating correlation coefficients
 
 Calculating individual as well as model-averaged correlation coefficients between all metrics and processes 
 
-```{r}
+```{r, cache=cacheData}
 statisticsIndices = statisticsIndices3
 statistics = colnames(simuData)[statisticsIndices]
 nStats = length(statisticsIndices)
@@ -89,6 +104,8 @@ for(i in 1:length(statisticsIndices)){
 
 ## Full plot
 
+Definition of image plot 
+
 ```{r}
 image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred"), 
                        range = c(-1,1), x.labels = dimnames(mat)[[1]],      y.labels = dimnames(mat)[[2]]) { 
@@ -124,7 +141,10 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
     }
   }
 }
+```
 
+
+```{r}
 par(mar = c(5,10,5,3))
 
 # Tidier labels
@@ -225,7 +245,7 @@ library(ranger)
 
 To be fair, we run this analysis using only the tree metrics that are not strongly correlated with richness
 
-```{r}
+```{r, cache=cacheData}
 
 statistics2 = colnames(simuData)[statisticsIndices2]
 
@@ -321,6 +341,11 @@ for(i in 1:length(statisticsIndices2)){
 
 ## Between models
 
+As a next step, we calculate predictability between models, i.e. we use the random forests tuned for one model to predict to the next model.
+
+Cross-model predictability is measured by Kendall's rank correlation coefficient.
+
+For the diagonal (within-model predictability), we use the CV predictability calculated in the previous step. 
 
 
 ```{r}
@@ -352,16 +377,16 @@ for(k in 1:length(modelsTMP)){
 rownames(CpredictabilityR2) = modelsTMP
 colnames(CpredictabilityR2) = modelsTMP
 
-tmp = predictability2R2[2,-5]
+tmp = predictabilityR2CV[2,-5]
 
 for(i in 1:length(modelsTMP)) CpredictabilityR2[i,i] = tmp[i]
 
 xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred")
 
-par(mar = c(5,5,5,5))
+par(mar = c(8,8,8,8))
 
 image.real(CpredictabilityR2, range = c(-1,1), xCol = xCol)
-title(main = paste("Random forest cross-model predictability [R2], mean =", mean(predictabilityR2)), xlab = "test", ylab = "train")
+title(main = paste("Random forest cross-model predictability [R2], mean =", round(mean(CpredictabilityR2), digits = 3)),, xlab = "Model predicted to", ylab = "Model trained \n")
 
 for(i in 1:length(modelsTMP)){
   for(j in 1:length(modelsTMP)){
@@ -370,11 +395,17 @@ for(i in 1:length(modelsTMP)){
          labels = round(CpredictabilityR2[i,j], digits = 2))
   }
 }
+
+
+#above
+axis(3, labels = round(colMeans(abs(CpredictabilityR2)), digits = 2), 
+     at = seq(0,1,length.out = 7), las = 2)
+
+#right
+axis(4, labels = round(rowMeans(abs(CpredictabilityR2)), digits = 2), 
+     at = seq(0,1,length.out = 7), las = 2)
+
 ```
-
-
-
-
 
 
 
