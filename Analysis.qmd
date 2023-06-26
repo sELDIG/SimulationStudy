@@ -13,8 +13,6 @@ editor_options:
 cacheData = F
 ```
 
-
-
 # Read and process data
 
 ```{r}
@@ -45,18 +43,16 @@ models = levels(simuData$model)
 
 # Clustering / redundancy analysis
 
-
-TODO - add correlation analysis between metrics that was previously in the method section 
-
+TODO - add correlation analysis between metrics that was previously in the method section
 
 # Consistency analysis
 
 ## Calculating correlation coefficients
 
-Calculating individual as well as model-averaged correlation coefficients between all metrics and processes 
+Calculating individual as well as model-averaged correlation coefficients between all metrics and processes
 
 ```{r, cache=cacheData}
-statisticsIndices = statisticsIndices3
+statisticsIndices = statisticsIndices1
 statistics = colnames(simuData)[statisticsIndices]
 nStats = length(statisticsIndices)
 
@@ -104,7 +100,7 @@ for(i in 1:length(statisticsIndices)){
 
 ## Full plot
 
-Definition of image plot 
+Definition of image plot
 
 ```{r}
 image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred"), 
@@ -143,12 +139,13 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
 }
 ```
 
-
 ```{r}
 par(mar = c(5,10,5,3))
 
 # Tidier labels
 alt.x.labels = dimnames(R2MatFull)[[1]]
+
+#NOTE: The following line only works if statisticsIndices was originally assigned statisticsIndices1 (with 19 elements)
 alt.x.labels[c(2, 8, 12, 15, 16, 17, 18, 19)] = c("tree length", "Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
 
 # Modifying a few model abbreviations here (e.g. am and pw)
@@ -231,15 +228,11 @@ for(i in 1:length(statisticsIndices)){
 
 ```
 
-
-
-
-# Model inversion 
+# Model inversion
 
 ```{r}
 library(ranger)
 ```
-
 
 ## Calculating RF and CV RF values
 
@@ -302,7 +295,6 @@ title(main = "Random forest [R2] CV predictability (non-richness metrics)")
 
 The same as a barplot
 
-
 ```{r}
 x = barplot(t(predictabilityR2CV), beside = T, las = 1, horiz = F, ylim = c(0,1.1), ylab = "Correlation predicted observed")
 
@@ -316,8 +308,6 @@ for(i in 1:length(x)){
 }
 
 ```
-
-
 
 ```{r}
 predMean2 = apply(predictability2, c(1,2), mean, na.rm = T)
@@ -338,15 +328,13 @@ for(i in 1:length(statisticsIndices2)){
 }
 ```
 
-
 ## Between models
 
 As a next step, we calculate predictability between models, i.e. we use the random forests tuned for one model to predict to the next model.
 
 Cross-model predictability is measured by Kendall's rank correlation coefficient.
 
-For the diagonal (within-model predictability), we use the CV predictability calculated in the previous step. 
-
+For the diagonal (within-model predictability), we use the CV predictability calculated in the previous step.
 
 ```{r}
 predictors[2]
@@ -407,15 +395,11 @@ axis(4, labels = round(rowMeans(abs(CpredictabilityR2)), digits = 2),
 
 ```
 
-
-
 # Case studies
-
 
 ## within each model
 
 Run random forests within each simulation model in order to predict model parameter values from simulation-derived tree shape metrics. Then plug in empirical tree shape metrics to infer a process parameter value assuming that the tree arose from the processes represented by a particular simulation model.
-
 
 ```{r}
 
