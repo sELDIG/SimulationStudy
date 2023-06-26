@@ -37,8 +37,12 @@ predictorsIndices = c(14,16,18,20,22)
 predictors = colnames(simuData)[c(14,16,18,20,22)]
 numModelsPerPredictor = c(5, 7, 4, 7, 6)
 
-# 8 models
-models = levels(simuData$model)
+# 8 models ()
+modelAbbrevs = data.frame(original = c('ca', 'fh', 'gen', 'hs', 'la', 'pontarp', 've', 'xe'), new = c('ca', 'fh', 'gen', 'hs', 'am', 'pw', 've', 'xe'))
+
+models = modelAbbrevs$original
+
+
 ```
 
 # Clustering / redundancy analysis
@@ -303,7 +307,7 @@ x2 = as.vector(t(predictabilityR2CV))
 
 for(i in 1:length(x)){
   if(!is.na(x2[i])){
-    text(x[i],x2[i] + 0.02, models[(i-1)%%8 + 1], srt = 90,cex= 0.8, adj = 0)    
+    text(x[i],x2[i] + 0.02, modelAbbrevs$new[(i-1)%%8 + 1], srt = 90,cex= 0.8, adj = 0)    
   }
 }
 
@@ -362,8 +366,8 @@ for(k in 1:length(modelsTMP)){
 
 # could add row and column sums 
 
-rownames(CpredictabilityR2) = modelsTMP
-colnames(CpredictabilityR2) = modelsTMP
+rownames(CpredictabilityR2) = modelAbbrevs$new[modelAbbrevs$original %in% modelsTMP]
+colnames(CpredictabilityR2) = modelAbbrevs$new[modelAbbrevs$original %in% modelsTMP]
 
 tmp = predictabilityR2CV[2,-5]
 
