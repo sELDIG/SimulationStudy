@@ -244,6 +244,7 @@ To be fair, we run this analysis using only the tree metrics that are not strong
 
 ```{r, cache=cacheData}
 
+# Tree statistics not strongly correlated with richness
 statistics2 = colnames(simuData)[statisticsIndices2]
 
 predictability2 = array(dim = c(length(statistics2), 
@@ -382,7 +383,7 @@ xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred")
 par(mar = c(8,8,8,8))
 
 image.real(CpredictabilityR2, range = c(-1,1), xCol = xCol)
-title(main = paste("Random forest cross-model predictability [R2], mean =", round(mean(CpredictabilityR2), digits = 3)),, xlab = "Model predicted to", ylab = "Model trained \n")
+title(main = paste("Cross-model predictability [r], mean =", round(mean(CpredictabilityR2), digits = 3)),xlab = "Model predicted to", ylab = "Model trained on\n", cex.lab = 1.5)
 
 for(i in 1:length(modelsTMP)){
   for(j in 1:length(modelsTMP)){
