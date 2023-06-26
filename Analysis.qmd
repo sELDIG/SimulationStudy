@@ -21,6 +21,7 @@ library(dplyr)
 library(tidyr)
 library(ranger)
 library(stringr)
+library(heatmaply)
 
 # Read in simulated tree data
 simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
@@ -28,16 +29,16 @@ simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_pa
 
 head(simuDataKey)
 
-statisticsIndices1 = 25:43 # all 19 tree metrics
+statisticsIndices1 = c(25, 27:43) # all 18 tree metrics
 statisticsIndices2 = c(28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
-statisticsIndices3 = 25:50 # all 19 tree metrics plus first 7 PCA
+statisticsIndices3 = c(25, 27:50) # all 18 tree metrics plus first 7 PCA
 
 # Indices for the 5 simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
 predictors = colnames(simuData)[c(14,16,18,20,22)]
 numModelsPerPredictor = c(5, 7, 4, 7, 6)
 
-# 8 models ()
+# 8 models (accounting for abbreviation changes post-experiment)
 modelAbbrevs = data.frame(original = c('ca', 'fh', 'gen', 'hs', 'la', 'pontarp', 've', 'xe'), new = c('ca', 'fh', 'gen', 'hs', 'am', 'pw', 've', 'xe'))
 
 models = modelAbbrevs$original
@@ -48,6 +49,21 @@ models = modelAbbrevs$original
 # Clustering / redundancy analysis
 
 TODO - add correlation analysis between metrics that was previously in the method section
+
+```{r}
+# Correlation among indices
+corrs = cor(simuData[, statisticsIndices1], use = "pairwise.complete.obs", )
+
+metricNames = colnames(simuData)[statisticsIndices1]
+metricNames[metricNames == "mean.Iprime"] = "mean I'"
+
+colnames(corrs) = metricNames
+rownames(corrs) = metricNames
+
+par(mar = c(8, 8, 10, 8))
+heatmaply(corrs, colors = cool_warm)
+
+```
 
 # Consistency analysis
 
@@ -150,7 +166,7 @@ par(mar = c(5,10,5,3))
 alt.x.labels = dimnames(R2MatFull)[[1]]
 
 #NOTE: The following line only works if statisticsIndices was originally assigned statisticsIndices1 (with 19 elements)
-alt.x.labels[c(2, 8, 12, 15, 16, 17, 18, 19)] = c("tree length", "Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
+alt.x.labels[c(7, 11, 14, 15, 16, 17, 18)] = c("Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
 
 # Modifying a few model abbreviations here (e.g. am and pw)
 dimnames(R2MatFull)[[3]] = c("ca", "fh", "gen", "hs", "am", "pw", "ve", "xe")
@@ -166,6 +182,8 @@ mtext("Processes", 3, cex = 2, line = 3)
 ## Plot averaged across models
 
 Define plotting function for 2d
+
+IS THIS SECTION STILL NECESSARY? CURRENTLY THROWING ERRORS
 
 ```{r}
 
@@ -609,4 +627,16 @@ for (p in pairs) {
 }
 
 
+```
+
+Supplemental Figures
+
+```{r}
+
+# Switching out 2 model abbreviations
+simuData$model3 = simuData$model
+simuData$model3 = gsub("pontarp", "pw", simuData$model3)
+simuData$model3 = gsub("la", "am", simuData$model3)
+
+par(mfrow = c(5, 4), mar = c(2, 2, 2, 1)); for (i in 25:43) { boxplot(simuData[,i] ~ simuData$model3, main = names(simuData)[i], col = rainbow(8))}
 ```
