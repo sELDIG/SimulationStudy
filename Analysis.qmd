@@ -1,10 +1,17 @@
 ---
 title: "Analysis"
-format: html
+format: 
+  html:
+    embed-resources: true
+    self-contained-math: true
 editor: visual
 editor_options: 
   chunk_output_type: console
 ---
+
+```{r, echo=FALSE}
+cacheData = F
+```
 
 # Read and process data
 
@@ -14,6 +21,7 @@ library(dplyr)
 library(tidyr)
 library(ranger)
 library(stringr)
+library(heatmaply)
 
 # Read in simulated tree data
 simuData <- read.csv("./experiments/uniform_sampling_experiment/process_parameter_values_and_tree_metrics_sign_corrected.csv", stringsAsFactors = T)
@@ -21,27 +29,50 @@ simuDataKey <- read.csv("./experiments/uniform_sampling_experiment/simulation_pa
 
 head(simuDataKey)
 
-statisticsIndices1 = 25:43 # all 19 tree metrics
+statisticsIndices1 = c(25, 27:43) # all 18 tree metrics
 statisticsIndices2 = c(28, 29, 33:43) # # Only the tree metrics not strongly correlated with richness, --excluding log10S, PD, Colless, Sackin, Yule.PDA.ratio
-statisticsIndices3 = 25:50 # all 19 tree metrics plus first 7 PCA
+statisticsIndices3 = c(25, 27:50) # all 18 tree metrics plus first 7 PCA
 
 # Indices for the 5 simulation processes (env, dis, mut, nic, com)
 predictorsIndices = c(14,16,18,20,22)
 predictors = colnames(simuData)[c(14,16,18,20,22)]
 numModelsPerPredictor = c(5, 7, 4, 7, 6)
 
-# 8 models
-models = levels(simuData$model)
+# 8 models (accounting for abbreviation changes post-experiment)
+modelAbbrevs = data.frame(original = c('ca', 'fh', 'gen', 'hs', 'la', 'pontarp', 've', 'xe'), new = c('ca', 'fh', 'gen', 'hs', 'am', 'pw', 've', 'xe'))
+
+models = modelAbbrevs$original
+
+
+```
+
+# Clustering / redundancy analysis
+
+TODO - add correlation analysis between metrics that was previously in the method section
+
+```{r}
+# Correlation among indices
+corrs = cor(simuData[, statisticsIndices1], use = "pairwise.complete.obs", )
+
+metricNames = colnames(simuData)[statisticsIndices1]
+metricNames[metricNames == "mean.Iprime"] = "mean I'"
+
+colnames(corrs) = metricNames
+rownames(corrs) = metricNames
+
+par(mar = c(8, 8, 10, 8))
+heatmaply(corrs, colors = cool_warm)
+
 ```
 
 # Consistency analysis
 
 ## Calculating correlation coefficients
 
-Calculating individual as well as model-averaged correlation coefficients between all metrics and processes 
+Calculating individual as well as model-averaged correlation coefficients between all metrics and processes
 
-```{r}
-statisticsIndices = statisticsIndices3
+```{r, cache=cacheData}
+statisticsIndices = statisticsIndices1
 statistics = colnames(simuData)[statisticsIndices]
 nStats = length(statisticsIndices)
 
@@ -89,6 +120,8 @@ for(i in 1:length(statisticsIndices)){
 
 ## Full plot
 
+Definition of image plot
+
 ```{r}
 image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred"), 
                        range = c(-1,1), x.labels = dimnames(mat)[[1]],      y.labels = dimnames(mat)[[2]]) { 
@@ -124,12 +157,16 @@ image.real3d <- function(mat, mat2, xCol = c("darkblue","blue", "lightblue", "gr
     }
   }
 }
+```
 
+```{r}
 par(mar = c(5,10,5,3))
 
 # Tidier labels
 alt.x.labels = dimnames(R2MatFull)[[1]]
-alt.x.labels[c(2, 8, 12, 15, 16, 17, 18, 19)] = c("tree length", "Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
+
+#NOTE: The following line only works if statisticsIndices was originally assigned statisticsIndices1 (with 19 elements)
+alt.x.labels[c(7, 11, 14, 15, 16, 17, 18)] = c("Yule-PDA ratio", "mean I'", "MGL prin. eigenvalue", "MGL asymmetry", "MGL peakedness", "MGL eigengap", "nLTT stat")
 
 # Modifying a few model abbreviations here (e.g. am and pw)
 dimnames(R2MatFull)[[3]] = c("ca", "fh", "gen", "hs", "am", "pw", "ve", "xe")
@@ -145,6 +182,8 @@ mtext("Processes", 3, cex = 2, line = 3)
 ## Plot averaged across models
 
 Define plotting function for 2d
+
+IS THIS SECTION STILL NECESSARY? CURRENTLY THROWING ERRORS
 
 ```{r}
 
@@ -211,22 +250,19 @@ for(i in 1:length(statisticsIndices)){
 
 ```
 
-
-
-
-# Model inversion 
+# Model inversion
 
 ```{r}
 library(ranger)
 ```
 
-
 ## Calculating RF and CV RF values
 
 To be fair, we run this analysis using only the tree metrics that are not strongly correlated with richness
 
-```{r}
+```{r, cache=cacheData}
 
+# Tree statistics not strongly correlated with richness
 statistics2 = colnames(simuData)[statisticsIndices2]
 
 predictability2 = array(dim = c(length(statistics2), 
@@ -282,22 +318,23 @@ title(main = "Random forest [R2] CV predictability (non-richness metrics)")
 
 The same as a barplot
 
-
 ```{r}
-x = barplot(t(predictabilityR2CV), beside = T, las = 1, horiz = F, ylim = c(0,1.1), ylab = "Correlation predicted observed")
+par(mar = c(4, 6, 0, 0), mgp = c(4, 1, 0))
+
+x = barplot(t(predictabilityR2CV), beside = T, las = 1, horiz = F, ylim = c(0,1.1), ylab = "Predicted-observed correlation", xaxt = "n", cex.lab = 1.8, cex.axis = 1.6)
 
 x = as.vector(x)
 x2 = as.vector(t(predictabilityR2CV))
 
+axis(1, at = x[c(4, 12, 20, 28, 36)], labels = c("env.\nfiltering", "dispersal", "niche\nconserv.", "mutation/\nspeciation", "competition"), cex.axis = 1.6, line =1, tick = F)
+
 for(i in 1:length(x)){
   if(!is.na(x2[i])){
-    text(x[i],x2[i] + 0.02, models[(i-1)%%8 + 1], srt = 90,cex= 0.8, adj = 0)    
+    text(x[i],x2[i] + 0.02, modelAbbrevs$new[(i-1)%%8 + 1], srt = 90,cex= 1.4, adj = 0)    
   }
 }
 
 ```
-
-
 
 ```{r}
 predMean2 = apply(predictability2, c(1,2), mean, na.rm = T)
@@ -318,10 +355,13 @@ for(i in 1:length(statisticsIndices2)){
 }
 ```
 
-
 ## Between models
 
+As a next step, we calculate predictability between models, i.e. we use the random forests tuned for one model to predict to the next model.
 
+Cross-model predictability is measured by Kendall's rank correlation coefficient.
+
+For the diagonal (within-model predictability), we use the CV predictability calculated in the previous step.
 
 ```{r}
 predictors[2]
@@ -349,19 +389,19 @@ for(k in 1:length(modelsTMP)){
 
 # could add row and column sums 
 
-rownames(CpredictabilityR2) = modelsTMP
-colnames(CpredictabilityR2) = modelsTMP
+rownames(CpredictabilityR2) = modelAbbrevs$new[modelAbbrevs$original %in% modelsTMP]
+colnames(CpredictabilityR2) = modelAbbrevs$new[modelAbbrevs$original %in% modelsTMP]
 
-tmp = predictability2R2[2,-5]
+tmp = predictabilityR2CV[2,-5]
 
 for(i in 1:length(modelsTMP)) CpredictabilityR2[i,i] = tmp[i]
 
 xCol = c("darkblue","blue", "lightblue", "gray94", "pink","red", "darkred")
 
-par(mar = c(5,5,5,5))
+par(mar = c(8,8,8,8))
 
 image.real(CpredictabilityR2, range = c(-1,1), xCol = xCol)
-title(main = paste("Random forest cross-model predictability [R2], mean =", mean(predictabilityR2)), xlab = "test", ylab = "train")
+title(main = paste("Cross-model predictability [r], mean =", round(mean(CpredictabilityR2), digits = 3)),xlab = "Model predicted to", ylab = "Model trained on\n", cex.lab = 1.5)
 
 for(i in 1:length(modelsTMP)){
   for(j in 1:length(modelsTMP)){
@@ -370,21 +410,23 @@ for(i in 1:length(modelsTMP)){
          labels = round(CpredictabilityR2[i,j], digits = 2))
   }
 }
+
+
+#above
+axis(3, labels = round(colMeans(abs(CpredictabilityR2)), digits = 2), 
+     at = seq(0,1,length.out = 7), las = 2)
+
+#right
+axis(4, labels = round(rowMeans(abs(CpredictabilityR2)), digits = 2), 
+     at = seq(0,1,length.out = 7), las = 2)
+
 ```
 
-
-
-
-
-
-
 # Case studies
-
 
 ## within each model
 
 Run random forests within each simulation model in order to predict model parameter values from simulation-derived tree shape metrics. Then plug in empirical tree shape metrics to infer a process parameter value assuming that the tree arose from the processes represented by a particular simulation model.
-
 
 ```{r}
 
@@ -398,7 +440,7 @@ empiricalMetrics$cladeName = c('Xenarthra', 'Afrotheria',
                                'Coraciiformes', 'Passeriformes',
                                'Pelecaniformes', 'Ciconiiformes')
 empMetrics = empiricalMetrics[, 4:22]
-empMetrics2 = empiricalMetrics[, c(5, 7, 8, 12:23)]
+empMetrics2 = empiricalMetrics[, c(7, 8, 12:22)]
 
 predictedValues2 = data.frame(tree = character(),
                               model = character(), 
@@ -408,11 +450,7 @@ predictedValues2 = data.frame(tree = character(),
 predictability2 = array(dim = c(length(statistics2), length(predictors), length(models)))
 predictability2R2 = array(dim = c(length(predictors), length(models)))
 
-
-############################################################
-# FLORIAN - double check that these RF models correspond to
-#           the final models we present above
-############################################################
+# For each combination of process (predictorsIndices) and simulation model, infer the strength of process for each empirical tree based on the RF
 
 for(j in 1:length(predictorsIndices)){
   for(k in 1:length(models)){
@@ -543,7 +581,7 @@ pairs = c(1, 2, 5, 4, 6, 8)
 # Specify dispersal process
 pro = 'dis1' 
 
-par(mfrow = c(2, 3), mar = c(3, 3, 1, 0), oma = c(0, 3, 0, 0))
+par(mfrow = c(2, 3), mar = c(5, 3, 1, 0), oma = c(0, 3, 0, 0))
 
 panelLetters = letters[1:6]
 panelIndex = 0
@@ -556,11 +594,14 @@ for (p in pairs) {
     
   plot(c(0.5,2.5), range(tmp$scaledValue), type = 'n', xaxt = 'n', xlab = "", ylab = "", las = 1,
        ylim = c(0, 1), yaxt = 'n')
-  axis(1, at = 1:2, labels = empiricalMetrics$cladeName[empiricalMetrics$pair == p], 
-       tck = 0, cex.axis = 1.1)
+  
+  mtext(empiricalMetrics$cladeName[empiricalMetrics$pair == p], 1, at = 1:2, line = 2.5, cex = 1.1, padj = 0.5)
+  offset = .19
+  mtext(c("mean I'", "VRD", "mean I'", "VRD"), 1, at = c(1.1 - offset, 1.05 + offset, 2.05 - offset, 2. + offset), line = .5, cex = .8)
+  
   axis(2, at = seq(0.3, 1, by = 0.1), las = 1)
  
-  abline(h = 0.26)
+  abline(h = 0.25)
      
   for (m in unique(tmp$model)) {
       
@@ -571,18 +612,41 @@ for (p in pairs) {
   # panel label
   text(.55, 0.97, paste0("(", panelLetters[panelIndex], ")"), cex = 2)
 
-  # Add barplots showing empirical values of mean.Iprime for the two sister clades
+  # Add barplots showing empirical values of mean.Iprime and VRD for the two sister clades
   par(new = T)
-  barplot(empiricalMetrics$mean.Iprime[empiricalMetrics$pair == p], 
-          yaxt = 'n', ylim = c(0, 2.5), space = .95, border = NA, xlim = c(0.25, 4.5))  
+  
+  tmpBarData = empiricalMetrics[empiricalMetrics$pair == p, c('mean.Iprime', 'VRD')] %>%
+    rowwise() %>%
+    mutate(quantile.Iprime = sum(mean.Iprime > simuData$mean.Iprime, na.rm = T)/nrow(simuData),
+           quantile.VRD = sum(VRD > simuData$VRD, na.rm = T)/nrow(simuData)) %>%
+    dplyr::select(quantile.Iprime, quantile.VRD) %>%
+    t() %>%
+    as.matrix()
+  
+  
+  barplot(tmpBarData, beside = T, yaxt = 'n', ylim = c(0, 3.5), border = NA, xlim = c(0.25, 6.5), xaxt = 'n', space = c(0.05, 1))
+  
+  #barplot(as.matrix(tmpBarData[, 3:4]), 
+  #        yaxt = 'n', ylim = c(0, 2.5), space = .95, border = NA, xlim = c(0.25, 4.5))  
   
   if (panelIndex %in% c(1, 4)) {
-    mtext("Tree Metric:", 2, cex = .9, line = 3, at = 0.3)
-    mtext("mean I'", 2, cex = 1, line = 0.5, at = 0.3)
-    mtext("Inferred Dispersal", 2, cex = 1.1, line = 3, at = 1.6)
+    mtext("Tree Metrics\n(quantiles)", 2, cex = .9, line = 1.8, at = 0.37)
+    mtext("Inferred Dispersal", 2, cex = 1.1, line = 3, at = 2.2)
   }
   
 }
 
 
+```
+
+Supplemental Figures
+
+```{r}
+
+# Switching out 2 model abbreviations
+simuData$model3 = simuData$model
+simuData$model3 = gsub("pontarp", "pw", simuData$model3)
+simuData$model3 = gsub("la", "am", simuData$model3)
+
+par(mfrow = c(5, 4), mar = c(2, 2, 2, 1)); for (i in c(25,27:43)) { boxplot(simuData[,i] ~ simuData$model3, main = names(simuData)[i], col = rainbow(8))}
 ```
