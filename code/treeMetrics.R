@@ -401,8 +401,7 @@ metricsForManyTrees2 = function(treefiles = NULL, minimumTreeSize = 20, fileOut,
 
       sink(fileOut, append = TRUE)
       cat(metrics,
-                '\n',
-                sep = '\t'))
+                '\n')
       sink()
       
       
