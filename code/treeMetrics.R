@@ -394,8 +394,8 @@ metricsForManyTrees2 = function(treefiles = NULL, minimumTreeSize = 20, fileOut,
       
       metrics = treeStats(tree)
 
-      metrics$model = str_extract(treefile, "^[A-Za-z]*")
-      metrics$simID = str_extract(treefile, "[0-9]+")
+      model = str_extract(treefile, "^[A-Za-z]*")
+      simID = str_extract(treefile, "[0-9]+")
       
       
 
@@ -410,18 +410,55 @@ metricsForManyTrees2 = function(treefiles = NULL, minimumTreeSize = 20, fileOut,
                 metrics$beta, 
                 metrics$colless, 
                 metrics$sackin,
-                metrics$Yule.PDA.ratio, 
-                metrics$MRD, 
-                metrics$VRD, 
+                #metrics$Yule.PDA.ratio, 
+                #metrics$MRD, 
+                metrics$var_depth, #VRD
                 metrics$psv, 
-                metrics$i_stat, 
+                metrics$i_stat,    #mean.Iprime
                 metrics$mpd, 
                 metrics$vpd,
-                metrics$MGL_principal_eigenvalue, 
-                metrics$MGL_asymmetry, 
-                metrics$MGL_peakedness, 
-                metrics$MGL_eigengap, 
+                metrics$laplac_spectrum_e, 
+                metrics$laplac_spectrum_a, 
+                metrics$laplac_spectrum_p, 
+                metrics$laplac_spectrum_g,
                 metrics$nltt_base,
+                metrics$blum,
+                metrics$crown_age,
+                metrics$pigot_rho,
+                metrics$avg_ladder,
+                metrics$max_ladder,
+                metrics$cherries,
+                metrics$il_number,
+                metrics$pitchforks,
+                metrics$stairs,
+                metrics$imbalance_steps,
+                metrics$j_one,
+                metrics$b1,
+                metrics$b2,
+                metrics$area_per_pair,
+                metrics$average_leaf_depth, #sounds like MRD, but definition in Table doesn't match
+                metrics$ew_colless,
+                metrics$max_del_width,
+                metrics$max_depth,
+                metrics$max_width,
+                metrics$rogers,
+                metrics$stairs2,
+                metrics$tot_coph,
+                metrics$symmetry_nodes,
+                metrics$mntd,
+                metrics$j_stat,
+                metrics$rquartet,
+                metrics$wiener,
+                metrics$max_betweenness,
+                metrics$max_closeness,
+                metrics$diameter,
+                metrics$eigenvector,
+                metrics$mean_branch_length,
+                metrics$var_branch_length,
+                metrics$mean_branch_length_int,
+                metrics$mean_branch_length_ext,
+                metrics$var_branch_length_int,
+                metrics$var_branch_length_ext,
                 '\n',
                 sep = '\t'))
       sink()
@@ -431,9 +468,9 @@ metricsForManyTrees2 = function(treefiles = NULL, minimumTreeSize = 20, fileOut,
       print(paste(treefile, "skipped -- not enough species"))
     }
     
-  }  
+  } # end for loop  
   
-}
+} # end function
 
 
 
