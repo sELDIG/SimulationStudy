@@ -400,8 +400,30 @@ metricsForManyTrees2 = function(treefiles = NULL, minimumTreeSize = 20, fileOut,
       
 
       sink(fileOut, append = TRUE)
-      cat(metrics,
-                '\n')
+      cat(paste(model, 
+                simID,
+                metrics$number_of_lineages, 
+                #metrics$log10S,
+                metrics$tree_height,
+                metrics$phylogenetic_div, 
+                metrics$gamma,
+                metrics$beta, 
+                metrics$colless, 
+                metrics$sackin,
+                metrics$Yule.PDA.ratio, 
+                metrics$MRD, 
+                metrics$VRD, 
+                metrics$psv, 
+                metrics$i_stat, 
+                metrics$mpd, 
+                metrics$vpd,
+                metrics$MGL_principal_eigenvalue, 
+                metrics$MGL_asymmetry, 
+                metrics$MGL_peakedness, 
+                metrics$MGL_eigengap, 
+                metrics$nltt_base,
+                '\n',
+                sep = '\t'))
       sink()
       
       
@@ -429,17 +451,6 @@ treeStats = function(treeInput) {
     stop("The object passed to treeMetrics() is not of class 'phylo'")
   }
   
-  require(ape)
-  require(caper)
-  require(geiger)
-  require(picante)
-  require(apTreeshape)
-  require(dispRity)
-  require(RPANDA)
-  require(nLTT)
-  require(stringr)
-  require(Rfast)
-  require(castor)
   require(treestats)
   
   # Drop root edge
