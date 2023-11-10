@@ -639,7 +639,7 @@ for (p in pairs) {
 
 ```
 
-Supplemental Figures
+# Supplemental Figures
 
 ```{r}
 
@@ -650,3 +650,10 @@ simuData$model3 = gsub("la", "am", simuData$model3)
 
 par(mfrow = c(5, 4), mar = c(2, 2, 2, 1)); for (i in c(25,27:43)) { boxplot(simuData[,i] ~ simuData$model3, main = names(simuData)[i], col = rainbow(8))}
 ```
+
+# Reproducibility information
+
+```{r}
+sessionInfo()
+```
+
